@@ -248,7 +248,7 @@
                     <connection
                       refId="Package\Sosiale Tjenester\Les KVP andel deltakere som gikk til arbeid, skole eller utdanning\KS_KVP andel deltakere som gikk til arbeid, skole eller utdanning.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>

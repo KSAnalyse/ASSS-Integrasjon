@@ -503,7 +503,7 @@
                     <connection
                       refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1013,7 +1013,7 @@
                     <connection
                       refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1344,7 +1344,7 @@
                     <connection
                       refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1673,7 +1673,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Slett KS_Elevundersøkelsen"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1690,7 +1690,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Slett KS_Ressurser grunnskole"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2138,7 +2138,7 @@
                     <connection
                       refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2469,7 +2469,7 @@
                     <connection
                       refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2979,7 +2979,7 @@
                     <connection
                       refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3291,7 +3291,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Slett KS_Nasjonale prøver 5 trinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3308,7 +3308,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Slett KS_Nasjonale prøver 8 trinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3325,7 +3325,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Slett KS_Nasjonale prøver 9 trinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData

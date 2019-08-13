@@ -5,15 +5,15 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="UTLAAN17-X1G3"
   DTS:CreatorName="KSINT\8093AHA"
-  DTS:DTSID="{54CE6D62-821F-4226-B78F-7F866246E23E}"
+  DTS:DTSID="{E51948A4-86AD-4E7A-808A-FF66102B47C9}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="14.0.3026.27"
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Regioner"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{925A8452-CB79-4A67-9DBE-C1681DA35A7F}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{BD474E49-7DF4-44ED-9272-47BC54BD3D47}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -22,95 +22,78 @@
       DTS:refId="Package\Kommunedata"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Kommunedata"
-      DTS:DTSID="{D25E504D-C3B8-4D5E-9129-5484E1B31983}"
+      DTS:DTSID="{6D4C542B-548E-49F8-A6DB-7C4755292F2F}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Kommunedata">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Kommunedata\Les Fylkeskommuner"
+          DTS:refId="Package\Kommunedata\Les Fylker"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{671F18E0-E95A-4BA3-AE31-C97F497D9659}"
+          DTS:DTSID="{4747020D-E762-4A5C-9D1E-691B99C1D3EB}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Les Fylkeskommuner"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table dbo.SSB_Fylkeskommuner&#xA;Insert dbo.SSB_Fylkeskommuner Exec dbo.SSB_KLASS_Fylkeskommuner" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Kommunedata\Les Kommuner"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{84DEAD17-9854-49B3-BE61-2892D655C39F}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Les Kommuner"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="USE [Staging]&#xA;GO&#xA;Truncate Table dbo.SSB_Kommuner&#xA;&#xA;Insert dbo.SSB_Kommuner Exec dbo.SSB_KLASS_Kommuner" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Kommunedata\Les Kommuner Endringer"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{342B2CC7-3367-470E-B597-61EB92EE9A85}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Les Kommuner Endringer"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="USE [Staging]&#xA;&#xA;GO&#xA;&#xA;&#xA;Truncate Table dbo.[SSB_Kommuner Endringer]&#xA;Insert dbo.[SSB_Kommuner Endringer] Exec dbo.SSB_KLASS_Kommuner_Endringer" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Kommunedata\Les Regioner"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{76FF0A93-F3E3-4CE4-86B3-64ECEAC04D46}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Les Regioner"
+          DTS:ObjectName="Les Fylker"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="USE [Staging]&#xA;GO&#xA;Truncate Table dbo.SSB_Regioner&#xA;&#xA;Insert dbo.SSB_Regioner Exec dbo.SSB_KLASS_Regioner" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table dbo.SSB_Fylker&#xA;&#xA;Insert dbo.SSB_Fylker Exec dbo.SSB_KLASS_Fylker" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Kommunedata\Les Regioner Endringer"
+          DTS:refId="Package\Kommunedata\Les Fylker Endringer"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{628D02FB-E513-41AA-88C2-2E888C852DC6}"
+          DTS:DTSID="{C9932BBD-FF99-4E1E-A6C8-445E7995DC3E}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Les Regioner Endringer"
+          DTS:ObjectName="Les Fylker Endringer"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="USE [Staging]&#xA;&#xA;GO&#xA;&#xA;&#xA;Truncate Table dbo.[SSB_Regioner Endringer]&#xA;Insert dbo.[SSB_Regioner Endringer] Exec dbo.SSB_KLASS_Regioner_Endringer" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table dbo.[SSB_Fylker Endringer]&#xA;&#xA;Insert dbo.[SSB_Fylker Endringer] Exec dbo.SSB_KLASS_Fylker_Endringer" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Kommunedata\Les Kommuner"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4C7EFAF9-A489-4ED7-864A-DC2F91EEC181}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les Kommuner"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table SSB_Kommuner&#xA;&#xA;Insert SSB_Kommuner Exec dbo.SSB_KLASS_Kommuner" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Kommunedata\Les Kommuner Endringer"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9821671A-26AC-4B9A-9726-9C5183A0CCC5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les Kommuner Endringer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table dbo.[SSB_Kommuner Endringer]&#xA;Insert dbo.[SSB_Kommuner Endringer] Exec dbo.SSB_KLASS_Kommuner_Endringer" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -129,30 +112,26 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Kommunedata\Les Fylkeskommuner"
-          TopLeft="51.4166616685689,27.8666651789348" />
+          Size="126.666666666667,42.6666666666667"
+          Id="Package\Kommunedata\Les Fylker"
+          TopLeft="39.7499951757492,84.1999975049497" />
+        <NodeLayout
+          Size="162.666666666667,42"
+          Id="Package\Kommunedata\Les Fylker Endringer"
+          TopLeft="43,135" />
         <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\Kommunedata\Les Kommuner"
-          TopLeft="51.8333283290268,90.2666640631358" />
+          TopLeft="41.4166618175806,24.399998574257" />
         <NodeLayout
           Size="162.666666666667,42"
           Id="Package\Kommunedata\Les Kommuner Endringer"
-          TopLeft="55.1666664555669,144.766666581432" />
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Kommunedata\Les Regioner"
-          TopLeft="55.5833282731475,205.966661994259" />
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Kommunedata\Les Regioner Endringer"
-          TopLeft="56.4166615940631,262.799994513989" />
+          TopLeft="44,192" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="278,378.666666666667"
-          Size="278,421.333333333334"
+          PanelSize="278,309.333333333334"
+          Size="278,352"
           Id="Package\Kommunedata"
           TopLeft="283.749995771796,12.5666664419572" />
       </GraphLayout>
