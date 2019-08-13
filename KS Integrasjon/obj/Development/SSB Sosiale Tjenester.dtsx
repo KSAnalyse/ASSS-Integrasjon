@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/15/2018 2:05:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SQL2018"
+  DTS:CreatorName="KSINT\axel.hjelmervik.hansen"
+  DTS:DTSID="{847DBE45-77AC-485C-80E2-A0C3C3ABE2B8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1044"
+  DTS:ObjectName="SSB Sosiale Tjenester"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="203"
+  DTS:VersionGUID="{9DBF7985-73D5-4CB8-966C-1C0EEB2A58CD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sosiale tjenester"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{EB2FFA93-423F-43AA-B695-1E51AC79ED70}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sosiale tjenester">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_11864 Kvalifiseringsstønad, sosialhjelp og Husbankens bostøtte"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1F8CB8E8-7AC6-40D3-94A9-FBE2F1423DC3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_11864 Kvalifiseringsstønad, sosialhjelp og Husbankens bostøtte"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_11864 Kvalifiseringsstønad, sosialhjelp og Husbankens bostøtte]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;11864&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;11864&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_11864 Kvalifiseringsstønad, sosialhjelp og Husbankens bostøtte]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met On dat.Variabel = met.Variabel&#xA;&#xA;--Mottakere av kvalifiseringsstønad samtidig med Husbankens bostøtte (antall)&#xA;--Personer med kvalifiseringsstønad og sosialhjelp som fast supplement (antall)&#xA;--Personer med sosialhjelp som livsopphold to måneder før kvalifiseringsstønad (antall)&#xA;Where dat.Variabel in ('KOSmedhusbankbos0000', 'KOSmedsoshjsup0000', 'KOSytelsetypesos0000')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12130 Krisesenter og vold i nære relasjoner"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5E4532B3-555F-4834-B805-36898EE5A9FF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12130 Krisesenter og vold i nære relasjoner"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12130 Krisesenter og vold i nære relasjoner]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12130&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12130&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12130 Krisesenter og vold i nære relasjoner]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;dat.Variabel ,&#xA;&#x9;met.Variabelnavn,&#xA;&#x9;dat.År, &#xA;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met On dat.Variabel = met.Variabel&#xA;&#xA;--Folkemengde (antall)&#xA;Where dat.Variabel != 'KOSFolkemengdeia0000'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12131 Stønadssatser for sosialhjelp og vedtakstidspunkt"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A389C89F-FBFF-461A-90A9-45A4224850AC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12131 Stønadssatser for sosialhjelp og vedtakstidspunkt"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12131 Stønadssatser for sosialhjelp og vedtakstidspunkt]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12131&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12131&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12131 Stønadssatser for sosialhjelp og vedtakstidspunkt]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12132 Utgifter som inngår i stønadssatsene for økonomisk sosialhjelp"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{45E70029-FE0A-4C2D-87AA-EE43FDAFF2DD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12132 Utgifter som inngår i stønadssatsene for økonomisk sosialhjelp"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="7">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12132 Utgifter som inngår i stønadssatsene for økonomisk sosialhjelp]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12132&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12132&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12132 Utgifter som inngår i stønadssatsene for økonomisk sosialhjelp]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12160 Mottakere av kvalifiseringsstønad"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{449C86C4-0836-4004-863C-A651AD9BBE5F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12160 Mottakere av kvalifiseringsstønad"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="8">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="--Tabellnummer&#xA;Declare @TableVar varchar(5)&#xA;Set @TableVar = '12160'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;Declare @t Table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;&#x9;Declare @m Table(Kommune varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År int, År2 int)&#xA;&#x9;Insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;Truncate Table Staging.dbo.[SSB_12160 Mottakere av kvalifiseringsstønad]&#xA;&#xA;Insert Into Staging.dbo.[SSB_12160 Mottakere av kvalifiseringsstønad]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat&#xA;Join @m met&#xA;ON dat.Variabel = met.Variabel&#xA;&#xA;-- Innbyggere 18-66 år (antall)&#xA;-- Mottakere av kvalifiseringsstønad per 1000 innbyggere 18-66 år (antall)&#xA;-- Netto driftsutgifter til kvalifiseringsprogram (kr)&#xA;-- Netto driftsutgifter til kvalifiseringsprogram per deltakere (kr)&#xA;-- Folkemengde i alt (antall)&#xA;Where dat.Variabel NOT IN ('KOSalder18660000', 'KOSper10000000', 'KOSnettodriftsut0001', &#xA;&#x9;'KOSnettodriftsut0000', 'KOSFolkemengdeia0000')&#xA;&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1CABA1F5-029E-4A75-9C89-F7D97C5A439D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="9">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12201&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12201&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B6B64030-1D85-4581-A255-32008B504B8A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="10">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12203&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12203&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12204 Sosialhjelpsmottakernes boligsituasjon"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7F1C1553-D2AB-4035-A428-F974A9AFE467}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12204 Sosialhjelpsmottakernes boligsituasjon"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="11">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12204 Sosialhjelpsmottakernes boligsituasjon]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12204&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12204&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12204 Sosialhjelpsmottakernes boligsituasjon]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12213 Langtidsmottakere av sosialhjelp"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E0FEEEFB-22B3-410A-AC00-9DB97D2AD6AC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12213 Langtidsmottakere av sosialhjelp"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12213 Langtidsmottakere av sosialhjelp]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12213&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12213&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12213 Langtidsmottakere av sosialhjelp]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12219 Sosialhjelpsmottakere, utbetalt beløp og stønadstid"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3078F3EF-BAF7-4D34-A6B6-20659B300AB0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12219 Sosialhjelpsmottakere, utbetalt beløp og stønadstid"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12219 Sosialhjelpsmottakere, utbetalt beløp og stønadstid]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12219&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12219&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12219 Sosialhjelpsmottakere, utbetalt beløp og stønadstid]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On met.Variabel = dat.Variabel&#xA;&#xA;-- Folkemengde i alt (antall)&#xA;Where dat.Variabel != 'KOSFolkemengdeia0000'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12221 Sosiale tjenester i NAV"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{31B0A5E0-FB82-46E7-9019-7A270C98C280}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12221 Sosiale tjenester i NAV"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12221 Sosiale tjenester i NAV]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12221&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12221&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12221 Sosiale tjenester i NAV]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sosiale tjenester\Les SSB_12266 Vilkår etter sosialtjenesteloven"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{07F53072-D91C-4F89-BC82-A1DFB11E150D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12266 Vilkår etter sosialtjenesteloven"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="6">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12266 Vilkår etter sosialtjenesteloven]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12266&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12266&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12266 Vilkår etter sosialtjenesteloven]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="406.666666666667,42.6666666666667"
+          Id="Package\Sosiale tjenester\Les SSB_11864 Kvalifiseringsstønad, sosialhjelp og Husbankens bostøtte"
+          TopLeft="19.2927801573571,47.1444337746167" />
+        <NodeLayout
+          Size="321.333333333334,42"
+          Id="Package\Sosiale tjenester\Les SSB_12130 Krisesenter og vold i nære relasjoner"
+          TopLeft="61.9594468240238,110.315429512532" />
+        <NodeLayout
+          Size="358,42"
+          Id="Package\Sosiale tjenester\Les SSB_12131 Stønadssatser for sosialhjelp og vedtakstidspunkt"
+          TopLeft="43.6261134906905,172.819758583781" />
+        <NodeLayout
+          Size="406.666666666667,42.6666666666667"
+          Id="Package\Sosiale tjenester\Les SSB_12132 Utgifter som inngår i stønadssatsene for økonomisk sosialhjelp"
+          TopLeft="19.2927801573571,235.32408765503" />
+        <NodeLayout
+          Size="404,42.6666666666667"
+          Id="Package\Sosiale tjenester\Les SSB_12160 Mottakere av kvalifiseringsstønad"
+          TopLeft="20.6261134906905,298.495083392945" />
+        <NodeLayout
+          Size="404,42.6666666666667"
+          Id="Package\Sosiale tjenester\Les SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon"
+          TopLeft="20.6261134906905,361.666079130861" />
+        <NodeLayout
+          Size="404,42.6666666666667"
+          Id="Package\Sosiale tjenester\Les SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold"
+          TopLeft="20.6261134906905,424.837074868776" />
+        <NodeLayout
+          Size="404,42.6666666666667"
+          Id="Package\Sosiale tjenester\Les SSB_12204 Sosialhjelpsmottakernes boligsituasjon"
+          TopLeft="20.6261134906905,488.008070606692" />
+        <NodeLayout
+          Size="404,42.6666666666667"
+          Id="Package\Sosiale tjenester\Les SSB_12213 Langtidsmottakere av sosialhjelp"
+          TopLeft="20.6261134906905,551.179066344607" />
+        <NodeLayout
+          Size="394.666666666667,42"
+          Id="Package\Sosiale tjenester\Les SSB_12219 Sosialhjelpsmottakere, utbetalt beløp og stønadstid"
+          TopLeft="25.2927801573571,614.350062082523" />
+        <NodeLayout
+          Size="408,42.6666666666667"
+          Id="Package\Sosiale tjenester\Les SSB_12221 Sosiale tjenester i NAV"
+          TopLeft="18.6261134906905,676.854391153772" />
+        <NodeLayout
+          Size="408,42.6666666666667"
+          Id="Package\Sosiale tjenester\Les SSB_12266 Vilkår etter sosialtjenesteloven"
+          TopLeft="18.6261134906905,740.025386891687" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="450,856"
+          Size="450,898.666666666667"
+          Id="Package\Sosiale tjenester"
+          TopLeft="449.888889013064,18.4555598250352" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
