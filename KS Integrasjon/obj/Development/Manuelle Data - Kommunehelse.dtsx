@@ -847,7 +847,7 @@
                     <connection
                       refId="Package\Kommunehelse\Les Kommunehelse leger\KS_KPR01 KPR Legedata.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1359,7 +1359,7 @@
                     <connection
                       refId="Package\Kommunehelse\Les Kommunehelse årsverk ergoterapeuter\KS_Årsverk ergoterapeuter.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1872,7 +1872,7 @@
                     <connection
                       refId="Package\Kommunehelse\Les Kommunehelse årsverk helsestasjon og skolehelsetjeneste\KS_Årsverk helsestasjon og skolehelsetjeneste.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
