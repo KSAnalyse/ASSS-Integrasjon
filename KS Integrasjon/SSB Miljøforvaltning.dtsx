@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Miljøforvaltning"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{42DBDD9E-D5EA-4BEA-8FF0-12C089E53B7A}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{9E7C5DC9-BF40-4AFB-B8ED-485879A6A768}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -95,7 +95,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="274.666666666667,57.3333333333334"
+          Size="275,57"
           Id="Package\Miljøforvaltning\Les SSB_12150 Energibruk i kommunal eiendomsforvaltning, funksjon, energitype"
           TopLeft="45,46" />
         <NodeLayout
@@ -103,14 +103,14 @@
           Id="Package\Miljøforvaltning\Les SSB_12151 Energiutgifter i kommunal eiendomsforvaltning, funksjon, art"
           TopLeft="39,124" />
         <NodeLayout
-          Size="243.333333333334,64"
+          Size="243,64"
           Id="Package\Miljøforvaltning\Les SSB_12612 Hovedtall for omfang, saksbehandlingstid og klagebehandling for eierseksjoneringer"
           TopLeft="70.1666619852186,182.233329311808" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="373.333333333334,325.333333333334"
-          Size="373.333333333334,368"
+          PanelSize="373,325"
+          Size="373,368"
           Id="Package\Miljøforvaltning"
           TopLeft="244,60" />
       </GraphLayout>
