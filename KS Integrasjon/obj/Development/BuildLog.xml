@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ASSS Integrasjon</Name>
-    <LastWriteTime>2019-08-14T10:47:51.1739847Z</LastWriteTime>
+    <LastWriteTime>2019-08-14T11:26:41.1920572Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -33,7 +33,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Samferdsel.dtsx</Name>
-      <LastWriteTime>2019-08-14T10:47:51.2571245Z</LastWriteTime>
+      <LastWriteTime>2019-08-14T11:26:41.2931773Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -43,7 +43,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Økonomi.dtsx</Name>
-      <LastWriteTime>2019-04-15T09:52:45.2337137Z</LastWriteTime>
+      <LastWriteTime>2019-08-23T13:55:47.2577396Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -83,7 +83,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Manuelle Data - Samferdsel.dtsx</Name>
-      <LastWriteTime>2019-08-14T10:47:51.2220953Z</LastWriteTime>
+      <LastWriteTime>2019-08-14T11:26:41.2401388Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -98,7 +98,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Miljøforvaltning.dtsx</Name>
-      <LastWriteTime>2019-08-14T11:23:02.8443657Z</LastWriteTime>
+      <LastWriteTime>2019-08-14T11:26:41.2611543Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -128,7 +128,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Regioner.dtsx</Name>
-      <LastWriteTime>2019-08-14T10:47:51.242112Z</LastWriteTime>
+      <LastWriteTime>2019-08-14T11:26:41.2771658Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
