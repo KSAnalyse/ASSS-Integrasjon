@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Profil"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="236"
-  DTS:VersionGUID="{B0ADC088-7FDC-4C0F-B864-3C6ED09E38AB}">
+  DTS:VersionBuild="237"
+  DTS:VersionGUID="{5DE6FA3E-68D8-49D2-AD13-2FE56928254A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -59,7 +59,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_11820 Utvalgte nøkkeltall befolkningsprofil]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;11820&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;11820&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_11820 Utvalgte nøkkeltall befolkningsprofil]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table Staging_ASSS.dbo.[SSB_11820 Utvalgte nøkkeltall befolkningsprofil]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;11820&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;11820&quot;&#xA;&#xA;&#xA;Insert Into Staging_ASSS.dbo.[SSB_11820 Utvalgte nøkkeltall befolkningsprofil]&#xA;&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
