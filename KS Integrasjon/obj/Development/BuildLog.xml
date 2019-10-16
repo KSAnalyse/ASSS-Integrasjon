@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ASSS Integrasjon</Name>
-    <LastWriteTime>2019-08-14T11:26:41.1920572Z</LastWriteTime>
+    <LastWriteTime>2019-09-03T09:25:13.1511629Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -48,7 +48,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Profil.dtsx</Name>
-      <LastWriteTime>2018-10-16T11:32:17.3660176Z</LastWriteTime>
+      <LastWriteTime>2019-09-25T10:28:25.0748643Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -68,7 +68,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnevern.dtsx</Name>
-      <LastWriteTime>2019-04-05T11:59:09.3733808Z</LastWriteTime>
+      <LastWriteTime>2019-09-02T09:42:15.6547809Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -83,7 +83,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Manuelle Data - Samferdsel.dtsx</Name>
-      <LastWriteTime>2019-08-14T11:26:41.2401388Z</LastWriteTime>
+      <LastWriteTime>2019-09-24T13:37:32.2685827Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -129,6 +129,11 @@
     <ProjectBuildItemInfo>
       <Name>SSB Regioner.dtsx</Name>
       <LastWriteTime>2019-08-14T11:26:41.2771658Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Manuelle Data - Tabelloversikt.dtsx</Name>
+      <LastWriteTime>2019-09-23T13:59:25.3343205Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

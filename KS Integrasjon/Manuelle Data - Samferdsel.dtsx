@@ -12,8 +12,8 @@
   DTS:ObjectName="Manuelle Data - Samferdsel"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{F9FC8D58-4795-4DE5-B32D-5182D1DC275A}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{A8BBB1A1-A129-46AC-A8C2-9F6C45BE0C7A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -564,7 +564,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_Samferdsel manuelle tall]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_SFS01 Samferdsel manuelle tall]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -593,11 +593,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="277,42"
+          Size="277.333333333334,42"
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen"
           TopLeft="293,51" />
         <NodeLayout
-          Size="237,42"
+          Size="237.333333333334,42"
           Id="Package\Samferdsel\Slett KS_Samferdsel manuelle tall"
           TopLeft="16,51" />
         <EdgeLayout
@@ -625,8 +625,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="605,207"
-          Size="605,250"
+          PanelSize="605.333333333334,206.666666666667"
+          Size="605.333333333334,250"
           Id="Package\Samferdsel"
           TopLeft="198,72" />
       </GraphLayout>
@@ -640,7 +640,7 @@
         <NodeLayout
           Size="212,42"
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall"
-          TopLeft="151,325" />
+          TopLeft="151.416666660458,325" />
         <NodeLayout
           Size="258,42"
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen"
@@ -673,7 +673,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen.Paths[Data Conversion Output]"
-          TopLeft="256,291">
+          TopLeft="256.208333330229,291">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
