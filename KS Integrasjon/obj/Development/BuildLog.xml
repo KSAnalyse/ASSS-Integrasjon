@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
-    <Name>KS Integrasjon</Name>
-    <LastWriteTime>2019-05-21T10:03:05.1363738Z</LastWriteTime>
+    <Name>ASSS Integrasjon</Name>
+    <LastWriteTime>2019-10-30T15:07:17.8871428Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -27,38 +27,33 @@
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>SSB Sosiale Tjenester.dtsx</Name>
-      <LastWriteTime>2019-04-15T09:51:58.3982017Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
       <Name>SSB Grunnskole.dtsx</Name>
       <LastWriteTime>2019-04-15T09:50:21.7856909Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Samferdsel.dtsx</Name>
-      <LastWriteTime>2019-04-15T09:51:06.9438149Z</LastWriteTime>
+      <LastWriteTime>2019-10-25T13:03:36.1701567Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Eiendomsforvaltning.dtsx</Name>
-      <LastWriteTime>2019-04-15T09:47:53.4153933Z</LastWriteTime>
+      <LastWriteTime>2019-11-01T14:14:54.0243467Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Økonomi.dtsx</Name>
-      <LastWriteTime>2019-04-15T09:52:45.2337137Z</LastWriteTime>
+      <LastWriteTime>2019-10-25T13:22:16.5181991Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Profil.dtsx</Name>
-      <LastWriteTime>2018-10-16T11:32:17.3660176Z</LastWriteTime>
+      <LastWriteTime>2019-10-29T12:41:48.3901073Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Pleie og omsorg.dtsx</Name>
-      <LastWriteTime>2019-02-14T12:36:37.9717153Z</LastWriteTime>
+      <LastWriteTime>2019-10-25T13:03:36.0896088Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -68,17 +63,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Kommunehelsetjenesten.dtsx</Name>
-      <LastWriteTime>2019-03-01T13:28:07.4371639Z</LastWriteTime>
+      <LastWriteTime>2019-10-29T14:09:23.7810868Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnevern.dtsx</Name>
-      <LastWriteTime>2019-04-05T11:59:09.3733808Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>SSB Regioner.dtsx</Name>
-      <LastWriteTime>2019-04-15T09:42:57.6935067Z</LastWriteTime>
+      <LastWriteTime>2019-10-25T13:03:36.0050746Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -93,7 +83,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Manuelle Data - Samferdsel.dtsx</Name>
-      <LastWriteTime>2019-01-16T12:42:21.3339807Z</LastWriteTime>
+      <LastWriteTime>2019-10-25T13:03:35.9037882Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -108,17 +98,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Miljøforvaltning.dtsx</Name>
-      <LastWriteTime>2019-04-08T09:55:15.6900311Z</LastWriteTime>
+      <LastWriteTime>2019-10-25T13:03:36.0595837Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Areal- og samfunnsplanlegging.dtsx</Name>
-      <LastWriteTime>2019-08-02T10:04:45.3195474Z</LastWriteTime>
+      <LastWriteTime>2019-10-25T13:03:35.9698351Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Byggeareal.dtsx</Name>
-      <LastWriteTime>2019-04-05T12:07:13.493009Z</LastWriteTime>
+      <LastWriteTime>2019-11-07T10:37:14.9733231Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -134,6 +124,21 @@
     <ProjectBuildItemInfo>
       <Name>Manuelle Data - Pleie og omsorg.dtsx</Name>
       <LastWriteTime>2019-04-04T08:11:54.0997597Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Regioner.dtsx</Name>
+      <LastWriteTime>2019-10-25T13:03:36.1431385Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Manuelle Data - Tabelloversikt.dtsx</Name>
+      <LastWriteTime>2019-10-25T13:03:35.9368116Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Sosiale Tjenester.dtsx</Name>
+      <LastWriteTime>2019-10-30T13:16:01.7357431Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

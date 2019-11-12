@@ -12,8 +12,8 @@
   DTS:ObjectName="Manuelle Data - Samferdsel"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{9687DAC4-64FB-4AB0-A655-D7D765D9D22D}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{A8BBB1A1-A129-46AC-A8C2-9F6C45BE0C7A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -204,7 +204,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_Samferdsel manuelle tall]</property>
+                      name="OpenRowset">[dbo].[KS_SFS01 Samferdsel manuelle tall]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -248,7 +248,7 @@
                     <connection
                       refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018.Staging]"
+                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -564,7 +564,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_Samferdsel manuelle tall]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_SFS01 Samferdsel manuelle tall]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -593,13 +593,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="237,42"
-          Id="Package\Samferdsel\Slett KS_Samferdsel manuelle tall"
-          TopLeft="16,51" />
-        <NodeLayout
-          Size="277,42"
+          Size="277.333333333334,42"
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen"
           TopLeft="293,51" />
+        <NodeLayout
+          Size="237.333333333334,42"
+          Id="Package\Samferdsel\Slett KS_Samferdsel manuelle tall"
+          TopLeft="16,51" />
         <EdgeLayout
           Id="Package\Samferdsel.PrecedenceConstraints[Constraint]"
           TopLeft="253,72">
@@ -625,8 +625,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="605,207"
-          Size="605,250"
+          PanelSize="605.333333333334,206.666666666667"
+          Size="605.333333333334,250"
           Id="Package\Samferdsel"
           TopLeft="198,72" />
       </GraphLayout>
@@ -638,17 +638,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="156,42"
-          Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Data Conversion"
-          TopLeft="177,249" />
+          Size="212,42"
+          Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall"
+          TopLeft="151.416666660458,325" />
         <NodeLayout
           Size="258,42"
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen"
           TopLeft="120,175" />
         <NodeLayout
-          Size="212,42"
-          Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall"
-          TopLeft="151,325" />
+          Size="156,42"
+          Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Data Conversion"
+          TopLeft="177,249" />
         <EdgeLayout
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen.Paths[Excel Source Output]"
           TopLeft="252,217">
@@ -673,7 +673,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen.Paths[Data Conversion Output]"
-          TopLeft="256,291">
+          TopLeft="256.208333330229,291">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -697,7 +697,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen">
+    design-time-name="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -710,7 +710,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall">
+    design-time-name="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

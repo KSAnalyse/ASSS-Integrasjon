@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Regioner"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{4F038D93-C776-4CBB-98B9-7C1ACC6D8AC0}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{BD474E49-7DF4-44ED-9272-47BC54BD3D47}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -54,7 +54,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les Fylker Endringer"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -71,12 +71,12 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les Kommuner"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table dbo.SSB_Kommuner&#xA;&#xA;Insert dbo.SSB_Kommuner Exec dbo.SSB_KLASS_Kommuner" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table SSB_Kommuner&#xA;&#xA;Insert SSB_Kommuner Exec dbo.SSB_KLASS_Kommuner" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable

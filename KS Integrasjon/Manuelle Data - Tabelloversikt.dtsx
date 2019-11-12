@@ -1,30 +1,30 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/8/2019 12:17:22 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="UTLAAN17-X1G3"
   DTS:CreatorName="KSINT\8093AHA"
-  DTS:DTSID="{5D6EA7AD-E704-4D3E-8012-8635E03348BA}"
+  DTS:DTSID="{20A295C4-12E7-4AB2-AF2D-DB40833AB8E3}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="14.0.3026.27"
   DTS:LocaleID="1044"
-  DTS:ObjectName="Manuelle Data - PAI"
+  DTS:ObjectName="Manuelle Data - Tabelloversikt"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{3DFB415A-A839-44B6-B31C-3AB21588042D}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{89BB2BA6-E0C6-4CAF-96BB-C3C302903C24}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Pai-data 2018]"
+      DTS:refId="Package.ConnectionManagers[Tabellgrupper]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{4DD969C0-EC6C-4C65-9EF6-229C4857422F}"
-      DTS:ObjectName="Pai-data 2018">
+      DTS:DTSID="{75DB1688-5D15-4CAD-8F4D-AC722F039AAA}"
+      DTS:ObjectName="Tabellgrupper">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\PAI\Pai-data 2018.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Tabellgrupper.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -34,20 +34,20 @@
       DTS:refId="Package\PAI"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{7C1086D3-B7DB-4254-93B3-AD7C855EF5BF}"
+      DTS:DTSID="{A69FD4DB-1547-43EA-95DC-F8C1160E6CC9}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="PAI">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\PAI\Les Pai-data 2018"
+          DTS:refId="Package\PAI\Les Tabellgrupper"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{6AE5D368-84BC-4233-87C5-0C205BE7D7E5}"
+          DTS:DTSID="{DE953A5C-BD2B-4BAD-9C22-BDFC086BDDBA}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Les Pai-data 2018"
+          DTS:ObjectName="Les Tabellgrupper"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -55,7 +55,7 @@
               version="1">
               <components>
                 <component
-                  refId="Package\PAI\Les Pai-data 2018\Data Conversion"
+                  refId="Package\PAI\Les Tabellgrupper\Data Conversion"
                   componentClassID="Microsoft.DataConvert"
                   contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
                   description="Data Conversion"
@@ -63,54 +63,54 @@
                   usesDispositions="true">
                   <inputs>
                     <input
-                      refId="Package\PAI\Les Pai-data 2018\Data Conversion.Inputs[Data Conversion Input]"
+                      refId="Package\PAI\Les Tabellgrupper\Data Conversion.Inputs[Data Conversion Input]"
                       name="Data Conversion Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Data Conversion.Inputs[Data Conversion Input].Columns[Kommunenummer]"
+                          refId="Package\PAI\Les Tabellgrupper\Data Conversion.Inputs[Data Conversion Input].Columns[Gruppe]"
                           cachedDataType="wstr"
                           cachedLength="255"
-                          cachedName="Kommunenummer"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Kommunenummer]" />
+                          cachedName="Gruppe"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Gruppe]" />
                         <inputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Data Conversion.Inputs[Data Conversion Input].Columns[Variabelnavn]"
+                          refId="Package\PAI\Les Tabellgrupper\Data Conversion.Inputs[Data Conversion Input].Columns[Kildeid]"
                           cachedDataType="wstr"
                           cachedLength="255"
-                          cachedName="Variabelnavn"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Variabelnavn]" />
+                          cachedName="Kildeid"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Kildeid]" />
                         <inputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Data Conversion.Inputs[Data Conversion Input].Columns[Kilde]"
+                          refId="Package\PAI\Les Tabellgrupper\Data Conversion.Inputs[Data Conversion Input].Columns[Tabellnummer]"
                           cachedDataType="wstr"
                           cachedLength="255"
-                          cachedName="Kilde"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Kilde]" />
+                          cachedName="Tabellnummer"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Tabellnummer]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output]"
+                      refId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output]"
                       exclusionGroup="1"
                       name="Data Conversion Output"
-                      synchronousInputId="Package\PAI\Les Pai-data 2018\Data Conversion.Inputs[Data Conversion Input]">
+                      synchronousInputId="Package\PAI\Les Tabellgrupper\Data Conversion.Inputs[Data Conversion Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kommunenummer]"
+                          refId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Gruppe]"
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="50"
-                          lineageId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kommunenummer]"
-                          name="Copy of Kommunenummer"
+                          length="100"
+                          lineageId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Gruppe]"
+                          name="Copy of Gruppe"
                           truncationRowDisposition="FailComponent">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Specifies the input column used as the source of data for the conversion."
-                              name="SourceInputColumnLineageID">#{Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Kommunenummer]}</property>
+                              name="SourceInputColumnLineageID">#{Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Gruppe]}</property>
                             <property
                               dataType="System.Boolean"
                               description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -118,21 +118,21 @@
                           </properties>
                         </outputColumn>
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]"
+                          refId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kildeid]"
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="150"
-                          lineageId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]"
-                          name="Copy of Variabelnavn"
+                          length="10"
+                          lineageId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kildeid]"
+                          name="Copy of Kildeid"
                           truncationRowDisposition="FailComponent">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Specifies the input column used as the source of data for the conversion."
-                              name="SourceInputColumnLineageID">#{Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Variabelnavn]}</property>
+                              name="SourceInputColumnLineageID">#{Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Kildeid]}</property>
                             <property
                               dataType="System.Boolean"
                               description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -140,21 +140,21 @@
                           </properties>
                         </outputColumn>
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]"
+                          refId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tabellnummer]"
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="150"
-                          lineageId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]"
-                          name="Copy of Kilde"
+                          length="10"
+                          lineageId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tabellnummer]"
+                          name="Copy of Tabellnummer"
                           truncationRowDisposition="FailComponent">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Specifies the input column used as the source of data for the conversion."
-                              name="SourceInputColumnLineageID">#{Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Kilde]}</property>
+                              name="SourceInputColumnLineageID">#{Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Tabellnummer]}</property>
                             <property
                               dataType="System.Boolean"
                               description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -165,22 +165,22 @@
                       <externalMetadataColumns />
                     </output>
                     <output
-                      refId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Error Output]"
+                      refId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Data Conversion Error Output"
-                      synchronousInputId="Package\PAI\Les Pai-data 2018\Data Conversion.Inputs[Data Conversion Input]">
+                      synchronousInputId="Package\PAI\Les Tabellgrupper\Data Conversion.Inputs[Data Conversion Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          refId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          lineageId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          refId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -189,11 +189,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall"
+                  refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="KS_PAI manuelle tall"
+                  name="Tabellgrupper DB"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -204,7 +204,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_PAI manuelle tall]</property>
+                      name="OpenRowset">[dbo].[Tabellgrupper]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -246,7 +246,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Connections[OleDbConnection]"
+                      refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
@@ -254,100 +254,78 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input]"
+                      refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].Columns[Verdi]"
-                          cachedDataType="r8"
-                          cachedName="Verdi"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Verdi]" />
-                        <inputColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input].Columns[Copy of Gruppe]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Copy of Kommunenummer"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
-                          lineageId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kommunenummer]" />
+                          cachedLength="100"
+                          cachedName="Copy of Gruppe"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input].ExternalColumns[Gruppe]"
+                          lineageId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Gruppe]" />
                         <inputColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input].Columns[Copy of Kildeid]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="150"
-                          cachedName="Copy of Variabelnavn"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
-                          lineageId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]" />
+                          cachedLength="10"
+                          cachedName="Copy of Kildeid"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input].ExternalColumns[Kildeid]"
+                          lineageId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kildeid]" />
                         <inputColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input].Columns[Copy of Tabellnummer]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="150"
-                          cachedName="Copy of Kilde"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
-                          lineageId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]" />
-                        <inputColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].Columns[Årgang]"
-                          cachedDataType="r8"
-                          cachedName="Årgang"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Årgang]" />
+                          cachedLength="10"
+                          cachedName="Copy of Tabellnummer"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input].ExternalColumns[Tabellnummer]"
+                          lineageId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tabellnummer]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input].ExternalColumns[Gruppe]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
-                          name="Kommunenummer" />
+                          length="100"
+                          name="Gruppe" />
                         <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input].ExternalColumns[Kildeid]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
-                          name="Variabelnavn" />
+                          length="10"
+                          name="Kildeid" />
                         <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input].ExternalColumns[Tabellnummer]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
-                          name="Kilde" />
-                        <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          dataType="i4"
-                          name="År" />
-                        <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
-                          dataType="numeric"
-                          name="Verdi"
-                          precision="18"
-                          scale="8" />
+                          length="10"
+                          name="Tabellnummer" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -356,11 +334,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\PAI\Les Pai-data 2018\Pai-data 2018"
+                  refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel"
                   componentClassID="Microsoft.ExcelSource"
                   contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
                   description="Excel Source"
-                  name="Pai-data 2018"
+                  name="Tabellgrupper Excel"
                   usesDispositions="true"
                   version="1">
                   <properties>
@@ -371,7 +349,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">Data$</property>
+                      name="OpenRowset">Ark1$</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -397,157 +375,100 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Pai-data 2018]"
-                      connectionManagerRefId="Package.ConnectionManagers[Pai-data 2018]"
+                      refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Tabellgrupper]"
+                      connectionManagerRefId="Package.ConnectionManagers[Tabellgrupper]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output]"
+                      refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output]"
                       name="Excel Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Kommunenummer]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Gruppe]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Kommunenummer]"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[Gruppe]"
                           length="255"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Kommunenummer]"
-                          name="Kommunenummer"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Gruppe]"
+                          name="Gruppe"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Kommunenavn]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Kildeid]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Kommunenavn]"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[Kildeid]"
                           length="255"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Kommunenavn]"
-                          name="Kommunenavn"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Kildeid]"
+                          name="Kildeid"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Variabelnavn]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Tabellnummer]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Variabelnavn]"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[Tabellnummer]"
                           length="255"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Variabelnavn]"
-                          name="Variabelnavn"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Kilde]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Kilde]"
-                          length="255"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Kilde]"
-                          name="Kilde"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Verdi]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Verdi]"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Verdi]"
-                          name="Verdi"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Årgang]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Årgang]"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].Columns[Årgang]"
-                          name="Årgang"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Tabellnummer]"
+                          name="Tabellnummer"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Kommunenummer]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[Gruppe]"
                           dataType="wstr"
                           length="255"
-                          name="Kommunenummer" />
+                          name="Gruppe" />
                         <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Kommunenavn]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[Kildeid]"
                           dataType="wstr"
                           length="255"
-                          name="Kommunenavn" />
+                          name="Kildeid" />
                         <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Variabelnavn]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[Tabellnummer]"
                           dataType="wstr"
                           length="255"
-                          name="Variabelnavn" />
-                        <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Kilde]"
-                          dataType="wstr"
-                          length="255"
-                          name="Kilde" />
-                        <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Verdi]"
-                          dataType="r8"
-                          name="Verdi" />
-                        <externalMetadataColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output].ExternalColumns[Årgang]"
-                          dataType="r8"
-                          name="Årgang" />
+                          name="Tabellnummer" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output]"
+                      refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output]"
                       isErrorOut="true"
                       name="Excel Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Kommunenummer]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[Kildeid]"
                           dataType="wstr"
                           length="255"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Kommunenummer]"
-                          name="Kommunenummer" />
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[Kildeid]"
+                          name="Kildeid" />
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Kommunenavn]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[Tabellnummer]"
                           dataType="wstr"
                           length="255"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Kommunenavn]"
-                          name="Kommunenavn" />
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[Tabellnummer]"
+                          name="Tabellnummer" />
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Variabelnavn]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[Gruppe]"
                           dataType="wstr"
                           length="255"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Variabelnavn]"
-                          name="Variabelnavn" />
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[Gruppe]"
+                          name="Gruppe" />
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Kilde]"
-                          dataType="wstr"
-                          length="255"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Kilde]"
-                          name="Kilde" />
-                        <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Verdi]"
-                          dataType="r8"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Verdi]"
-                          name="Verdi" />
-                        <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Årgang]"
-                          dataType="r8"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[Årgang]"
-                          name="Årgang" />
-                        <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -558,34 +479,34 @@
               </components>
               <paths>
                 <path
-                  refId="Package\PAI\Les Pai-data 2018.Paths[Data Conversion Output]"
-                  endId="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall.Inputs[OLE DB Destination Input]"
+                  refId="Package\PAI\Les Tabellgrupper.Paths[Data Conversion Output]"
+                  endId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Inputs[OLE DB Destination Input]"
                   name="Data Conversion Output"
-                  startId="Package\PAI\Les Pai-data 2018\Data Conversion.Outputs[Data Conversion Output]" />
+                  startId="Package\PAI\Les Tabellgrupper\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
-                  refId="Package\PAI\Les Pai-data 2018.Paths[Excel Source Output]"
-                  endId="Package\PAI\Les Pai-data 2018\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\PAI\Les Tabellgrupper.Paths[Excel Source Output]"
+                  endId="Package\PAI\Les Tabellgrupper\Data Conversion.Inputs[Data Conversion Input]"
                   name="Excel Source Output"
-                  startId="Package\PAI\Les Pai-data 2018\Pai-data 2018.Outputs[Excel Source Output]" />
+                  startId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\PAI\Slett KS_PAI manuelle tall"
+          DTS:refId="Package\PAI\Slett Tabellgrupper"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{2D843B2A-85E6-4663-B780-B2C513755FE7}"
+          DTS:DTSID="{8557264E-B66A-4B31-8DFC-CACA4BE93685}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Slett KS_PAI manuelle tall"
+          DTS:ObjectName="Slett Tabellgrupper"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [Staging].[dbo].[KS_PAI manuelle tall]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="&#xA;Truncate Table [Staging_ASSS].[dbo].[Tabellgrupper]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -593,11 +514,11 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PAI.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{9BBCAAA3-8F73-418E-9538-23A5790BAFCC}"
-          DTS:From="Package\PAI\Slett KS_PAI manuelle tall"
+          DTS:DTSID="{3204E1D5-A79B-43FC-AB41-38DD002F302F}"
+          DTS:From="Package\PAI\Slett Tabellgrupper"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\PAI\Les Pai-data 2018" />
+          DTS:To="Package\PAI\Les Tabellgrupper" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -614,27 +535,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="201,42"
-          Id="Package\PAI\Slett KS_PAI manuelle tall"
-          TopLeft="24,95" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\PAI\Les Pai-data 2018"
+          Size="164,43"
+          Id="Package\PAI\Les Tabellgrupper"
           TopLeft="282,95" />
+        <NodeLayout
+          Size="169,43"
+          Id="Package\PAI\Slett Tabellgrupper"
+          TopLeft="24,95" />
         <EdgeLayout
           Id="Package\PAI.PrecedenceConstraints[Constraint]"
-          TopLeft="225,116">
+          TopLeft="193.333333333333,116.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="57,0"
+              EndConnector="88.6666666666667,0"
               Start="0,0"
-              End="49.5,0">
+              End="81.1666666666667,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="49.5,0" />
+                    End="81.1666666666667,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -646,40 +567,44 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="494,283"
-          Size="494,326"
+          PanelSize="494,284"
+          Size="494,327"
           Id="Package\PAI"
           TopLeft="338,18" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\PAI\Les Pai-data 2018">
+    design-time-name="Package\PAI\Les Tabellgrupper">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="144,42"
-          Id="Package\PAI\Les Pai-data 2018\Pai-data 2018"
-          TopLeft="289,85" />
+          Size="161,43"
+          Id="Package\PAI\Les Tabellgrupper\Tabellgrupper DB"
+          TopLeft="277.249999981374,290.299999976754" />
         <NodeLayout
-          Size="156,42"
-          Id="Package\PAI\Les Pai-data 2018\Data Conversion"
+          Size="156,43"
+          Id="Package\PAI\Les Tabellgrupper\Data Conversion"
           TopLeft="281,168" />
+        <NodeLayout
+          Size="172,43"
+          Id="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel"
+          TopLeft="270.666666939855,78.0666667906443" />
         <EdgeLayout
-          Id="Package\PAI\Les Pai-data 2018.Paths[Excel Source Output]"
-          TopLeft="360,127">
+          Id="Package\PAI\Les Tabellgrupper.Paths[Excel Source Output]"
+          TopLeft="357.833333469928,120.733333457311">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41"
+              EndConnector="0,47.266666542689"
               Start="0,0"
-              End="0,33.5">
+              End="0,39.766666542689">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="0,39.766666542689" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -688,24 +613,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall"
-          TopLeft="276,289" />
         <EdgeLayout
-          Id="Package\PAI\Les Pai-data 2018.Paths[Data Conversion Output]"
-          TopLeft="361.75,210">
+          Id="Package\PAI\Les Tabellgrupper.Paths[Data Conversion Output]"
+          TopLeft="358.45833332402,210.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,79"
+              EndConnector="0,79.6333333100874"
               Start="0,0"
-              End="0,71.5">
+              End="0,72.1333333100874">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,71.5" />
+                    End="0,72.1333333100874" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -718,7 +639,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\PAI\Les Pai-data 2018\Pai-data 2018">
+    design-time-name="Package\PAI\Les Tabellgrupper\Tabellgrupper DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -731,7 +652,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\PAI\Les Pai-data 2018\KS_PAI manuelle tall">
+    design-time-name="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
