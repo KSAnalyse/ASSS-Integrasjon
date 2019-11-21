@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Byggeareal"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{2F2ADC68-EC6C-42B7-9BAE-4F9CCE5F7105}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{7C5E2B25-888F-443F-A5E4-3447543E030D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -37,7 +37,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_05939 Bruksareal til annet enn bolig (m²), bygningstype"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -49,12 +49,13 @@
           DTS:refId="Package\Byggeareal\Les SSB_05940 Boligbygg, bygningstype"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{F9602040-32A8-4388-B095-E9E78F1BFEE3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_05940 Boligbygg, bygningstype"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
