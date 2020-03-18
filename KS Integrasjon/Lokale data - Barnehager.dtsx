@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/15/2018 2:05:09 PM"
@@ -12,8 +12,8 @@
   DTS:ObjectName="Manuelle Data - Barnehager"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="366"
-  DTS:VersionGUID="{3B69C129-04D2-4F91-A9F9-43BB93A28443}">
+  DTS:VersionBuild="376"
+  DTS:VersionGUID="{526965F2-A08F-4168-B291-3C2CDCB5197A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -417,7 +417,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_Barn per ansatt i barnehagen (bemanningstetthet)]</property>
+                      name="OpenRowset">[dbo].[KS_BHG01 Barn per ansatt i barnehagen (bemanningstetthet)]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -646,7 +646,7 @@
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="150"
+                          length="100"
                           lineageId="Package\Barnehage\Les Foreldreundersøkelsen i barnehage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]"
                           name="Copy of Kilde"
                           truncationRowDisposition="FailComponent">
@@ -928,7 +928,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_Foreldreundersøkelsen i barnehage]</property>
+                      name="OpenRowset">[dbo].[KS_BHG02 Foreldreundersøkelsen i barnehage]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -994,7 +994,7 @@
                           refId="Package\Barnehage\Les Foreldreundersøkelsen i barnehage\KS_Foreldreundersøkelsen i barnehage.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="150"
+                          cachedLength="100"
                           cachedName="Copy of Kilde"
                           externalMetadataColumnId="Package\Barnehage\Les Foreldreundersøkelsen i barnehage\KS_Foreldreundersøkelsen i barnehage.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           lineageId="Package\Barnehage\Les Foreldreundersøkelsen i barnehage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]" />
@@ -1027,14 +1027,14 @@
                           refId="Package\Barnehage\Les Foreldreundersøkelsen i barnehage\KS_Foreldreundersøkelsen i barnehage.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="100"
                           name="Kilde" />
                         <externalMetadataColumn
                           refId="Package\Barnehage\Les Foreldreundersøkelsen i barnehage\KS_Foreldreundersøkelsen i barnehage.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           dataType="numeric"
                           name="Verdi"
                           precision="18"
-                          scale="8" />
+                          scale="1" />
                         <externalMetadataColumn
                           refId="Package\Barnehage\Les Foreldreundersøkelsen i barnehage\KS_Foreldreundersøkelsen i barnehage.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           codePage="1252"
@@ -1045,7 +1045,7 @@
                           refId="Package\Barnehage\Les Foreldreundersøkelsen i barnehage\KS_Foreldreundersøkelsen i barnehage.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="200"
                           name="Variabelnavn" />
                         <externalMetadataColumn
                           refId="Package\Barnehage\Les Foreldreundersøkelsen i barnehage\KS_Foreldreundersøkelsen i barnehage.Inputs[OLE DB Destination Input].ExternalColumns[År]"
@@ -1110,7 +1110,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_Barn per ansatt i barnehagen (bemanningstetthet)]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_BHG01 Barn per ansatt i barnehagen (bemanningstetthet)]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -1128,7 +1128,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_Foreldreundersøkelsen i barnehage]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_BHG02 Foreldreundersøkelsen i barnehage]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -1173,35 +1173,35 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="217,42"
+          Size="217.333333333334,42"
           Id="Package\Barnehage\Barn per ansatt i barnehagen"
           TopLeft="354.467593047561,115.124999506027" />
         <NodeLayout
-          Size="263,42"
+          Size="262.666666666667,42"
           Id="Package\Barnehage\Les Foreldreundersøkelsen i barnehage"
           TopLeft="342.467593047561,37.133332767685" />
         <NodeLayout
-          Size="261,42"
+          Size="225.333333333334,53.3333333333334"
           Id="Package\Barnehage\Slett KS_Barn per ansatt i barnehagen (bemanningstetthet)"
-          TopLeft="35.2800921115818,119.116666244368" />
+          TopLeft="51.9467585298957,112.183333035012" />
         <NodeLayout
-          Size="287,42"
+          Size="286.666666666667,42"
           Id="Package\Barnehage\Slett KS_Foreldreundersøkelsen i barnehage"
           TopLeft="14.2800921115818,34.1249995060266" />
         <EdgeLayout
           Id="Package\Barnehage.PrecedenceConstraints[Constraint]"
-          TopLeft="296.280092111582,138.120832875197">
+          TopLeft="277.280091863229,137.487499603853">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.1875009359792,0"
+              EndConnector="77.187501184332,0"
               Start="0,0"
-              End="50.6875009359792,0">
+              End="69.687501184332,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="50.6875009359792,0" />
+                    End="69.687501184332,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1234,30 +1234,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Barnehage.PrecedenceConstraints[Constraint 2]"
-          TopLeft="473.967593047561,79.133332767685">
+          TopLeft="473.800926380894,79.133332767685">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-308.187500935979,39.9833334766828"
+              EndConnector="-309.187501184332,33.0500002673273"
               Start="0,0"
-              End="-308.187500935979,32.4833334766828">
+              End="-309.187501184332,25.5500002673273">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.9916667383414" />
+                    End="0,12.5250001336637" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.9916667383414"
-                    Point2="0,19.9916667383414"
-                    Point3="-4,19.9916667383414" />
+                    Point1="0,12.5250001336637"
+                    Point2="0,16.5250001336637"
+                    Point3="-4,16.5250001336637" />
                   <mssgle:LineSegment
-                    End="-304.187500935979,19.9916667383414" />
+                    End="-305.187501184332,16.5250001336637" />
                   <mssgle:CubicBezierSegment
-                    Point1="-304.187500935979,19.9916667383414"
-                    Point2="-308.187500935979,19.9916667383414"
-                    Point3="-308.187500935979,23.9916667383414" />
+                    Point1="-305.187501184332,16.5250001336637"
+                    Point2="-309.187501184332,16.5250001336637"
+                    Point3="-309.187501184332,20.5250001336637" />
                   <mssgle:LineSegment
-                    End="-308.187500935979,32.4833334766828" />
+                    End="-309.187501184332,25.5500002673273" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1269,8 +1269,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="664,266"
-          Size="664,309"
+          PanelSize="664,266.666666666667"
+          Size="664,309.333333333334"
           Id="Package\Barnehage"
           TopLeft="102.125001071021,89.1666670928399" />
       </GraphLayout>
@@ -1282,7 +1282,7 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="335,42"
+          Size="334.666666666667,42"
           Id="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet)"
           TopLeft="173,285" />
         <NodeLayout
@@ -1290,7 +1290,7 @@
           Id="Package\Barnehage\Barn per ansatt i barnehagen\Data Conversion"
           TopLeft="378,193" />
         <NodeLayout
-          Size="217,44"
+          Size="217.333333333334,44"
           Id="Package\Barnehage\Barn per ansatt i barnehagen\Barn per ansatt i barnehagen"
           TopLeft="191,103" />
         <EdgeLayout

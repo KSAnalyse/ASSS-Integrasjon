@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Byggeareal"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{7C5E2B25-888F-443F-A5E4-3447543E030D}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{61A8CF09-CB9E-4F3C-9043-270F99F6A15D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

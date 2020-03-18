@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/15/2018 2:05:09 PM"
@@ -12,8 +12,8 @@
   DTS:ObjectName="Manuelle Data - Grunnskole"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="339"
-  DTS:VersionGUID="{4FD29860-AD09-446E-8FB6-4F2FBEA8034B}">
+  DTS:VersionBuild="397"
+  DTS:VersionGUID="{AF792EC2-6F37-41AE-BF93-54E22CB464DD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -177,7 +177,7 @@
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="150"
+                          length="100"
                           lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]"
                           name="Copy of Kilde"
                           truncationRowDisposition="FailComponent">
@@ -347,13 +347,13 @@
                           name="Kommunenummer"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen.Outputs[Excel Source Output].Columns[Årgang]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen.Outputs[Excel Source Output].Columns[År]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen.Outputs[Excel Source Output].ExternalColumns[Årgang]"
-                          lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen.Outputs[Excel Source Output].Columns[Årgang]"
-                          name="Årgang"
+                          lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen.Outputs[Excel Source Output].Columns[År]"
+                          name="År"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen.Outputs[Excel Source Output].Columns[Variabelnavn]"
@@ -444,11 +444,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater"
+                  refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="KS_Eksamensresultater"
+                  name="KS_GRS04 Eksamensresultater"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -459,7 +459,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_Eksamensresultater]</property>
+                      name="OpenRowset">[dbo].[KS_GRS04 Eksamensresultater]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -501,7 +501,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Connections[OleDbConnection]"
+                      refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
@@ -509,77 +509,77 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input]"
+                      refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].Columns[Verdi]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].Columns[Verdi]"
                           cachedDataType="r8"
                           cachedName="Verdi"
-                          externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen.Outputs[Excel Source Output].Columns[Verdi]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="150"
+                          cachedLength="100"
                           cachedName="Copy of Kilde"
-                          externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Copy of Kommunenummer"
-                          externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kommunenummer]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="150"
                           cachedName="Copy of Variabelnavn"
-                          externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].Columns[Årgang]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].Columns[År]"
                           cachedDataType="r8"
-                          cachedName="Årgang"
-                          externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen.Outputs[Excel Source Output].Columns[Årgang]" />
+                          cachedName="År"
+                          externalMetadataColumnId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen.Outputs[Excel Source Output].Columns[År]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="100"
                           name="Kilde" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           dataType="numeric"
                           name="Verdi"
                           precision="18"
                           scale="1" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           codePage="1252"
                           dataType="str"
                           length="50"
                           name="Kommunenummer" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="200"
                           name="Variabelnavn" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input].ExternalColumns[År]"
                           dataType="i4"
                           name="År" />
                       </externalMetadataColumns>
@@ -587,22 +587,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -614,7 +614,7 @@
               <paths>
                 <path
                   refId="Package\Grunnskole\Les Eksamensresultater til databasen.Paths[Data Conversion Output]"
-                  endId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Inputs[OLE DB Destination Input]"
+                  endId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Inputs[OLE DB Destination Input]"
                   name="Data Conversion Output"
                   startId="Package\Grunnskole\Les Eksamensresultater til databasen\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
@@ -687,7 +687,7 @@
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="150"
+                          length="100"
                           lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]"
                           name="Copy of Kilde"
                           truncationRowDisposition="FailComponent">
@@ -857,13 +857,13 @@
                           name="Kommunenummer"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen.Outputs[Excel Source Output].Columns[Årgang]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen.Outputs[Excel Source Output].Columns[År]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen.Outputs[Excel Source Output].ExternalColumns[Årgang]"
-                          lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen.Outputs[Excel Source Output].Columns[Årgang]"
-                          name="Årgang"
+                          lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen.Outputs[Excel Source Output].Columns[År]"
+                          name="År"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen.Outputs[Excel Source Output].Columns[Variabelnavn]"
@@ -954,11 +954,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen"
+                  refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="KS_Elevundersøkelsen"
+                  name="KS_GRS05 Elevundersøkelsen"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -969,7 +969,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_Elevundersøkelsen]</property>
+                      name="OpenRowset">[dbo].[KS_GRS05 Elevundersøkelsen]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1011,7 +1011,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Connections[OleDbConnection]"
+                      refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
@@ -1019,77 +1019,77 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input]"
+                      refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].Columns[Verdi]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].Columns[Verdi]"
                           cachedDataType="r8"
                           cachedName="Verdi"
-                          externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen.Outputs[Excel Source Output].Columns[Verdi]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="150"
+                          cachedLength="100"
                           cachedName="Copy of Kilde"
-                          externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Copy of Kommunenummer"
-                          externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kommunenummer]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].Columns[Årgang]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].Columns[År]"
                           cachedDataType="r8"
-                          cachedName="Årgang"
-                          externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen.Outputs[Excel Source Output].Columns[Årgang]" />
+                          cachedName="År"
+                          externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen.Outputs[Excel Source Output].Columns[År]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="150"
                           cachedName="Copy of Variabelnavn"
-                          externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="100"
                           name="Kilde" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           dataType="numeric"
                           name="Verdi"
                           precision="18"
                           scale="1" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           codePage="1252"
                           dataType="str"
                           length="50"
                           name="Kommunenummer" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="200"
                           name="Variabelnavn" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input].ExternalColumns[År]"
                           dataType="i4"
                           name="År" />
                       </externalMetadataColumns>
@@ -1097,22 +1097,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1124,7 +1124,7 @@
               <paths>
                 <path
                   refId="Package\Grunnskole\Les Elevundersøkelsen til databasen.Paths[Data Conversion Output]"
-                  endId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Inputs[OLE DB Destination Input]"
+                  endId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Inputs[OLE DB Destination Input]"
                   name="Data Conversion Output"
                   startId="Package\Grunnskole\Les Elevundersøkelsen til databasen\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
@@ -1197,7 +1197,7 @@
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="150"
+                          length="100"
                           lineageId="Package\Grunnskole\Les Ressurser til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]"
                           name="Copy of Kilde"
                           truncationRowDisposition="FailComponent">
@@ -1285,11 +1285,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole"
+                  refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="KS_Ressurser grunnskole"
+                  name="KS_GRS06 Ressurser grunnskole"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -1300,7 +1300,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_Ressurser grunnskole]</property>
+                      name="OpenRowset">[dbo].[KS_GRS06 Ressurser grunnskole]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1342,7 +1342,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Connections[OleDbConnection]"
+                      refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
@@ -1350,77 +1350,77 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input]"
+                      refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].Columns[Verdi]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].Columns[Verdi]"
                           cachedDataType="r8"
                           cachedName="Verdi"
-                          externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           lineageId="Package\Grunnskole\Les Ressurser til databasen\Ressurser til databasen.Outputs[Excel Source Output].Columns[Verdi]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].Columns[Årgang]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].Columns[År]"
                           cachedDataType="r8"
-                          cachedName="Årgang"
-                          externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          lineageId="Package\Grunnskole\Les Ressurser til databasen\Ressurser til databasen.Outputs[Excel Source Output].Columns[Årgang]" />
+                          cachedName="År"
+                          externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          lineageId="Package\Grunnskole\Les Ressurser til databasen\Ressurser til databasen.Outputs[Excel Source Output].Columns[År]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="150"
+                          cachedLength="100"
                           cachedName="Copy of Kilde"
-                          externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           lineageId="Package\Grunnskole\Les Ressurser til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="150"
                           cachedName="Copy of Variabelnavn"
-                          externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           lineageId="Package\Grunnskole\Les Ressurser til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]" />
                         <inputColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Copy of Kommunenummer"
-                          externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           lineageId="Package\Grunnskole\Les Ressurser til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kommunenummer]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="100"
                           name="Kilde" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           dataType="numeric"
                           name="Verdi"
                           precision="18"
                           scale="1" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           codePage="1252"
                           dataType="str"
                           length="50"
                           name="Kommunenummer" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="200"
                           name="Variabelnavn" />
                         <externalMetadataColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input].ExternalColumns[År]"
                           dataType="i4"
                           name="År" />
                       </externalMetadataColumns>
@@ -1428,22 +1428,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1524,13 +1524,13 @@
                           name="Verdi"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Grunnskole\Les Ressurser til databasen\Ressurser til databasen.Outputs[Excel Source Output].Columns[Årgang]"
+                          refId="Package\Grunnskole\Les Ressurser til databasen\Ressurser til databasen.Outputs[Excel Source Output].Columns[År]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Grunnskole\Les Ressurser til databasen\Ressurser til databasen.Outputs[Excel Source Output].ExternalColumns[Årgang]"
-                          lineageId="Package\Grunnskole\Les Ressurser til databasen\Ressurser til databasen.Outputs[Excel Source Output].Columns[Årgang]"
-                          name="Årgang"
+                          lineageId="Package\Grunnskole\Les Ressurser til databasen\Ressurser til databasen.Outputs[Excel Source Output].Columns[År]"
+                          name="År"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Grunnskole\Les Ressurser til databasen\Ressurser til databasen.Outputs[Excel Source Output].Columns[Variabelnavn]"
@@ -1634,7 +1634,7 @@
               <paths>
                 <path
                   refId="Package\Grunnskole\Les Ressurser til databasen.Paths[Data Conversion Output]"
-                  endId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Inputs[OLE DB Destination Input]"
+                  endId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Inputs[OLE DB Destination Input]"
                   name="Data Conversion Output"
                   startId="Package\Grunnskole\Les Ressurser til databasen\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
@@ -1647,55 +1647,55 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Grunnskole\Slett KS_Eksamensresultater"
+          DTS:refId="Package\Grunnskole\Slett KS_GRS04 Eksamensresultater"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:DelayValidation="True"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{908F6708-C713-4CBD-BEDB-12B3EAD7551D}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Slett KS_Eksamensresultater"
+          DTS:ObjectName="Slett KS_GRS04 Eksamensresultater"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_Eksamensresultater]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_GRS04 Eksamensresultater]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Grunnskole\Slett KS_Elevundersøkelsen"
+          DTS:refId="Package\Grunnskole\Slett KS_GRS05 Elevundersøkelsen"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{9047989a-cca4-4264-ade2-8c7dfcf6e863}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Slett KS_Elevundersøkelsen"
+          DTS:ObjectName="Slett KS_GRS05 Elevundersøkelsen"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_Elevundersøkelsen]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_GRS05 Elevundersøkelsen]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Grunnskole\Slett KS_Ressurser grunnskole"
+          DTS:refId="Package\Grunnskole\Slett KS_GRS06 Ressurser grunnskole"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{c2676b46-f0b4-473a-bc2f-6b6e6fac8e0b}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Slett KS_Ressurser grunnskole"
+          DTS:ObjectName="Slett KS_GRS06 Ressurser grunnskole"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_Ressurser grunnskole]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_GRS06 Ressurser grunnskole]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -1704,7 +1704,7 @@
           DTS:refId="Package\Grunnskole.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{22982AF5-B1F8-4E10-9669-65CE54462C0E}"
-          DTS:From="Package\Grunnskole\Slett KS_Eksamensresultater"
+          DTS:From="Package\Grunnskole\Slett KS_GRS04 Eksamensresultater"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Grunnskole\Les Eksamensresultater til databasen" />
@@ -1712,7 +1712,7 @@
           DTS:refId="Package\Grunnskole.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{6393b571-fd26-4b15-9a1a-fee6209fd71e}"
-          DTS:From="Package\Grunnskole\Slett KS_Elevundersøkelsen"
+          DTS:From="Package\Grunnskole\Slett KS_GRS05 Elevundersøkelsen"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Grunnskole\Les Elevundersøkelsen til databasen" />
@@ -1720,7 +1720,7 @@
           DTS:refId="Package\Grunnskole.PrecedenceConstraints[Constraint 1 1 1 1 1]"
           DTS:CreationName=""
           DTS:DTSID="{e3a5734f-31cc-4bcf-87da-8486bde61762}"
-          DTS:From="Package\Grunnskole\Slett KS_Ressurser grunnskole"
+          DTS:From="Package\Grunnskole\Slett KS_GRS06 Ressurser grunnskole"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1 1 1 1 1"
           DTS:To="Package\Grunnskole\Les Ressurser til databasen" />
@@ -1797,7 +1797,7 @@
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="150"
+                          length="100"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]"
                           name="Copy of Kilde"
                           truncationRowDisposition="FailComponent">
@@ -1977,13 +1977,13 @@
                           name="Verdi"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Excel Source.Outputs[Excel Source Output].Columns[Årgang]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Excel Source.Outputs[Excel Source Output].Columns[År]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Excel Source.Outputs[Excel Source Output].ExternalColumns[Årgang]"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Excel Source.Outputs[Excel Source Output].Columns[Årgang]"
-                          name="Årgang"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Excel Source.Outputs[Excel Source Output].Columns[År]"
+                          name="År"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -2079,11 +2079,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn"
+                  refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="KS_Nasjonale prøver 5 trinn"
+                  name="KS_GRS01 Nasjonale prøver 5 trinn"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -2094,7 +2094,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_Nasjonale prøver 5. trinn]</property>
+                      name="OpenRowset">[dbo].[KS_GRS01 Nasjonale prøver 5. trinn]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2136,7 +2136,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Connections[OleDbConnection]"
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
@@ -2144,77 +2144,77 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input]"
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="150"
+                          cachedLength="100"
                           cachedName="Copy of Kilde"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Copy of Kommunenummer"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kommunenummer]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].Columns[Årgang]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].Columns[År]"
                           cachedDataType="r8"
-                          cachedName="Årgang"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Excel Source.Outputs[Excel Source Output].Columns[Årgang]" />
+                          cachedName="År"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Excel Source.Outputs[Excel Source Output].Columns[År]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="150"
                           cachedName="Copy of Variabelnavn"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].Columns[Verdi]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].Columns[Verdi]"
                           cachedDataType="r8"
                           cachedName="Verdi"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Excel Source.Outputs[Excel Source Output].Columns[Verdi]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="100"
                           name="Kilde" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           dataType="numeric"
                           name="Verdi"
                           precision="18"
-                          scale="2" />
+                          scale="1" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           codePage="1252"
                           dataType="str"
                           length="50"
                           name="Kommunenummer" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="200"
                           name="Variabelnavn" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
                           dataType="i4"
                           name="År" />
                       </externalMetadataColumns>
@@ -2222,22 +2222,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -2249,7 +2249,7 @@
               <paths>
                 <path
                   refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen.Paths[Data Conversion Output]"
-                  endId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input]"
+                  endId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Inputs[OLE DB Destination Input]"
                   name="Data Conversion Output"
                   startId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
@@ -2322,7 +2322,7 @@
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="150"
+                          length="100"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]"
                           name="Copy of Kilde"
                           truncationRowDisposition="FailComponent">
@@ -2410,11 +2410,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn"
+                  refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="KS_Nasjonale prøver 8 trinn"
+                  name="KS_GRS02 Nasjonale prøver 8 trinn"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -2425,7 +2425,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_Nasjonale prøver 8. trinn]</property>
+                      name="OpenRowset">[dbo].[KS_GRS02 Nasjonale prøver 8. trinn]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2467,7 +2467,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Connections[OleDbConnection]"
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
@@ -2475,77 +2475,77 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input]"
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].Columns[Verdi]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].Columns[Verdi]"
                           cachedDataType="r8"
                           cachedName="Verdi"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Nasjonale prøver 8 trinn til databasen.Outputs[Excel Source Output].Columns[Verdi]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="150"
+                          cachedLength="100"
                           cachedName="Copy of Kilde"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Copy of Kommunenummer"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kommunenummer]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].Columns[Årgang]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].Columns[År]"
                           cachedDataType="r8"
-                          cachedName="Årgang"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Nasjonale prøver 8 trinn til databasen.Outputs[Excel Source Output].Columns[Årgang]" />
+                          cachedName="År"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Nasjonale prøver 8 trinn til databasen.Outputs[Excel Source Output].Columns[År]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="150"
                           cachedName="Copy of Variabelnavn"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="100"
                           name="Kilde" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           dataType="numeric"
                           name="Verdi"
                           precision="18"
                           scale="1" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           codePage="1252"
                           dataType="str"
                           length="50"
                           name="Kommunenummer" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="200"
                           name="Variabelnavn" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
                           dataType="i4"
                           name="År" />
                       </externalMetadataColumns>
@@ -2553,22 +2553,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -2659,13 +2659,13 @@
                           name="Kommunenummer"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Nasjonale prøver 8 trinn til databasen.Outputs[Excel Source Output].Columns[Årgang]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Nasjonale prøver 8 trinn til databasen.Outputs[Excel Source Output].Columns[År]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Nasjonale prøver 8 trinn til databasen.Outputs[Excel Source Output].ExternalColumns[Årgang]"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Nasjonale prøver 8 trinn til databasen.Outputs[Excel Source Output].Columns[Årgang]"
-                          name="Årgang"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Nasjonale prøver 8 trinn til databasen.Outputs[Excel Source Output].Columns[År]"
+                          name="År"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Nasjonale prøver 8 trinn til databasen.Outputs[Excel Source Output].Columns[Variabelnavn]"
@@ -2759,7 +2759,7 @@
               <paths>
                 <path
                   refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn.Paths[Data Conversion Output]"
-                  endId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input]"
+                  endId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Inputs[OLE DB Destination Input]"
                   name="Data Conversion Output"
                   startId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
@@ -2832,7 +2832,7 @@
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="150"
+                          length="100"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]"
                           name="Copy of Kilde"
                           truncationRowDisposition="FailComponent">
@@ -2920,11 +2920,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn"
+                  refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="KS_Nasjonale prøver 9 trinn"
+                  name="KS_GRS03 Nasjonale prøver 9 trinn"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -2935,7 +2935,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_Nasjonale prøver 9. trinn]</property>
+                      name="OpenRowset">[dbo].[KS_GRS03 Nasjonale prøver 9. trinn]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2977,7 +2977,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Connections[OleDbConnection]"
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
@@ -2985,77 +2985,77 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input]"
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].Columns[Verdi]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].Columns[Verdi]"
                           cachedDataType="r8"
                           cachedName="Verdi"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Nasjonale prøver 9 trinn til databasen.Outputs[Excel Source Output].Columns[Verdi]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].Columns[Årgang]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].Columns[År]"
                           cachedDataType="r8"
-                          cachedName="Årgang"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Nasjonale prøver 9 trinn til databasen.Outputs[Excel Source Output].Columns[Årgang]" />
+                          cachedName="År"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Nasjonale prøver 9 trinn til databasen.Outputs[Excel Source Output].Columns[År]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="150"
+                          cachedLength="100"
                           cachedName="Copy of Kilde"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="150"
                           cachedName="Copy of Variabelnavn"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]" />
                         <inputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Copy of Kommunenummer"
-                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kommunenummer]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="100"
                           name="Kilde" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           dataType="numeric"
                           name="Verdi"
                           precision="18"
                           scale="1" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           codePage="1252"
                           dataType="str"
                           length="50"
                           name="Kommunenummer" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="200"
                           name="Variabelnavn" />
                         <externalMetadataColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input].ExternalColumns[År]"
                           dataType="i4"
                           name="År" />
                       </externalMetadataColumns>
@@ -3063,22 +3063,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -3159,13 +3159,13 @@
                           name="Verdi"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Nasjonale prøver 9 trinn til databasen.Outputs[Excel Source Output].Columns[Årgang]"
+                          refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Nasjonale prøver 9 trinn til databasen.Outputs[Excel Source Output].Columns[År]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Nasjonale prøver 9 trinn til databasen.Outputs[Excel Source Output].ExternalColumns[Årgang]"
-                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Nasjonale prøver 9 trinn til databasen.Outputs[Excel Source Output].Columns[Årgang]"
-                          name="Årgang"
+                          lineageId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Nasjonale prøver 9 trinn til databasen.Outputs[Excel Source Output].Columns[År]"
+                          name="År"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Nasjonale prøver 9 trinn til databasen.Outputs[Excel Source Output].Columns[Variabelnavn]"
@@ -3269,7 +3269,7 @@
               <paths>
                 <path
                   refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn.Paths[Data Conversion Output]"
-                  endId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input]"
+                  endId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Inputs[OLE DB Destination Input]"
                   name="Data Conversion Output"
                   startId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
@@ -3282,55 +3282,55 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Nasjonale Prøver\Slett KS_Nasjonale prøver 5 trinn"
+          DTS:refId="Package\Nasjonale Prøver\Slett KS_GRS01 Nasjonale prøver 5 trinn"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:DelayValidation="True"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{2ea52e8a-5493-4ec2-a57a-ea138c965f79}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Slett KS_Nasjonale prøver 5 trinn"
+          DTS:ObjectName="Slett KS_GRS01 Nasjonale prøver 5 trinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_Nasjonale prøver 5. trinn]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_GRS01 Nasjonale prøver 5. trinn]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Nasjonale Prøver\Slett KS_Nasjonale prøver 8 trinn"
+          DTS:refId="Package\Nasjonale Prøver\Slett KS_GRS02 Nasjonale prøver 8 trinn"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{337d4749-779c-4baa-9f3b-59f07d73105f}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Slett KS_Nasjonale prøver 8 trinn"
+          DTS:ObjectName="Slett KS_GRS02 Nasjonale prøver 8 trinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_Nasjonale prøver 8. trinn]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_GRS02 Nasjonale prøver 8. trinn]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Nasjonale Prøver\Slett KS_Nasjonale prøver 9 trinn"
+          DTS:refId="Package\Nasjonale Prøver\Slett KS_GRS03 Nasjonale prøver 9 trinn"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{71343da1-778b-4d52-8c85-e531e4b492e1}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Slett KS_Nasjonale prøver 9 trinn"
+          DTS:ObjectName="Slett KS_GRS03 Nasjonale prøver 9 trinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_Nasjonale prøver 9. trinn]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_GRS03 Nasjonale prøver 9. trinn]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -3339,7 +3339,7 @@
           DTS:refId="Package\Nasjonale Prøver.PrecedenceConstraints[Constraint 1 1]"
           DTS:CreationName=""
           DTS:DTSID="{81a8d4fe-70d3-4889-9395-b73bc58a85e2}"
-          DTS:From="Package\Nasjonale Prøver\Slett KS_Nasjonale prøver 5 trinn"
+          DTS:From="Package\Nasjonale Prøver\Slett KS_GRS01 Nasjonale prøver 5 trinn"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1 1"
           DTS:To="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen" />
@@ -3347,7 +3347,7 @@
           DTS:refId="Package\Nasjonale Prøver.PrecedenceConstraints[Constraint 1 1 1]"
           DTS:CreationName=""
           DTS:DTSID="{03bd53f2-56d1-464f-b60b-ea8239a76c45}"
-          DTS:From="Package\Nasjonale Prøver\Slett KS_Nasjonale prøver 8 trinn"
+          DTS:From="Package\Nasjonale Prøver\Slett KS_GRS02 Nasjonale prøver 8 trinn"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1 1 1"
           DTS:To="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn" />
@@ -3355,7 +3355,7 @@
           DTS:refId="Package\Nasjonale Prøver.PrecedenceConstraints[Constraint 1 1 1 1]"
           DTS:CreationName=""
           DTS:DTSID="{3a2e55a2-69ed-4319-95c8-4b38da5d52ea}"
-          DTS:From="Package\Nasjonale Prøver\Slett KS_Nasjonale prøver 9 trinn"
+          DTS:From="Package\Nasjonale Prøver\Slett KS_GRS03 Nasjonale prøver 9 trinn"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1 1 1 1"
           DTS:To="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn" />
@@ -3375,7 +3375,7 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="253,42"
+          Size="253.333333333334,42"
           Id="Package\Grunnskole\Les Eksamensresultater til databasen"
           TopLeft="308.467593047561,35.1249995060266" />
         <NodeLayout
@@ -3383,35 +3383,35 @@
           Id="Package\Grunnskole\Les Elevundersøkelsen til databasen"
           TopLeft="308.467593047561,101.133332767685" />
         <NodeLayout
-          Size="207,42"
+          Size="206.666666666667,42"
           Id="Package\Grunnskole\Les Ressurser til databasen"
           TopLeft="325.187500935979,165.008333261659" />
         <NodeLayout
-          Size="259,42"
-          Id="Package\Grunnskole\Slett KS_Eksamensresultater"
+          Size="248,42.6666666666667"
+          Id="Package\Grunnskole\Slett KS_GRS04 Eksamensresultater"
           TopLeft="23.2800921115818,31.1166662443678" />
         <NodeLayout
-          Size="259,42"
-          Id="Package\Grunnskole\Slett KS_Elevundersøkelsen"
+          Size="244,42.6666666666667"
+          Id="Package\Grunnskole\Slett KS_GRS05 Elevundersøkelsen"
           TopLeft="23.2800921115818,99.1249995060266" />
         <NodeLayout
-          Size="222,42"
-          Id="Package\Grunnskole\Slett KS_Ressurser grunnskole"
-          TopLeft="40,163" />
+          Size="257.333333333334,42.6666666666667"
+          Id="Package\Grunnskole\Slett KS_GRS06 Ressurser grunnskole"
+          TopLeft="21.6666669398545,161.700000023246" />
         <EdgeLayout
           Id="Package\Grunnskole.PrecedenceConstraints[Constraint]"
-          TopLeft="282.280092111582,54.1208328751972">
+          TopLeft="271.280092111582,54.2874995418639">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="26.1875009359792,0"
+              EndConnector="37.1875009359792,0"
               Start="0,0"
-              End="18.6875009359792,0">
+              End="29.6875009359792,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.6875009359792,0" />
+                    End="29.6875009359792,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3422,18 +3422,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Grunnskole.PrecedenceConstraints[Constraint 1]"
-          TopLeft="282.280092111582,121.129166136856">
+          TopLeft="267.280092111582,121.295832803522">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="26.187500935979,0"
+              EndConnector="41.1875009359792,0"
               Start="0,0"
-              End="18.687500935979,0">
+              End="33.6875009359792,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.687500935979,0" />
+                    End="33.6875009359792,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3444,18 +3444,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Grunnskole.PrecedenceConstraints[Constraint 1 1 1 1 1]"
-          TopLeft="262,185.00416663083">
+          TopLeft="279.000000273188,184.520833309119">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="63.187500935979,0"
+              EndConnector="46.1875006627911,0"
               Start="0,0"
-              End="55.687500935979,0">
+              End="38.6875006627911,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="55.687500935979,0" />
+                    End="38.6875006627911,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3467,12 +3467,12 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="567,248"
-          Size="567,291"
+          PanelSize="566.666666666667,262"
+          Size="566.666666666667,305.333333333334"
           Id="Package\Grunnskole"
           TopLeft="75.125001071021,62.1666670928399" />
         <NodeLayout
-          Size="275,42"
+          Size="274.666666666667,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen"
           TopLeft="333.187500935979,16.008333261659" />
         <NodeLayout
@@ -3484,31 +3484,31 @@
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn"
           TopLeft="315.187500935979,148.024999784977" />
         <NodeLayout
-          Size="299,42"
-          Id="Package\Nasjonale Prøver\Slett KS_Nasjonale prøver 5 trinn"
-          TopLeft="10,14" />
+          Size="270.666666666667,42.6666666666667"
+          Id="Package\Nasjonale Prøver\Slett KS_GRS01 Nasjonale prøver 5 trinn"
+          TopLeft="11.2499999813735,14" />
         <NodeLayout
-          Size="259,42"
-          Id="Package\Nasjonale Prøver\Slett KS_Nasjonale prøver 8 trinn"
+          Size="258.666666666667,42"
+          Id="Package\Nasjonale Prøver\Slett KS_GRS02 Nasjonale prøver 8 trinn"
           TopLeft="32.2800921115818,83.008333261659" />
         <NodeLayout
-          Size="235,42"
-          Id="Package\Nasjonale Prøver\Slett KS_Nasjonale prøver 9 trinn"
+          Size="234.666666666667,42"
+          Id="Package\Nasjonale Prøver\Slett KS_GRS03 Nasjonale prøver 9 trinn"
           TopLeft="30,146.016666523318" />
         <EdgeLayout
           Id="Package\Nasjonale Prøver.PrecedenceConstraints[Constraint 1 1]"
-          TopLeft="309,36.0041666308295">
+          TopLeft="281.91666664804,36.1708332974962">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24.187500935979,0"
+              EndConnector="51.2708342879387,0"
               Start="0,0"
-              End="16.687500935979,0">
+              End="43.7708342879387,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="16.687500935979,0" />
+                    End="43.7708342879387,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3564,8 +3564,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="613,245"
-          Size="613,288"
+          PanelSize="613.333333333334,245.333333333334"
+          Size="613.333333333334,288.666666666667"
           Id="Package\Nasjonale Prøver"
           TopLeft="75,361" />
       </GraphLayout>
@@ -3575,7 +3575,7 @@
     design-time-name="Package\Grunnskole\Les Eksamensresultater til databasen">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="234,42"
           Id="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen"
@@ -3583,81 +3583,53 @@
         <NodeLayout
           Size="156,42"
           Id="Package\Grunnskole\Les Eksamensresultater til databasen\Data Conversion"
-          TopLeft="378,193" />
+          TopLeft="233.833335481584,185.200000139475" />
         <NodeLayout
-          Size="189,42"
-          Id="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater"
-          TopLeft="173,285" />
+          Size="224,42.6666666666667"
+          Id="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater"
+          TopLeft="200.916666250676,268.100000302196" />
         <EdgeLayout
           Id="Package\Grunnskole\Les Eksamensresultater til databasen.Paths[Excel Source Output]"
-          TopLeft="308,145">
+          TopLeft="309.916667740792,145">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="148,48"
+              EndConnector="0,40.2000001394749"
               Start="0,0"
-              End="148,40.5">
+              End="0,32.7000001394749">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
-                  <mssgle:LineSegment
-                    End="144,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="144,24"
-                    Point2="148,24"
-                    Point3="148,28" />
-                  <mssgle:LineSegment
-                    End="148,40.5" />
+                    End="0,32.7000001394749" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Grunnskole\Les Eksamensresultater til databasen.Paths[Data Conversion Output]"
-          TopLeft="456,235">
+          TopLeft="312.37500086613,227.200000139475">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-188.5,50"
+              EndConnector="0,40.9000001627207"
               Start="0,0"
-              End="-188.5,42.5">
+              End="0,33.4000001627207">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="-4,25" />
-                  <mssgle:LineSegment
-                    End="-184.5,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-184.5,25"
-                    Point2="-188.5,25"
-                    Point3="-188.5,29" />
-                  <mssgle:LineSegment
-                    End="-188.5,42.5" />
+                    End="0,33.4000001627207" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3677,7 +3649,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater">
+    design-time-name="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3693,89 +3665,61 @@
     design-time-name="Package\Grunnskole\Les Elevundersøkelsen til databasen">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="229,42"
+          Size="229.333333333334,42"
           Id="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen"
           TopLeft="191,103" />
         <NodeLayout
           Size="156,42"
           Id="Package\Grunnskole\Les Elevundersøkelsen til databasen\Data Conversion"
-          TopLeft="378,193" />
+          TopLeft="227.333333333333,190.333333333333" />
         <NodeLayout
-          Size="184,42"
-          Id="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen"
-          TopLeft="173,285" />
+          Size="218.666666666667,42.6666666666667"
+          Id="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen"
+          TopLeft="188.333333333333,275.666666666667" />
         <EdgeLayout
           Id="Package\Grunnskole\Les Elevundersøkelsen til databasen.Paths[Excel Source Output]"
           TopLeft="305.5,145">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="150.5,48"
+              EndConnector="0,45.3333333333333"
               Start="0,0"
-              End="150.5,40.5">
+              End="0,37.8333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
-                  <mssgle:LineSegment
-                    End="146.5,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="146.5,24"
-                    Point2="150.5,24"
-                    Point3="150.5,28" />
-                  <mssgle:LineSegment
-                    End="150.5,40.5" />
+                    End="0,37.8333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Grunnskole\Les Elevundersøkelsen til databasen.Paths[Data Conversion Output]"
-          TopLeft="456,235">
+          TopLeft="301.5,232.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-191,50"
+              EndConnector="0,43.3333333333334"
               Start="0,0"
-              End="-191,42.5">
+              End="0,35.8333333333334">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="-4,25" />
-                  <mssgle:LineSegment
-                    End="-187,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-187,25"
-                    Point2="-191,25"
-                    Point3="-191,29" />
-                  <mssgle:LineSegment
-                    End="-191,42.5" />
+                    End="0,35.8333333333334" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3795,7 +3739,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen">
+    design-time-name="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3811,10 +3755,10 @@
     design-time-name="Package\Grunnskole\Les Ressurser til databasen">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="198,42"
-          Id="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole"
+          Size="233.333333333334,42.6666666666667"
+          Id="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole"
           TopLeft="173,285" />
         <NodeLayout
           Size="188,42"
@@ -3823,84 +3767,56 @@
         <NodeLayout
           Size="156,42"
           Id="Package\Grunnskole\Les Ressurser til databasen\Data Conversion"
-          TopLeft="377,192" />
+          TopLeft="209,182.666666666667" />
         <EdgeLayout
           Id="Package\Grunnskole\Les Ressurser til databasen.Paths[Excel Source Output]"
-          TopLeft="285,145">
+          TopLeft="286,145">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="170,47"
+              EndConnector="0,37.6666666666667"
               Start="0,0"
-              End="170,39.5">
+              End="0,30.1666666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.5"
-                    Point2="0,23.5"
-                    Point3="4,23.5" />
-                  <mssgle:LineSegment
-                    End="166,23.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="166,23.5"
-                    Point2="170,23.5"
-                    Point3="170,27.5" />
-                  <mssgle:LineSegment
-                    End="170,39.5" />
+                    End="0,30.1666666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Grunnskole\Les Ressurser til databasen.Paths[Data Conversion Output]"
-          TopLeft="455,234">
+          TopLeft="288.333333333333,224.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-183,51"
+              EndConnector="0,60.3333333333333"
               Start="0,0"
-              End="-183,43.5">
+              End="0,52.8333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="-4,25.5" />
-                  <mssgle:LineSegment
-                    End="-179,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-179,25.5"
-                    Point2="-183,25.5"
-                    Point3="-183,29.5" />
-                  <mssgle:LineSegment
-                    End="-183,43.5" />
+                    End="0,52.8333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole">
+    design-time-name="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3931,43 +3847,31 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="139,42"
+          Size="138.666666666667,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Excel Source"
-          TopLeft="213,79" />
+          TopLeft="215.666666666667,79" />
         <NodeLayout
-          Size="211,42"
-          Id="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn"
-          TopLeft="173,285" />
+          Size="246.666666666667,42.6666666666667"
+          Id="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn"
+          TopLeft="163.666666666667,270.333333333333" />
         <NodeLayout
           Size="156,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Data Conversion"
-          TopLeft="378,193" />
+          TopLeft="208,179" />
         <EdgeLayout
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen.Paths[Excel Source Output]"
-          TopLeft="282.5,121">
+          TopLeft="285.5,121">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="173.5,72"
+              EndConnector="0,58"
               Start="0,0"
-              End="173.5,64.5">
+              End="0,50.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32"
-                    Point2="0,36"
-                    Point3="4,36" />
-                  <mssgle:LineSegment
-                    End="169.5,36" />
-                  <mssgle:CubicBezierSegment
-                    Point1="169.5,36"
-                    Point2="173.5,36"
-                    Point3="173.5,40" />
-                  <mssgle:LineSegment
-                    End="173.5,64.5" />
+                    End="0,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3978,30 +3882,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen.Paths[Data Conversion Output]"
-          TopLeft="456,235">
+          TopLeft="286.5,221">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-177.5,50"
+              EndConnector="0,49.3333333333333"
               Start="0,0"
-              End="-177.5,42.5">
+              End="0,41.8333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="-4,25" />
-                  <mssgle:LineSegment
-                    End="-173.5,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-173.5,25"
-                    Point2="-177.5,25"
-                    Point3="-177.5,29" />
-                  <mssgle:LineSegment
-                    End="-177.5,42.5" />
+                    End="0,41.8333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4026,15 +3918,28 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="211,42"
-          Id="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn"
-          TopLeft="173,285" />
+          Size="246.666666666667,42.6666666666667"
+          Id="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn"
+          TopLeft="197.518518518519,275.296296296296" />
         <NodeLayout
           Size="256,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Nasjonale prøver 8 trinn til databasen"
@@ -4042,33 +3947,21 @@
         <NodeLayout
           Size="156,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\Data Conversion"
-          TopLeft="378,193" />
+          TopLeft="244.666666666667,179.666666666667" />
         <EdgeLayout
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn.Paths[Excel Source Output]"
-          TopLeft="319,145">
+          TopLeft="320.833333333333,145">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="137,48"
+              EndConnector="0,34.6666666666667"
               Start="0,0"
-              End="137,40.5">
+              End="0,27.1666666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
-                  <mssgle:LineSegment
-                    End="133,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="133,24"
-                    Point2="137,24"
-                    Point3="137,28" />
-                  <mssgle:LineSegment
-                    End="137,40.5" />
+                    End="0,27.1666666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4079,30 +3972,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn.Paths[Data Conversion Output]"
-          TopLeft="456,235">
+          TopLeft="321.759259259259,221.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-177.5,50"
+              EndConnector="0,53.6296296296296"
               Start="0,0"
-              End="-177.5,42.5">
+              End="0,46.1296296296296">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="-4,25" />
-                  <mssgle:LineSegment
-                    End="-173.5,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-173.5,25"
-                    Point2="-177.5,25"
-                    Point3="-177.5,29" />
-                  <mssgle:LineSegment
-                    End="-177.5,42.5" />
+                    End="0,46.1296296296296" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4115,7 +3996,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn">
+    design-time-name="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4144,11 +4025,11 @@
     design-time-name="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="211,42"
-          Id="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn"
-          TopLeft="173,285" />
+          Size="246.666666666667,42"
+          Id="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn"
+          TopLeft="200.333333333333,269" />
         <NodeLayout
           Size="256,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Nasjonale prøver 9 trinn til databasen"
@@ -4156,84 +4037,56 @@
         <NodeLayout
           Size="156,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\Data Conversion"
-          TopLeft="377,192" />
+          TopLeft="239,183.333333333333" />
         <EdgeLayout
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn.Paths[Excel Source Output]"
-          TopLeft="319,145">
+          TopLeft="318,145">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="136,47"
+              EndConnector="0,38.3333333333333"
               Start="0,0"
-              End="136,39.5">
+              End="0,30.8333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.5"
-                    Point2="0,23.5"
-                    Point3="4,23.5" />
-                  <mssgle:LineSegment
-                    End="132,23.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="132,23.5"
-                    Point2="136,23.5"
-                    Point3="136,27.5" />
-                  <mssgle:LineSegment
-                    End="136,39.5" />
+                    End="0,30.8333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn.Paths[Data Conversion Output]"
-          TopLeft="455,234">
+          TopLeft="320.333333333333,225.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-176.5,51"
+              EndConnector="0,43.6666666666667"
               Start="0,0"
-              End="-176.5,43.5">
+              End="0,36.1666666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="-4,25.5" />
-                  <mssgle:LineSegment
-                    End="-172.5,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-172.5,25.5"
-                    Point2="-176.5,25.5"
-                    Point3="-176.5,29.5" />
-                  <mssgle:LineSegment
-                    End="-176.5,43.5" />
+                    End="0,36.1666666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn">
+    design-time-name="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
