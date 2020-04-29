@@ -12,8 +12,8 @@
   DTS:ObjectName="Manuelle Data - Barnehager"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="376"
-  DTS:VersionGUID="{526965F2-A08F-4168-B291-3C2CDCB5197A}">
+  DTS:VersionBuild="378"
+  DTS:VersionGUID="{6BF25EBE-CE6E-43BA-B632-5349A55F3BEE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -36,7 +36,7 @@
       DTS:ObjectName="Foreldreundersøkelsen i barnehage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Barnehager\Foreldreundersøkelsen i barnehage v2.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage v2.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -78,6 +78,7 @@
           DTS:CreationName="Microsoft.Pipeline"
           DTS:DelayValidation="True"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{4280F79F-1594-41FA-8BF9-B696EB72FA08}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -1100,6 +1101,7 @@
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:DelayValidation="True"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{E70C4775-C176-4601-9A82-A5832331AC2F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"

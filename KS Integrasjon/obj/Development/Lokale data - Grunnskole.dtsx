@@ -12,8 +12,8 @@
   DTS:ObjectName="Manuelle Data - Grunnskole"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="397"
-  DTS:VersionGUID="{AF792EC2-6F37-41AE-BF93-54E22CB464DD}">
+  DTS:VersionBuild="402"
+  DTS:VersionGUID="{E117E5D1-F702-49B8-AE1B-DB303B1CDF84}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1656,7 +1656,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Slett KS_GRS04 Eksamensresultater"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1673,7 +1673,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Slett KS_GRS05 Elevundersøkelsen"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1690,7 +1690,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Slett KS_GRS06 Ressurser grunnskole"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1724,6 +1724,22 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1 1 1 1 1"
           DTS:To="Package\Grunnskole\Les Ressurser til databasen" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Grunnskole.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{61D0144E-1758-4724-8F7C-84FEF70DA25B}"
+          DTS:From="Package\Grunnskole\Les Eksamensresultater til databasen"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Grunnskole\Slett KS_GRS05 Elevundersøkelsen" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Grunnskole.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{A56FD088-71B5-4178-9CB3-919AC6FAE095}"
+          DTS:From="Package\Grunnskole\Les Elevundersøkelsen til databasen"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Grunnskole\Slett KS_GRS06 Ressurser grunnskole" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -3291,7 +3307,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Slett KS_GRS01 Nasjonale prøver 5 trinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3325,7 +3341,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Slett KS_GRS03 Nasjonale prøver 9 trinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3335,6 +3351,22 @@
         </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Nasjonale Prøver.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{75830C06-4F9F-48C9-888A-0908C12386B4}"
+          DTS:From="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Nasjonale Prøver\Slett KS_GRS02 Nasjonale prøver 8 trinn" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Nasjonale Prøver.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{15F78A23-E178-4C49-AB6B-4D9A924CA6CA}"
+          DTS:From="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Nasjonale Prøver\Slett KS_GRS03 Nasjonale prøver 9 trinn" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Nasjonale Prøver.PrecedenceConstraints[Constraint 1 1]"
           DTS:CreationName=""
@@ -3362,6 +3394,17 @@
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B8607D3D-DDF3-4623-BBF8-A307916D1F49}"
+      DTS:From="Package\Grunnskole"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Nasjonale Prøver"
+      DTS:Value="2" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -3373,7 +3416,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="253.333333333334,42"
           Id="Package\Grunnskole\Les Eksamensresultater til databasen"
@@ -3464,13 +3507,81 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Grunnskole.PrecedenceConstraints[Constraint 2]"
+          TopLeft="308.467593047561,61.7916661726933">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-41.1875009359792,52.8888888888889"
+              Start="0,0"
+              End="-33.6875009359792,52.8888888888889">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-16.6077502983553,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.6077502983553,0"
+                    Point2="-20.6077502983553,0"
+                    Point3="-20.6077502983553,4" />
+                  <mssgle:LineSegment
+                    End="-20.6077502983553,48.8888888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.6077502983553,48.8888888888889"
+                    Point2="-20.6077502983553,52.8888888888889"
+                    Point3="-24.6077502983553,52.8888888888889" />
+                  <mssgle:LineSegment
+                    End="-33.6875009359792,52.8888888888889" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Grunnskole.PrecedenceConstraints[Constraint 3]"
+          TopLeft="308.467593047561,127.799999434352">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29.4675927743732,49.4555561444499"
+              Start="0,0"
+              End="-21.9675927743732,49.4555561444499">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-10.7438125642003,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.7438125642003,0"
+                    Point2="-14.7438125642003,0"
+                    Point3="-14.7438125642003,4" />
+                  <mssgle:LineSegment
+                    End="-14.7438125642003,45.4555561444499" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.7438125642003,45.4555561444499"
+                    Point2="-14.7438125642003,49.4555561444499"
+                    Point3="-18.7438125642003,49.4555561444499" />
+                  <mssgle:LineSegment
+                    End="-21.9675927743732,49.4555561444499" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="566.666666666667,262"
+          PanelSize="566.666666666667,262.666666666667"
           Size="566.666666666667,305.333333333334"
           Id="Package\Grunnskole"
-          TopLeft="75.125001071021,62.1666670928399" />
+          TopLeft="126.375000307337,27.0666677204768" />
         <NodeLayout
           Size="274.666666666667,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen"
@@ -3495,6 +3606,74 @@
           Size="234.666666666667,42"
           Id="Package\Nasjonale Prøver\Slett KS_GRS03 Nasjonale prøver 9 trinn"
           TopLeft="30,146.016666523318" />
+        <EdgeLayout
+          Id="Package\Nasjonale Prøver.PrecedenceConstraints[Constraint]"
+          TopLeft="470.520834269312,58.008333261659">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-308.907408824397,25"
+              Start="0,0"
+              End="-308.907408824397,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="-4,12.5" />
+                  <mssgle:LineSegment
+                    End="-304.907408824397,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-304.907408824397,12.5"
+                    Point2="-308.907408824397,12.5"
+                    Point3="-308.907408824397,16.5" />
+                  <mssgle:LineSegment
+                    End="-308.907408824397,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Nasjonale Prøver.PrecedenceConstraints[Constraint 1]"
+          TopLeft="317.467593047561,111.683333189985">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-52.8009263808944,49.6666666666667"
+              Start="0,0"
+              End="-45.3009263808944,49.6666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-22.4004631904472,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.4004631904472,0"
+                    Point2="-26.4004631904472,0"
+                    Point3="-26.4004631904472,4" />
+                  <mssgle:LineSegment
+                    End="-26.4004631904472,45.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.4004631904472,45.6666666666667"
+                    Point2="-26.4004631904472,49.6666666666667"
+                    Point3="-30.4004631904472,49.6666666666667" />
+                  <mssgle:LineSegment
+                    End="-45.3009263808944,49.6666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Nasjonale Prøver.PrecedenceConstraints[Constraint 1 1]"
           TopLeft="281.91666664804,36.1708332974962">
@@ -3564,10 +3743,46 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="613.333333333334,245.333333333334"
-          Size="613.333333333334,288.666666666667"
+          PanelSize="613.333333333334,246.666666666667"
+          Size="613.333333333334,289.333333333334"
           Id="Package\Nasjonale Prøver"
           TopLeft="75,361" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="409.70833364067,332.40000105381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-28.0416669740032,28.5999989461899"
+              Start="0,0"
+              End="-28.0416669740032,21.0999989461899">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.2999994730949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.2999994730949"
+                    Point2="0,14.2999994730949"
+                    Point3="-4,14.2999994730949" />
+                  <mssgle:LineSegment
+                    End="-24.0416669740032,14.2999994730949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.0416669740032,14.2999994730949"
+                    Point2="-28.0416669740032,14.2999994730949"
+                    Point3="-28.0416669740032,18.2999994730949" />
+                  <mssgle:LineSegment
+                    End="-28.0416669740032,21.0999989461899" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.3252866120016,19.2999994730949,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3575,7 +3790,7 @@
     design-time-name="Package\Grunnskole\Les Eksamensresultater til databasen">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="234,42"
           Id="Package\Grunnskole\Les Eksamensresultater til databasen\Eksamensresultater til databasen"
@@ -3607,7 +3822,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3629,7 +3846,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3665,7 +3884,7 @@
     design-time-name="Package\Grunnskole\Les Elevundersøkelsen til databasen">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="229.333333333334,42"
           Id="Package\Grunnskole\Les Elevundersøkelsen til databasen\Elevundersøkelsen til databasen"
@@ -3697,7 +3916,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3719,7 +3940,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3755,7 +3978,7 @@
     design-time-name="Package\Grunnskole\Les Ressurser til databasen">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="233.333333333334,42.6666666666667"
           Id="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole"
@@ -3787,7 +4010,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3809,7 +4034,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3845,7 +4072,7 @@
     design-time-name="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="138.666666666667,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\Excel Source"
@@ -3877,7 +4104,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3899,7 +4128,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3935,7 +4166,7 @@
     design-time-name="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="246.666666666667,42.6666666666667"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn"
@@ -3967,7 +4198,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3989,7 +4222,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4025,7 +4260,7 @@
     design-time-name="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="246.666666666667,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn"
@@ -4057,7 +4292,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4079,7 +4316,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

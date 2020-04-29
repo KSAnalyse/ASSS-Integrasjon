@@ -12,8 +12,8 @@
   DTS:ObjectName="Manuelle Data - Sosiale Tjenester"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="182"
-  DTS:VersionGUID="{ED66E7BC-AEBC-4EBD-B760-0D742234645D}">
+  DTS:VersionBuild="183"
+  DTS:VersionGUID="{D5EDE76A-09EE-4442-936B-DDE0C793158A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -564,7 +564,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table [KS_KVP andel deltakere som gikk til arbeid, skole eller utdanning]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Truncate Table [KS_KVP01 Andel deltakere som gikk til arbeid, skole eller utdanning]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>

@@ -12,8 +12,8 @@
   DTS:ObjectName="Lokale data - PAI auto"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="81"
-  DTS:VersionGUID="{FB57C913-8D27-454A-B084-83618ECD3D17}">
+  DTS:VersionBuild="82"
+  DTS:VersionGUID="{83DDE00C-DFE8-4A36-8204-1AD1671317AB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1921,6 +1921,19 @@ and [refTable].[År] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\For alle filer i mappen\Les inn data fra Excel\Sykefravær ASSS etter nettverk">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\For alle filer i mappen\Les inn data fra Excel\Sjekk tabellen i databasen">
     <Properties>
       <Property>
@@ -1948,19 +1961,6 @@ and [refTable].[År] = ?</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\For alle filer i mappen\Les inn data fra Excel\Sykefravær ASSS etter nettverk">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
