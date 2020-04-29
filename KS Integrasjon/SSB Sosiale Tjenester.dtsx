@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Sosiale Tjenester"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{5523C0A8-F8FF-46BF-9699-26EE159A0A69}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{E231B5CD-547B-4807-9F43-EF4E4D677831}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -32,12 +32,13 @@
           DTS:refId="Package\Sosiale tjenester\Les SSB_11864 Kvalifiseringsstønad, sosialhjelp og Husbankens bostøtte"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{4cbd95b1-cd05-41e3-8b07-731204133600}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11864 Kvalifiseringsstønad, sosialhjelp og Husbankens bostøtte"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="11">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -49,12 +50,13 @@
           DTS:refId="Package\Sosiale tjenester\Les SSB_12130 Krisesenter og vold i nære relasjoner"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{f75bfa71-b6a8-4305-bd08-a2a56eb6d4e3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12130 Krisesenter og vold i nære relasjoner"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -66,12 +68,13 @@
           DTS:refId="Package\Sosiale tjenester\Les SSB_12131 Stønadssatser for sosialhjelp og vedtakstidspunkt"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{799803a4-2a36-4696-848d-c2eb0775a95c}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12131 Stønadssatser for sosialhjelp og vedtakstidspunkt"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -83,12 +86,13 @@
           DTS:refId="Package\Sosiale tjenester\Les SSB_12132 Utgifter som inngår i stønadssatsene for økonomisk sosialhjelp"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{91aa0284-575a-489d-85a1-ceaf1c7d3ff5}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12132 Utgifter som inngår i stønadssatsene for økonomisk sosialhjelp"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -105,7 +109,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12160 Mottakere av kvalifiseringsstønad"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -117,12 +121,13 @@
           DTS:refId="Package\Sosiale tjenester\Les SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{92dc3f00-759d-4f03-9579-70636173bbad}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -139,7 +144,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -151,6 +156,7 @@
           DTS:refId="Package\Sosiale tjenester\Les SSB_12204 Sosialhjelpsmottakernes boligsituasjon"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{c6890322-d6ae-4ff9-9783-f2a0c8d85733}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -202,6 +208,7 @@
           DTS:refId="Package\Sosiale tjenester\Les SSB_12221 Sosiale tjenester i NAV"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{01ff7bf1-34fa-4921-9770-895f11e9faf0}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -219,12 +226,13 @@
           DTS:refId="Package\Sosiale tjenester\Les SSB_12266 Vilkår etter sosialtjenesteloven"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{0d43023a-3df6-4c67-b6dc-79723e89d9b8}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12266 Vilkår etter sosialtjenesteloven"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="11">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/15/2018 2:05:09 PM"
@@ -12,8 +12,8 @@
   DTS:ObjectName="Manuelle Data - Pleie og omsorg"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="180"
-  DTS:VersionGUID="{0808DA4A-1DAF-4A66-80F6-342B67C8F7F5}">
+  DTS:VersionBuild="188"
+  DTS:VersionGUID="{47C241BA-E8EB-4E2D-9442-BA9380E76885}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,7 +24,7 @@
       DTS:ObjectName="Manuelle data tjenester til utviklingshemmede (TTU)">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Pleie og omsorg\Manuelle data tjenester til utviklingshemmede (TTU).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Pleie og omsorg\Manuelle data tjenester til utviklingshemmede (TTU).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -145,7 +145,7 @@
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="150"
+                          length="100"
                           lineageId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]"
                           name="Copy of Kilde"
                           truncationRowDisposition="FailComponent">
@@ -204,7 +204,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[KS_TTU01 Manuelle data tjenester til utviklingshemmede]</property>
+                      name="OpenRowset">[dbo].[KS_TTU01 Manuelle data]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -283,16 +283,16 @@
                           externalMetadataColumnId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           lineageId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]" />
                         <inputColumn
-                          refId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede.Inputs[OLE DB Destination Input].Columns[Årgang]"
+                          refId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede.Inputs[OLE DB Destination Input].Columns[År]"
                           cachedDataType="r8"
-                          cachedName="Årgang"
+                          cachedName="År"
                           externalMetadataColumnId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede.Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          lineageId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Manuelle data tjenester til utviklingshemmede (TTU).Outputs[Excel Source Output].Columns[Årgang]" />
+                          lineageId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Manuelle data tjenester til utviklingshemmede (TTU).Outputs[Excel Source Output].Columns[År]" />
                         <inputColumn
                           refId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="150"
+                          cachedLength="100"
                           cachedName="Copy of Kilde"
                           externalMetadataColumnId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           lineageId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]" />
@@ -303,14 +303,14 @@
                           refId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           codePage="1252"
                           dataType="str"
-                          length="150"
+                          length="100"
                           name="Kilde" />
                         <externalMetadataColumn
                           refId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           dataType="numeric"
                           name="Verdi"
                           precision="18"
-                          scale="8" />
+                          scale="1" />
                         <externalMetadataColumn
                           refId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           codePage="1252"
@@ -448,13 +448,13 @@
                           name="Variabelnavn"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Manuelle data tjenester til utviklingshemmede (TTU).Outputs[Excel Source Output].Columns[Årgang]"
+                          refId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Manuelle data tjenester til utviklingshemmede (TTU).Outputs[Excel Source Output].Columns[År]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Manuelle data tjenester til utviklingshemmede (TTU).Outputs[Excel Source Output].ExternalColumns[Årgang]"
-                          lineageId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Manuelle data tjenester til utviklingshemmede (TTU).Outputs[Excel Source Output].Columns[Årgang]"
-                          name="Årgang"
+                          lineageId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Manuelle data tjenester til utviklingshemmede (TTU).Outputs[Excel Source Output].Columns[År]"
+                          name="År"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -551,13 +551,13 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Pleie og omsorg\Slett KS_TTU01 Manuelle data tjenester til utviklingshemmede"
+          DTS:refId="Package\Pleie og omsorg\Slett KS_TTU01 Manuelle data"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{0912123A-1BCF-4CAC-B539-92B5BDC496F4}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Slett KS_TTU01 Manuelle data tjenester til utviklingshemmede"
+          DTS:ObjectName="Slett KS_TTU01 Manuelle data"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
@@ -573,7 +573,7 @@
           DTS:refId="Package\Pleie og omsorg.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{361D0FB2-80C0-46A8-8D4A-DAC57358A598}"
-          DTS:From="Package\Pleie og omsorg\Slett KS_TTU01 Manuelle data tjenester til utviklingshemmede"
+          DTS:From="Package\Pleie og omsorg\Slett KS_TTU01 Manuelle data"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)" />
@@ -595,25 +595,25 @@
         <NodeLayout
           Size="226.666666666667,42.6666666666667"
           Id="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)"
-          TopLeft="290.467591855468,58.5249990876021" />
+          TopLeft="292.967591818215,48.1249992735686" />
         <NodeLayout
-          Size="161.333333333334,64"
-          Id="Package\Pleie og omsorg\Slett KS_TTU01 Manuelle data tjenester til utviklingshemmede"
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\Pleie og omsorg\Slett KS_TTU01 Manuelle data"
           TopLeft="34.1134252834859,44.1166660119097" />
         <EdgeLayout
           Id="Package\Pleie og omsorg.PrecedenceConstraints[Constraint]"
-          TopLeft="195.446758616819,77.9874992164225">
+          TopLeft="256.780091950153,67.4541659760725">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="95.020833238649,0"
+              EndConnector="36.1874998680626,0"
               Start="0,0"
-              End="87.520833238649,0">
+              End="28.6874998680626,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="87.520833238649,0" />
+                    End="28.6874998680626,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -626,7 +626,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="568,254.666666666667"
-          Size="568,297.333333333334"
+          Size="568,298"
           Id="Package\Pleie og omsorg"
           TopLeft="75.125001071021,62.1666670928399" />
       </GraphLayout>
@@ -640,7 +640,7 @@
         <NodeLayout
           Size="348,42.6666666666667"
           Id="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede"
-          TopLeft="189.666666418314,246.000000697374" />
+          TopLeft="190.49999973923,246.866667348543" />
         <NodeLayout
           Size="327.333333333334,42.6666666666667"
           Id="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\Manuelle data tjenester til utviklingshemmede (TTU)"
@@ -673,18 +673,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU).Paths[Data Conversion Output]"
-          TopLeft="361.583331116786,190.866664016644">
+          TopLeft="361.999997777244,190.866664016645">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.1333366807301"
+              EndConnector="0,56.0000033318988"
               Start="0,0"
-              End="0,47.6333366807301">
+              End="0,48.5000033318988">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.6333366807301" />
+                    End="0,48.5000033318988" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

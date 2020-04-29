@@ -4,7 +4,7 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
-        <ServerName>KS-SQL2018</ServerName>
+        <ServerName>ks-sql2018</ServerName>
         <PathOnServer>/SSISDB/ASSS Integrasjon/ASSS Integrasjon</PathOnServer>
         <UserIDs />
         <UserPasswords />

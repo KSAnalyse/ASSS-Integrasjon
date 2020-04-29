@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Kommunehelsetjenesten"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="259"
-  DTS:VersionGUID="{6C2C206B-A4D1-4C49-8FA9-0657751DEC4F}">
+  DTS:VersionBuild="265"
+  DTS:VersionGUID="{6727449E-07AF-4ABC-9F37-65C5914C1894}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -37,7 +37,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11993 Aktivitet i helsestasjons- og skolehelsetjenesten, etter helsekontroller"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -54,7 +54,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11994 Helsestasjons- og skolehelsetjenesteårsverk, etter utdanning"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -71,7 +71,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11995 Fysioterapeutårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -88,12 +88,12 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon]&#xA;Go&#xA;&#xA;--declares&#xA;declare @t table(Avtaleformkode varchar(50), Funksjonskode varchar(50), Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Avtaleform Varchar(150), Avtaleformkode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Kommune varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m2 table(Avtaleform Varchar(150), Avtaleformkode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Kommune varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m3 table(Avtaleform Varchar(150), Avtaleformkode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Kommune varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;--inserts&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;11996&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;11996&quot;&#xA;Insert @m2 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;11996&quot;&#xA;Insert @m3 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;11996&quot;&#xA;&#xA;Insert Into Staging.dbo.[SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Avtaleformkode,&#xA;&#x9;&#x9;met.Avtaleform,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met2.Funksjon,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Avtaleformkode = dat.Avtaleformkode&#xA;Join @m2 met2 ON met2.Funksjonskode = dat.Funksjonskode&#xA;Join @m3 met3 ON met3.Variabel = dat.Variabel&#xA;&#xA;-- Avtalte legeårsverk (årsverk)&#xA;Where dat.Variabel = 'KOSlegeaarsverk0000'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11996'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Avtaleformkode varchar(50), Funksjonskode varchar(50), Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;&#x9;declare @m table(Avtaleform Varchar(150), Avtaleformkode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Kommune varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Avtaleform Varchar(150), Avtaleformkode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Kommune varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m3 table(Avtaleform Varchar(150), Avtaleformkode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Kommune varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;insert @m3 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform, funksjon]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Avtaleformkode,&#xA;&#x9;&#x9;met.Avtaleform,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met2.Funksjon,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Avtaleformkode = dat.Avtaleformkode&#xA;Join @m2 met2 ON met2.Funksjonskode = dat.Funksjonskode&#xA;Join @m3 met3 ON met3.Variabel = dat.Variabel&#xA;&#xA;-- Avtalte legeårsverk (årsverk)&#xA;Where dat.Variabel = 'KOSlegeaarsverk0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -117,6 +117,7 @@
           DTS:refId="Package\Kommunehelsetjenesten\Les SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{59DCD603-F88D-43FA-8F60-D1DE98326DA3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -134,6 +135,7 @@
           DTS:refId="Package\Kommunehelsetjenesten\Les SSB_12209 Utvalgte nøkkeltall for helse og omsorg"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{383F7ACE-8FE5-48AF-8BCD-12D69F152F57}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -148,6 +150,44 @@
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Kommunehelsetjenesten.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{5BE67FE9-73AE-47A4-9BAE-6EE894D11E43}"
+          DTS:From="Package\Kommunehelsetjenesten\Les SSB_11993 Aktivitet i helsestasjons- og skolehelsetjenesten, etter helsekontroller"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Kommunehelsetjenesten\Les SSB_11994 Helsestasjons- og skolehelsetjenesteårsverk, etter utdanning"
+          DTS:Value="2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Kommunehelsetjenesten.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{82DC34C5-0D69-4D93-8C13-0EDC56EBCB5B}"
+          DTS:From="Package\Kommunehelsetjenesten\Les SSB_11994 Helsestasjons- og skolehelsetjenesteårsverk, etter utdanning"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Kommunehelsetjenesten\Les SSB_11995 Fysioterapeutårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
+          DTS:Value="2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Kommunehelsetjenesten.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{E66B768C-66D7-4E76-9BF9-209E81E4C7B1}"
+          DTS:From="Package\Kommunehelsetjenesten\Les SSB_11995 Fysioterapeutårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Kommunehelsetjenesten\Les SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
+          DTS:Value="2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Kommunehelsetjenesten.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{7CE441E1-49BC-489C-8F2B-5565909A6210}"
+          DTS:From="Package\Kommunehelsetjenesten\Les SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Kommunehelsetjenesten\Les SSB_12005 Fastlegelister og fastlegekonsultasjoner"
+          DTS:Value="2" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -161,40 +201,136 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="286,42"
           Id="Package\Kommunehelsetjenesten\Les SSB_11993 Aktivitet i helsestasjons- og skolehelsetjenesten, etter helsekontroller"
-          TopLeft="44.9450113378686,58.5" />
+          TopLeft="49.1116779424472,27.3000005578995" />
         <NodeLayout
           Size="254,53.3333333333334"
           Id="Package\Kommunehelsetjenesten\Les SSB_11994 Helsestasjons- og skolehelsetjenesteårsverk, etter utdanning"
-          TopLeft="61.3616779983265,111.900000007748" />
+          TopLeft="63.8616779610736,95.0000003099435" />
         <NodeLayout
           Size="304,50"
           Id="Package\Kommunehelsetjenesten\Les SSB_11995 Fysioterapeutårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
-          TopLeft="35.9450113378688,177.166666666667" />
+          TopLeft="33.028344714664,184.099999876023" />
         <NodeLayout
           Size="296,61.3333333333334"
           Id="Package\Kommunehelsetjenesten\Les SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
-          TopLeft="42.4450113378686,239" />
+          TopLeft="31.6116781659646,268.033332814177" />
         <NodeLayout
           Size="234,42"
           Id="Package\Kommunehelsetjenesten\Les SSB_12005 Fastlegelister og fastlegekonsultasjoner"
-          TopLeft="70.5283446774108,311.833333333333" />
+          TopLeft="66.7783447332903,364.69999905467" />
         <NodeLayout
           Size="298.666666666667,42"
           Id="Package\Kommunehelsetjenesten\Les SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall"
-          TopLeft="38.4450113378686,365.666666666667" />
+          TopLeft="39.2783446587843,412.466665829818" />
         <NodeLayout
           Size="340,42.6666666666667"
           Id="Package\Kommunehelsetjenesten\Les SSB_12209 Utvalgte nøkkeltall for helse og omsorg"
-          TopLeft="17.9450113378686,419.5" />
+          TopLeft="24.6116779051943,461.099999256134" />
+        <EdgeLayout
+          Id="Package\Kommunehelsetjenesten.PrecedenceConstraints[Constraint]"
+          TopLeft="191.48667795176,69.3000005578995">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.6999997520441"
+              Start="0,0"
+              End="0,18.1999997520441">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1999997520441" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,3.29531237602204,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Kommunehelsetjenesten.PrecedenceConstraints[Constraint 1]"
+          TopLeft="187.945011337869,148.333333643277">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.7666662327458"
+              Start="0,0"
+              End="0,28.2666662327458">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.2666662327458" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,8.3286456163729,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Kommunehelsetjenesten.PrecedenceConstraints[Constraint 2]"
+          TopLeft="182.320011440314,234.099999876023">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.9333329381541"
+              Start="0,0"
+              End="0,26.4333329381541">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4333329381541" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,7.41197896907705,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Kommunehelsetjenesten.PrecedenceConstraints[Constraint 3]"
+          TopLeft="181.695011449627,329.36666614751">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.3333329071598"
+              Start="0,0"
+              End="0,27.8333329071598">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.8333329071598" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,8.11197895357989,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="392,517.333333333334"
-          Size="392,560"
+          PanelSize="392,558.666666666667"
+          Size="392,602"
           Id="Package\Kommunehelsetjenesten"
           TopLeft="292.488073389262,116.901583690738" />
       </GraphLayout>

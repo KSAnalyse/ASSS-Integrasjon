@@ -12,8 +12,8 @@
   DTS:ObjectName="Manuelle Data - Samferdsel"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{A8BBB1A1-A129-46AC-A8C2-9F6C45BE0C7A}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{156A5A99-7D8D-4BB9-B828-33476337A063}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,7 +24,7 @@
       DTS:ObjectName="Samferdsel manuelle tall til databasen">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Samferdsel\Samferdsel manuelle tall til databasen.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Samferdsel\Samferdsel manuelle tall til databasen.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -189,11 +189,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall"
+                  refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="KS_Samferdsel manuelle tall"
+                  name="KS_SFS01 Samferdsel manuelle tall"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -246,7 +246,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Connections[OleDbConnection]"
+                      refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
                       description="The OLE DB runtime connection used to access the database."
@@ -254,75 +254,75 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input]"
+                      refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].Columns[Verdi]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].Columns[Verdi]"
                           cachedDataType="r8"
                           cachedName="Verdi"
-                          externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen.Outputs[Excel Source Output].Columns[Verdi]" />
                         <inputColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].Columns[Årgang]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].Columns[År]"
                           cachedDataType="r8"
-                          cachedName="Årgang"
-                          externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen.Outputs[Excel Source Output].Columns[Årgang]" />
+                          cachedName="År"
+                          externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen.Outputs[Excel Source Output].Columns[År]" />
                         <inputColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].Columns[Copy of Kommunenummer]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Copy of Kommunenummer"
-                          externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kommunenummer]" />
                         <inputColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].Columns[Copy of Variabelnavn]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="150"
                           cachedName="Copy of Variabelnavn"
-                          externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Variabelnavn]" />
                         <inputColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].Columns[Copy of Kilde]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="150"
                           cachedName="Copy of Kilde"
-                          externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Kilde]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kommunenummer]"
                           codePage="1252"
                           dataType="str"
                           length="50"
                           name="Kommunenummer" />
                         <externalMetadataColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Variabelnavn]"
                           codePage="1252"
                           dataType="str"
                           length="150"
                           name="Variabelnavn" />
                         <externalMetadataColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Kilde]"
                           codePage="1252"
                           dataType="str"
                           length="150"
                           name="Kilde" />
                         <externalMetadataColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[År]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[År]"
                           dataType="i4"
                           name="År" />
                         <externalMetadataColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
                           dataType="numeric"
                           name="Verdi"
                           precision="18"
@@ -332,22 +332,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -448,13 +448,13 @@
                           name="Verdi"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen.Outputs[Excel Source Output].Columns[Årgang]"
+                          refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen.Outputs[Excel Source Output].Columns[År]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen.Outputs[Excel Source Output].ExternalColumns[Årgang]"
-                          lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen.Outputs[Excel Source Output].Columns[Årgang]"
-                          name="Årgang"
+                          lineageId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen.Outputs[Excel Source Output].Columns[År]"
+                          name="År"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -538,7 +538,7 @@
               <paths>
                 <path
                   refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen.Paths[Data Conversion Output]"
-                  endId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Inputs[OLE DB Destination Input]"
+                  endId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Inputs[OLE DB Destination Input]"
                   name="Data Conversion Output"
                   startId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
@@ -551,13 +551,13 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Samferdsel\Slett KS_Samferdsel manuelle tall"
+          DTS:refId="Package\Samferdsel\Slett KS_SFS01 Samferdsel manuelle tall"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{759F1CF4-B4F5-4E85-A31C-947F1691FE45}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Slett KS_Samferdsel manuelle tall"
+          DTS:ObjectName="Slett KS_SFS01 Samferdsel manuelle tall"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
@@ -573,7 +573,7 @@
           DTS:refId="Package\Samferdsel.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{F096C099-E19E-4EF7-820D-5E8C9A04D611}"
-          DTS:From="Package\Samferdsel\Slett KS_Samferdsel manuelle tall"
+          DTS:From="Package\Samferdsel\Slett KS_SFS01 Samferdsel manuelle tall"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Samferdsel\Les Samferdsel manuelle tall til databasen" />
@@ -598,7 +598,7 @@
           TopLeft="293,51" />
         <NodeLayout
           Size="237.333333333334,42"
-          Id="Package\Samferdsel\Slett KS_Samferdsel manuelle tall"
+          Id="Package\Samferdsel\Slett KS_SFS01 Samferdsel manuelle tall"
           TopLeft="16,51" />
         <EdgeLayout
           Id="Package\Samferdsel.PrecedenceConstraints[Constraint]"
@@ -638,9 +638,9 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="212,42"
-          Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall"
-          TopLeft="151.416666660458,325" />
+          Size="245.333333333334,42.6666666666667"
+          Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall"
+          TopLeft="137.666666865349,321.533333395322" />
         <NodeLayout
           Size="258,42"
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen"
@@ -673,18 +673,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen.Paths[Data Conversion Output]"
-          TopLeft="256.208333330229,291">
+          TopLeft="257.666666766008,291">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34"
+              EndConnector="0,30.5333333953221"
               Start="0,0"
-              End="0,26.5">
+              End="0,23.0333333953221">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.5" />
+                    End="0,23.0333333953221" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -697,7 +697,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall">
+    design-time-name="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
