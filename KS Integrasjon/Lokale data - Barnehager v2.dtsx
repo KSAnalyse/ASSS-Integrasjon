@@ -12,8 +12,8 @@
   DTS:ObjectName="Lokale data - Barnehager v2"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="110"
-  DTS:VersionGUID="{58B1B634-B7F3-40F9-85D8-18F257BD1C0F}">
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{EF2B9383-F78D-45FA-9E05-90ECFC41348C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -963,7 +963,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                           dataType="System.String"
                           description="The SQL command to be executed."
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select * From [Til databasen$]</property>
                         <property
                           dataType="System.String"
                           description="The variable that contains the SQL command to be executed."
@@ -972,7 +972,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                           dataType="System.Int32"
                           description="Specifies the mode used to access the database."
                           name="AccessMode"
-                          typeConverter="AccessMode">1</property>
+                          typeConverter="AccessMode">2</property>
                         <property
                           dataType="System.String"
                           description="The mapping from parameters in the SQL command to variables."
@@ -1012,16 +1012,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               name="Variabelnavn"
                               truncationRowDisposition="FailComponent" />
                             <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Eierforhold]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Eierforhold]"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Eierforhold]"
-                              name="Eierforhold"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kilde]"
                               dataType="wstr"
                               errorOrTruncationOperation="Conversion"
@@ -1030,6 +1020,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               length="255"
                               lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kilde]"
                               name="Kilde"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Verdi]"
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]"
+                              name="Verdi"
                               truncationRowDisposition="FailComponent" />
                             <outputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[År]"
@@ -1041,13 +1040,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               name="År"
                               truncationRowDisposition="FailComponent" />
                             <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]"
-                              dataType="r8"
+                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Eierforhold]"
+                              dataType="wstr"
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Verdi]"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]"
-                              name="Verdi"
+                              externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Eierforhold]"
+                              length="255"
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Eierforhold]"
+                              name="Eierforhold"
                               truncationRowDisposition="FailComponent" />
                           </outputColumns>
                           <externalMetadataColumns
@@ -1088,18 +1088,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                           name="Excel Source Error Output">
                           <outputColumns>
                             <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Kommunenummer]"
-                              dataType="wstr"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Kommunenummer]"
-                              name="Kommunenummer" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Variabelnavn]"
-                              dataType="wstr"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Variabelnavn]"
-                              name="Variabelnavn" />
-                            <outputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                               dataType="i4"
                               lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[ErrorCode]"
@@ -1112,11 +1100,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               name="ErrorColumn"
                               specialFlags="2" />
                             <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Eierforhold]"
+                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Kommunenummer]"
                               dataType="wstr"
                               length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Eierforhold]"
-                              name="Eierforhold" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Kommunenummer]"
+                              name="Kommunenummer" />
+                            <outputColumn
+                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Variabelnavn]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Variabelnavn]"
+                              name="Variabelnavn" />
                             <outputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Kilde]"
                               dataType="wstr"
@@ -1124,15 +1118,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Kilde]"
                               name="Kilde" />
                             <outputColumn
+                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Verdi]"
+                              dataType="r8"
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Verdi]"
+                              name="Verdi" />
+                            <outputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[År]"
                               dataType="r8"
                               lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[År]"
                               name="År" />
                             <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Verdi]"
-                              dataType="r8"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Verdi]"
-                              name="Verdi" />
+                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Eierforhold]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Eierforhold]"
+                              name="Eierforhold" />
                           </outputColumns>
                           <externalMetadataColumns />
                         </output>
