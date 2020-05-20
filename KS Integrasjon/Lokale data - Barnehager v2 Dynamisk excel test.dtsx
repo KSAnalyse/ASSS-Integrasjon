@@ -1,26 +1,26 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/24/2020 11:07:39 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="UTLAAN17-X1G3"
   DTS:CreatorName="KSINT\8093AHA"
-  DTS:DTSID="{24D8D966-A675-4A61-8AEC-C136FC2995BB}"
+  DTS:DTSID="{E134A43C-D64A-485F-9F39-A571AB8666D3}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="14.0.3026.27"
   DTS:LocaleID="1044"
-  DTS:ObjectName="Lokale data - Barnehager v2"
+  DTS:ObjectName="Lokale data - Barnehager v2 Dynamisk excel test"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="112"
-  DTS:VersionGUID="{EFD876A6-A994-454F-947D-3EFCB82C0D8F}">
+  DTS:VersionBuild="118"
+  DTS:VersionGUID="{DEFE6554-2A59-45B2-8919-8AEC1AE9E2EC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Mal]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{4DE0FDAA-C736-4FAA-9F34-05200F1F1BCF}"
+      DTS:DTSID="{3D9F348F-441F-4458-828D-A89E4F22ECA0}"
       DTS:ObjectName="Mal">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +  @[User::ExcelFile] + ";Extended Properties=\"" + @[User::ExtProperties] + "\""</DTS:PropertyExpression>
@@ -30,21 +30,10 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{4EB99DBF-FDE2-4386-9C29-20052A607E89}"
-      DTS:ObjectName="tallTest">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">0</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{47D9DA44-65AD-4658-9B24-2E4889CC4B65}"
+      DTS:DTSID="{C778F843-1D03-44E0-B3EC-273A4F15F5BA}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Arknavn">
@@ -53,7 +42,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7BC492EE-22FD-4AE7-8F26-B8D90AEC7DAE}"
+      DTS:DTSID="{A00B524B-016F-4DE6-94B2-416E6CE873FB}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Counter">
@@ -62,7 +51,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{82B246E4-5C31-4C74-ADFB-92D8F7B15455}"
+      DTS:DTSID="{89E74B2A-E732-46B2-86C1-76A601A5A118}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DatabaseTabellnavn">
@@ -71,7 +60,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{AB77CE3D-A306-4342-88CB-17AE2AC9E1F1}"
+      DTS:DTSID="{4DDB6389-437D-490B-8C6A-369F967D2876}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;[dbo].[&quot; + @[User::DatabaseTabellnavn] + &quot;]&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -82,7 +71,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1628AC03-28D1-4671-9A7C-CAA43BF667D4}"
+      DTS:DTSID="{627C76EC-9286-4796-89C9-718710E021D6}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Dimensions">
@@ -91,7 +80,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4F741D61-D31D-459B-96EE-15CAF2E3E54B}"
+      DTS:DTSID="{32905712-1C07-40B2-8C64-49A200F646C2}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ExcelFile">
@@ -100,7 +89,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BF2031E4-0411-492C-A405-88343CC88DF8}"
+      DTS:DTSID="{64DFF0B6-D063-4C89-8FA9-40E1EE4F7AA9}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ExtProperties">
@@ -109,7 +98,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C0EC8A5A-A6F7-4229-9938-54AAA8A6BBDE}"
+      DTS:DTSID="{61F6050F-97A7-4BC1-A855-273F84A2AD3D}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="REPLACE(@[User::Dimensions], &quot;@&quot;, &quot;,&quot;) + &quot;,&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -120,7 +109,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3AD6E22A-DCD4-43C1-81AA-CA777B0BCF41}"
+      DTS:DTSID="{FAB8F142-36B1-4983-AF5C-2029D831D2DC}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;AND &quot; + REPLACE(@[User::Dimensions], &quot;@&quot;, &quot;AND&quot;)"
       DTS:IncludeInDebugDump="2345"
@@ -131,7 +120,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6BDF83B5-9C2F-4764-985B-66AA3D46D62D}"
+      DTS:DTSID="{2F035B40-1647-4815-8D64-F3D41561D8A1}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ForEachFile">
@@ -140,7 +129,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CFA05650-D6CA-4FE1-8526-53663EAC1703}"
+      DTS:DTSID="{A630D049-890E-4910-8762-9C50570BF820}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ForEachFolder">
@@ -149,7 +138,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8CE4B968-1A43-4C2D-93F6-5FE5B2AC7F26}"
+      DTS:DTSID="{41F01D57-EAE2-4D8E-BCCA-0D7F60D1F5D2}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;Select * From &#xA;(&quot; +  @[User::SqlSpørring] +&quot;) [refTable] &#xA;where [refTable].[Kommunenummer] = ? &#xA;and [refTable].[Variabelnavn] = ? &#xA;and [refTable].[År] = ? and [refTable].[Eierforhold] = ?&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -164,7 +153,7 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C679237B-C057-47D8-83C5-696831BCEB1F}"
+      DTS:DTSID="{D7B49385-0C15-492C-9FED-08409566B6D5}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;Select * From [&quot; + @[User::DatabaseTabellnavn] + &quot;]&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -175,7 +164,7 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{33D10254-B292-4DA9-977B-27E42EB8AD14}"
+      DTS:DTSID="{CE225AC0-9A3C-46AC-A4A5-440E89542C07}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;Update &quot; + (DT_WSTR,128)@[User::DestinationTable] + &quot; Set Kommunenummer = ?,&#xA;            Variabelnavn = ?,&#xA;            År = ?, &quot; + (DT_WSTR,128)@[User::ExtraDimensionSelect] + &quot;&#xA; Verdi = ?&#xA; Where Kommunenummer = ?&#xA;AND Variabelnavn = ?&#xA;AND År = ? &quot; + (DT_WSTR,128)@[User::ExtraDimensionWhere]"
       DTS:IncludeInDebugDump="2345"
@@ -197,7 +186,7 @@ AND År = ? AND Eierforhold = ?</DTS:VariableValue>
       DTS:AssignExpression="@Counter = @Counter + 1"
       DTS:CreationName="STOCK:FORLOOP"
       DTS:Description="For Loop Container"
-      DTS:DTSID="{E59BBBED-C7B4-4828-ABB5-CABBC0CD8675}"
+      DTS:DTSID="{4477F2B7-65B7-42D8-B460-1579777162BC}"
       DTS:EvalExpression="@Counter &lt; 2"
       DTS:ExecutableType="STOCK:FORLOOP"
       DTS:InitExpression="@Counter = 0"
@@ -210,7 +199,7 @@ AND År = ? AND Eierforhold = ?</DTS:VariableValue>
           DTS:refId="Package\For Loop Container\Endre variabler"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
-          DTS:DTSID="{01554EC6-E12D-4525-87CD-DC685B75D315}"
+          DTS:DTSID="{2A5662E2-4A64-4F73-94F5-CC5A69F9700D}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Endre variabler"
@@ -262,115 +251,6 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyVersion("1.0.0.0")> 
 <Assembly: AssemblyFileVersion("1.0.0.0")> ]]></ProjectItem>
               <ProjectItem
-                Name="ScriptMain.vb"
-                Encoding="UTF8"><![CDATA[#Region "Help:  Introduction to the script task"
-'The Script Task allows you to perform virtually any operation that can be accomplished in
-'a .Net application within the context of an Integration Services control flow. 
-
-'Expand the other regions which have "Help" prefixes for examples of specific ways to use
-'Integration Services features within this script task.
-#End Region
-
-
-#Region "Imports"
-Imports System
-Imports System.Data
-Imports System.Math
-Imports Microsoft.SqlServer.Dts.Runtime
-#End Region
-
-'ScriptMain is the entry point class of the script.  Do not change the name, attributes,
-'or parent of this class.
-<Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute()> _
-<System.CLSCompliantAttribute(False)> _
-Partial Public Class ScriptMain
-    Inherits Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
-
-#Region "Help:  Using Integration Services variables and parameters in a script"
-    'To use a variable in this script, first ensure that the variable has been added to 
-    'either the list contained in the ReadOnlyVariables property or the list contained in 
-    'the ReadWriteVariables property of this script task, according to whether or not your
-    'code needs to write to the variable.  To add the variable, save this script, close this instance of
-    'Visual Studio, and update the ReadOnlyVariables and 
-    'ReadWriteVariables properties in the Script Transformation Editor window.
-    'To use a parameter in this script, follow the same steps. Parameters are always read-only.
-
-    'Example of reading from a variable:
-    ' startTime = Dts.Variables("System::StartTime").Value
-
-    'Example of writing to a variable:
-    ' Dts.Variables("User::myStringVariable").Value = "new value"
-
-    'Example of reading from a package parameter:
-    ' batchId = Dts.Variables("$Package::batchId").Value
-
-    'Example of reading from a project parameter:
-    ' batchId = Dts.Variables("$Project::batchId").Value
-
-    'Example of reading from a sensitive project parameter:
-    ' batchId = Dts.Variables("$Project::batchId").GetSensitiveValue()
-#End Region
-
-#Region "Help:  Firing Integration Services events from a script"
-    'This script task can fire events for logging purposes.
-
-    'Example of firing an error event:
-    ' Dts.Events.FireError(18, "Process Values", "Bad value", "", 0)
-
-    'Example of firing an information event:
-    ' Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, fireAgain)
-
-    'Example of firing a warning event:
-    ' Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0)
-#End Region
-
-#Region "Help:  Using Integration Services connection managers in a script"
-    'Some types of connection managers can be used in this script task.  See the topic 
-    '"Working with Connection Managers Programatically" for details.
-
-    'Example of using an ADO.Net connection manager:
-    ' Dim rawConnection As Object = Dts.Connections("Sales DB").AcquireConnection(Dts.Transaction)
-    ' Dim myADONETConnection As SqlConnection = CType(rawConnection, SqlConnection)
-    ' <Use the connection in some code here, then release the connection>
-    ' Dts.Connections("Sales DB").ReleaseConnection(rawConnection)
-
-    'Example of using a File connection manager
-    ' Dim rawConnection As Object = Dts.Connections("Prices.zip").AcquireConnection(Dts.Transaction)
-    ' Dim filePath As String = CType(rawConnection, String)
-    ' <Use the connection in some code here, then release the connection>
-    ' Dts.Connections("Prices.zip").ReleaseConnection(rawConnection)
-#End Region
-
-    'This method is called when this script task executes in the control flow.
-    'Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
-    'To open Help, press F1.
-
-    Public Sub Main()
-        '
-        ' Add your code here
-        '
-        Dts.Variables("User::ExcelFile").Value = "\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage\Mal"
-        Dts.Variables("User::DatabaseTabellnavn").Value = "KS_BHG02 Foreldreundersøkelsen i barnehage"
-        Dts.Variables("User::Dimensions").Value = ""
-        Dts.Variables("User::ForEachFolder").Value = "\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage"
-
-        Dts.TaskResult = ScriptResults.Success
-    End Sub
-
-#Region "ScriptResults declaration"
-    'This enum provides a convenient shorthand within the scope of this class for setting the
-    'result of the script.
-
-    'This code was generated automatically.
-    Enum ScriptResults
-        Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success
-        Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
-    End Enum
-
-#End Region
-
-End Class]]></ProjectItem>
-              <ProjectItem
                 Name="My Project\Settings.settings"
                 Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
 <SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="$safeprojectname" GeneratedClassName="MySettings">
@@ -379,6 +259,26 @@ End Class]]></ProjectItem>
   </Profiles>
   <Settings />
 </SettingsFile>]]></ProjectItem>
+              <ProjectItem
+                Name="Project"
+                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>ST_24750a6f1813476c96d910c139ec512e</msb:CodeName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:DisplayName>ST_24750a6f1813476c96d910c139ec512e</msb:DisplayName>
+		<msb:ProjectId>{801D2D22-FD1B-4DBF-AF4C-BA27914FB5BD}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="ST_24750a6f1813476c96d910c139ec512e.vbproj"/>
+		<msb:File Include="My Project\AssemblyInfo.vb"/>
+		<msb:File Include="ScriptMain.vb"/>
+		<msb:File Include="My Project\Resources.resx"/>
+		<msb:File Include="My Project\Resources.Designer.vb"/>
+		<msb:File Include="My Project\Settings.settings"/>
+		<msb:File Include="My Project\Settings.Designer.vb"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
               <ProjectItem
                 Name="My Project\Settings.Designer.vb"
                 Encoding="UTF8"><![CDATA['------------------------------------------------------------------------------
@@ -520,25 +420,114 @@ End Class]]></ProjectItem>
   </ProjectExtensions>
 </Project>]]></ProjectItem>
               <ProjectItem
-                Name="Project"
-                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-	<msb:PropertyGroup>
-		<msb:CodeName>ST_24750a6f1813476c96d910c139ec512e</msb:CodeName>
-		<msb:Language>msBuild</msb:Language>
-		<msb:DisplayName>ST_24750a6f1813476c96d910c139ec512e</msb:DisplayName>
-		<msb:ProjectId>{801D2D22-FD1B-4DBF-AF4C-BA27914FB5BD}</msb:ProjectId>
-	</msb:PropertyGroup>
-	<msb:ItemGroup>
-		<msb:Project Include="ST_24750a6f1813476c96d910c139ec512e.vbproj"/>
-		<msb:File Include="My Project\AssemblyInfo.vb"/>
-		<msb:File Include="ScriptMain.vb"/>
-		<msb:File Include="My Project\Resources.resx"/>
-		<msb:File Include="My Project\Resources.Designer.vb"/>
-		<msb:File Include="My Project\Settings.settings"/>
-		<msb:File Include="My Project\Settings.Designer.vb"/>
-	</msb:ItemGroup>
-</c:Project>]]></ProjectItem>
+                Name="ScriptMain.vb"
+                Encoding="UTF8"><![CDATA[#Region "Help:  Introduction to the script task"
+'The Script Task allows you to perform virtually any operation that can be accomplished in
+'a .Net application within the context of an Integration Services control flow. 
+
+'Expand the other regions which have "Help" prefixes for examples of specific ways to use
+'Integration Services features within this script task.
+#End Region
+
+
+#Region "Imports"
+Imports System
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Runtime
+#End Region
+
+'ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+'or parent of this class.
+<Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute()> _
+<System.CLSCompliantAttribute(False)> _
+Partial Public Class ScriptMain
+    Inherits Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+
+#Region "Help:  Using Integration Services variables and parameters in a script"
+    'To use a variable in this script, first ensure that the variable has been added to 
+    'either the list contained in the ReadOnlyVariables property or the list contained in 
+    'the ReadWriteVariables property of this script task, according to whether or not your
+    'code needs to write to the variable.  To add the variable, save this script, close this instance of
+    'Visual Studio, and update the ReadOnlyVariables and 
+    'ReadWriteVariables properties in the Script Transformation Editor window.
+    'To use a parameter in this script, follow the same steps. Parameters are always read-only.
+
+    'Example of reading from a variable:
+    ' startTime = Dts.Variables("System::StartTime").Value
+
+    'Example of writing to a variable:
+    ' Dts.Variables("User::myStringVariable").Value = "new value"
+
+    'Example of reading from a package parameter:
+    ' batchId = Dts.Variables("$Package::batchId").Value
+
+    'Example of reading from a project parameter:
+    ' batchId = Dts.Variables("$Project::batchId").Value
+
+    'Example of reading from a sensitive project parameter:
+    ' batchId = Dts.Variables("$Project::batchId").GetSensitiveValue()
+#End Region
+
+#Region "Help:  Firing Integration Services events from a script"
+    'This script task can fire events for logging purposes.
+
+    'Example of firing an error event:
+    ' Dts.Events.FireError(18, "Process Values", "Bad value", "", 0)
+
+    'Example of firing an information event:
+    ' Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, fireAgain)
+
+    'Example of firing a warning event:
+    ' Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0)
+#End Region
+
+#Region "Help:  Using Integration Services connection managers in a script"
+    'Some types of connection managers can be used in this script task.  See the topic 
+    '"Working with Connection Managers Programatically" for details.
+
+    'Example of using an ADO.Net connection manager:
+    ' Dim rawConnection As Object = Dts.Connections("Sales DB").AcquireConnection(Dts.Transaction)
+    ' Dim myADONETConnection As SqlConnection = CType(rawConnection, SqlConnection)
+    ' <Use the connection in some code here, then release the connection>
+    ' Dts.Connections("Sales DB").ReleaseConnection(rawConnection)
+
+    'Example of using a File connection manager
+    ' Dim rawConnection As Object = Dts.Connections("Prices.zip").AcquireConnection(Dts.Transaction)
+    ' Dim filePath As String = CType(rawConnection, String)
+    ' <Use the connection in some code here, then release the connection>
+    ' Dts.Connections("Prices.zip").ReleaseConnection(rawConnection)
+#End Region
+
+    'This method is called when this script task executes in the control flow.
+    'Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+    'To open Help, press F1.
+
+    Public Sub Main()
+        '
+        ' Add your code here
+        '
+        Dts.Variables("User::ExcelFile").Value = "\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage\Mal"
+        Dts.Variables("User::DatabaseTabellnavn").Value = "KS_BHG02 Foreldreundersøkelsen i barnehage"
+        Dts.Variables("User::Dimensions").Value = ""
+        Dts.Variables("User::ForEachFolder").Value = "\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage"
+
+        Dts.TaskResult = ScriptResults.Success
+    End Sub
+
+#Region "ScriptResults declaration"
+    'This enum provides a convenient shorthand within the scope of this class for setting the
+    'result of the script.
+
+    'This code was generated automatically.
+    Enum ScriptResults
+        Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success
+        Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+    End Enum
+
+#End Region
+
+End Class]]></ProjectItem>
               <ProjectItem
                 Name="My Project\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -900,14 +889,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           DTS:refId="Package\For Loop Container\Les barn per ansatt"
           DTS:CreationName="STOCK:FOREACHLOOP"
           DTS:Description="Foreach Loop Container"
-          DTS:DTSID="{E32B88FA-F29F-44D5-92B2-A998ADCDBB13}"
+          DTS:DTSID="{3B05DEC2-6FFA-4C35-A3D0-8833C88A1660}"
           DTS:ExecutableType="STOCK:FOREACHLOOP"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les barn per ansatt">
           <DTS:ForEachEnumerator
             DTS:CreationName="Microsoft.ForEachFileEnumerator"
-            DTS:DTSID="{02C7278F-85DF-46C8-A4AE-89DE8292AD84}"
-            DTS:ObjectName="{02C7278F-85DF-46C8-A4AE-89DE8292AD84}">
+            DTS:DTSID="{2C536643-9F25-400E-89E7-26A610E5BC4E}"
+            DTS:ObjectName="{2C536643-9F25-400E-89E7-26A610E5BC4E}">
             <DTS:PropertyExpression
               DTS:Name="Directory">@[User::ForEachFolder]</DTS:PropertyExpression>
             <DTS:PropertyExpression
@@ -931,224 +920,24 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
               DTS:refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel"
               DTS:CreationName="Microsoft.Pipeline"
               DTS:Description="Data Flow Task"
-              DTS:DTSID="{F00212C2-4AC7-4EAD-A10E-726E59336648}"
+              DTS:DTSID="{63981C82-6D31-41DE-94F9-A993D6675DD0}"
               DTS:ExecutableType="Microsoft.Pipeline"
               DTS:LocaleID="-1"
               DTS:ObjectName="Les inn data fra Excel"
               DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
               <DTS:Variables />
               <DTS:PropertyExpression
-                DTS:Name="[Oppdater nye verdier uten sammenligning].[SqlCommand]">@[User::UpdateSpørring]</DTS:PropertyExpression>
-              <DTS:PropertyExpression
                 DTS:Name="[Oppdaterte nye verdier].[SqlCommand]">@[User::UpdateSpørring]</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="[Sjekk tabellen i databasen].[SqlCommand]">@[User::SqlSpørring]</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="[Sjekk tabellen i databasen].[SqlCommandParam]">@[User::SqlParamSpørring]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="[Oppdater nye verdier uten sammenligning].[SqlCommand]">@[User::UpdateSpørring]</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
                   version="1">
                   <components>
-                    <component
-                      refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte"
-                      componentClassID="Microsoft.ExcelSource"
-                      contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                      description="Excel Source"
-                      name="Bemanning per ansatte"
-                      usesDispositions="true"
-                      version="1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                          name="CommandTimeout">0</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the name of the database object used to open a rowset."
-                          name="OpenRowset"></property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the variable that contains the name of the database object used to open a rowset."
-                          name="OpenRowsetVariable">User::Arknavn</property>
-                        <property
-                          dataType="System.String"
-                          description="The SQL command to be executed."
-                          name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select * From [Til databasen$]</property>
-                        <property
-                          dataType="System.String"
-                          description="The variable that contains the SQL command to be executed."
-                          name="SqlCommandVariable"></property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the mode used to access the database."
-                          name="AccessMode"
-                          typeConverter="AccessMode">2</property>
-                        <property
-                          dataType="System.String"
-                          description="The mapping from parameters in the SQL command to variables."
-                          name="ParameterMapping"></property>
-                      </properties>
-                      <connections>
-                        <connection
-                          refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Connections[OleDbConnection]"
-                          connectionManagerID="Package.ConnectionManagers[Mal]"
-                          connectionManagerRefId="Package.ConnectionManagers[Mal]"
-                          description="The OLE DB runtime connection used to access the database."
-                          name="OleDbConnection" />
-                      </connections>
-                      <outputs>
-                        <output
-                          refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output]"
-                          name="Excel Source Output">
-                          <outputColumns>
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kommunenummer]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Kommunenummer]"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kommunenummer]"
-                              name="Kommunenummer"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Variabelnavn]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Variabelnavn]"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Variabelnavn]"
-                              name="Variabelnavn"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kilde]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Kilde]"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kilde]"
-                              name="Kilde"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]"
-                              dataType="r8"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Verdi]"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]"
-                              name="Verdi"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[År]"
-                              dataType="r8"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[År]"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[År]"
-                              name="År"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Eierforhold]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Eierforhold]"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Eierforhold]"
-                              name="Eierforhold"
-                              truncationRowDisposition="FailComponent" />
-                          </outputColumns>
-                          <externalMetadataColumns
-                            isUsed="True">
-                            <externalMetadataColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Kommunenummer]"
-                              dataType="wstr"
-                              length="255"
-                              name="Kommunenummer" />
-                            <externalMetadataColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Variabelnavn]"
-                              dataType="wstr"
-                              length="255"
-                              name="Variabelnavn" />
-                            <externalMetadataColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Kilde]"
-                              dataType="wstr"
-                              length="255"
-                              name="Kilde" />
-                            <externalMetadataColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Verdi]"
-                              dataType="r8"
-                              name="Verdi" />
-                            <externalMetadataColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[År]"
-                              dataType="r8"
-                              name="År" />
-                            <externalMetadataColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].ExternalColumns[Eierforhold]"
-                              dataType="wstr"
-                              length="255"
-                              name="Eierforhold" />
-                          </externalMetadataColumns>
-                        </output>
-                        <output
-                          refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output]"
-                          isErrorOut="true"
-                          name="Excel Source Error Output">
-                          <outputColumns>
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                              dataType="i4"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                              name="ErrorCode"
-                              specialFlags="1" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                              dataType="i4"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                              name="ErrorColumn"
-                              specialFlags="2" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Kommunenummer]"
-                              dataType="wstr"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Kommunenummer]"
-                              name="Kommunenummer" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Variabelnavn]"
-                              dataType="wstr"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Variabelnavn]"
-                              name="Variabelnavn" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Kilde]"
-                              dataType="wstr"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Kilde]"
-                              name="Kilde" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Verdi]"
-                              dataType="r8"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Verdi]"
-                              name="Verdi" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[År]"
-                              dataType="r8"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[År]"
-                              name="År" />
-                            <outputColumn
-                              refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Eierforhold]"
-                              dataType="wstr"
-                              length="255"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Error Output].Columns[Eierforhold]"
-                              name="Eierforhold" />
-                          </outputColumns>
-                          <externalMetadataColumns />
-                        </output>
-                      </outputs>
-                    </component>
                     <component
                       refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion"
                       componentClassID="Microsoft.DataConvert"
@@ -1166,30 +955,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Kommunenummer"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kommunenummer]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\235:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Variabelnavn]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Variabelnavn"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Variabelnavn]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\236:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Kilde]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Kilde"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kilde]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\237:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Inputs[Data Conversion Input].Columns[År]"
                               cachedDataType="r8"
                               cachedName="År"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[År]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\238:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Eierforhold]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Eierforhold"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Eierforhold]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\239:invalid" />
                           </inputColumns>
                           <externalMetadataColumns />
                         </input>
@@ -1216,7 +1005,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Specifies the input column used as the source of data for the conversion."
-                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kommunenummer]}</property>
+                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\235:invalid}</property>
                                 <property
                                   dataType="System.Boolean"
                                   description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1238,7 +1027,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Specifies the input column used as the source of data for the conversion."
-                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Variabelnavn]}</property>
+                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\236:invalid}</property>
                                 <property
                                   dataType="System.Boolean"
                                   description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1260,7 +1049,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Specifies the input column used as the source of data for the conversion."
-                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kilde]}</property>
+                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\237:invalid}</property>
                                 <property
                                   dataType="System.Boolean"
                                   description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1280,7 +1069,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Specifies the input column used as the source of data for the conversion."
-                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[År]}</property>
+                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\238:invalid}</property>
                                 <property
                                   dataType="System.Boolean"
                                   description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1302,7 +1091,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Specifies the input column used as the source of data for the conversion."
-                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Eierforhold]}</property>
+                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\239:invalid}</property>
                                 <property
                                   dataType="System.Boolean"
                                   description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1413,7 +1202,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               cachedDataType="r8"
                               cachedName="Verdi"
                               externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Destinasjonstabell.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Destinasjonstabell.Inputs[OLE DB Destination Input].Columns[Conv_Kommunenummer]"
                               cachedCodepage="1252"
@@ -1535,7 +1324,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Kommunenummer"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kommunenummer]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\235:invalid" />
                           </inputColumns>
                           <externalMetadataColumns />
                         </input>
@@ -1555,7 +1344,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               containsID="true"
                               dataType="System.String"
                               description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                              name="Expression">![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kommunenummer]}) &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Kommunenummer]} != "Tekst"</property>
+                              name="Expression">![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\235:invalid}) &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\235:invalid} != "Tekst"</property>
                             <property
                               containsID="true"
                               dataType="System.String"
@@ -1688,7 +1477,7 @@ AND År = ? AND Eierforhold = ?</property>
                               cachedDataType="r8"
                               cachedName="Verdi"
                               externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdater nye verdier uten sammenligning.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdater nye verdier uten sammenligning.Inputs[OLE DB Command Input].Columns[LkUp_Kommunenummer]"
                               cachedCodepage="1252"
@@ -1953,7 +1742,7 @@ AND År = ? AND Eierforhold = ?</property>
                               cachedDataType="r8"
                               cachedName="Verdi"
                               externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdaterte nye verdier.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdaterte nye verdier.Inputs[OLE DB Command Input].Columns[Conv_År]"
                               cachedDataType="i4"
@@ -2150,7 +1939,7 @@ AND År = ? AND Eierforhold = ?</property>
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sammenlign verdier.Inputs[Conditional Split Input].Columns[Verdi]"
                               cachedDataType="r8"
                               cachedName="Verdi"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sammenlign verdier.Inputs[Conditional Split Input].Columns[Conv_Kommunenummer]"
                               cachedCodepage="1252"
@@ -2215,7 +2004,7 @@ AND År = ? AND Eierforhold = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                              name="Expression">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Kommunenummer]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Kommunenummer]} &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_År]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_År]} &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Eierforhold]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Eierforhold]} &amp;&amp; (DT_NUMERIC,18,1)#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]} != #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Verdi]}</property>
+                              name="Expression">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Kommunenummer]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Kommunenummer]} &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_År]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_År]} &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Eierforhold]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Eierforhold]} &amp;&amp; (DT_NUMERIC,18,1)#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid} != #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Verdi]}</property>
                             <property
                               containsID="true"
                               dataType="System.String"
@@ -2268,6 +2057,881 @@ AND År = ? AND Eierforhold = ?</property>
                       </outputs>
                     </component>
                     <component
+                      refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Script Component"
+                      componentClassID="Microsoft.ManagedComponentHost"
+                      contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;11"
+                      description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+                      name="Script Component"
+                      version="11">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Stores the source code of the component"
+                          isArray="true"
+                          name="SourceCode"
+                          state="cdata">
+                          <arrayElements
+                            arrayElementCount="30">
+                            <arrayElement
+                              dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data.OleDb;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+        String strExcelConn = "Provider=Microsoft.ACE.OLEDB.12.0;";
+        strExcelConn += "Data Source=" + Variables.ExcelFile + ";";
+        strExcelConn += Variables.ExtProperties;
+
+        OleDbConnection connExcel = new OleDbConnection(strExcelConn);
+        OleDbCommand cmdExcel = new OleDbCommand();
+
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    public override void CreateNewOutputRows()
+    {
+        /*
+          Add rows by calling the AddRow method on the member variable named "<Output Name>Buffer".
+          For example, call MyOutputBuffer.AddRow() if your output was named "MyOutput".
+        */
+    }
+
+}
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[SC_6adec7426cdc4b74b29f58beb67bbc11.csproj]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{06f2b7f4-b326-4a40-80c0-be32441c4a8e}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_6adec7426cdc4b74b29f58beb67bbc11</RootNamespace>
+    <AssemblyName>SC_6adec7426cdc4b74b29f58beb67bbc11</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptComponent" GeneratedNamespace="SC_6adec7426cdc4b74b29f58beb67bbc11" IconIndex="0"></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC130</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Output0Buffer: ScriptBuffer
+
+{
+    public Output0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    new public void AddRow()
+    {
+        base.AddRow();
+    }
+
+    new public void SetEndOfRowset()
+    {
+        base.SetEndOfRowset();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6adec7426cdc4b74b29f58beb67bbc11.Properties.Settings.get_Default():SC_6adec7426cdc4b74b29f58beb67bbc11.Properties.Sett" +
+    "ings")]
+
+namespace SC_6adec7426cdc4b74b29f58beb67bbc11.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public Output0Buffer Output0Buffer;
+
+    public virtual void FinishOutputs()
+    {
+    }
+
+    private void MarkOutputsFinished()
+    {
+
+        if (null != Output0Buffer)
+        {
+            Output0Buffer.SetEndOfRowset();
+            Output0Buffer = null;
+        }
+
+    }
+
+    public override void PrimeOutput(int Outputs, int[] OutputIDs, PipelineBuffer[] Buffers, OutputNameMap OutputMap)
+    {
+       for(int Idx = 0; Idx < Outputs; Idx++)
+       {
+            if(OutputIDs[Idx] == GetOutputID(OutputMap, @"Output 0"))
+            {
+                Output0Buffer = new Output0Buffer(Buffers[Idx], GetColumnIndexes(OutputIDs[Idx]), OutputMap);
+            }
+        }
+
+        CreateNewOutputRows();
+
+        FinishOutputs();
+        MarkOutputsFinished();
+
+    }
+
+    public virtual void CreateNewOutputRows()
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+    public String ExcelFile
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["ExcelFile"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+    public String ExtProperties
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["ExtProperties"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+}
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Project]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:Language>msBuild</msb:Language>
+		<msb:CodeName>SC_6adec7426cdc4b74b29f58beb67bbc11</msb:CodeName>
+		<msb:DisplayName>SC_6adec7426cdc4b74b29f58beb67bbc11</msb:DisplayName>
+		<msb:ProjectId>{64D409A7-A286-4480-8ADE-B26EEA71CDA6}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="SC_6adec7426cdc4b74b29f58beb67bbc11.csproj"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="BufferWrapper.cs"/>
+		<msb:File Include="main.cs"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="ComponentWrapper.cs"/>
+	</msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_6adec7426cdc4b74b29f58beb67bbc11")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_6adec7426cdc4b74b29f58beb67bbc11")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6adec7426cdc4b74b29f58beb67bbc11.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6adec7426cdc4b74b29f58beb67bbc11.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6adec7426cdc4b74b29f58beb67bbc11.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_6adec7426cdc4b74b29f58beb67bbc11.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_6adec7426cdc4b74b29f58beb67bbc11.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                          </arrayElements>
+                        </property>
+                        <property
+                          dataType="System.String"
+                          description="Stores the binary representation of the component"
+                          isArray="true"
+                          name="BinaryCode"
+                          state="cdata">
+                          <arrayElements
+                            arrayElementCount="2">
+                            <arrayElement
+                              dataType="System.String"><![CDATA[SC_6adec7426cdc4b74b29f58beb67bbc11.dll]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAH1PsV4AAAAAAAAAAOAAIiALATAAABQAAAAIAAAAAAAAGjMA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAMgyAABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAIBMAAAAgAAAAFAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAWAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAHAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAD8
+MgAAAAAAAEgAAAACAAUAMCIAAOAPAAABAAAAAAAAABAyAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwBABCAAAAAAAAAAIoEAAACnIBAABwckcAAHACewIAAARv
+EAAABnJhAABwKBEAAAoCewIAAARvEQAABigSAAAKcxMAAAomcxQAAAomKh4CKBUAAAoqBioeAigJ
+AAAGKioCAwQFKBYAAAoqHgIoFwAACioeAigYAAAKKh4CKBkAAAoqfgIoGgAACgICcw4AAAZ9AQAA
+BAICcw8AAAZ9AgAABCpuAnsDAAAELBICewMAAARvBwAABgIUfQMAAAQqABMwBQBJAAAAAQAAERYK
+Ky4EBpQOBHJlAABwKBsAAAozGQIFBpoCBAaUKBwAAAoOBHMFAAAGfQMAAAQGF1gKBgMyzgJvDQAA
+BgJvCgAABgIoCwAABio6AigdAAAKAgN9BAAABCo6AigdAAAKAgN9BQAABCqWAnsFAAAEbx4AAApy
+dwAAcG8fAAAKKCAAAApvIQAACnQaAAABKpYCewUAAARvHgAACnKLAABwbx8AAAooIAAACm8hAAAK
+dBoAAAEqHgIoHQAACiqufgYAAAQtHnKnAABw0AcAAAIoIgAACm8jAAAKcyQAAAqABgAABH4GAAAE
+Khp+BwAABCoeAoAHAAAEKhp+CAAABCoeAiglAAAKKi5zFwAABoAIAAAEKgAAAEJTSkIBAAEAAAAA
+AAwAAAB2NC4wLjMwMzE5AAAAAAUAbAAAAIgFAAAjfgAA9AUAABQHAAAjU3RyaW5ncwAAAAAIDQAA
+HAEAACNVUwAkDgAAEAAAACNHVUlEAAAANA4AAKwBAAAjQmxvYgAAAAAAAAACAAABVxWiAQkBAAAA
++gEzABYAAAEAAAAjAAAACAAAAAgAAAAYAAAACgAAACUAAAAQAAAAAQAAAAMAAAAFAAAABgAAAAEA
+AAAGAAAAAQAAAAAAagMBAAAAAAAGAGQC3AQGAPgC3AQGALAByQQPAFAFAAAGAN0B4wMGAEcC4wMG
+ACgC4wMGAN8C4wMGAIQC4wMGAJ0C4wMGAPQB4wMGAA8CMwMKALgC/QAKAGkE/QAOAFoE/QAKABEE
+/QAKAGEG/QAGACEGmwMGAJMByQQGAHoE/AQGAAUEzgMSAGMBVAMSAMQBVAMSAEsBuQMGAHgB3AQG
+AE0DmwMWAPUDfwAWAK4AfwAaABEAigQaAAEAigRHAM8GAAAaACIAigQGAB4BmwMGAMsAmwMGAAoH
+4wMAAAAAXgAAAAAAAQABAAEAEACuAwAAEAABAAEAAQAQAEwEAAA5AAEABQABABAAQwYAAEUAAQAJ
+AAEAEADkBQAASQAEAA4AAQAQAKwFAABJAAUADwAAABAAAwVfBUkABgASAAABEADbBV8FYQAIABYA
+BgDkBYgABgCsBYwABgBMBJAAAQBRBpQAAQBRBpQAEQCiA5gAEQA7AZwAEQC7AKAAUCAAAAAAxgAW
+AwYAAQCeIAAAAADGACEDBgABAKYgAAAAAMYABgYGAAEAqCAAAAAAhhiyBAYAAQCwIAAAAACGGLIE
+KQABALsgAAAAAIYA/wYGAAQAwyAAAAAAhgAoBgYABADLIAAAAACGACsGMwAEANMgAAAAAIYYsgQG
+AAQApiAAAAAAxgH4BQYABADzIAAAAACBAJoABgAEABAhAAAAAMYArwakAAQApiAAAAAAxgEGBgYA
+CABlIQAAAACGGLIEsAAIAHQhAAAAAIYYsgSwAAkAgyEAAAAAhgjvALYACgCpIQAAAACGCI4FtgAK
+AM8hAAAAAIMYsgQGAAoA1yEAAAAAkwh2BLoACgADIgAAAACTCCMBvwAKAAoiAAAAAJMILwHEAAoA
+EiIAAAAAlgg3BsoACwAZIgAAAACGGLIEBgALACEiAAAAAJEYuATPAAsAAAABAG8EAAACALYFAAAD
+AB8EAAABAP4FAAACAL8EAAADAPAFAAAEAB8EAAABAGcGAAABAGcGAAABAC0DCQCyBAEAEQCyBAYA
+GQCyBAoAKQCyBBAAMQCyBBAAOQCyBBAAQQCyBBAASQCyBBAAUQCyBBAAWQCyBBAAYQCyBBAAaQCy
+BAYAmQCyBAYAuQCyBBUAyQCyBAYAiQAWAwYA0QAaBhsA0QAaBiMA2QCyBBAA4QCyBAYAiQAhAwYA
+cQCyBCkAcQD/BgYAcQAoBgYAcQArBjMAiQCyBAYAiQBnADsAiQDKBUIAkQCyBAYAiQCgBUgA6QCS
+A00AiQDqBlMA8QC7BlgACQHdAF8ACQEGB2gAoQCyBG4AwQCyBAYALgALAOYALgATAO8ALgAbAA4B
+LgAjABcBLgArAEABLgAzAEABLgA7AEABLgBDABcBLgBLAEYBLgBTAEABLgBbAF0BQwBjAKcBaQBz
+AA4BiQBzAA4B4wBrAKcBAQF7AKcBNwAGAAEABwADAAgABQAAAPMA0wAAAJIF0wAAAHoE1wAAAEMB
+3AAAADsG4QACABAAAwACABEABQACABMABwACABQACQABABUACQACABYACwAEgAAAAQAAAAAAAAAA
+AAAAAAA6AAAABAAAAAAAAAAAAAAAdgCRAAAAAAAOAAAAAAAAAAAAAAB/AHEGAAAAAA4AAAAAAAAA
+AAAAAH8AjgYAAAAABAAAAAAAAAAAAAAAdgCbAwAAAAAEAAAAAAAAAAAAAAB2AHMAAAAAAA4AAAAA
+AAAAAAAAAH8AKQQAAAAAAAAAAAEAAAANBQAAAAAAAABJRFRTVmFyaWFibGUxMDAASURUU1Zhcmlh
+YmxlczEwMABJRFRTRXZhbHVhdG9yQ29udGV4dDEwMABTQ182YWRlYzc0MjZjZGM0Yjc0YjI5ZjU4
+YmViNjdiYmMxMQA8TW9kdWxlPgBHZXRPdXRwdXRJRABTeXN0ZW0uRGF0YQBTeXN0ZW0uRGF0YS5P
+bGVEYgBtc2NvcmxpYgBNYXJrT3V0cHV0c0ZpbmlzaGVkAE9sZURiQ29tbWFuZABkZWZhdWx0SW5z
+dGFuY2UAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUAZ2V0X0V4Y2VsRmlsZQBN
+aWNyb3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZQBUeXBlAGdldF9DdWx0dXJlAHNldF9DdWx0
+dXJlAHJlc291cmNlQ3VsdHVyZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2Fi
+bGVTdGF0ZQBDb21waWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0
+cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2Vt
+Ymx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3
+b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2Ny
+aXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQ
+cm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRDb21w
+b25lbnRFbnRyeVBvaW50QXR0cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1l
+Q29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBQcmVFeGVjdXRlAFBvc3RFeGVjdXRlAHZhbHVlAFN5c3Rl
+bS5SdW50aW1lLlZlcnNpb25pbmcAU3RyaW5nAFN5c3RlbS5Db21wb25lbnRNb2RlbABTQ182YWRl
+Yzc0MjZjZGM0Yjc0YjI5ZjU4YmViNjdiYmMxMS5kbGwAZ2V0X0l0ZW0AU3lzdGVtAHJlc291cmNl
+TWFuAFNjcmlwdE1haW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24A
+U3lzdGVtLlJlZmxlY3Rpb24AT2xlRGJDb25uZWN0aW9uAEN1bHR1cmVJbmZvAE91dHB1dE5hbWVN
+YXAAT3V0cHV0TWFwAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRFRTUnVudGltZVdyYXAAT3V0cHV0MEJ1
+ZmZlcgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFuYWdlcgBNaWNy
+b3NvZnQuU3FsU2VydmVyLkR0cy5SdW50aW1lLldyYXBwZXIALmN0b3IALmNjdG9yAE91dHB1dElE
+cwBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0
+ZW0uUmVzb3VyY2VzAFNDXzZhZGVjNzQyNmNkYzRiNzRiMjlmNThiZWI2N2JiYzExLlByb3BlcnRp
+ZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTQ182YWRlYzc0MjZjZGM0Yjc0
+YjI5ZjU4YmViNjdiYmMxMS5Qcm9wZXJ0aWVzAGdldF9FeHRQcm9wZXJ0aWVzAGdldF9SZWFkT25s
+eVZhcmlhYmxlcwBCdWZmZXJDb2x1bW5JbmRleGVzAEdldENvbHVtbkluZGV4ZXMAU2V0dGluZ3MA
+Q29ubmVjdGlvbnMAQnVmZmVycwBGaW5pc2hPdXRwdXRzAENyZWF0ZU5ld091dHB1dFJvd3MAQ29u
+Y2F0AE9iamVjdABTZXRFbmRPZlJvd3NldABnZXRfRGVmYXVsdABVc2VyQ29tcG9uZW50AFBhcmVu
+dENvbXBvbmVudABTY3JpcHRDb21wb25lbnQATWljcm9zb2Z0LlNxbFNlcnZlci5UeFNjcmlwdABN
+aWNyb3NvZnQuU3FsU2VydmVyLlBpcGVsaW5lSG9zdABQcmltZU91dHB1dABHZXRWYWx1ZVdpdGhD
+b250ZXh0AFNjcmlwdENvbXBvbmVudEV2YWxDb250ZXh0AGdldF9FdmFsdWF0b3JDb250ZXh0AEFk
+ZFJvdwBnZXRfQXNzZW1ibHkAAABFUAByAG8AdgBpAGQAZQByAD0ATQBpAGMAcgBvAHMAbwBmAHQA
+LgBBAEMARQAuAE8ATABFAEQAQgAuADEAMgAuADAAOwAAGUQAYQB0AGEAIABTAG8AdQByAGMAZQA9
+AAADOwAAEU8AdQB0AHAAdQB0ACAAMAAAE0UAeABjAGUAbABGAGkAbABlAAAbRQB4AHQAUAByAG8A
+cABlAHIAdABpAGUAcwAAcVMAQwBfADYAYQBkAGUAYwA3ADQAMgA2AGMAZABjADQAYgA3ADQAYgAy
+ADkAZgA1ADgAYgBlAGIANgA3AGIAYgBjADEAMQAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUA
+cwBvAHUAcgBjAGUAcwAAAAAAB34FOZYHWUmIBNahAE0e+gAEIAEBCAMgAAEFIAEBEREEIAEBDgUg
+AQERWQcABA4ODg4OBQACDg4OCSADARI9HQgSQQMgAAIDBwEIBgACCBJBDgUgAR0ICAQgABJ1BSAB
+EnkcBAAAEn0GIAEcEoCBCAABEoCFEYCJBSAAEoCNByACAQ4SgI0It3pcVhk04IkIiYRdzYCAzJED
+BhIUAwYSGAMGEgwDBhJFAwYSUQMGElUDBhIgCyAEAQgdCB0SPRJBBSABARJFAyAADgQAABJRBAAA
+ElUFAAEBElUEAAASIAMAAAEDKAAOBAgAElEECAASVQQIABIgCAEACAAAAAAAHgEAAQBUAhZXcmFw
+Tm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTQ182YWRlYzc0MjZjZGM0Yjc0YjI5ZjU4
+YmViNjdiYmMxMQAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJAQAaLk5FVEZyYW1ld29y
+ayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQu
+NQQBAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBt
+c2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
+PWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAA
+AAAAAAAAAABQQURQQURQtAAAAPAyAAAAAAAAAAAAAAozAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAD8MgAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAA
+SAAAAFhAAADsAwAAAAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAA
+AAAAvQTv/gAAAQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQA
+AAABAFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBu
+AAAAAAAAALAETAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAA
+MAAwADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBu
+AHkATgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAA
+AABTAEMAXwA2AGEAZABlAGMANwA0ADIANgBjAGQAYwA0AGIANwA0AGIAMgA5AGYANQA4AGIAZQBi
+ADYANwBiAGIAYwAxADEAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4A
+MAAuADAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfADYAYQBkAGUAYwA3
+ADQAMgA2AGMAZABjADQAYgA3ADQAYgAyADkAZgA1ADgAYgBlAGIANgA3AGIAYgBjADEAMQAuAGQA
+bABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBo
+AHQAIABAACAAIAAyADAAMgAwAAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMA
+AAAAAAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8ANgBh
+AGQAZQBjADcANAAyADYAYwBkAGMANABiADcANABiADIAOQBmADUAOABiAGUAYgA2ADcAYgBiAGMA
+MQAxAC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfADYAYQBk
+AGUAYwA3ADQAMgA2AGMAZABjADQAYgA3ADQAYgAyADkAZgA1ADgAYgBlAGIANgA3AGIAYgBjADEA
+MQAAADQACAABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4
+AAgAAQBBAHMAcwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAHDMAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                          </arrayElements>
+                        </property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                          name="VSTAProjectName"
+                          typeConverter="NOTBROWSABLE">SC_6adec7426cdc4b74b29f58beb67bbc11</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the programming language used by the script."
+                          name="ScriptLanguage"
+                          typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a comma-separated list of read-only variables."
+                          name="ReadOnlyVariables"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg">User::ExcelFile,User::ExtProperties</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a comma-separated list of read/write variables."
+                          name="ReadWriteVariables"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                        <property
+                          dataType="System.String"
+                          description="List of breakpoints present on the script."
+                          isArray="true"
+                          name="BreakpointCollection"
+                          typeConverter="NOTBROWSABLE">
+                          <arrayElements
+                            arrayElementCount="0" />
+                        </property>
+                        <property
+                          dataType="System.String"
+                          description="Checksum to match component metedata against compiled codes."
+                          name="MetadataChecksum140"
+                          typeConverter="NOTBROWSABLE">C4</property>
+                        <property
+                          dataType="System.String"
+                          name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+                      </properties>
+                      <outputs>
+                        <output
+                          refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Script Component.Outputs[Output 0]"
+                          hasSideEffects="true"
+                          name="Output 0">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
                       refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk etter null verdier"
                       componentClassID="Microsoft.ConditionalSplit"
                       contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -2284,7 +2948,7 @@ AND År = ? AND Eierforhold = ?</property>
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk etter null verdier.Inputs[Conditional Split Input].Columns[Verdi]"
                               cachedDataType="r8"
                               cachedName="Verdi"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk etter null verdier.Inputs[Conditional Split Input].Columns[LkUp_Verdi]"
                               cachedDataType="numeric"
@@ -2311,7 +2975,7 @@ AND År = ? AND Eierforhold = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                              name="Expression">![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output].Columns[Verdi]}) &amp;&amp; ![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Verdi]})</property>
+                              name="Expression">![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid}) &amp;&amp; ![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Verdi]})</property>
                             <property
                               containsID="true"
                               dataType="System.String"
@@ -2649,11 +3313,6 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
                       name="Data Conversion Output"
                       startId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output]" />
                     <path
-                      refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel.Paths[Excel Source Output]"
-                      endId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Inputs[Data Conversion Input]"
-                      name="Excel Source Output"
-                      startId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte.Outputs[Excel Source Output]" />
-                    <path
                       refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel.Paths[Ingen nullverdier]"
                       endId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sammenlign verdier.Inputs[Conditional Split Input]"
                       name="Ingen nullverdier"
@@ -2691,8 +3350,8 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{BE0378A3-9FF7-48C4-97DC-D1308D4586CA}"
-              DTS:ObjectName="{BE0378A3-9FF7-48C4-97DC-D1308D4586CA}"
+              DTS:DTSID="{4254BC30-77DD-4928-B422-BAAC143EE076}"
+              DTS:ObjectName="{4254BC30-77DD-4928-B422-BAAC143EE076}"
               DTS:ValueIndex="0"
               DTS:VariableName="User::ExcelFile" />
           </DTS:ForEachVariableMappings>
@@ -2702,7 +3361,7 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\For Loop Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{02062F09-BCE7-44EB-9451-58D94D92FD86}"
+          DTS:DTSID="{DFAA4990-CD96-4811-A43F-27E0C0CA860A}"
           DTS:From="Package\For Loop Container\Les barn per ansatt"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -2776,7 +3435,7 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
     design-time-name="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion"
@@ -2805,10 +3464,6 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
           Size="139.333333333334,42.6666666666667"
           Id="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Fjern malrad"
           TopLeft="315.83332862705,107.299998582005" />
-        <NodeLayout
-          Size="189.333333333334,42.6666666666667"
-          Id="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte"
-          TopLeft="71.66666559875,27.1333333488305" />
         <NodeLayout
           Size="189.333333333334,42.6666666666667"
           Id="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdaterte nye verdier"
@@ -2845,7 +3500,7 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-34.4445442770421,26.5166660196585,77.722421875,11.609375"
+              BoundingBox="-34.4445442770421,26.5166660196585,95.0446875,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2881,7 +3536,7 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-10.450357936323,25.9166659111781,48.5673828125,9.7490234375"
+              BoundingBox="-10.450357936323,25.9166659111781,66.3046875,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2905,7 +3560,7 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-107.76471800007,5,111.6127734375,11.609375"
+              BoundingBox="-107.76471800007,5,129.350078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2929,7 +3584,7 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,14.7453119343517,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,14.7453119343517,114.120078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2953,30 +3608,8 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-73.0769577696672,5,76.5705859375,11.6630859375"
+              BoundingBox="-73.0769577696672,5,94.0246875,16"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel.Paths[Excel Source Output]"
-          TopLeft="260.999998932083,49.766666658918">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="51.9166630717618,0"
-              Start="0,0"
-              End="44.4166630717618,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="44.4166630717618,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3025,6 +3658,10 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Script Component"
+          TopLeft="44.5833326689899,31.6333327676853" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -3053,14 +3690,6 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Destinasjonstabell">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Bemanning per ansatte">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
