@@ -7,7 +7,7 @@
   DTS:CreatorName="KSINT\axel.hjelmervik.hansen"
   DTS:DTSID="{0D450A78-87DC-43C6-8914-CE2B0BEDDE6D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1044"
   DTS:ObjectName="Manuelle Data - Grunnskole"
   DTS:PackageType="5"
@@ -289,7 +289,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -468,7 +468,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -501,9 +501,15 @@
                   </properties>
                   <connections>
                     <connection
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Grunnskole.dtsx
                       refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_Eksamensresultater.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+=======
+                      refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Connections[OleDbConnection]"
+                      connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                      connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Grunnskole.dtsx
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -799,7 +805,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -978,7 +984,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1011,9 +1017,15 @@
                   </properties>
                   <connections>
                     <connection
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Grunnskole.dtsx
                       refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_Elevundersøkelsen.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+=======
+                      refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Connections[OleDbConnection]"
+                      connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                      connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Grunnskole.dtsx
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1309,7 +1321,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1342,9 +1354,15 @@
                   </properties>
                   <connections>
                     <connection
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Grunnskole.dtsx
                       refId="Package\Grunnskole\Les Ressurser til databasen\KS_Ressurser grunnskole.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+=======
+                      refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Connections[OleDbConnection]"
+                      connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                      connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Grunnskole.dtsx
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1476,7 +1494,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -1909,7 +1927,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -2103,7 +2121,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2136,9 +2154,15 @@
                   </properties>
                   <connections>
                     <connection
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Grunnskole.dtsx
                       refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_Nasjonale prøver 5 trinn.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+=======
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Connections[OleDbConnection]"
+                      connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                      connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Grunnskole.dtsx
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2434,7 +2458,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2467,9 +2491,15 @@
                   </properties>
                   <connections>
                     <connection
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Grunnskole.dtsx
                       refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_Nasjonale prøver 8 trinn.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+=======
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Connections[OleDbConnection]"
+                      connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                      connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Grunnskole.dtsx
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2601,7 +2631,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -2944,7 +2974,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2977,9 +3007,15 @@
                   </properties>
                   <connections>
                     <connection
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Grunnskole.dtsx
                       refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_Nasjonale prøver 9 trinn.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+=======
+                      refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Connections[OleDbConnection]"
+                      connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                      connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Grunnskole.dtsx
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3111,7 +3147,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."

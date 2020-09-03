@@ -2,7 +2,11 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ASSS Integrasjon</Name>
+<<<<<<< Updated upstream
     <LastWriteTime>2019-10-30T15:07:17.8871428Z</LastWriteTime>
+=======
+    <LastWriteTime>2020-09-03T08:55:24.0381761Z</LastWriteTime>
+>>>>>>> Stashed changes
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,6 +17,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Deploy.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2018-10-18T11:52:23.2583629Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
@@ -24,45 +29,65 @@
     <ProjectBuildItemInfo>
       <Name>Autoinnlesing - Manuelle filer.dtsx</Name>
       <LastWriteTime>2018-10-17T11:08:32.3035679Z</LastWriteTime>
+=======
+      <LastWriteTime>2020-08-25T14:30:49.0439253Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Grunnskole.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2019-04-15T09:50:21.7856909Z</LastWriteTime>
+=======
+      <LastWriteTime>2020-08-27T10:51:25.777641Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Samferdsel.dtsx</Name>
-      <LastWriteTime>2019-10-25T13:03:36.1701567Z</LastWriteTime>
+      <LastWriteTime>2020-08-27T10:49:04.7008331Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Eiendomsforvaltning.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2019-11-01T14:14:54.0243467Z</LastWriteTime>
+=======
+      <LastWriteTime>2020-08-27T10:51:42.0514158Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Økonomi.dtsx</Name>
-      <LastWriteTime>2019-10-25T13:22:16.5181991Z</LastWriteTime>
+      <LastWriteTime>2020-09-03T11:08:08.5322552Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Profil.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2019-10-29T12:41:48.3901073Z</LastWriteTime>
+=======
+      <LastWriteTime>2020-08-27T10:49:54.2655488Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Pleie og omsorg.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2019-10-25T13:03:36.0896088Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnehage.dtsx</Name>
       <LastWriteTime>2019-04-15T09:46:27.0678767Z</LastWriteTime>
+=======
+      <LastWriteTime>2020-08-27T10:50:08.5285681Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Kommunehelsetjenesten.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2019-10-29T14:09:23.7810868Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
@@ -79,6 +104,34 @@
     <ProjectBuildItemInfo>
       <Name>Manuelle Data - Grunnskole.dtsx</Name>
       <LastWriteTime>2019-03-15T11:37:15.2300235Z</LastWriteTime>
+=======
+      <LastWriteTime>2020-08-27T10:50:32.7427351Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Miljøforvaltning.dtsx</Name>
+      <LastWriteTime>2020-08-27T10:50:23.0833418Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Areal- og samfunnsplanlegging.dtsx</Name>
+      <LastWriteTime>2020-08-31T06:10:01.9570448Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Regioner.dtsx</Name>
+      <LastWriteTime>2020-08-26T05:54:17.2907047Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Sosiale Tjenester.dtsx</Name>
+      <LastWriteTime>2020-08-27T10:49:30.1075321Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Lokale data - Barnehager.dtsx</Name>
+      <LastWriteTime>2020-06-02T10:35:26.0497799Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -97,6 +150,7 @@
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
+<<<<<<< Updated upstream
       <Name>SSB Miljøforvaltning.dtsx</Name>
       <LastWriteTime>2019-10-25T13:03:36.0595837Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
@@ -104,6 +158,30 @@
     <ProjectBuildItemInfo>
       <Name>SSB Areal- og samfunnsplanlegging.dtsx</Name>
       <LastWriteTime>2019-10-25T13:03:35.9698351Z</LastWriteTime>
+=======
+      <Name>Lokale data - Samferdsel.dtsx</Name>
+      <LastWriteTime>2020-06-17T09:58:48.0044869Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Lokale data - Sosiale Tjenester.dtsx</Name>
+      <LastWriteTime>2020-04-29T07:47:17.8344973Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Lokale data - Tabelloversikt.dtsx</Name>
+      <LastWriteTime>2020-06-24T14:42:35.4262645Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Lokale data - TTU.dtsx</Name>
+      <LastWriteTime>2020-04-29T07:47:17.8524857Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Lokale data - Barnevern test.dtsx</Name>
+      <LastWriteTime>2020-06-25T12:20:49.6785406Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -127,6 +205,7 @@
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
+<<<<<<< Updated upstream
       <Name>SSB Regioner.dtsx</Name>
       <LastWriteTime>2019-10-25T13:03:36.1431385Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
@@ -139,6 +218,25 @@
     <ProjectBuildItemInfo>
       <Name>SSB Sosiale Tjenester.dtsx</Name>
       <LastWriteTime>2019-10-30T13:16:01.7357431Z</LastWriteTime>
+=======
+      <Name>Lokale data - Barnehager v2 Dynamisk excel test.dtsx</Name>
+      <LastWriteTime>2020-05-11T12:33:06.7478192Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Barnevern.dtsx</Name>
+      <LastWriteTime>2020-08-27T10:53:01.4362499Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Byggeareal.dtsx</Name>
+      <LastWriteTime>2020-08-27T10:52:18.4801057Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Barnehage.dtsx</Name>
+      <LastWriteTime>2020-08-27T10:54:10.1332413Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

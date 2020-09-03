@@ -7,13 +7,18 @@
   DTS:CreatorName="KSINT\8093AHA"
   DTS:DTSID="{B2ABE904-A2B0-4FA7-BDE6-FA83E3A5A81D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1044"
   DTS:ObjectName="Manuelle Data - Samferdsel"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Samferdsel.dtsx
   DTS:VersionBuild="14"
   DTS:VersionGUID="{A8BBB1A1-A129-46AC-A8C2-9F6C45BE0C7A}">
+=======
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{3802C7FE-9611-4344-B48F-117A814792A3}">
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Samferdsel.dtsx
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,7 +29,11 @@
       DTS:ObjectName="Samferdsel manuelle tall til databasen">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Samferdsel.dtsx
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Samferdsel\Samferdsel manuelle tall til databasen.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+=======
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Utvekslingsfiler\ASSS\Samferdsel\Samferdsel manuelle tall til databasen.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Samferdsel.dtsx
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -213,7 +222,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -246,9 +255,15 @@
                   </properties>
                   <connections>
                     <connection
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Samferdsel.dtsx
                       refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall.Connections[OleDbConnection]"
                       connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
                       connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+=======
+                      refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Connections[OleDbConnection]"
+                      connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                      connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Samferdsel.dtsx
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -380,7 +395,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -593,12 +608,17 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="277.333333333334,42"
+          Size="277,42"
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen"
           TopLeft="293,51" />
         <NodeLayout
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Samferdsel.dtsx
           Size="237.333333333334,42"
           Id="Package\Samferdsel\Slett KS_Samferdsel manuelle tall"
+=======
+          Size="237,42"
+          Id="Package\Samferdsel\Slett KS_SFS01 Samferdsel manuelle tall"
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Samferdsel.dtsx
           TopLeft="16,51" />
         <EdgeLayout
           Id="Package\Samferdsel.PrecedenceConstraints[Constraint]"
@@ -625,8 +645,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="605.333333333334,206.666666666667"
-          Size="605.333333333334,250"
+          PanelSize="605,207"
+          Size="605,250"
           Id="Package\Samferdsel"
           TopLeft="198,72" />
       </GraphLayout>
@@ -638,9 +658,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+<<<<<<< Updated upstream:KS Integrasjon/obj/Development/Manuelle Data - Samferdsel.dtsx
           Size="212,42"
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_Samferdsel manuelle tall"
           TopLeft="151.416666660458,325" />
+=======
+          Size="245,43"
+          Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall"
+          TopLeft="137.666666865349,321.533333395322" />
+>>>>>>> Stashed changes:KS Integrasjon/obj/Development/Lokale data - Samferdsel.dtsx
         <NodeLayout
           Size="258,42"
           Id="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\Samferdsel manuelle tall til databasen"

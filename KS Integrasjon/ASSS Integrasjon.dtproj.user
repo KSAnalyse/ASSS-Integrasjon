@@ -4,8 +4,18 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+<<<<<<< Updated upstream
         <ServerName>KS-SQL2018</ServerName>
         <PathOnServer>/SSISDB/ASSS Integrasjon/ASSS Integrasjon</PathOnServer>
+=======
+        <AssessmentRuleSuppressionSetting />
+        <UseWinAuth>false</UseWinAuth>
+        <WinAuthUserName />
+        <WinAuthDomain />
+        <ServerName>VK-SXD0E-003</ServerName>
+        <PathOnServer>/SSISDB/ASSS/ASSS Integrasjon</PathOnServer>
+        <Run64BitRuntime>false</Run64BitRuntime>
+>>>>>>> Stashed changes
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

@@ -7,13 +7,18 @@
   DTS:CreatorName="KSINT\axel.hjelmervik.hansen"
   DTS:DTSID="{DAF87E1C-6314-48AE-9D9C-5D85727209FF}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1044"
   DTS:ObjectName="Manuelle Data - Barnehager"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
+<<<<<<< Updated upstream:KS Integrasjon/Manuelle Data - Barnehager.dtsx
   DTS:VersionBuild="366"
   DTS:VersionGUID="{3B69C129-04D2-4F91-A9F9-43BB93A28443}">
+=======
+  DTS:VersionBuild="379"
+  DTS:VersionGUID="{FB47B86E-1EBB-4548-9991-282EA09B1D4E}">
+>>>>>>> Stashed changes:KS Integrasjon/Lokale data - Barnehager.dtsx
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -36,7 +41,11 @@
       DTS:ObjectName="Foreldreundersøkelsen i barnehage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+<<<<<<< Updated upstream:KS Integrasjon/Manuelle Data - Barnehager.dtsx
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Barnehager\Foreldreundersøkelsen i barnehage v2.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+=======
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=E:\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage v2.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+>>>>>>> Stashed changes:KS Integrasjon/Lokale data - Barnehager.dtsx
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -113,7 +122,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -426,7 +435,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -758,7 +767,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -937,7 +946,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1181,7 +1190,11 @@
           Id="Package\Barnehage\Les Foreldreundersøkelsen i barnehage"
           TopLeft="342.467593047561,37.133332767685" />
         <NodeLayout
+<<<<<<< Updated upstream:KS Integrasjon/Manuelle Data - Barnehager.dtsx
           Size="261,42"
+=======
+          Size="225,53"
+>>>>>>> Stashed changes:KS Integrasjon/Lokale data - Barnehager.dtsx
           Id="Package\Barnehage\Slett KS_Barn per ansatt i barnehagen (bemanningstetthet)"
           TopLeft="35.2800921115818,119.116666244368" />
         <NodeLayout
@@ -1269,7 +1282,11 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
+<<<<<<< Updated upstream:KS Integrasjon/Manuelle Data - Barnehager.dtsx
           PanelSize="664,266"
+=======
+          PanelSize="664,267"
+>>>>>>> Stashed changes:KS Integrasjon/Lokale data - Barnehager.dtsx
           Size="664,309"
           Id="Package\Barnehage"
           TopLeft="102.125001071021,89.1666670928399" />
