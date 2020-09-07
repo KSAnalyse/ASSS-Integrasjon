@@ -12,13 +12,8 @@
   DTS:ObjectName="Deploy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-<<<<<<< Updated upstream
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{E48ADF05-786B-4D5C-BB47-BCC30988FE6A}">
-=======
   DTS:VersionBuild="26"
   DTS:VersionGUID="{55C356CE-3280-408D-8217-47C155F0E9A4}">
->>>>>>> Stashed changes
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,11 +24,7 @@
       DTS:ObjectName="VK-SXD0E-003.ASSS data">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-<<<<<<< Updated upstream
-          DTS:ConnectionString="Data Source=KS-SQL2018;Initial Catalog=Tabular Views;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
-=======
           DTS:ConnectionString="Data Source=VK-SXD0E-003;Initial Catalog=ASSS data;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
->>>>>>> Stashed changes
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -51,13 +42,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ASProcessingData
-<<<<<<< Updated upstream
-          ConnectionName="KS-SQL2018"
-          ProcessingCommands="{&#xA;  &quot;sequence&quot;: {&#xA;    &quot;operations&quot;: [&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tabular Views&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      }&#xA;    ]&#xA;  }&#xA;}" />
-=======
           ConnectionName="VK-SXD0E-003.ASSS data"
           ProcessingCommands="{&#xA;  &quot;sequence&quot;: {&#xA;    &quot;operations&quot;: [&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;ASSS data&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      }&#xA;    ]&#xA;  }&#xA;}" />
->>>>>>> Stashed changes
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

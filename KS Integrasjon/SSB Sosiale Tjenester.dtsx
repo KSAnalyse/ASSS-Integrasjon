@@ -12,13 +12,8 @@
   DTS:ObjectName="SSB Sosiale Tjenester"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-<<<<<<< Updated upstream
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{F32667BE-5788-4903-A0E2-BC13DED475B1}">
-=======
   DTS:VersionBuild="23"
   DTS:VersionGUID="{AD09C2F4-1FBC-4D61-8897-3DA5F75AA93C}">
->>>>>>> Stashed changes
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -45,7 +40,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:05'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -70,15 +65,11 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11864 Kvalifiseringsstønad, sosialhjelp og Husbankens bostøtte"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="2">
-=======
           DTS:ThreadHint="6">
->>>>>>> Stashed changes
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_11864 Kvalifiseringsstønad, sosialhjelp og Husbankens bostøtte]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;11864&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;11864&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_11864 Kvalifiseringsstønad, sosialhjelp og Husbankens bostøtte]&#xA;&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met On dat.Variabel = met.Variabel&#xA;&#xA;--Mottakere av kvalifiseringsstønad samtidig med Husbankens bostøtte (antall)&#xA;--Personer med kvalifiseringsstønad og sosialhjelp som fast supplement (antall)&#xA;--Personer med sosialhjelp som livsopphold to måneder før kvalifiseringsstønad (antall)&#xA;Where dat.Variabel in ('KOSmedhusbankbos0000', 'KOSmedsoshjsup0000', 'KOSytelsetypesos0000')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -91,15 +82,11 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12130 Krisesenter og vold i nære relasjoner"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="3">
-=======
           DTS:ThreadHint="7">
->>>>>>> Stashed changes
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12130 Krisesenter og vold i nære relasjoner]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12130&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12130&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12130 Krisesenter og vold i nære relasjoner]&#xA;&#xA;&#xA;Select dat.Kommunenummer,&#xA; dat.Variabel ,&#xA; met.Variabelnavn,&#xA; dat.År, &#xA; dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met On dat.Variabel = met.Variabel&#xA;&#xA;--Folkemengde (antall)&#xA;Where dat.Variabel != 'KOSFolkemengdeia0000'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -112,15 +99,11 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12131 Stønadssatser for sosialhjelp og vedtakstidspunkt"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="4">
-=======
           DTS:ThreadHint="8">
->>>>>>> Stashed changes
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12131 Stønadssatser for sosialhjelp og vedtakstidspunkt]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12131&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12131&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12131 Stønadssatser for sosialhjelp og vedtakstidspunkt]&#xA;&#xA;&#xA;Select dat.Kommunenummer,&#xA;&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -133,15 +116,11 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12132 Utgifter som inngår i stønadssatsene for økonomisk sosialhjelp"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="0">
-=======
           DTS:ThreadHint="9">
->>>>>>> Stashed changes
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12132 Utgifter som inngår i stønadssatsene for økonomisk sosialhjelp]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12132&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12132&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12132 Utgifter som inngår i stønadssatsene for økonomisk sosialhjelp]&#xA;&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -154,21 +133,12 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12160 Mottakere av kvalifiseringsstønad"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="--Tabellnummer&#xA;Declare @TableVar varchar(5)&#xA;Set @TableVar = '12160'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA; Declare @t Table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA; Declare @m Table(Kommune varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År int, År2 int)&#xA; Insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA; Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA; RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA; set noexec on&#xA;end catch&#xA;&#xA;&#xA;Truncate Table Staging.dbo.[SSB_12160 Mottakere av kvalifiseringsstønad]&#xA;&#xA;Insert Into Staging.dbo.[SSB_12160 Mottakere av kvalifiseringsstønad]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat&#xA;Join @m met&#xA;ON dat.Variabel = met.Variabel&#xA;&#xA;-- Innbyggere 18-66 år (antall)&#xA;-- Mottakere av kvalifiseringsstønad per 1000 innbyggere 18-66 år (antall)&#xA;-- Netto driftsutgifter til kvalifiseringsprogram (kr)&#xA;-- Netto driftsutgifter til kvalifiseringsprogram per deltakere (kr)&#xA;-- Folkemengde i alt (antall)&#xA;Where dat.Variabel NOT IN ('KOSalder18660000', 'KOSper10000000', 'KOSnettodriftsut0001', &#xA; 'KOSnettodriftsut0000', 'KOSFolkemengdeia0000')&#xA;&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-=======
           DTS:ThreadHint="10">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Use [TEST_Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12160'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t Table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;&#x9;declare @m Table(Kommune varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År int, År2 int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12160 Mottakere av kvalifiseringsstønad]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met&#xA;ON dat.Variabel = met.Variabel&#xA;&#xA;-- Innbyggere 18-66 år (antall)&#xA;-- Mottakere av kvalifiseringsstønad per 1000 innbyggere 18-66 år (antall)&#xA;-- Netto driftsutgifter til kvalifiseringsprogram (kr)&#xA;-- Netto driftsutgifter til kvalifiseringsprogram per deltakere (kr)&#xA;-- Folkemengde i alt (antall)&#xA;Where dat.Variabel NOT IN ('KOSalder18660000', 'KOSper10000000', 'KOSnettodriftsut0001', &#xA; 'KOSnettodriftsut0000', 'KOSFolkemengdeia0000')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
->>>>>>> Stashed changes
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -180,15 +150,11 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="7">
-=======
           DTS:ThreadHint="11">
->>>>>>> Stashed changes
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12201&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12201&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon]&#xA;&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -201,21 +167,12 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="5">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12203&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12203&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold]&#xA;&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-=======
           DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Use [TEST_Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12203'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met&#xA;On met.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
->>>>>>> Stashed changes
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -227,15 +184,11 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12204 Sosialhjelpsmottakernes boligsituasjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="6">
-=======
           DTS:ThreadHint="0">
->>>>>>> Stashed changes
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12204 Sosialhjelpsmottakernes boligsituasjon]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12204&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12204&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12204 Sosialhjelpsmottakernes boligsituasjon]&#xA;&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -248,21 +201,12 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12213 Langtidsmottakere av sosialhjelp"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="9">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12213 Langtidsmottakere av sosialhjelp]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12213&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12213&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12213 Langtidsmottakere av sosialhjelp]&#xA;&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-=======
           DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Use [TEST_Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12213'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12213 Langtidsmottakere av sosialhjelp]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met&#xA;On met.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
->>>>>>> Stashed changes
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -275,46 +219,29 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12221 Sosiale tjenester i NAV"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="10">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12219'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12219&quot;, @Omfang=0&#xA;&#x9;insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12219&quot;&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12219 Sosialhjelpsmottakere, utbetalt beløp og stønadstid ]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met&#xA;On met.Variabel = dat.Variabel&#xA;&#xA;-- Folkemengde i alt (antall)&#xA;Where dat.Variabel != 'KOSFolkemengdeia0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-=======
           DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12221 Sosiale tjenester i NAV]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12221&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12221&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12221 Sosiale tjenester i NAV]&#xA;&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
->>>>>>> Stashed changes
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Sosiale tjenester\Les SSB_12266 Vilkår etter sosialtjenesteloven"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-<<<<<<< Updated upstream
-          DTS:DTSID="{01ff7bf1-34fa-4921-9770-895f11e9faf0}"
-=======
           DTS:Disabled="True"
           DTS:DTSID="{0d43023a-3df6-4c67-b6dc-79723e89d9b8}"
->>>>>>> Stashed changes
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12266 Vilkår etter sosialtjenesteloven"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="8">
-=======
           DTS:ThreadHint="5">
->>>>>>> Stashed changes
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12266 Vilkår etter sosialtjenesteloven]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12266&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12266&quot;&#xA;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12266 Vilkår etter sosialtjenesteloven]&#xA;&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;On  Ltrim(Rtrim(met.Variabel)) = Ltrim(Rtrim(dat.Variabel)) &#xA;--Where Verdi Is Not Null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -322,25 +249,17 @@
           DTS:refId="Package\Sosiale tjenester\Les SSB_13006 Sosialhjelpsmottakere, utbetalt beløp og stønadstid"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-<<<<<<< Updated upstream
-          DTS:DTSID="{0d43023a-3df6-4c67-b6dc-79723e89d9b8}"
-=======
           DTS:Disabled="True"
           DTS:DTSID="{6daee262-8f6f-4b8c-a4c1-2ad6801c7f5e}"
->>>>>>> Stashed changes
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_13006 Sosialhjelpsmottakere, utbetalt beløp og stønadstid"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-<<<<<<< Updated upstream
-          DTS:ThreadHint="11">
-=======
           DTS:ThreadHint="4">
->>>>>>> Stashed changes
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{06B55A42-C604-46E3-A3FF-04F23BE8A234}"
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Use [TEST_Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '13006'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_13006 Sosialhjelpsmottakere, utbetalt beløp og stønadstid ]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met&#xA;On met.Variabel = dat.Variabel&#xA;&#xA;-- Folkemengde i alt (antall)&#xA;Where dat.Variabel != 'KOSFolkemengdeia0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -388,19 +307,11 @@
         <NodeLayout
           Size="209,43"
           Id="Package\Sosiale tjenester\Les SSB_12160 Mottakere av kvalifiseringsstønad"
-<<<<<<< Updated upstream
-          TopLeft="20.6261134906905,298.495083392945" />
-=======
           TopLeft="27.2094468302326,108.495083392945" />
->>>>>>> Stashed changes
         <NodeLayout
           Size="166,43"
           Id="Package\Sosiale tjenester\Les SSB_12201 Sosialhjelpsmottakernes arbeidssituasjon"
-<<<<<<< Updated upstream
-          TopLeft="20.6261134906905,361.666079130861" />
-=======
           TopLeft="253.237224622498,111.388301340169" />
->>>>>>> Stashed changes
         <NodeLayout
           Size="262,51"
           Id="Package\Sosiale tjenester\Les SSB_12203 Sosialhjelpsmottakernes viktigste kilde til livsopphold"
@@ -414,15 +325,7 @@
           Id="Package\Sosiale tjenester\Les SSB_12213 Langtidsmottakere av sosialhjelp"
           TopLeft="16.6261134906905,222.179066344607" />
         <NodeLayout
-<<<<<<< Updated upstream
-          Size="394.666666666667,42"
-          Id="Package\Sosiale tjenester\Les SSB_12219 Sosialhjelpsmottakere, utbetalt beløp og stønadstid"
-          TopLeft="25.2927801573571,614.350062082523" />
-        <NodeLayout
-          Size="408,42.6666666666667"
-=======
           Size="130,43"
->>>>>>> Stashed changes
           Id="Package\Sosiale tjenester\Les SSB_12221 Sosiale tjenester i NAV"
           TopLeft="34.6261134906905,272.854391153772" />
         <NodeLayout

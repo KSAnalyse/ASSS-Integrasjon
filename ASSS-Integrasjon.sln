@@ -3,20 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1169
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ASSS Integrasjon", "KS Integrasjon\ASSS Integrasjon.dtproj", "{AA51CCDE-04B6-4A58-97B4-D37255C6C73A}"
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ASSS-Integrasjon", "ASSS-Integrasjon\ASSS-Integrasjon.dtproj", "{8683E415-E7DF-402F-94CD-C489407F7642}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AA51CCDE-04B6-4A58-97B4-D37255C6C73A}.Development|Default.ActiveCfg = Development
-		{AA51CCDE-04B6-4A58-97B4-D37255C6C73A}.Development|Default.Build.0 = Development
+		{8683E415-E7DF-402F-94CD-C489407F7642}.Development|Default.ActiveCfg = Development
+		{8683E415-E7DF-402F-94CD-C489407F7642}.Development|Default.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {53AE4DBB-1C7A-4A62-9732-E490692168BF}
+		SolutionGuid = {E102393E-BE96-403B-9F05-F47226489805}
 	EndGlobalSection
 EndGlobal
