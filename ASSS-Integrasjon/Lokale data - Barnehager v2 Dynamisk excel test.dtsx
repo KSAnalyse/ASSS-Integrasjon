@@ -12,7 +12,7 @@
   DTS:ObjectName="Lokale data - Barnehager v2 Dynamisk excel test"
   DTS:PackageType="5"
   DTS:VersionBuild="118"
-  DTS:VersionGUID="{A2B8D2AF-0AEE-4E78-BED5-21878C121B58}">
+  DTS:VersionGUID="{4CC84A7B-D214-49DE-B92A-97A8CA44C98F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -207,128 +207,10 @@ AND År = ? AND Eierforhold = ?</DTS:VariableValue>
           <DTS:ObjectData>
             <ScriptProject
               Name="ST_24750a6f1813476c96d910c139ec512e"
-              VSTAMajorVersion="15"
+              VSTAMajorVersion="14"
               VSTAMinorVersion="0"
               Language="VisualBasic"
               ReadWriteVariables="User::DatabaseTabellnavn,User::Dimensions,User::ExcelFile,User::ForEachFolder">
-              <ProjectItem
-                Name="ScriptMain.vb"
-                Encoding="UTF8"><![CDATA[#Region "Help:  Introduction to the script task"
-'The Script Task allows you to perform virtually any operation that can be accomplished in
-'a .Net application within the context of an Integration Services control flow. 
-
-'Expand the other regions which have "Help" prefixes for examples of specific ways to use
-'Integration Services features within this script task.
-#End Region
-
-
-#Region "Imports"
-Imports System
-Imports System.Data
-Imports System.Math
-Imports Microsoft.SqlServer.Dts.Runtime
-#End Region
-
-'ScriptMain is the entry point class of the script.  Do not change the name, attributes,
-'or parent of this class.
-<Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute()> _
-<System.CLSCompliantAttribute(False)> _
-Partial Public Class ScriptMain
-    Inherits Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
-
-#Region "Help:  Using Integration Services variables and parameters in a script"
-    'To use a variable in this script, first ensure that the variable has been added to 
-    'either the list contained in the ReadOnlyVariables property or the list contained in 
-    'the ReadWriteVariables property of this script task, according to whether or not your
-    'code needs to write to the variable.  To add the variable, save this script, close this instance of
-    'Visual Studio, and update the ReadOnlyVariables and 
-    'ReadWriteVariables properties in the Script Transformation Editor window.
-    'To use a parameter in this script, follow the same steps. Parameters are always read-only.
-
-    'Example of reading from a variable:
-    ' startTime = Dts.Variables("System::StartTime").Value
-
-    'Example of writing to a variable:
-    ' Dts.Variables("User::myStringVariable").Value = "new value"
-
-    'Example of reading from a package parameter:
-    ' batchId = Dts.Variables("$Package::batchId").Value
-
-    'Example of reading from a project parameter:
-    ' batchId = Dts.Variables("$Project::batchId").Value
-
-    'Example of reading from a sensitive project parameter:
-    ' batchId = Dts.Variables("$Project::batchId").GetSensitiveValue()
-#End Region
-
-#Region "Help:  Firing Integration Services events from a script"
-    'This script task can fire events for logging purposes.
-
-    'Example of firing an error event:
-    ' Dts.Events.FireError(18, "Process Values", "Bad value", "", 0)
-
-    'Example of firing an information event:
-    ' Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, fireAgain)
-
-    'Example of firing a warning event:
-    ' Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0)
-#End Region
-
-#Region "Help:  Using Integration Services connection managers in a script"
-    'Some types of connection managers can be used in this script task.  See the topic 
-    '"Working with Connection Managers Programatically" for details.
-
-    'Example of using an ADO.Net connection manager:
-    ' Dim rawConnection As Object = Dts.Connections("Sales DB").AcquireConnection(Dts.Transaction)
-    ' Dim myADONETConnection As SqlConnection = CType(rawConnection, SqlConnection)
-    ' <Use the connection in some code here, then release the connection>
-    ' Dts.Connections("Sales DB").ReleaseConnection(rawConnection)
-
-    'Example of using a File connection manager
-    ' Dim rawConnection As Object = Dts.Connections("Prices.zip").AcquireConnection(Dts.Transaction)
-    ' Dim filePath As String = CType(rawConnection, String)
-    ' <Use the connection in some code here, then release the connection>
-    ' Dts.Connections("Prices.zip").ReleaseConnection(rawConnection)
-#End Region
-
-    'This method is called when this script task executes in the control flow.
-    'Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
-    'To open Help, press F1.
-
-    Public Sub Main()
-        '
-        ' Add your code here
-        '
-        Dts.Variables("User::ExcelFile").Value = "\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage\Mal"
-        Dts.Variables("User::DatabaseTabellnavn").Value = "KS_BHG02 Foreldreundersøkelsen i barnehage"
-        Dts.Variables("User::Dimensions").Value = ""
-        Dts.Variables("User::ForEachFolder").Value = "\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage"
-
-        Dts.TaskResult = ScriptResults.Success
-    End Sub
-
-#Region "ScriptResults declaration"
-    'This enum provides a convenient shorthand within the scope of this class for setting the
-    'result of the script.
-
-    'This code was generated automatically.
-    Enum ScriptResults
-        Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success
-        Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
-    End Enum
-
-#End Region
-
-End Class]]></ProjectItem>
-              <ProjectItem
-                Name="My Project\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="$safeprojectname" GeneratedClassName="MySettings">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="My Project\AssemblyInfo.vb"
                 Encoding="UTF8"><![CDATA[Imports System
@@ -367,6 +249,35 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyVersion("1.0.0.0")> 
 <Assembly: AssemblyFileVersion("1.0.0.0")> ]]></ProjectItem>
+              <ProjectItem
+                Name="My Project\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="$safeprojectname" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+              <ProjectItem
+                Name="Project"
+                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_24750a6f1813476c96d910c139ec512e</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_24750a6f1813476c96d910c139ec512e</msb:DisplayName>
+    <msb:ProjectId>{E9CCAA44-5EED-4992-9A5C-32B0CD61743A}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_24750a6f1813476c96d910c139ec512e.vbproj" />
+    <msb:File Include="My Project\AssemblyInfo.vb" />
+    <msb:File Include="ScriptMain.vb" />
+    <msb:File Include="My Project\Resources.resx" />
+    <msb:File Include="My Project\Resources.Designer.vb" />
+    <msb:File Include="My Project\Settings.settings" />
+    <msb:File Include="My Project\Settings.Designer.vb" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
               <ProjectItem
                 Name="My Project\Settings.Designer.vb"
                 Encoding="UTF8"><![CDATA['------------------------------------------------------------------------------
@@ -508,25 +419,114 @@ End Class]]></ProjectItem>
   </ProjectExtensions>
 </Project>]]></ProjectItem>
               <ProjectItem
-                Name="Project"
-                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:CodeName>ST_24750a6f1813476c96d910c139ec512e</msb:CodeName>
-    <msb:Language>msBuild</msb:Language>
-    <msb:DisplayName>ST_24750a6f1813476c96d910c139ec512e</msb:DisplayName>
-    <msb:ProjectId>{E9CCAA44-5EED-4992-9A5C-32B0CD61743A}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="ST_24750a6f1813476c96d910c139ec512e.vbproj" />
-    <msb:File Include="My Project\AssemblyInfo.vb" />
-    <msb:File Include="ScriptMain.vb" />
-    <msb:File Include="My Project\Resources.resx" />
-    <msb:File Include="My Project\Resources.Designer.vb" />
-    <msb:File Include="My Project\Settings.settings" />
-    <msb:File Include="My Project\Settings.Designer.vb" />
-  </msb:ItemGroup>
-</c:Project>]]></ProjectItem>
+                Name="ScriptMain.vb"
+                Encoding="UTF8"><![CDATA[#Region "Help:  Introduction to the script task"
+'The Script Task allows you to perform virtually any operation that can be accomplished in
+'a .Net application within the context of an Integration Services control flow. 
+
+'Expand the other regions which have "Help" prefixes for examples of specific ways to use
+'Integration Services features within this script task.
+#End Region
+
+
+#Region "Imports"
+Imports System
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Runtime
+#End Region
+
+'ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+'or parent of this class.
+<Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute()> _
+<System.CLSCompliantAttribute(False)> _
+Partial Public Class ScriptMain
+    Inherits Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+
+#Region "Help:  Using Integration Services variables and parameters in a script"
+    'To use a variable in this script, first ensure that the variable has been added to 
+    'either the list contained in the ReadOnlyVariables property or the list contained in 
+    'the ReadWriteVariables property of this script task, according to whether or not your
+    'code needs to write to the variable.  To add the variable, save this script, close this instance of
+    'Visual Studio, and update the ReadOnlyVariables and 
+    'ReadWriteVariables properties in the Script Transformation Editor window.
+    'To use a parameter in this script, follow the same steps. Parameters are always read-only.
+
+    'Example of reading from a variable:
+    ' startTime = Dts.Variables("System::StartTime").Value
+
+    'Example of writing to a variable:
+    ' Dts.Variables("User::myStringVariable").Value = "new value"
+
+    'Example of reading from a package parameter:
+    ' batchId = Dts.Variables("$Package::batchId").Value
+
+    'Example of reading from a project parameter:
+    ' batchId = Dts.Variables("$Project::batchId").Value
+
+    'Example of reading from a sensitive project parameter:
+    ' batchId = Dts.Variables("$Project::batchId").GetSensitiveValue()
+#End Region
+
+#Region "Help:  Firing Integration Services events from a script"
+    'This script task can fire events for logging purposes.
+
+    'Example of firing an error event:
+    ' Dts.Events.FireError(18, "Process Values", "Bad value", "", 0)
+
+    'Example of firing an information event:
+    ' Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, fireAgain)
+
+    'Example of firing a warning event:
+    ' Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0)
+#End Region
+
+#Region "Help:  Using Integration Services connection managers in a script"
+    'Some types of connection managers can be used in this script task.  See the topic 
+    '"Working with Connection Managers Programatically" for details.
+
+    'Example of using an ADO.Net connection manager:
+    ' Dim rawConnection As Object = Dts.Connections("Sales DB").AcquireConnection(Dts.Transaction)
+    ' Dim myADONETConnection As SqlConnection = CType(rawConnection, SqlConnection)
+    ' <Use the connection in some code here, then release the connection>
+    ' Dts.Connections("Sales DB").ReleaseConnection(rawConnection)
+
+    'Example of using a File connection manager
+    ' Dim rawConnection As Object = Dts.Connections("Prices.zip").AcquireConnection(Dts.Transaction)
+    ' Dim filePath As String = CType(rawConnection, String)
+    ' <Use the connection in some code here, then release the connection>
+    ' Dts.Connections("Prices.zip").ReleaseConnection(rawConnection)
+#End Region
+
+    'This method is called when this script task executes in the control flow.
+    'Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+    'To open Help, press F1.
+
+    Public Sub Main()
+        '
+        ' Add your code here
+        '
+        Dts.Variables("User::ExcelFile").Value = "\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage\Mal"
+        Dts.Variables("User::DatabaseTabellnavn").Value = "KS_BHG02 Foreldreundersøkelsen i barnehage"
+        Dts.Variables("User::Dimensions").Value = ""
+        Dts.Variables("User::ForEachFolder").Value = "\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage"
+
+        Dts.TaskResult = ScriptResults.Success
+    End Sub
+
+#Region "ScriptResults declaration"
+    'This enum provides a convenient shorthand within the scope of this class for setting the
+    'result of the script.
+
+    'This code was generated automatically.
+    Enum ScriptResults
+        Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success
+        Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+    End Enum
+
+#End Region
+
+End Class]]></ProjectItem>
               <ProjectItem
                 Name="My Project\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -954,30 +954,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Kommunenummer"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\247:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\235:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Variabelnavn]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Variabelnavn"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\248:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\236:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Kilde]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Kilde"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\249:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\237:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Inputs[Data Conversion Input].Columns[År]"
                               cachedDataType="r8"
                               cachedName="År"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\250:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\238:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Eierforhold]"
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Eierforhold"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\251:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\239:invalid" />
                           </inputColumns>
                           <externalMetadataColumns />
                         </input>
@@ -1004,7 +1004,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Specifies the input column used as the source of data for the conversion."
-                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\247:invalid}</property>
+                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\235:invalid}</property>
                                 <property
                                   dataType="System.Boolean"
                                   description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1026,7 +1026,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Specifies the input column used as the source of data for the conversion."
-                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\248:invalid}</property>
+                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\236:invalid}</property>
                                 <property
                                   dataType="System.Boolean"
                                   description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1048,7 +1048,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Specifies the input column used as the source of data for the conversion."
-                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\249:invalid}</property>
+                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\237:invalid}</property>
                                 <property
                                   dataType="System.Boolean"
                                   description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1068,7 +1068,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Specifies the input column used as the source of data for the conversion."
-                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\250:invalid}</property>
+                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\238:invalid}</property>
                                 <property
                                   dataType="System.Boolean"
                                   description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1090,7 +1090,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Specifies the input column used as the source of data for the conversion."
-                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\251:invalid}</property>
+                                  name="SourceInputColumnLineageID">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\239:invalid}</property>
                                 <property
                                   dataType="System.Boolean"
                                   description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1201,7 +1201,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               cachedDataType="r8"
                               cachedName="Verdi"
                               externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Destinasjonstabell.Inputs[OLE DB Destination Input].ExternalColumns[Verdi]"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\252:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Destinasjonstabell.Inputs[OLE DB Destination Input].Columns[Conv_Kommunenummer]"
                               cachedCodepage="1252"
@@ -1323,7 +1323,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               cachedDataType="wstr"
                               cachedLength="255"
                               cachedName="Kommunenummer"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\247:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\235:invalid" />
                           </inputColumns>
                           <externalMetadataColumns />
                         </input>
@@ -1343,7 +1343,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               containsID="true"
                               dataType="System.String"
                               description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                              name="Expression">![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\247:invalid}) &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\247:invalid} != "Tekst"</property>
+                              name="Expression">![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\235:invalid}) &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\235:invalid} != "Tekst"</property>
                             <property
                               containsID="true"
                               dataType="System.String"
@@ -1476,7 +1476,7 @@ AND År = ? AND Eierforhold = ?</property>
                               cachedDataType="r8"
                               cachedName="Verdi"
                               externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdater nye verdier uten sammenligning.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\252:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdater nye verdier uten sammenligning.Inputs[OLE DB Command Input].Columns[LkUp_Kommunenummer]"
                               cachedCodepage="1252"
@@ -1741,7 +1741,7 @@ AND År = ? AND Eierforhold = ?</property>
                               cachedDataType="r8"
                               cachedName="Verdi"
                               externalMetadataColumnId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdaterte nye verdier.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\252:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdaterte nye verdier.Inputs[OLE DB Command Input].Columns[Conv_År]"
                               cachedDataType="i4"
@@ -1938,7 +1938,7 @@ AND År = ? AND Eierforhold = ?</property>
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sammenlign verdier.Inputs[Conditional Split Input].Columns[Verdi]"
                               cachedDataType="r8"
                               cachedName="Verdi"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\252:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sammenlign verdier.Inputs[Conditional Split Input].Columns[Conv_Kommunenummer]"
                               cachedCodepage="1252"
@@ -2003,7 +2003,7 @@ AND År = ? AND Eierforhold = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                              name="Expression">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Kommunenummer]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Kommunenummer]} &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_År]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_År]} &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Eierforhold]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Eierforhold]} &amp;&amp; (DT_NUMERIC,18,1)#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\252:invalid} != #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Verdi]}</property>
+                              name="Expression">#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Kommunenummer]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Kommunenummer]} &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_År]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_År]} &amp;&amp; #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Eierforhold]} == #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Eierforhold]} &amp;&amp; (DT_NUMERIC,18,1)#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid} != #{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Verdi]}</property>
                             <property
                               containsID="true"
                               dataType="System.String"
@@ -2061,7 +2061,7 @@ AND År = ? AND Eierforhold = ?</property>
                       contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;11"
                       description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
                       name="Script Component"
-                      version="12">
+                      version="10">
                       <properties>
                         <property
                           dataType="System.String"
@@ -2948,7 +2948,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk etter null verdier.Inputs[Conditional Split Input].Columns[Verdi]"
                               cachedDataType="r8"
                               cachedName="Verdi"
-                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\252:invalid" />
+                              lineageId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid" />
                             <inputColumn
                               refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk etter null verdier.Inputs[Conditional Split Input].Columns[LkUp_Verdi]"
                               cachedDataType="numeric"
@@ -2975,7 +2975,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                               containsID="true"
                               dataType="System.String"
                               description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                              name="Expression">![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\252:invalid}) &amp;&amp; ![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Verdi]})</property>
+                              name="Expression">![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\240:invalid}) &amp;&amp; ![ISNULL](#{Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Outputs[Lookup Match Output].Columns[LkUp_Verdi]})</property>
                             <property
                               containsID="true"
                               dataType="System.String"

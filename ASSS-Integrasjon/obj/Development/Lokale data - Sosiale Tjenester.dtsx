@@ -12,7 +12,7 @@
   DTS:ObjectName="Manuelle Data - Sosiale Tjenester"
   DTS:PackageType="5"
   DTS:VersionBuild="184"
-  DTS:VersionGUID="{A65480C5-5B6D-4D2B-8CCB-EBD37C94B6B1}">
+  DTS:VersionGUID="{5761A035-194F-4FA1-BD91-096BEA9FCF6F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -212,7 +212,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -379,7 +379,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."

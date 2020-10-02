@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/15/2018 2:05:09 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Grunnskole"
   DTS:PackageType="5"
-  DTS:VersionBuild="314"
-  DTS:VersionGUID="{D5485722-E821-43F0-BACF-DEC62E1D8F79}">
+  DTS:VersionBuild="316"
+  DTS:VersionGUID="{1FF9969B-21F6-4F14-9A27-444CC472BA8A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -112,23 +112,6 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Grunnskole\Les SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{3136C715-8522-4FD8-A6D6-90046854D77B}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Les SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
-              SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11970'&#xA;Set @TableName = (SELECT table_name FROM Staging.information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table Staging.[dbo].[' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into Staging.dbo.[SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met&#xA;ON dat.Variabel = met.Variabel&#xA;&#xA;-- Elever som får skoleskyss (prosent)&#xA;Where dat.Variabel != 'KOSandelevskyss0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
           DTS:refId="Package\Grunnskole\Les SSB_11971 Antall kommunale grunnskoler og antall elever i kommunale grunnskoler"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -205,29 +188,12 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11980 Elever i grunnskolen, etter eierforhold og årstrinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11980'&#xA;Set @TableName = (SELECT table_name FROM Staging.information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table Staging.[dbo].[' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Eierkode varchar(50), Trinnskode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Eierforhold varchar(150), Eierkode varchar(50), Trinn varchar(50), Trinnskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Eierforhold varchar(150), Eierkode varchar(50), Trinn varchar(50), Trinnskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Eierforhold varchar(150), Eierkode varchar(50), Trinn varchar(50), Trinnskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m3 Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into Staging.dbo.[SSB_11980 Elever i grunnskolen, etter eierforhold og årstrinn]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Eierkode,&#xA;&#x9;&#x9;met.Eierforhold,&#xA;&#x9;&#x9;dat.Trinnskode,&#xA;&#x9;&#x9;met2.Trinn,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Eierkode = dat.Eierkode&#xA;Join @m2 met2 On met2.Trinnskode = dat.Trinnskode&#xA;Join @m3 met3 ON met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Grunnskole\Les SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{56B3637B-003C-42F7-8C88-4021E516317A}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Les SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
-              SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11981'&#xA;Set @TableName = (SELECT table_name FROM Staging.information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table Staging.[dbo].[' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into Staging.dbo.[SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met&#xA;On met.Variabel = dat.Variabel&#xA;&#xA;-- Avtalte årsverk i grunnskolesektoren (prosent)&#xA;-- Avtalte årsverk ekslusive lange fravær i grunnskolesektor (prosent)&#xA;Where dat.Variabel NOT IN ('KOSandaarsv0000', 'KOSandaarsveksl0000')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -243,6 +209,40 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
+          DTS:refId="Package\Grunnskole 2\Les SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3136C715-8522-4FD8-A6D6-90046854D77B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
+              SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11970'&#xA;Set @TableName = (SELECT table_name FROM Staging.information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table Staging.[dbo].[' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into Staging.dbo.[SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met&#xA;ON dat.Variabel = met.Variabel&#xA;&#xA;-- Elever som får skoleskyss (prosent)&#xA;Where dat.Variabel != 'KOSandelevskyss0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Grunnskole 2\Les SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{56B3637B-003C-42F7-8C88-4021E516317A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
+              SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11981'&#xA;Set @TableName = (SELECT table_name FROM Staging.information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table Staging.[dbo].[' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into Staging.dbo.[SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met&#xA;On met.Variabel = dat.Variabel&#xA;&#xA;-- Avtalte årsverk i grunnskolesektoren (prosent)&#xA;-- Avtalte årsverk ekslusive lange fravær i grunnskolesektor (prosent)&#xA;Where dat.Variabel NOT IN ('KOSandaarsv0000', 'KOSandaarsveksl0000')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Grunnskole 2\Les SSB_12222 Elever i kommunale og private grunnskoler med spesialundervisning, etter årstrinn"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -251,7 +251,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12222 Elever i kommunale og private grunnskoler med spesialundervisning, etter årstrinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -268,7 +268,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12234 Elever i kommunale og private grunnskoler med særskilt norskopplæring og morsmålsopplæring"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -285,7 +285,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12236 Grunnlagstall for utdypende indikatorer for grunnskoleopplæring"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -293,8 +293,20 @@
               SQLTask:SqlStatementSource="Use [TEST_Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12236'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE 'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12236 Grunnlagstall for utdypende indikatorer for grunnskoleopplæring]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met On met.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Grunnskole 3"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7BA74A4D-FC84-4A66-925F-FEBF5D3C7ADE}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Grunnskole 3">
+      <DTS:Variables />
+      <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Grunnskole 2\Les SSB_12244 Brutto investeringsutgifter i grunnskolesektoren"
+          DTS:refId="Package\Grunnskole 3\Les SSB_12244 Brutto investeringsutgifter i grunnskolesektoren"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{7703FAA3-1FFD-4A50-99BF-A321783ABB4E}"
@@ -311,7 +323,7 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Grunnskole 2\Les SSB_12247 Lærere i grunnskolen, etter kompetanse og kjønn"
+          DTS:refId="Package\Grunnskole 3\Les SSB_12247 Lærere i grunnskolen, etter kompetanse og kjønn"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{04928225-C7FF-4C60-BD42-B0E09B124FA5}"
@@ -319,7 +331,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12247 Lærere i grunnskolen, etter kompetanse og kjønn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -328,7 +340,7 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Grunnskole 2\Les SSB_12267 Avtalte årsverk i grunnskolesektoren, etter funksjon"
+          DTS:refId="Package\Grunnskole 3\Les SSB_12267 Avtalte årsverk i grunnskolesektoren, etter funksjon"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{89015176-BA0F-4242-9809-CFD2F7C914AF}"
@@ -336,7 +348,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12267 Avtalte årsverk i grunnskolesektoren, etter funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -344,36 +356,6 @@
               SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12267'&#xA;Set @TableName = (SELECT table_name FROM Staging.information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table Staging.[dbo].[' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Funksjonskode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec Staging.dbo.SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into Staging.dbo.[SSB_12267 Avtalte årsverk i grunnskolesektoren, etter funksjon]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjon,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met2.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met On  met.Funksjonskode = dat.Funksjonskode&#xA;Join @m2 met2 On met2.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Grunnskole 2\Les SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{B0980789-31A2-45A2-83B8-4FBE3F176D30}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Les SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
-              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Stillingskode varchar(10), Kjønnskode varchar(10),Variabel varchar(50), År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Stillingsnavn varchar(150), Stillingskode varchar(10), Kjønn varchar(150), Kjønnskode varchar(10),  Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Stillingsnavn varchar(150), Stillingskode varchar(10), Kjønn varchar(150), Kjønnskode varchar(10),  Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Stillingsnavn varchar(150), Stillingskode varchar(10), Kjønn varchar(150), Kjønnskode varchar(10), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12284&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12284&quot;&#xA;Insert @m2 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12284&quot;&#xA;Insert @m3 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12284&quot;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Stillingskode,&#xA;&#x9;&#x9;met.Stillingsnavn,&#xA;&#x9;&#x9;dat.Kjønnskode,&#xA;&#x9;&#x9;met2.Kjønn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met On met.Stillingskode = dat.Stillingskode&#xA;Join @m2 met2 On met2.Kjønnskode = dat.Kjønnskode&#xA;Join @m3 met3 On met3.Variabel = dat.Variabel&#xA;&#xA;-- Lærere (antall)&#xA;Where dat.Variabel = 'KOSantlarergrsk0000'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Grunnskole 3"
-      DTS:CreationName="STOCK:SEQUENCE"
-      DTS:Description="Sequence Container"
-      DTS:DTSID="{7BA74A4D-FC84-4A66-925F-FEBF5D3C7ADE}"
-      DTS:ExecutableType="STOCK:SEQUENCE"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Grunnskole 3">
-      <DTS:Variables />
-      <DTS:Executables>
         <DTS:Executable
           DTS:refId="Package\Grunnskole 3\Les SSB_12282 Lærere i grunnskolen, etter kjønn og alder"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -383,12 +365,30 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12282 Lærere i grunnskolen, etter kjønn og alder"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
               SQLTask:SqlStatementSource="Use [TEST_Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12282'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Kjønnskode varchar(50), Alderskode varchar(50),Variabel varchar(50), År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Kjønn varchar(150), Kjønnskode Int, Aldersgruppe varchar(150), Alderskode Int,  Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Kjønn varchar(150), Kjønnskode Int, Aldersgruppe varchar(150), Alderskode Int,  Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Kjønn varchar(150), Kjønnskode Int, Aldersgruppe varchar(150), Alderskode Int,  Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;insert @m3 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12282 Lærere i grunnskolen, kjønn, alder]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Kjønnskode,&#xA;&#x9;&#x9;met.Kjønn,&#xA;&#x9;&#x9;dat.Alderskode,&#xA;&#x9;&#x9;met2.Aldersgruppe,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met On  met.Kjønnskode = dat.Kjønnskode&#xA;Join @m2 met2 On met2.Alderskode = dat.Alderskode&#xA;Join @m3 met3 On met3.Variabel = dat.Variabel&#xA;&#xA;--Lærere (antall)&#xA;Where dat.Variabel = 'KOSantlarergrsk0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Grunnskole 3\Les SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{B0980789-31A2-45A2-83B8-4FBE3F176D30}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Les SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
+              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Stillingskode varchar(10), Kjønnskode varchar(10),Variabel varchar(50), År Int,Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Stillingsnavn varchar(150), Stillingskode varchar(10), Kjønn varchar(150), Kjønnskode varchar(10),  Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Stillingsnavn varchar(150), Stillingskode varchar(10), Kjønn varchar(150), Kjønnskode varchar(10),  Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Stillingsnavn varchar(150), Stillingskode varchar(10), Kjønn varchar(150), Kjønnskode varchar(10), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12284&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12284&quot;&#xA;Insert @m2 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12284&quot;&#xA;Insert @m3 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12284&quot;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Stillingskode,&#xA;&#x9;&#x9;met.Stillingsnavn,&#xA;&#x9;&#x9;dat.Kjønnskode,&#xA;&#x9;&#x9;met2.Kjønn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met On met.Stillingskode = dat.Stillingskode&#xA;Join @m2 met2 On met2.Kjønnskode = dat.Kjønnskode&#xA;Join @m3 met3 On met3.Variabel = dat.Variabel&#xA;&#xA;-- Lærere (antall)&#xA;Where dat.Variabel = 'KOSantlarergrsk0000'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -400,7 +400,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12285 Gruppestørrelse, etter årstrinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -416,7 +416,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12919 Lærere i grunnskole, etter kjønn, lærerkompetanse"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -484,9 +484,38 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="130,42"
-          Id="Package\Grunnskole\Les SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss"
-          TopLeft="13.586174260274,315.25" />
+          Size="152,42"
+          Id="Package\Delay Container\5 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,110"
+          Size="228,153"
+          Id="Package\Delay Container"
+          TopLeft="46.3582696191693,459.54999996384" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Delay Container 2\5 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,110"
+          Size="228,153"
+          Id="Package\Delay Container 2"
+          TopLeft="503.358269619169,592.54999996384" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Delay Container 3\5 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,110"
+          Size="228,153"
+          Id="Package\Delay Container 3"
+          TopLeft="938.358269619169,541.54999996384" />
         <NodeLayout
           Size="362,42"
           Id="Package\Grunnskole\Les SSB_11971 Antall kommunale grunnskoler og antall elever i kommunale grunnskoler"
@@ -507,10 +536,6 @@
           Size="138,42"
           Id="Package\Grunnskole\Les SSB_11980 Elever i grunnskolen, etter eierforhold og årstrinn"
           TopLeft="197.252840926941,257.166666679581" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Grunnskole\Les SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren"
-          TopLeft="10.5861742602743,256.550000015497" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -532,25 +557,17 @@
           TopLeft="19.5833333271245,161.600000030994" />
         <NodeLayout
           Size="130,42"
-          Id="Package\Grunnskole 2\Les SSB_12244 Brutto investeringsutgifter i grunnskolesektoren"
-          TopLeft="20.9195075936077,298.416666692495" />
+          Id="Package\Grunnskole 2\Les SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss"
+          TopLeft="105.586174260274,298.25" />
         <NodeLayout
-          Size="388,42"
-          Id="Package\Grunnskole 2\Les SSB_12247 Lærere i grunnskolen, etter kompetanse og kjønn"
-          TopLeft="18.5,222.800000028411" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Grunnskole 2\Les SSB_12267 Avtalte årsverk i grunnskolesektoren, etter funksjon"
-          TopLeft="161.919507593608,297.183333364328" />
-        <NodeLayout
-          Size="130,43"
-          Id="Package\Grunnskole 2\Les SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn"
-          TopLeft="11.252840926941,347.95000003616" />
+          Size="157,42"
+          Id="Package\Grunnskole 2\Les SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren"
+          TopLeft="102.586174260274,239.550000015497" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="412,396"
-          Size="412,439"
+          PanelSize="412,446"
+          Size="412,489"
           Id="Package\Grunnskole 2"
           TopLeft="432,20.54999996384" />
         <NodeLayout
@@ -565,115 +582,98 @@
           Size="314,42"
           Id="Package\Grunnskole 3\Les SSB_12919 Lærere i grunnskole, etter kjønn, lærerkompetanse"
           TopLeft="10.9138257397257,126" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Grunnskole 3\Les SSB_12244 Brutto investeringsutgifter i grunnskolesektoren"
+          TopLeft="15.1666666666667,273.416666692495" />
+        <NodeLayout
+          Size="388,42"
+          Id="Package\Grunnskole 3\Les SSB_12247 Lærere i grunnskolen, etter kompetanse og kjønn"
+          TopLeft="12.747159073059,210.800000028411" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Grunnskole 3\Les SSB_12267 Avtalte årsverk i grunnskolesektoren, etter funksjon"
+          TopLeft="193.166666666667,273.183333364328" />
+        <NodeLayout
+          Size="130,43"
+          Id="Package\Grunnskole 3\Les SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn"
+          TopLeft="5.5,335.95000003616" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="330,223"
-          Size="330,266"
+          PanelSize="406,432"
+          Size="406,475"
           Id="Package\Grunnskole 3"
           TopLeft="873.172348520548,19" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Delay Container\5 Second Delay"
-          TopLeft="22,13" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="228,110"
-          Size="228,153"
-          Id="Package\Delay Container"
-          TopLeft="46.3582696191693,459.54999996384" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Delay Container 2\5 Second Delay"
-          TopLeft="22,13" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="228,110"
-          Size="228,153"
-          Id="Package\Delay Container 2"
-          TopLeft="493.358269619169,529.54999996384" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Delay Container 3\5 Second Delay"
-          TopLeft="22,13" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="228,110"
-          Size="228,153"
-          Id="Package\Delay Container 3"
-          TopLeft="933.358269619169,440.54999996384" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="273.691602952503,427.183333364328">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="297,102.366666599512"
+              EndConnector="307,165.366666599512"
               Start="0,0"
-              End="297,94.866666599512">
+              End="307,157.866666599512">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.0048326129458" />
+                    End="0,78.394977094127" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,47.0048326129458"
-                    Point2="0,51.0048326129458"
-                    Point3="4,51.0048326129458" />
+                    Point1="0,78.394977094127"
+                    Point2="0,82.394977094127"
+                    Point3="4,82.394977094127" />
                   <mssgle:LineSegment
-                    End="293,51.0048326129458" />
+                    End="303,82.394977094127" />
                   <mssgle:CubicBezierSegment
-                    Point1="293,51.0048326129458"
-                    Point2="297,51.0048326129458"
-                    Point3="297,55.0048326129458" />
+                    Point1="303,82.394977094127"
+                    Point2="307,82.394977094127"
+                    Point3="307,86.394977094127" />
                   <mssgle:LineSegment
-                    End="297,94.866666599512" />
+                    End="307,157.866666599512" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="123.195546875,56.0048326129458,50.60890625,11.609375"
+              BoundingBox="128.195546875,87.394977094127,50.60890625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="844,240.04999996384">
+          TopLeft="705.333333333333,509.54999996384">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="89.3582696191691,277"
+              EndConnector="310.358269619169,32.0000000000001"
               Start="0,0"
-              End="81.8582696191691,277">
+              End="310.358269619169,24.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="40.6791348095845,0" />
+                    End="0,11.9381616535036" />
                   <mssgle:CubicBezierSegment
-                    Point1="40.6791348095845,0"
-                    Point2="44.6791348095845,0"
-                    Point3="44.6791348095845,4" />
+                    Point1="0,11.9381616535036"
+                    Point2="0,15.9381616535036"
+                    Point3="4,15.9381616535036" />
                   <mssgle:LineSegment
-                    End="44.6791348095845,273" />
+                    End="306.358269619169,15.9381616535036" />
                   <mssgle:CubicBezierSegment
-                    Point1="44.6791348095845,273"
-                    Point2="44.6791348095845,277"
-                    Point3="48.6791348095845,277" />
+                    Point1="306.358269619169,15.9381616535036"
+                    Point2="310.358269619169,15.9381616535036"
+                    Point3="310.358269619169,19.9381616535036" />
                   <mssgle:LineSegment
-                    End="81.8582696191691,277" />
+                    End="310.358269619169,24.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="19.3746816845845,-17.609375,50.60890625,11.609375"
+              BoundingBox="129.874681684585,20.9381616535036,50.60890625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -713,18 +713,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="641.012468142918,529.54999996384">
+          TopLeft="654.024936285836,592.54999996384">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-70"
+              EndConnector="-83.3582696191691,-83.0000000000001"
               Start="0,0"
-              End="0,-62.5">
+              End="-83.3582696191691,-75.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-62.5" />
+                    End="0,-37.660393211225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-37.660393211225"
+                    Point2="0,-41.660393211225"
+                    Point3="-4,-41.660393211225" />
+                  <mssgle:LineSegment
+                    End="-79.3582696191691,-41.660393211225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-79.3582696191691,-41.660393211225"
+                    Point2="-83.3582696191691,-41.660393211225"
+                    Point3="-83.3582696191691,-45.660393211225" />
+                  <mssgle:LineSegment
+                    End="-83.3582696191691,-75.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -735,30 +747,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="1047.35826961917,440.54999996384">
+          TopLeft="1089.02493628584,541.54999996384">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.18592109862107,-155.54999996384"
+              EndConnector="-12.8525877652878,-47.54999996384"
               Start="0,0"
-              End="-9.18592109862107,-148.04999996384">
+              End="-12.8525877652878,-40.04999996384">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-73.77499998192" />
+                    End="0,-15.2188153163953" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-73.77499998192"
-                    Point2="0,-77.77499998192"
-                    Point3="-4,-77.77499998192" />
+                    Point1="0,-15.2188153163953"
+                    Point2="0,-19.2188153163953"
+                    Point3="-4,-19.2188153163953" />
                   <mssgle:LineSegment
-                    End="-5.18592109862107,-77.77499998192" />
+                    End="-8.85258776528781,-19.2188153163953" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5.18592109862107,-77.77499998192"
-                    Point2="-9.18592109862107,-77.77499998192"
-                    Point3="-9.18592109862107,-81.77499998192" />
+                    Point1="-8.85258776528781,-19.2188153163953"
+                    Point2="-12.8525877652878,-19.2188153163953"
+                    Point3="-12.8525877652878,-23.2188153163953" />
                   <mssgle:LineSegment
-                    End="-9.18592109862107,-148.04999996384" />
+                    End="-12.8525877652878,-40.04999996384" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

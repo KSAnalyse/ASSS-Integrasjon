@@ -12,7 +12,7 @@
   DTS:ObjectName="SSB Samferdsel"
   DTS:PackageType="5"
   DTS:VersionBuild="271"
-  DTS:VersionGUID="{7CB44F26-C565-4654-86B6-D981A138D47B}">
+  DTS:VersionGUID="{744100F0-3452-49C1-8B7B-398109A76A65}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

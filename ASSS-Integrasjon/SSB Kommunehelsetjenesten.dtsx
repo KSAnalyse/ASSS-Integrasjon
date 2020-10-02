@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/15/2018 2:05:09 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Kommunehelsetjenesten"
   DTS:PackageType="5"
-  DTS:VersionBuild="270"
-  DTS:VersionGUID="{029C023D-ABBD-4500-B6F1-F6BAA28A4C22}">
+  DTS:VersionBuild="271"
+  DTS:VersionGUID="{7690727A-1A00-484C-95DB-9C8E803E5405}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -64,7 +64,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11993 Aktivitet i helsestasjons- og skolehelsetjenesten, etter helsekontroller"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -81,7 +81,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11994 Helsestasjons- og skolehelsetjenesteårsverk, etter utdanning"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -166,7 +166,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12209 Utvalgte nøkkeltall for helse og omsorg"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -200,6 +200,17 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="152,42"
+          Id="Package\Delay Container\5 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,110"
+          Size="228,153"
+          Id="Package\Delay Container"
+          TopLeft="35.488073389262,141.901583690738" />
+        <NodeLayout
           Size="286,42"
           Id="Package\Kommunehelsetjenesten\Les SSB_11993 Aktivitet i helsestasjons- og skolehelsetjenesten, etter helsekontroller"
           TopLeft="54.1116779424472,10.3000005578995" />
@@ -220,40 +231,29 @@
           Id="Package\Kommunehelsetjenesten\Les SSB_12005 Fastlegelister og fastlegekonsultasjoner"
           TopLeft="70.7783447332903,264.69999905467" />
         <NodeLayout
-          Size="130,42"
+          Size="155,42"
           Id="Package\Kommunehelsetjenesten\Les SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall"
-          TopLeft="34.2783446587843,317.466665829818" />
+          TopLeft="12.2783446587843,320.466665829818" />
         <NodeLayout
-          Size="130,43"
+          Size="148,43"
           Id="Package\Kommunehelsetjenesten\Les SSB_12209 Utvalgte nøkkeltall for helse og omsorg"
           TopLeft="206.611677905194,314.099999256134" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="392,424"
-          Size="392,467"
+          PanelSize="392,466"
+          Size="392,509"
           Id="Package\Kommunehelsetjenesten"
           TopLeft="404.488073389262,21.901583690738" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Delay Container\5 Second Delay"
-          TopLeft="22,13" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="228,110"
-          Size="228,153"
-          Id="Package\Delay Container"
-          TopLeft="35.488073389262,141.901583690738" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="263.488073389262,218.401583690738">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="141,37"
+              EndConnector="141,58"
               Start="0,0"
-              End="133.5,37">
+              End="133.5,58">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -264,13 +264,13 @@
                     Point2="70.5,0"
                     Point3="70.5,4" />
                   <mssgle:LineSegment
-                    End="70.5,33" />
+                    End="70.5,54" />
                   <mssgle:CubicBezierSegment
-                    Point1="70.5,33"
-                    Point2="70.5,37"
-                    Point3="74.5,37" />
+                    Point1="70.5,54"
+                    Point2="70.5,58"
+                    Point3="74.5,58" />
                   <mssgle:LineSegment
-                    End="133.5,37" />
+                    End="133.5,58" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/15/2018 2:05:09 PM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Manuelle Data - Grunnskole"
   DTS:PackageType="5"
   DTS:VersionBuild="404"
-  DTS:VersionGUID="{2F445E34-CBAE-434B-960A-B606777AFD94}">
+  DTS:VersionGUID="{B99BEFB0-CD7C-47C4-813C-FBF5D27EA006}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -501,8 +501,8 @@
                   <connections>
                     <connection
                       refId="Package\Grunnskole\Les Eksamensresultater til databasen\KS_GRS04 Eksamensresultater.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1011,8 +1011,8 @@
                   <connections>
                     <connection
                       refId="Package\Grunnskole\Les Elevundersøkelsen til databasen\KS_GRS05 Elevundersøkelsen.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1342,8 +1342,8 @@
                   <connections>
                     <connection
                       refId="Package\Grunnskole\Les Ressurser til databasen\KS_GRS06 Ressurser grunnskole.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2147,8 +2147,8 @@
                   <connections>
                     <connection
                       refId="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen\KS_GRS01 Nasjonale prøver 5 trinn.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2478,8 +2478,8 @@
                   <connections>
                     <connection
                       refId="Package\Nasjonale Prøver\Les Nasjonale prøver 8 trinn\KS_GRS02 Nasjonale prøver 8 trinn.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2988,8 +2988,8 @@
                   <connections>
                     <connection
                       refId="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn\KS_GRS03 Nasjonale prøver 9 trinn.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>

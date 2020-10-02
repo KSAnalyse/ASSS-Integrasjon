@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Byggeareal"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{E5D26928-CC53-43F9-B19E-ABDD991ED9A9}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{A306BE34-BED7-4E97-A62A-0632F6A25E82}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -36,7 +36,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_05939 Bruksareal til annet enn bolig (m²), bygningstype"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -54,7 +54,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_05940 Boligbygg, bygningstype"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -71,7 +71,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_08655 Byggjekostnadsindeks for bustadblokk, arbeidstype"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -133,20 +133,24 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="207,53"
+          Size="364,53"
           Id="Package\Byggeareal\Les SSB_05939 Bruksareal til annet enn bolig (m²), bygningstype"
-          TopLeft="58.4166666604579,30" />
+          TopLeft="24.4166666604579,82" />
         <NodeLayout
           Size="216,42"
           Id="Package\Byggeareal\Les SSB_05940 Boligbygg, bygningstype"
-          TopLeft="48,109" />
+          TopLeft="47,159" />
+        <NodeLayout
+          Size="395,42"
+          Id="Package\Byggeareal\Les SSB_08655 Byggjekostnadsindeks for bustadblokk, arbeidstype"
+          TopLeft="24,21" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="312,300"
-          Size="312,343"
+          PanelSize="543,300"
+          Size="543,343"
           Id="Package\Byggeareal"
-          TopLeft="323,38" />
+          TopLeft="248.5,244.5" />
         <NodeLayout
           Size="152,42"
           Id="Package\Delay Container\5 Second Delay"
@@ -157,33 +161,33 @@
           PanelSize="228,110"
           Size="228,153"
           Id="Package\Delay Container"
-          TopLeft="45,98" />
+          TopLeft="417.5,5.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="273,174.5">
+          TopLeft="531.5,158.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="50,35"
+              EndConnector="-11.4999999999999,86"
               Start="0,0"
-              End="42.5,35">
+              End="-11.4999999999999,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="21,0" />
+                    End="0,39" />
                   <mssgle:CubicBezierSegment
-                    Point1="21,0"
-                    Point2="25,0"
-                    Point3="25,4" />
+                    Point1="0,39"
+                    Point2="0,43"
+                    Point3="-4,43" />
                   <mssgle:LineSegment
-                    End="25,31" />
+                    End="-7.49999999999989,43" />
                   <mssgle:CubicBezierSegment
-                    Point1="25,31"
-                    Point2="25,35"
-                    Point3="29,35" />
+                    Point1="-7.49999999999989,43"
+                    Point2="-11.4999999999999,43"
+                    Point3="-11.4999999999999,47" />
                   <mssgle:LineSegment
-                    End="42.5,35" />
+                    End="-11.4999999999999,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

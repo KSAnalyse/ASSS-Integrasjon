@@ -12,7 +12,7 @@
   DTS:ObjectName="SSB Miljøforvaltning"
   DTS:PackageType="5"
   DTS:VersionBuild="24"
-  DTS:VersionGUID="{5CDB67DD-DDE5-4F9E-8658-428CA3FC9079}">
+  DTS:VersionGUID="{B02F973B-EAAE-4850-BD2A-3FCE36F0E860}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

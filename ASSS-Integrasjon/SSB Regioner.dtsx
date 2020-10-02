@@ -12,7 +12,7 @@
   DTS:ObjectName="SSB Regioner"
   DTS:PackageType="5"
   DTS:VersionBuild="38"
-  DTS:VersionGUID="{37046856-4D67-4038-A96F-D4D9234D5549}">
+  DTS:VersionGUID="{F6B22B87-B80B-449A-BDD1-3F5FA891E1B7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

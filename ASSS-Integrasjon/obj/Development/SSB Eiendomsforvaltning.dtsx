@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Eiendomsforvaltning"
   DTS:PackageType="5"
-  DTS:VersionBuild="260"
-  DTS:VersionGUID="{25C95045-2602-4A34-A488-C090D3B7F95A}">
+  DTS:VersionBuild="262"
+  DTS:VersionGUID="{DB501233-C8E3-4E80-BE94-7661519CB3FB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -132,25 +132,6 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="298,42"
-          Id="Package\Eiendomsforvaltning\Les SSB_11906 Areal for kommunale formålsbygg, etter eieform og funksjon"
-          TopLeft="26.9666666666672,29.4666666821635" />
-        <NodeLayout
-          Size="288,50"
-          Id="Package\Eiendomsforvaltning\Les SSB_12559 Hovedøkonomi for kommunal eiendomsforvaltning, etter art og funksjon"
-          TopLeft="35.29999995033,95.8666677747166" />
-        <NodeLayout
-          Size="297,61"
-          Id="Package\Eiendomsforvaltning\Les SSB_12905 Utgifter til forvaltning, drift og vedlikehold av utvalgte kommunale formålsbygg, etter art, funksjon"
-          TopLeft="31.2791665875048,165.208334466566" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="355,328"
-          Size="355,371"
-          Id="Package\Eiendomsforvaltning"
-          TopLeft="371.590265225107,99.3912666798381" />
-        <NodeLayout
           Size="152,42"
           Id="Package\Delay Container\5 Second Delay"
           TopLeft="22,13" />
@@ -160,33 +141,52 @@
           PanelSize="228,110"
           Size="228,153"
           Id="Package\Delay Container"
-          TopLeft="34.590265225107,189.391266679838" />
+          TopLeft="69.0000000000001,5.5" />
+        <NodeLayout
+          Size="298,42"
+          Id="Package\Eiendomsforvaltning\Les SSB_11906 Areal for kommunale formålsbygg, etter eieform og funksjon"
+          TopLeft="22.9666666666672,95.4666666821635" />
+        <NodeLayout
+          Size="327,42"
+          Id="Package\Eiendomsforvaltning\Les SSB_12047 Utgifter til forvaltning, drift og vedlikehold av utvalgte kommunale formålsbygg, etter art og funksjon"
+          TopLeft="18,20.5" />
+        <NodeLayout
+          Size="288,50"
+          Id="Package\Eiendomsforvaltning\Les SSB_12559 Hovedøkonomi for kommunal eiendomsforvaltning, etter art og funksjon"
+          TopLeft="26.2999999503299,165.866667774717" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="406,328"
+          Size="406,371"
+          Id="Package\Eiendomsforvaltning"
+          TopLeft="44.5000000000001,230.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="262.590265225107,265.891266679838">
+          TopLeft="183,158.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="109,19.0000000000001"
+              EndConnector="64.5000000000001,72"
               Start="0,0"
-              End="101.5,19.0000000000001">
+              End="64.5000000000001,64.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="50.5,0" />
+                    End="0,32" />
                   <mssgle:CubicBezierSegment
-                    Point1="50.5,0"
-                    Point2="54.5,0"
-                    Point3="54.5,4" />
+                    Point1="0,32"
+                    Point2="0,36"
+                    Point3="4,36" />
                   <mssgle:LineSegment
-                    End="54.5,15.0000000000001" />
+                    End="60.5000000000001,36" />
                   <mssgle:CubicBezierSegment
-                    Point1="54.5,15.0000000000001"
-                    Point2="54.5,19.0000000000001"
-                    Point3="58.5,19.0000000000001" />
+                    Point1="60.5000000000001,36"
+                    Point2="64.5000000000001,36"
+                    Point3="64.5000000000001,40" />
                   <mssgle:LineSegment
-                    End="101.5,19.0000000000001" />
+                    End="64.5000000000001,64.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

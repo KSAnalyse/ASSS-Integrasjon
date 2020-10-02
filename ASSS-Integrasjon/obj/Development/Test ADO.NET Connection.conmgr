@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Test ADO NET Connection"
+  DTS:DTSID="{81357B16-1AAC-4520-BEF6-159DCC8AF2A7}"
+  DTS:CreationName="ADO.NET:System.Data.OleDb.OleDbConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=VK-SXD0E-003;Initial Catalog=TEST_Staging_ASSS;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

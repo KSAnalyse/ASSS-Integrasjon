@@ -12,7 +12,7 @@
   DTS:ObjectName="SSB Samferdsel"
   DTS:PackageType="5"
   DTS:VersionBuild="271"
-  DTS:VersionGUID="{7CB44F26-C565-4654-86B6-D981A138D47B}">
+  DTS:VersionGUID="{744100F0-3452-49C1-8B7B-398109A76A65}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -64,7 +64,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11814 Kommunale veier, utvalgte kjennetegn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -81,7 +81,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11816 Utvalgte nøkkeltall for samferdsel"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -115,7 +115,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12183 Økonomi innen samferdsel"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData

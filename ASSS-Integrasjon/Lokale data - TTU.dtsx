@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/17/2020 12:58:03 PM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Lokale data - TTU"
   DTS:PackageType="5"
   DTS:VersionBuild="117"
-  DTS:VersionGUID="{D6191427-033F-4555-8325-1A935CDE3F28}">
+  DTS:VersionGUID="{F873EFEC-F326-440A-9D91-4AEF1813428B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -429,8 +429,8 @@
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Les inn data fra excel\KS_TTU01 Manuelle data.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -750,8 +750,8 @@ AND År = ?</property>
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Les inn data fra excel\OLE DB Command.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -974,8 +974,8 @@ AND År = ?</property>
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Les inn data fra excel\Oppdater nye verdier.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1523,8 +1523,8 @@ and [refTable].[År] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Les inn data fra excel\Sjekk rader opp mot tabell i databasen.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>

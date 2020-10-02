@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="1/16/2019 1:31:29 PM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Manuelle Data - Samferdsel"
   DTS:PackageType="5"
   DTS:VersionBuild="25"
-  DTS:VersionGUID="{5E027182-39B3-4F58-BB05-2F18A3D2F696}">
+  DTS:VersionGUID="{AF0EB46C-79E6-454A-B274-A0820CF7A2AE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -246,8 +246,8 @@
                   <connections>
                     <connection
                       refId="Package\Samferdsel\Les Samferdsel manuelle tall til databasen\KS_SFS01 Samferdsel manuelle tall.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>

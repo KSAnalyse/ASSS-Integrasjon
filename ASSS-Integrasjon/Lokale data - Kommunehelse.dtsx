@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/10/2020 2:45:12 PM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Lokale data - Kommunehelse"
   DTS:PackageType="5"
   DTS:VersionBuild="60"
-  DTS:VersionGUID="{272118DD-DBC7-4D80-9B70-68AEE3D28498}">
+  DTS:VersionGUID="{9C08CFB0-20E7-4258-A2B6-D202D129D3D2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -445,8 +445,8 @@
                   <connections>
                     <connection
                       refId="Package\Kommunehelse\Les Kommunehelse helsestasjon og skolehelsetjeneste\KS_KHT02 Årsverk helsestasjon og skolehelsetjeneste.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -955,8 +955,8 @@
                   <connections>
                     <connection
                       refId="Package\Kommunehelse\Les Kommunehelse leger\KS_KPR01 KPR legedata.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1465,8 +1465,8 @@
                   <connections>
                     <connection
                       refId="Package\Kommunehelse\Les Kommunehelse årsverk ergoterapeuter\KS_KHT01 Årsverk ergoterapeuter.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>

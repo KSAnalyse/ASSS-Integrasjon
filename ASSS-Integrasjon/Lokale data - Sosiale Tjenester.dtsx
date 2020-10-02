@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/15/2018 2:05:09 PM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Manuelle Data - Sosiale Tjenester"
   DTS:PackageType="5"
   DTS:VersionBuild="184"
-  DTS:VersionGUID="{A65480C5-5B6D-4D2B-8CCB-EBD37C94B6B1}">
+  DTS:VersionGUID="{5761A035-194F-4FA1-BD91-096BEA9FCF6F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -246,8 +246,8 @@
                   <connections>
                     <connection
                       refId="Package\Sosiale Tjenester\Les KVP andel deltakere som gikk til arbeid, skole eller utdanning\KS_KVP01 Andel deltakere som gikk til arbeid, skole eller utdanning.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>

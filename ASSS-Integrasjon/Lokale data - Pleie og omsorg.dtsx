@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/15/2018 2:05:09 PM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Manuelle Data - Pleie og omsorg"
   DTS:PackageType="5"
   DTS:VersionBuild="189"
-  DTS:VersionGUID="{0046BD02-8165-4844-A17D-E22260B9D434}">
+  DTS:VersionGUID="{B1907323-0B11-4539-BB91-D3836AEEEAF2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -246,8 +246,8 @@
                   <connections>
                     <connection
                       refId="Package\Pleie og omsorg\Les Manuelle data tjenester til utviklingshemmede (TTU)\KS_TTU01 Manuelle data tjenester til utviklingshemmede.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>

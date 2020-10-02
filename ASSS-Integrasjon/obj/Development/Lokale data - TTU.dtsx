@@ -12,7 +12,7 @@
   DTS:ObjectName="Lokale data - TTU"
   DTS:PackageType="5"
   DTS:VersionBuild="117"
-  DTS:VersionGUID="{D6191427-033F-4555-8325-1A935CDE3F28}">
+  DTS:VersionGUID="{F873EFEC-F326-440A-9D91-4AEF1813428B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -395,7 +395,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -562,7 +562,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -734,7 +734,7 @@
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update [dbo].[KS_TTU01 Manuelle data] 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update [dbo].[KS_TTU01 Manuelle data] 
 Set Kommunenummer = ?,
 Variabelnavn = ?,
 År = ?,
@@ -956,7 +956,7 @@ AND År = ?</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update [dbo].[KS_TTU01 Manuelle data]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update [dbo].[KS_TTU01 Manuelle data]
      Set Kommunenummer = ?,
             Variabelnavn = ?,
             Kilde = ?,
@@ -1462,13 +1462,13 @@ AND År = ?</property>
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[KS_TTU01 Manuelle data]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[KS_TTU01 Manuelle data]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * 
 from (select * from [dbo].[KS_TTU01 Manuelle data]) [refTable] 
 
 where [refTable].[Kommunenummer] = ? 

@@ -2,158 +2,163 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ASSS-Integrasjon</Name>
-    <LastWriteTime>2020-09-15T11:21:53.3767338Z</LastWriteTime>
+    <LastWriteTime>2020-09-29T12:00:40.6467929Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>SSB Areal- og samfunnsplanlegging.dtsx</Name>
-      <LastWriteTime>2020-09-07T07:57:58.5999151Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:23.000588Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Deploy.dtsx</Name>
-      <LastWriteTime>2020-09-04T07:28:40.9866717Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:21.6641044Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnehage.dtsx</Name>
-      <LastWriteTime>2020-09-07T07:37:18.6293637Z</LastWriteTime>
+      <LastWriteTime>2020-09-30T11:18:47.1735633Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnevern.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:54:03.6063825Z</LastWriteTime>
+      <LastWriteTime>2020-09-25T11:06:54.1613982Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Byggeareal.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:53:48.427051Z</LastWriteTime>
+      <LastWriteTime>2020-09-25T12:18:25.2881636Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Eiendomsforvaltning.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:53:21.9560745Z</LastWriteTime>
+      <LastWriteTime>2020-09-24T11:11:37.3618307Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Grunnskole.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:53:40.2722963Z</LastWriteTime>
+      <LastWriteTime>2020-09-30T10:14:41.0657488Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Kommunehelsetjenesten.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:53:13.6030402Z</LastWriteTime>
+      <LastWriteTime>2020-09-25T11:34:52.6683639Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Miljøforvaltning.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:53:30.5268952Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:23.9244843Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Pleie og omsorg.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:48:12.7742057Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:24.0242241Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Profil.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:48:27.9012899Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:24.0910453Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Regioner.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:53:04.1054287Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:24.1478938Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Sosiale Tjenester.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:47:42.602136Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:24.3664326Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Samferdsel.dtsx</Name>
-      <LastWriteTime>2020-09-04T08:47:55.1845148Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:24.214715Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Barnehager v2 Dynamisk excel test.dtsx</Name>
-      <LastWriteTime>2020-09-07T07:53:37.8777797Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:21.9214074Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Barnehager v2.dtsx</Name>
-      <LastWriteTime>2020-09-07T07:53:48.8205936Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.0241375Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Barnehager.dtsx</Name>
-      <LastWriteTime>2020-09-10T11:35:26.7207097Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.1079136Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Barnevern test.dtsx</Name>
-      <LastWriteTime>2020-09-07T07:54:09.3546336Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.1807169Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Barnevern.dtsx</Name>
-      <LastWriteTime>2020-09-07T07:54:16.5485395Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.2306217Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Grunnskole.dtsx</Name>
-      <LastWriteTime>2020-09-10T11:39:14.4313025Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.4772764Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Kommunehelse.dtsx</Name>
-      <LastWriteTime>2020-09-10T11:41:41.3149764Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.5886904Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - PAI.dtsx</Name>
-      <LastWriteTime>2020-09-10T11:42:19.7951326Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.6365624Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Pleie og omsorg.dtsx</Name>
-      <LastWriteTime>2020-09-10T11:45:17.4013374Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.6824385Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Samferdsel.dtsx</Name>
-      <LastWriteTime>2020-09-10T11:46:35.0674678Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.7253251Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Sosiale Tjenester.dtsx</Name>
-      <LastWriteTime>2020-09-10T11:48:29.2919995Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.7692066Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - TTU.dtsx</Name>
-      <LastWriteTime>2020-09-14T06:12:17.4097371Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>SSB Økonomi.dtsx</Name>
-      <LastWriteTime>2020-09-17T06:53:38.0516102Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T07:15:22.8779188Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Tabelloversikt.dtsx</Name>
-      <LastWriteTime>2020-09-14T06:12:14.4009231Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Create Table.dtsx</Name>
-      <LastWriteTime>2020-09-14T14:44:06.4740848Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T08:33:49.1891842Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Check Date.dtsx</Name>
-      <LastWriteTime>2020-09-17T07:01:19.1843277Z</LastWriteTime>
+      <LastWriteTime>2020-09-22T09:27:46.3561862Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Create Table.dtsx</Name>
+      <LastWriteTime>2020-09-30T08:31:57.0227844Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Økonomi.dtsx</Name>
+      <LastWriteTime>2020-09-25T12:18:22.1527377Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Main Task.dtsx</Name>
+      <LastWriteTime>2020-09-30T11:36:36.8046024Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

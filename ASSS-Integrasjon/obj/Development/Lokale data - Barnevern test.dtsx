@@ -12,7 +12,7 @@
   DTS:ObjectName="Lokale data - Barnevern test"
   DTS:PackageType="5"
   DTS:VersionBuild="176"
-  DTS:VersionGUID="{F9DBECD5-2B41-4484-96E8-B991E3FEA938}">
+  DTS:VersionGUID="{B7CCCD56-2BE2-4A58-9F1E-B918178FF36D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -328,7 +328,7 @@ AND År = ?"</DTS:PropertyExpression>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -496,7 +496,7 @@ AND År = ?"</DTS:PropertyExpression>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -759,7 +759,7 @@ AND År = ?"</DTS:PropertyExpression>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update [dbo].[KS_BNV01 Enslige mindreårige i barnevernet] Set Kommunenummer = ?,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update [dbo].[KS_BNV01 Enslige mindreårige i barnevernet] Set Kommunenummer = ?,
             Variabelnavn = ?,
             År = ?,
             Verdi = ?
@@ -981,7 +981,7 @@ AND År = ?</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update [dbo].[KS_BNV01 Enslige mindreårige i barnevernet] Set Kommunenummer = ?,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update [dbo].[KS_BNV01 Enslige mindreårige i barnevernet] Set Kommunenummer = ?,
             Variabelnavn = ?,
             År = ?,
             Verdi = ?
@@ -1414,13 +1414,13 @@ AND År = ?</property>
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[KS_BNV01 Enslige mindreårige i barnevernet]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[KS_BNV01 Enslige mindreårige i barnevernet]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from 
 (select * from [dbo].[KS_BNV01 Enslige mindreårige i barnevernet]) [refTable] 
 where [refTable].[Kommunenummer] = ? 
 and [refTable].[Variabelnavn] = ? 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/8/2019 12:17:22 PM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Lokale data - PAI"
   DTS:PackageType="5"
   DTS:VersionBuild="18"
-  DTS:VersionGUID="{53C1682E-FE71-4F52-8BA7-638872CB8996}">
+  DTS:VersionGUID="{0DFB9764-B3FE-4459-9789-21950DD8FA3E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -246,8 +246,8 @@
                   <connections>
                     <connection
                       refId="Package\PAI\Les Pai-data 2018\KS_PAI01 Pai manuelle tall.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>

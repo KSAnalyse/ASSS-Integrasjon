@@ -12,7 +12,7 @@
   DTS:ObjectName="Manuelle Data - Barnevern"
   DTS:PackageType="5"
   DTS:VersionBuild="16"
-  DTS:VersionGUID="{E2332712-561E-471F-B64A-F66293820066}">
+  DTS:VersionGUID="{2EF9768D-4087-4AE4-97D0-BD3246890D07}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

@@ -12,7 +12,7 @@
   DTS:ObjectName="Lokale data - Barnevern test"
   DTS:PackageType="5"
   DTS:VersionBuild="176"
-  DTS:VersionGUID="{F9DBECD5-2B41-4484-96E8-B991E3FEA938}">
+  DTS:VersionGUID="{B7CCCD56-2BE2-4A58-9F1E-B918178FF36D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
