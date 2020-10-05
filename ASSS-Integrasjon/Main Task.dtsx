@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="Main Task"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{27877751-89A5-498F-A6E2-ADD31E54AAC5}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{95583030-B52C-483C-A995-69AACA9C247C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -9996,7 +9996,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       DTS:From="Package\Execute Regioner"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 43"
-      DTS:To="Package\Sequence Container" />
+      DTS:To="Package\Sequence Container"
+      DTS:Value="2" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
@@ -11378,7 +11379,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="1.695546875,-17.609375,50.60890625,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
