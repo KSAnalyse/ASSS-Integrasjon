@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="Manuelle Data - Barnehager"
   DTS:PackageType="5"
-  DTS:VersionBuild="382"
-  DTS:VersionGUID="{1659BBEE-83CD-4008-90A2-ACA063D721D1}">
+  DTS:VersionBuild="383"
+  DTS:VersionGUID="{DCB4FD65-45D7-4CD8-B249-D9300180117D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -606,7 +606,7 @@
                           cachedDataType="r8"
                           cachedName="Årgang"
                           externalMetadataColumnId="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet).Inputs[OLE DB Destination Input].ExternalColumns[År]"
-                          lineageId="Package\Barnehage\Barn per ansatt i barnehagen\277:invalid" />
+                          lineageId="Package\Barnehage\Barn per ansatt i barnehagen\257:invalid" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1387,10 +1387,6 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="335,42"
-          Id="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet)"
-          TopLeft="168,308" />
-        <NodeLayout
           Size="156,42"
           Id="Package\Barnehage\Barn per ansatt i barnehagen\Data Conversion"
           TopLeft="378,193" />
@@ -1398,6 +1394,10 @@
           Size="217,44"
           Id="Package\Barnehage\Barn per ansatt i barnehagen\Barn per ansatt i barnehagen"
           TopLeft="191,103" />
+        <NodeLayout
+          Size="335,42"
+          Id="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet)"
+          TopLeft="168,308" />
         <EdgeLayout
           Id="Package\Barnehage\Barn per ansatt i barnehagen.Paths[Excel Source Output]"
           TopLeft="299.5,147">
@@ -1472,7 +1472,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet)">
+    design-time-name="Package\Barnehage\Barn per ansatt i barnehagen\Barn per ansatt i barnehagen">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1485,7 +1485,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Barnehage\Barn per ansatt i barnehagen\Barn per ansatt i barnehagen">
+    design-time-name="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

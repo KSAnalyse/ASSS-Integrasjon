@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Grunnskole"
   DTS:PackageType="5"
-  DTS:VersionBuild="316"
-  DTS:VersionGUID="{1FF9969B-21F6-4F14-9A27-444CC472BA8A}">
+  DTS:VersionBuild="319"
+  DTS:VersionGUID="{2CC0E10C-E1FA-4ED5-BC66-7FD23C78C72C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -120,7 +120,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11971 Antall kommunale grunnskoler og antall elever i kommunale grunnskoler"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -171,7 +171,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11977 Vektede elevtall - grunnskole"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -183,6 +183,7 @@
           DTS:refId="Package\Grunnskole\Les SSB_11980 Elever i grunnskolen, etter eierforhold og årstrinn"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{2EF66FD7-4CD9-4441-95BF-ECDFF981E242}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -212,12 +213,13 @@
           DTS:refId="Package\Grunnskole 2\Les SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{3136C715-8522-4FD8-A6D6-90046854D77B}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -229,12 +231,13 @@
           DTS:refId="Package\Grunnskole 2\Les SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{56B3637B-003C-42F7-8C88-4021E516317A}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -251,7 +254,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12222 Elever i kommunale og private grunnskoler med spesialundervisning, etter årstrinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -268,7 +271,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12234 Elever i kommunale og private grunnskoler med særskilt norskopplæring og morsmålsopplæring"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -285,7 +288,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12236 Grunnlagstall for utdypende indikatorer for grunnskoleopplæring"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -309,12 +312,13 @@
           DTS:refId="Package\Grunnskole 3\Les SSB_12244 Brutto investeringsutgifter i grunnskolesektoren"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{7703FAA3-1FFD-4A50-99BF-A321783ABB4E}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12244 Brutto investeringsutgifter i grunnskolesektoren"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -331,7 +335,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12247 Lærere i grunnskolen, etter kompetanse og kjønn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -343,12 +347,13 @@
           DTS:refId="Package\Grunnskole 3\Les SSB_12267 Avtalte årsverk i grunnskolesektoren, etter funksjon"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{89015176-BA0F-4242-9809-CFD2F7C914AF}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12267 Avtalte årsverk i grunnskolesektoren, etter funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -365,7 +370,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12282 Lærere i grunnskolen, etter kjønn og alder"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -383,7 +388,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -400,7 +405,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12285 Gruppestørrelse, etter årstrinn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -416,7 +421,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12919 Lærere i grunnskole, etter kjønn, lærerkompetanse"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -544,6 +549,14 @@
           Id="Package\Grunnskole"
           TopLeft="20.3582696191693,21.1833333643281" />
         <NodeLayout
+          Size="130,42"
+          Id="Package\Grunnskole 2\Les SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss"
+          TopLeft="105.586174260274,298.25" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Grunnskole 2\Les SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren"
+          TopLeft="102.586174260274,239.550000015497" />
+        <NodeLayout
           Size="363,43"
           Id="Package\Grunnskole 2\Les SSB_12222 Elever i kommunale og private grunnskoler med spesialundervisning, etter årstrinn"
           TopLeft="20.252840926941,16.933333351413" />
@@ -555,14 +568,6 @@
           Size="334,42"
           Id="Package\Grunnskole 2\Les SSB_12236 Grunnlagstall for utdypende indikatorer for grunnskoleopplæring"
           TopLeft="19.5833333271245,161.600000030994" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Grunnskole 2\Les SSB_11970 Elever i kommunale og private grunnskoler som får skoleskyss"
-          TopLeft="105.586174260274,298.25" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Grunnskole 2\Les SSB_11981 Avtalte årsverk, lærerårsverk og assistentårsverk i grunnskolesektoren"
-          TopLeft="102.586174260274,239.550000015497" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -570,18 +575,6 @@
           Size="412,489"
           Id="Package\Grunnskole 2"
           TopLeft="432,20.54999996384" />
-        <NodeLayout
-          Size="311,42"
-          Id="Package\Grunnskole 3\Les SSB_12282 Lærere i grunnskolen, etter kjønn og alder"
-          TopLeft="5.5,10.566666700244" />
-        <NodeLayout
-          Size="293,42"
-          Id="Package\Grunnskole 3\Les SSB_12285 Gruppestørrelse, etter årstrinn"
-          TopLeft="11.1666666666666,68.33333337208" />
-        <NodeLayout
-          Size="314,42"
-          Id="Package\Grunnskole 3\Les SSB_12919 Lærere i grunnskole, etter kjønn, lærerkompetanse"
-          TopLeft="10.9138257397257,126" />
         <NodeLayout
           Size="156,42"
           Id="Package\Grunnskole 3\Les SSB_12244 Brutto investeringsutgifter i grunnskolesektoren"
@@ -595,9 +588,21 @@
           Id="Package\Grunnskole 3\Les SSB_12267 Avtalte årsverk i grunnskolesektoren, etter funksjon"
           TopLeft="193.166666666667,273.183333364328" />
         <NodeLayout
+          Size="311,42"
+          Id="Package\Grunnskole 3\Les SSB_12282 Lærere i grunnskolen, etter kjønn og alder"
+          TopLeft="5.5,10.566666700244" />
+        <NodeLayout
           Size="130,43"
           Id="Package\Grunnskole 3\Les SSB_12284 Lærere i grunnskolen , heltid- og deltidsstillinger, kjønn"
           TopLeft="5.5,335.95000003616" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\Grunnskole 3\Les SSB_12285 Gruppestørrelse, etter årstrinn"
+          TopLeft="11.1666666666666,68.33333337208" />
+        <NodeLayout
+          Size="314,42"
+          Id="Package\Grunnskole 3\Les SSB_12919 Lærere i grunnskole, etter kjønn, lærerkompetanse"
+          TopLeft="10.9138257397257,126" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"

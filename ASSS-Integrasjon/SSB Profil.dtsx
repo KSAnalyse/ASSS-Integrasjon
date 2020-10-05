@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/15/2018 2:05:09 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Profil"
   DTS:PackageType="5"
-  DTS:VersionBuild="245"
-  DTS:VersionGUID="{15AECDD7-1134-416C-BB81-252BC9F9D3AF}">
+  DTS:VersionBuild="246"
+  DTS:VersionGUID="{D7A3F87A-9AB1-4B7D-8BA5-C8033BA31FF0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -93,6 +93,7 @@
           DTS:refId="Package\Profil\Les SSB_11917 Sysselsatte personer i kommunal sektor, etter funksjon"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{3D0C6AD5-FE29-4B61-8966-647BE29D2898}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -110,6 +111,7 @@
           DTS:refId="Package\Profil\Les SSB_11918 Avtalte årsverk i kommunal sektor, etter regnskapsomfang og funksjon"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{B9FE7BBB-FEF0-41B5-A2F6-320B12735911}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -149,6 +151,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="152,42"
+          Id="Package\Delay Container\5 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,110"
+          Size="228,153"
+          Id="Package\Delay Container"
+          TopLeft="65,148" />
+        <NodeLayout
           Size="280,42"
           Id="Package\Profil\Les SSB_11805 Folkemengde 31 12, etter alder"
           TopLeft="60.6041666666667,15.5" />
@@ -171,17 +184,6 @@
           Size="402,334"
           Id="Package\Profil"
           TopLeft="391.46825226704,104.991271282507" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Delay Container\5 Second Delay"
-          TopLeft="22,13" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="228,110"
-          Size="228,153"
-          Id="Package\Delay Container"
-          TopLeft="65,148" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="293,224.5">

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/15/2018 2:05:09 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="Manuelle Data - Barnehager"
   DTS:PackageType="5"
-  DTS:VersionBuild="382"
-  DTS:VersionGUID="{1659BBEE-83CD-4008-90A2-ACA063D721D1}">
+  DTS:VersionBuild="383"
+  DTS:VersionGUID="{DCB4FD65-45D7-4CD8-B249-D9300180117D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -113,7 +113,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -524,7 +524,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -558,8 +558,8 @@
                   <connections>
                     <connection
                       refId="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet).Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
-                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -862,7 +862,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -1041,7 +1041,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1075,8 +1075,8 @@
                   <connections>
                     <connection
                       refId="Package\Barnehage\Les Foreldreundersøkelsen i barnehage\KS_Foreldreundersøkelsen i barnehage.Connections[OleDbConnection]"
-                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
-                      connectionManagerRefId="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:invalid"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1387,10 +1387,6 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="335,42"
-          Id="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet)"
-          TopLeft="168,308" />
-        <NodeLayout
           Size="156,42"
           Id="Package\Barnehage\Barn per ansatt i barnehagen\Data Conversion"
           TopLeft="378,193" />
@@ -1398,6 +1394,10 @@
           Size="217,44"
           Id="Package\Barnehage\Barn per ansatt i barnehagen\Barn per ansatt i barnehagen"
           TopLeft="191,103" />
+        <NodeLayout
+          Size="335,42"
+          Id="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet)"
+          TopLeft="168,308" />
         <EdgeLayout
           Id="Package\Barnehage\Barn per ansatt i barnehagen.Paths[Excel Source Output]"
           TopLeft="299.5,147">
@@ -1472,7 +1472,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet)">
+    design-time-name="Package\Barnehage\Barn per ansatt i barnehagen\Barn per ansatt i barnehagen">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1485,7 +1485,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Barnehage\Barn per ansatt i barnehagen\Barn per ansatt i barnehagen">
+    design-time-name="Package\Barnehage\Barn per ansatt i barnehagen\KS_Barn per ansatt i barnehagen (bemanningstetthet)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
