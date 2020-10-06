@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">VK-C0D0E-360</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAC7dqVVGRkkG2ukqh1MuhLAAAAAACAAAAAAADZgAAwAAAABAAAABnoZPvdMXQV36NXd++7Q1hAAAAAASAAACgAAAAEAAAAIt0ylmUPO0H5XJuvv1DB0qIAAAAKtFC0JznjBo/O2dxanQNn0JxGmKuKH7zyp47GSyRIknEYhPBrRxJ9hNamrHNM6gbZ8uBonJAj3Aoh4I1gjLOljtYrCqsViZH3jfYSe4EQLyp6sOg1poKXN0ThvDHYDh+V0+Y0MVh3NXz6O56MkzGFBgY8t2HB3oPG934KNPvEsb810pRakj6EBQAAACCyKtXPqFXixQaWbvxcfDNNb12Vg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAC7dqVVGRkkG2ukqh1MuhLAAAAAACAAAAAAADZgAAwAAAABAAAADjysZDbOY21ZuxoBv/JO0EAAAAAASAAACgAAAAEAAAAPDh/Fpx9pX09NoqDBGRGR2IAAAAOHXT8zvIWIXt7owWgNqxXahVdTEM8RHyJ4jkDhc9aOYiPXtV+cdj3PQdaG2Sxs25hVxZ/c13YIw7fw9WCKioU8IX9dGt1Xya3Sa64YfpJKR58mGoDKo/NiYsCiq56GVv5kBNU6i/jWHJJISiLkiaCxDvvDS0phr7b9ZHvhY4Y4rFz4j7TYA5OBQAAABclNZNcX+iWsZDqdbDI5G2bKk8ZQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,7 +42,6 @@
           <SSIS:Package SSIS:Name="SSB Pleie og omsorg.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="SSB Profil.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="SSB Regioner.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="SSB Sosiale Tjenester.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="SSB Samferdsel.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Lokale data - Barnehager v2 Dynamisk excel test.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Lokale data - Barnehager v2.dtsx" SSIS:EntryPoint="1" />
@@ -61,6 +60,7 @@
           <SSIS:Package SSIS:Name="Create Table.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="SSB Økonomi.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Main Task.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="SSB Sosiale Tjenester.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="VK-SXD0E-003.TEST_Staging_ASSS.conmgr" />
@@ -193,10 +193,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Areal- og samfunnsplanlegging</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">64</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">70</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{7E13BF41-4AE0-4673-BEBC-26CC806E44AD}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{FFE34AF8-2779-4538-B71F-F6EF635059EF}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -316,10 +316,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Barnehage</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">318</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">322</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{7A43BCE0-7654-460B-AA80-8EEC36A55697}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{073572A2-6054-46D1-8F15-D96503797690}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -333,10 +333,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Barnevern</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">343</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">347</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{9A0794C3-3B9B-4627-A435-A219A27DF5F5}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F9ABDEBE-4C15-454E-82BF-8F78BC9F9F9C}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -350,10 +350,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Byggeareal</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">24</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">25</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{A306BE34-BED7-4E97-A62A-0632F6A25E82}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{BD119DF1-BBFC-4D62-BEC0-4F9AB00AFFE2}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -367,10 +367,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Eiendomsforvaltning</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">260</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">263</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{25C95045-2602-4A34-A488-C090D3B7F95A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B830D241-43C6-4BFD-BD4C-F59FD1E08112}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -384,10 +384,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Grunnskole</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">315</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">321</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{DFF14E1F-CC82-4B5D-BAAA-536C6BE5EFD8}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{02507B20-3549-4BEC-AAEF-FEF766BC6576}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -401,10 +401,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Kommunehelsetjenesten</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">271</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">273</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{7690727A-1A00-484C-95DB-9C8E803E5405}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D57094F0-70DF-400B-A836-A6D9600932E4}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -418,10 +418,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Miljøforvaltning</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">24</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">25</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{5CDB67DD-DDE5-4F9E-8658-428CA3FC9079}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{4363E775-3F8A-4839-B8AE-A84BBC2357AC}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -435,10 +435,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Pleie og omsorg</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">260</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">262</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C922A255-6604-428B-BF15-BFE504561895}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{DBFE9917-A89A-4D39-89CA-A81888F1DD73}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -452,10 +452,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Profil</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">245</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">247</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{2255DBD0-1750-4D82-8571-EBE661293FDA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{EAEA69E0-066B-42B8-9D22-35FAA65C47C0}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -480,33 +480,16 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="SSB Sosiale Tjenester.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{B1DFCC46-7122-4A48-B873-761689114F14}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">SSB Sosiale Tjenester</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">23</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{53B0472A-8E12-4A8B-B496-067B693DAE23}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="SSB Samferdsel.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{93771847-C2DF-47B6-9832-99C23C8F9E37}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">SSB Samferdsel</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">271</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">272</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{7CB44F26-C565-4654-86B6-D981A138D47B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{ADB0C508-C162-4091-89A0-D775CBDD5580}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -3435,10 +3418,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Økonomi</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">383</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">388</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{8A0DEA0A-2F82-4829-97A0-3B47DF16FFAE}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{31DD5FDB-BFF0-4A20-AA0B-FF212603728C}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -3456,6 +3439,23 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{380EB75B-813A-4129-AF34-26456EA38006}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="SSB Sosiale Tjenester.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{39F56FBA-5569-4CD9-9468-CA264C79F081}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">SSB Sosiale Tjenester</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">25</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{6ED68F7D-B5A8-46B7-B271-676BA07FB42D}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
