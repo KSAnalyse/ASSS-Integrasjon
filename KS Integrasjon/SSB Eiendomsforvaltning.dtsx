@@ -5,15 +5,15 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SQL2018"
   DTS:CreatorName="KSINT\axel.hjelmervik.hansen"
-  DTS:DTSID="{6517E2C6-4B65-4A87-8F03-23A384377876}"
+  DTS:DTSID="{7FF0F40B-772F-400C-BF23-34714CFFC95B}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Eiendomsforvaltning"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="264"
-  DTS:VersionGUID="{3E962CE9-2697-4A4E-A6C3-E71CFFC371B3}">
+  DTS:VersionBuild="265"
+  DTS:VersionGUID="{1BEF5C14-BDA2-4DD1-A3EE-EBA1239EE3BB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

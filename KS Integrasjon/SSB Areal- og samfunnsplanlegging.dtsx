@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Areal- og samfunnsplanlegging"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{3261DF31-546C-46CC-A47E-DA6CF9E6B097}">
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{54DFD7AB-6770-46FA-AE52-568CD09DFE65}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -55,7 +55,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11879 Bygge- og delesaksbehandling - Utøvelse av tilsyn i byggesaker"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -72,7 +72,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12303 Inntekter, utgifter og gebyrer - Gebyrer for kommunale tjenester"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -89,7 +89,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12676 Behandlede byggesøknader og klager Utførte tilsyn samt pålegg, oppfølging og sanksjoner ifm tilsyn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -107,7 +107,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12920 Selvkostregnskap, etter tjenesteområde, post"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -119,16 +119,16 @@
           DTS:refId="Package\Areal- og samfunnsplanlegging\Les SSB_13021 Byggesøknader, etter region, rammevilkår, søknadstype, statistikkvariabel og år"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{FD9B6E3F-1C37-445B-BA68-8459CE55B4B3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_13021 Byggesøknader, etter region, rammevilkår, søknadstype, statistikkvariabel og år"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '13021'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;Declare @t Table(Kommunenummer varchar(50), Rammevilkårkode varchar(50), Søknadstypekode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,1))&#xA;&#x9;Declare @m Table(Kommune varchar(150), Kommunenummer varchar(50), Rammevilkårnavn varchar(50), Rammevilkårkode varchar(50), Søknadstypenavn varchar(50), Søknadstypekode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År int, År2 int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_13021 Byggesøknader, rammevilkår, søknadstype]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Rammevilkårkode,&#xA;&#x9;&#x9;met.Rammevilkårnavn,&#xA;&#x9;&#x9;dat.Søknadstypekode,&#xA;&#x9;&#x9;met2.Søknadstypenavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Rammevilkårkode = dat.Rammevilkårkode&#xA;Join @m met2 ON met2.Søknadstypekode = dat.Søknadstypekode&#xA;Join @m met3 ON met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -152,7 +152,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12295 Utvalgte nøkkeltall for KNNM - Fysisk planlegging, kulturminner, natur og nærmiljø"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -169,7 +169,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12597 Utvalgte tall for omfang og utgifter av bygge- og delesøknader samt eierseksjoneringer"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -186,7 +186,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12611 Hovedtall fra kommuneregnskapene for plan, byggesak og eierseksjonering samt kart og oppmåling"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -203,7 +203,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="SSB_13013 Selvkostregnskap for bygge-og plansaksbehandling, kart, oppmåling og eierseksjonering, tjenesteområde"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
