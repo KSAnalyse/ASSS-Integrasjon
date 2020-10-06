@@ -5,15 +5,15 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SQL2018"
   DTS:CreatorName="KSINT\axel.hjelmervik.hansen"
-  DTS:DTSID="{08A23E0B-2537-4992-861E-A404F3E9C637}"
+  DTS:DTSID="{CE7B831F-7DE0-40B4-B922-B5F5B57DF202}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Barnevern"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="311"
-  DTS:VersionGUID="{379652B7-19D3-4073-864B-B4993ECD38CA}">
+  DTS:VersionBuild="348"
+  DTS:VersionGUID="{5C413E56-96C0-408D-AD65-E738BE7BEF74}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -22,7 +22,7 @@
       DTS:refId="Package\Barnevern"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{5C182B50-B077-46BA-9C80-E2FBD1049971}"
+      DTS:DTSID="{C0E46C9E-FEF5-44AF-921A-7722981AD596}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Barnevern">
@@ -32,7 +32,7 @@
           DTS:refId="Package\Barnevern\Les SSB_12115 Organisering av barnevernstenesta"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{FECC3FAB-2BC4-47F4-BF25-007B9A874318}"
+          DTS:DTSID="{F94681F7-380B-497C-84AD-9D0B326C93ED}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12115 Organisering av barnevernstenesta"
@@ -41,134 +41,146 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12115'&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [dbo].[SSB_12115 Organisering av barnevernstenesta]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;ON met.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12115'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [dbo].[SSB_12115 Organisering av barnevernstenesta]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met&#xA;ON met.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Barnevern\Les SSB_12189 Meldingar til barnevernet, etter konklusjon på meldinga og handsamingstid av meldinga"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{1A96AFC6-152E-4323-9F0E-D12690ED388B}"
+          DTS:DTSID="{EA9D438E-1A8E-4D9E-9044-9669819837D9}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12189 Meldingar til barnevernet, etter konklusjon på meldinga og handsamingstid av meldinga"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12189'&#xA;-- Possible code to automate the insert into section&#xA;--Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Konklusjonskode varchar(50), Behandlingskode int, Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Konklusjon varchar(150), Konklusjonskode varchar(50), Behandlingstid varchar(150), Behandlingskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Konklusjon varchar(150), Konklusjonskode varchar(50), Behandlingstid varchar(150), Behandlingskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Konklusjon varchar(150), Konklusjonskode varchar(50), Behandlingstid varchar(150), Behandlingskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m3 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12189 Meldingar til barnevernet, konklusjon på meldinga, handsamingstid av meldinga]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Konklusjonskode,&#xA;&#x9;&#x9;met.Konklusjon,&#xA;&#x9;&#x9;dat.Behandlingskode,&#xA;&#x9;&#x9;met2.Behandlingstid,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Konklusjonskode = dat.Konklusjonskode&#xA;Join @m2 met2 ON met2.Behandlingskode = dat.Behandlingskode&#xA;Join @m3 met3 ON met3.Variabel = dat.Variabel&#xA;&#xA;--Meldinger til barnevernet (antall)&#xA;Where dat.Variabel = 'KOSmelding0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12189'&#xA;-- Possible code to automate the insert into section&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Konklusjonskode varchar(50), Behandlingskode int, Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Konklusjon varchar(150), Konklusjonskode varchar(50), Behandlingstid varchar(150), Behandlingskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Konklusjon varchar(150), Konklusjonskode varchar(50), Behandlingstid varchar(150), Behandlingskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Konklusjon varchar(150), Konklusjonskode varchar(50), Behandlingstid varchar(150), Behandlingskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer='12189'&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer='12189'&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m3 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12189 Meldingar til barnevernet, konklusjon på meldinga, handsamingstid av meldinga]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Konklusjonskode,&#xA;&#x9;&#x9;met.Konklusjon,&#xA;&#x9;&#x9;dat.Behandlingskode,&#xA;&#x9;&#x9;met2.Behandlingstid,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Konklusjonskode = dat.Konklusjonskode&#xA;Join @m2 met2 ON met2.Behandlingskode = dat.Behandlingskode&#xA;Join @m3 met3 ON met3.Variabel = dat.Variabel&#xA;&#xA;--Meldinger til barnevernet (antall)&#xA;Where dat.Variabel = 'KOSmelding0000'&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Barnevern\Les SSB_12238 Barn med tiltak i løpet av året og per 31 desember, etter tiltakskategori"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{69263967-4414-4D37-80C2-838DA897F691}"
+          DTS:DTSID="{8688ED4E-8ADB-4539-B8E4-2809CAB7FEFB}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12238 Barn med tiltak i løpet av året og per 31 desember, etter tiltakskategori"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12238'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Tiltakskode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Tiltaksnavn varchar(150), Tiltakskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Tiltaksnavn varchar(150), Tiltakskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12238 Barn med tiltak i løpet av året og per 31. desember, tiltakskategori]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Tiltakskode,&#xA;&#x9;&#x9;met.Tiltaksnavn,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met2.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met On  met.Tiltakskode = dat.Tiltakskode&#xA;Join @m2 met2 On met2.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12238'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Tiltakskode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Tiltaksnavn varchar(150), Tiltakskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Tiltaksnavn varchar(150), Tiltakskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12238 Barn med tiltak i løpet av året og per 31. desember, tiltakskategori]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Tiltakskode,&#xA;&#x9;&#x9;met.Tiltaksnavn,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met2.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met On  met.Tiltakskode = dat.Tiltakskode&#xA;Join @m2 met2 On met2.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Barnevern\Les SSB_12275 Barn med tiltak i løpet av året og per 31 desember, etter alder og funksjon"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{E1FE8808-1CDF-4D0C-B404-BF10962EA2F7}"
+          DTS:DTSID="{8B7373A6-F509-4428-8256-DB22E5494D60}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12275 Barn med tiltak i løpet av året og per 31 desember, etter alder og funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12275'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Alderskode varchar(50), Funksjonskode int, Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m3 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12275 Barn med tiltak i løpet av året og per 31. desember, alder, funksjon]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Alderskode,&#xA;&#x9;&#x9;met.Alder,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met2.Funksjon,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Alderskode = dat.Alderskode&#xA;Join @m2 met2 ON met2.Funksjonskode = dat.Funksjonskode&#xA;Join @m3 met3 ON met3.Variabel = dat.Variabel&#xA;&#xA;--Barn med barnevernstiltak i løpet av året (antall)&#xA;--Barn med barnevernstiltak per 31.12 (antall)&#xA;Where dat.Variabel IN ('KOSbvbarntiltaka0000', 'KOSbvbarntiltak30001')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12275'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Alderskode varchar(50), Funksjonskode int, Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Funksjon varchar(150), Funksjonskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m3 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12275 Barn med tiltak i løpet av året og per 31. desember, alder, funksjon]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Alderskode,&#xA;&#x9;&#x9;met.Alder,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met2.Funksjon,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Alderskode = dat.Alderskode&#xA;Join @m2 met2 ON met2.Funksjonskode = dat.Funksjonskode&#xA;Join @m3 met3 ON met3.Variabel = dat.Variabel&#xA;&#xA;--Barn med barnevernstiltak i løpet av året (antall)&#xA;--Barn med barnevernstiltak per 31.12 (antall)&#xA;Where dat.Variabel IN ('KOSbvbarntiltaka0000', 'KOSbvbarntiltak30001')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Barnevern\Les SSB_12276 Barn med hjelpe- eller omsorgstiltak, etter alder og omsorgs eller hjelpetiltak"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{579BBABF-3221-41AB-B5A7-5CEA925E7CFF}"
+          DTS:DTSID="{8C8E718F-3E30-4AAC-B14E-1850213538D5}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12276 Barn med hjelpe- eller omsorgstiltak, etter alder og omsorgs eller hjelpetiltak"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12276'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Alderskode varchar(50), Tiltakskode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Tiltak varchar(150), Tiltakskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Tiltak varchar(150), Tiltakskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Tiltak varchar(150), Tiltakskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m3 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12276 Barn med hjelpe- eller omsorgstiltak, alder,  omsorgs-/hjelpetiltak]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Alderskode,&#xA;&#x9;&#x9;met.Alder,&#xA;&#x9;&#x9;dat.Tiltakskode,&#xA;&#x9;&#x9;met2.Tiltak,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Alderskode = dat.Alderskode&#xA;Join @m2 met2 ON met2.Tiltakskode = dat.Tiltakskode&#xA;Join @m3 met3 ON met3.Variabel = dat.Variabel&#xA;&#xA;--Barn med barnevernstiltak i løpet av året (antall)&#xA;--Barn med barnevernstiltak per 31.12 (antall)&#xA;Where dat.Variabel IN ('KOSbvbarnhotilta0000', 'KOSbvbarnhotilta0002')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12276'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Alderskode varchar(50), Tiltakskode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Tiltak varchar(150), Tiltakskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Tiltak varchar(150), Tiltakskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Tiltak varchar(150), Tiltakskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m3 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12276 Barn med hjelpe- eller omsorgstiltak, alder,  omsorgs-/hjelpetiltak]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Alderskode,&#xA;&#x9;&#x9;met.Alder,&#xA;&#x9;&#x9;dat.Tiltakskode,&#xA;&#x9;&#x9;met2.Tiltak,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Alderskode = dat.Alderskode&#xA;Join @m2 met2 ON met2.Tiltakskode = dat.Tiltakskode&#xA;Join @m3 met3 ON met3.Variabel = dat.Variabel&#xA;&#xA;--Barn med barnevernstiltak i løpet av året (antall)&#xA;--Barn med barnevernstiltak per 31.12 (antall)&#xA;Where dat.Variabel IN ('KOSbvbarnhotilta0000', 'KOSbvbarnhotilta0002')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Barnevern 2"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C89E65F9-9EC3-4006-8D34-CAF7BB8E0561}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Barnevern 2">
+      <DTS:Variables />
+      <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Barnevern\Les SSB_12279 Nøkkeltal utgifter barnevern"
+          DTS:refId="Package\Barnevern 2\Les SSB_12279 Nøkkeltal utgifter barnevern"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{586247E1-35BC-46DC-8D88-3F3EE67566AA}"
+          DTS:DTSID="{009E25B3-73C0-4BC0-86E8-609FCC19923F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12279 Nøkkeltal utgifter barnevern"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12279'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12279 Nøkkeltal utgifter barnevern]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met&#xA;ON met.Variabel = dat.Variabel&#xA;&#xA;--Brutto driftsutgifter (funksjon 244) per barn med undersøking eller tiltak (kr)&#xA;Where dat.Variabel = 'KOSbdu244bvbarnu0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12279'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12279 Nøkkeltal utgifter barnevern]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met&#xA;ON met.Variabel = dat.Variabel&#xA;&#xA;--Brutto driftsutgifter (funksjon 244) per barn med undersøking eller tiltak (kr)&#xA;Where dat.Variabel = 'KOSbdu244bvbarnu0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Barnevern\Les SSB_12280 Kommunefakta barnevernstenesta"
+          DTS:refId="Package\Barnevern 2\Les SSB_12280 Kommunefakta barnevernstenesta"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{5788E812-07C8-40C4-8044-AFC6A3C2D88C}"
+          DTS:DTSID="{5B6DAE8D-81FF-4345-A8B5-4C9D7ECE2170}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12280 Kommunefakta barnevernstenesta"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12280'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12280 Kommunefakta barnevernstenesta]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met&#xA;ON met.Variabel = dat.Variabel&#xA;&#xA;-- Undersøkingar med handsamingstid innan 3 månader (prosent)&#xA;-- Barn med undersøking eller tiltak per årsverk (funksjon 244) (antall)&#xA;Where dat.Variabel IN ('KOSbehandlingsti0001', 'KOSbarnmtiltuspa0000')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12280'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12280 Kommunefakta barnevernstenesta]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met&#xA;ON met.Variabel = dat.Variabel&#xA;&#xA;-- Undersøkingar med handsamingstid innan 3 månader (prosent)&#xA;-- Barn med undersøking eller tiltak per årsverk (funksjon 244) (antall)&#xA;Where dat.Variabel IN ('KOSbehandlingsti0001', 'KOSbarnmtiltuspa0000')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Barnevern\Les SSB_12286 Barn med undersøking og prosentdelen barn med undersøking frå barnevernet"
+          DTS:refId="Package\Barnevern 2\Les SSB_12286 Barn med undersøking og prosentdelen barn med undersøking frå barnevernet"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{F4BF9CA5-2546-4B80-8193-488258F2410A}"
+          DTS:DTSID="{A5919E09-5EB6-481B-917A-D4556CBC0A94}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12286 Barn med undersøking og prosentdelen barn med undersøking frå barnevernet"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12286'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12286 Barn med undersøking og prosentdelen barn med undersøking frå barnevernet]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met On dat.Variabel = met.Variabel&#xA;&#xA;--Barn med undersøking (antall)&#xA;Where dat.Variabel = 'KOSbvbarnus0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12286'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12286 Barn med undersøking og prosentdelen barn med undersøking frå barnevernet]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;Join @m met On dat.Variabel = met.Variabel&#xA;&#xA;--Barn med undersøking (antall)&#xA;Where dat.Variabel = 'KOSbvbarnus0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Barnevern\Les SSB_12287 Undersøkingar i alt og undersøkingar starta av barnevernet, etter alder"
+          DTS:refId="Package\Barnevern 2\Les SSB_12287 Undersøkingar i alt og undersøkingar starta av barnevernet, etter alder"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{24F51D18-09BE-4290-8979-9CDA0C3661D2}"
+          DTS:DTSID="{63058E37-78CC-4A8C-9CE2-E529C7FBBA91}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12287 Undersøkingar i alt og undersøkingar starta av barnevernet, etter alder"
@@ -177,32 +189,44 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12287'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Alderskode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12287 Undersøkingar i alt og undersøkingar starta av barnevernet, alder]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Alderskode,&#xA;&#x9;&#x9;met.Alder,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met2.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met On  met.Alderskode = dat.Alderskode&#xA;Join @m2 met2 On met2.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12287'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Alderskode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Alder varchar(150), Alderskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12287 Undersøkingar i alt og undersøkingar starta av barnevernet, alder]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Alderskode,&#xA;&#x9;&#x9;met.Alder,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met2.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met On  met.Alderskode = dat.Alderskode&#xA;Join @m2 met2 On met2.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Barnevern 3"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5F57C4FD-0BA7-417E-A0BC-1298A16ABF7C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Barnevern 3">
+      <DTS:Variables />
+      <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Barnevern\Les SSB_12305 Stillingar i barnevernstenesta etter fagutdanning funksjon"
+          DTS:refId="Package\Barnevern 3\Les SSB_12305 Stillingar i barnevernstenesta etter fagutdanning funksjon"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{168DFCA3-B01F-493D-AB6A-E7CC46F525C2}"
+          DTS:DTSID="{74C7D7A0-9DFA-4ED2-9DE1-966C1E6F2B7E}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12305 Stillingar i barnevernstenesta etter fagutdanning funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12305'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabelkode varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12305 Stillingar i barnevernstenesta etter fagutdanning og funksjon]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabelkode,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met On met.Variabel = dat.Variabelkode&#xA;&#xA;--NB: NOT&#xA;--Stillinger med fagutdanninger per 1000 barn 0-17 år (per 1000)&#xA;--Talet på barn 0-17 år (antall)&#xA;Where dat.Variabelkode NOT IN ('KOSsumfagutd0000','KOSpersoner0170000')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12305'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabelkode varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert into [SSB_12305 Stillingar i barnevernstenesta etter fagutdanning og funksjon]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabelkode,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met On met.Variabel = dat.Variabelkode&#xA;&#xA;--NB: NOT&#xA;--Stillinger med fagutdanninger per 1000 barn 0-17 år (per 1000)&#xA;--Talet på barn 0-17 år (antall)&#xA;Where dat.Variabelkode NOT IN ('KOSsumfagutd0000','KOSpersoner0170000')&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Barnevern\Les SSB_12615 Barn med melding og prosentdelen barn med melding i barnevernet"
+          DTS:refId="Package\Barnevern 3\Les SSB_12615 Barn med melding og prosentdelen barn med melding i barnevernet"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{AC3B9530-0A03-4452-B4B9-D6FA91F09CCA}"
+          DTS:DTSID="{F6412D82-EA1C-423C-9A14-9A96787BEA71}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12615 Barn med melding og prosentdelen barn med melding i barnevernet"
@@ -211,145 +235,175 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12615'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;Declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;Declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12615 Barn med melding og prosentdelen barn med melding i barnevernet]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Variabel = dat.Variabel&#xA;&#xA;--Barn med melding (antall)&#xA;Where dat.Variabel = 'KOSbvbarnmelding0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12615'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;Declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;Declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12615 Barn med melding og prosentdelen barn med melding i barnevernet]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Variabel = dat.Variabel&#xA;&#xA;--Barn med melding (antall)&#xA;Where dat.Variabel = 'KOSbvbarnmelding0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Barnevern\Les SSB_12860 Undersøkingar avslutta av  barnevernet , handsamingstid"
+          DTS:refId="Package\Barnevern 3\Les SSB_12860 Undersøkingar avslutta av  barnevernet , handsamingstid"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{61017538-8936-44B5-A16B-F1992F0B80CD}"
+          DTS:DTSID="{2710B0E6-7D35-4EE0-AFD9-37C28C4242DC}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12860 Undersøkingar avslutta av  barnevernet , handsamingstid"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12860'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;Declare @t table(Kommunenummer varchar(50), Handsamingstidkode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;Declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Handsamingstidnavn varchar(100), Handsamingstidkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;Declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Handsamingstidnavn varchar(100), Handsamingstidkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12860 Undersøkingar avslutta av  barnevernet , handsamingstid]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Handsamingstidkode,&#xA;&#x9;&#x9;met2.Handsamingstidnavn,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Variabel = dat.Variabel&#xA;Join @m2 met2 ON met2.Handsamingstidkode = dat.Handsamingstidkode&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12860'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;Declare @t table(Kommunenummer varchar(50), Handsamingstidkode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;&#x9;Declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Handsamingstidnavn varchar(100), Handsamingstidkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;Declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Handsamingstidnavn varchar(100), Handsamingstidkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;&#x9;-- Inserts&#xA;&#x9;Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12860 Undersøkingar avslutta av  barnevernet , handsamingstid]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Handsamingstidkode,&#xA;&#x9;&#x9;met2.Handsamingstidnavn,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Variabel = dat.Variabel&#xA;Join @m2 met2 ON met2.Handsamingstidkode = dat.Handsamingstidkode&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Barnevern\Les SSB_12861 Undersøkingar avslutta av barnevernet, konklusjon på undersøking avslutta"
+          DTS:refId="Package\Barnevern 3\Les SSB_12861 Undersøkingar avslutta av barnevernet, konklusjon på undersøking avslutta"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{9d596cb7-6359-4bec-821a-d4bf602cb385}"
+          DTS:DTSID="{C0DB64EB-7302-43A7-B479-F2071F95CABD}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12861 Undersøkingar avslutta av barnevernet, konklusjon på undersøking avslutta"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12861'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA; -- Declares&#xA; Declare @t table(Kommunenummer varchar(50), Konklusjonkode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA; Declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Konklusjonnavn varchar(150), Konklusjonkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA; Declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Konklusjonnavn varchar(150), Konklusjonkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA; -- Inserts&#xA; Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA; Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA; Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA; RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA; set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12861 Undersøkingar avslutta av barnevernet, konklusjon på undersøking avslutta]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Konklusjonkode,&#xA;  met2.Konklusjonnavn,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Variabel = dat.Variabel&#xA;Join @m2 met2 ON met2.Konklusjonkode = dat.Konklusjonkode&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delay Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B224991E-7904-4B39-A633-1FE5169E1CD6}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delay Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Delay Container\5 Second Delay"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{16B6BC07-DCD9-4FB0-A0C3-6704C8FBA357}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="5 Second Delay"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
-              SQLTask:SqlStatementSource="Use [Staging_ASSS]&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12861'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA; -- Declares&#xA; Declare @t table(Kommunenummer varchar(50), Konklusjonkode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA; Declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Konklusjonnavn varchar(150), Konklusjonkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA; Declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Konklusjonnavn varchar(150), Konklusjonkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA; -- Inserts&#xA; Insert @t Exec SSB_Values_AlleAar @TabellNummer=@TableVar, @Omfang=0&#xA; Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA; Insert @m2 Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA; RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA; set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12861 Undersøkingar avslutta av barnevernet, konklusjon på undersøking avslutta]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Konklusjonkode,&#xA;  met2.Konklusjonnavn,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Variabel = dat.Variabel&#xA;Join @m2 met2 ON met2.Konklusjonkode = dat.Konklusjonkode&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:05'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{B135770E-2555-4E9A-8E7A-92DCA8A80118}"
-          DTS:From="Package\Barnevern\Les SSB_12115 Organisering av barnevernstenesta"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\Barnevern\Les SSB_12189 Meldingar til barnevernet, etter konklusjon på meldinga og handsamingstid av meldinga" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 1]"
-          DTS:CreationName=""
-          DTS:DTSID="{713D938E-2C4A-4A7B-9971-20A2C14D1062}"
-          DTS:From="Package\Barnevern\Les SSB_12189 Meldingar til barnevernet, etter konklusjon på meldinga og handsamingstid av meldinga"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Barnevern\Les SSB_12238 Barn med tiltak i løpet av året og per 31 desember, etter tiltakskategori" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 10]"
-          DTS:CreationName=""
-          DTS:DTSID="{CEBF4842-C1F6-4496-A98B-CB9901F800E2}"
-          DTS:From="Package\Barnevern\Les SSB_12238 Barn med tiltak i løpet av året og per 31 desember, etter tiltakskategori"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 10"
-          DTS:To="Package\Barnevern\Les SSB_12275 Barn med tiltak i løpet av året og per 31 desember, etter alder og funksjon" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 11]"
-          DTS:CreationName=""
-          DTS:DTSID="{87C796C0-5457-4A06-8447-E716836CFBED}"
-          DTS:From="Package\Barnevern\Les SSB_12286 Barn med undersøking og prosentdelen barn med undersøking frå barnevernet"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 11"
-          DTS:To="Package\Barnevern\Les SSB_12287 Undersøkingar i alt og undersøkingar starta av barnevernet, etter alder" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 2]"
-          DTS:CreationName=""
-          DTS:DTSID="{F620B070-629B-4B89-BABC-83E2226563D5}"
-          DTS:From="Package\Barnevern\Les SSB_12275 Barn med tiltak i løpet av året og per 31 desember, etter alder og funksjon"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 2"
-          DTS:To="Package\Barnevern\Les SSB_12276 Barn med hjelpe- eller omsorgstiltak, etter alder og omsorgs eller hjelpetiltak" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 3]"
-          DTS:CreationName=""
-          DTS:DTSID="{BDEEE473-DFB3-4BAE-AE83-A06BDDEA9877}"
-          DTS:From="Package\Barnevern\Les SSB_12276 Barn med hjelpe- eller omsorgstiltak, etter alder og omsorgs eller hjelpetiltak"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 3"
-          DTS:To="Package\Barnevern\Les SSB_12279 Nøkkeltal utgifter barnevern" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 4]"
-          DTS:CreationName=""
-          DTS:DTSID="{7E8F815B-7112-492B-947A-EF43FC5F6AC2}"
-          DTS:From="Package\Barnevern\Les SSB_12279 Nøkkeltal utgifter barnevern"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 4"
-          DTS:To="Package\Barnevern\Les SSB_12280 Kommunefakta barnevernstenesta" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 5]"
-          DTS:CreationName=""
-          DTS:DTSID="{E505D3F8-F0B4-4245-AA72-369F1DC693B2}"
-          DTS:From="Package\Barnevern\Les SSB_12280 Kommunefakta barnevernstenesta"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 5"
-          DTS:To="Package\Barnevern\Les SSB_12286 Barn med undersøking og prosentdelen barn med undersøking frå barnevernet" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 6]"
-          DTS:CreationName=""
-          DTS:DTSID="{261F1CD0-A143-4FF6-9001-B2212715FD70}"
-          DTS:From="Package\Barnevern\Les SSB_12287 Undersøkingar i alt og undersøkingar starta av barnevernet, etter alder"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 6"
-          DTS:To="Package\Barnevern\Les SSB_12305 Stillingar i barnevernstenesta etter fagutdanning funksjon" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 7]"
-          DTS:CreationName=""
-          DTS:DTSID="{1F1EFBDA-B828-40E3-B4F2-FAB3D5A25C61}"
-          DTS:From="Package\Barnevern\Les SSB_12305 Stillingar i barnevernstenesta etter fagutdanning funksjon"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 7"
-          DTS:To="Package\Barnevern\Les SSB_12615 Barn med melding og prosentdelen barn med melding i barnevernet" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 8]"
-          DTS:CreationName=""
-          DTS:DTSID="{221B2523-C3C2-4679-A036-80D1351DFFC4}"
-          DTS:From="Package\Barnevern\Les SSB_12615 Barn med melding og prosentdelen barn med melding i barnevernet"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 8"
-          DTS:To="Package\Barnevern\Les SSB_12860 Undersøkingar avslutta av  barnevernet , handsamingstid" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Barnevern.PrecedenceConstraints[Constraint 9]"
-          DTS:CreationName=""
-          DTS:DTSID="{46DB558C-3377-44B3-9DA1-84793B062138}"
-          DTS:From="Package\Barnevern\Les SSB_12860 Undersøkingar avslutta av  barnevernet , handsamingstid"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 9"
-          DTS:To="Package\Barnevern\Les SSB_12861 Undersøkingar avslutta av barnevernet, konklusjon på undersøking avslutta" />
-      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delay Container 2"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7709E7F7-04BF-4A37-92D4-80601D7A4E75}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delay Container 2">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Delay Container 2\10 Second Delay"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{10BFE3C5-0855-41D6-A21E-86DCC473B78A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="10 Second Delay"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:10'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delay Container 3"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{72487186-7F10-4DB7-95A0-ECE1C21ECB26}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delay Container 3">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Delay Container 3\10 Second Delay"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3F36F403-D09B-4F06-86B1-B24EBB617428}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="10 Second Delay"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:10'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{290573CF-6551-466F-8DF1-4CD3460120E9}"
+      DTS:From="Package\Delay Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Barnevern" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7CFD71C4-3EB2-4F17-8E3D-D460AC23C5C4}"
+      DTS:From="Package\Barnevern"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Delay Container 2"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{B68797DF-A89E-4801-A3D2-8DFB853B862C}"
+      DTS:From="Package\Delay Container 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Barnevern 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{E62957F2-007E-4E2F-96B2-C2785169A64A}"
+      DTS:From="Package\Barnevern 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Delay Container 3"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{34A93F7C-44DD-4730-B669-B76C240D59F5}"
+      DTS:From="Package\Delay Container 3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Barnevern 3" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -361,456 +415,287 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="326.666666666667,42"
+          Size="327,42"
           Id="Package\Barnevern\Les SSB_12115 Organisering av barnevernstenesta"
-          TopLeft="23.3874458874459,23.5" />
+          TopLeft="32.5,21" />
         <NodeLayout
-          Size="285.333333333334,54"
+          Size="285,54"
           Id="Package\Barnevern\Les SSB_12189 Meldingar til barnevernet, etter konklusjon på meldinga og handsamingstid av meldinga"
-          TopLeft="44.3874458874459,76.3" />
+          TopLeft="37.5,75" />
         <NodeLayout
-          Size="286,49.3333333333334"
+          Size="286,49"
           Id="Package\Barnevern\Les SSB_12238 Barn med tiltak i løpet av året og per 31 desember, etter tiltakskategori"
-          TopLeft="43.8874458874459,141.1" />
+          TopLeft="40,139.5" />
         <NodeLayout
-          Size="241.333333333334,57.3333333333334"
+          Size="241,57"
           Id="Package\Barnevern\Les SSB_12275 Barn med tiltak i løpet av året og per 31 desember, etter alder og funksjon"
-          TopLeft="67.2207792083616,201.333333325585" />
+          TopLeft="44.5,201.5" />
         <NodeLayout
-          Size="241.333333333334,50"
+          Size="288,56"
           Id="Package\Barnevern\Les SSB_12276 Barn med hjelpe- eller omsorgstiltak, etter alder og omsorgs eller hjelpetiltak"
-          TopLeft="66.3874458874459,268.7" />
-        <NodeLayout
-          Size="230,42"
-          Id="Package\Barnevern\Les SSB_12279 Nøkkeltal utgifter barnevern"
-          TopLeft="81.2207792083616,330.366666651169" />
-        <NodeLayout
-          Size="230.666666666667,42"
-          Id="Package\Barnevern\Les SSB_12280 Kommunefakta barnevernstenesta"
-          TopLeft="71.3874458874459,382.3" />
-        <NodeLayout
-          Size="322.666666666667,46.6666666666667"
-          Id="Package\Barnevern\Les SSB_12286 Barn med undersøking og prosentdelen barn med undersøking frå barnevernet"
-          TopLeft="25.3874458874459,435.1" />
-        <NodeLayout
-          Size="306.666666666667,42"
-          Id="Package\Barnevern\Les SSB_12287 Undersøkingar i alt og undersøkingar starta av barnevernet, etter alder"
-          TopLeft="33.3874458874459,492.9" />
-        <NodeLayout
-          Size="294,42"
-          Id="Package\Barnevern\Les SSB_12305 Stillingar i barnevernstenesta etter fagutdanning funksjon"
-          TopLeft="39.8874458874459,545.7" />
-        <NodeLayout
-          Size="304,42"
-          Id="Package\Barnevern\Les SSB_12615 Barn med melding og prosentdelen barn med melding i barnevernet"
-          TopLeft="34.470779226988,598.933333325585" />
-        <NodeLayout
-          Size="246.666666666667,50.6666666666667"
-          Id="Package\Barnevern\Les SSB_12860 Undersøkingar avslutta av  barnevernet , handsamingstid"
-          TopLeft="49.7499959704777,644.899996133447" />
-        <NodeLayout
-          Size="246.666666666667,50.6666666666667"
-          Id="Package\Barnevern\Les SSB_12861 Undersøkingar avslutta av barnevernet, konklusjon på undersøking avslutta"
-          TopLeft="46.3041122126277,713.09999689281" />
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint]"
-          TopLeft="23.3874458874459,44.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="21,58.8"
-              Start="0,0"
-              End="13.5,58.8">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,54.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,54.8"
-                    Point2="-22.5,58.8"
-                    Point3="-18.5,58.8" />
-                  <mssgle:LineSegment
-                    End="13.5,58.8" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 1]"
-          TopLeft="329.720779220779,103.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0.166666666666686,62.4666666666667"
-              Start="0,0"
-              End="7.66666666666669,62.4666666666667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.6666666666667,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.6666666666667,0"
-                    Point2="22.6666666666667,0"
-                    Point3="22.6666666666667,4" />
-                  <mssgle:LineSegment
-                    End="22.6666666666667,58.4666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.6666666666667,58.4666666666667"
-                    Point2="22.6666666666667,62.4666666666667"
-                    Point3="18.6666666666667,62.4666666666667" />
-                  <mssgle:LineSegment
-                    End="7.66666666666669,62.4666666666667" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 2]"
-          TopLeft="308.554112541695,229.999999992251">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-0.833333320915699,63.7000000077486"
-              Start="0,0"
-              End="6.6666666790843,63.7000000077486">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,59.7000000077486" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,59.7000000077486"
-                    Point2="22.5,63.7000000077486"
-                    Point3="18.5,63.7000000077486" />
-                  <mssgle:LineSegment
-                    End="6.6666666790843,63.7000000077486" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 3]"
-          TopLeft="66.3874458874459,293.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="14.8333333209157,57.6666666511694"
-              Start="0,0"
-              End="7.33333332091566,57.6666666511694">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,53.6666666511694" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,53.6666666511694"
-                    Point2="-22.5,57.6666666511694"
-                    Point3="-18.5,57.6666666511694" />
-                  <mssgle:LineSegment
-                    End="7.33333332091566,57.6666666511694" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 4]"
-          TopLeft="311.220779208362,351.366666651169">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.16666665424901,51.9333333488307"
-              Start="0,0"
-              End="-1.66666665424901,51.9333333488307">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,47.9333333488307" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,47.9333333488307"
-                    Point2="22.5,51.9333333488307"
-                    Point3="18.5,51.9333333488307" />
-                  <mssgle:LineSegment
-                    End="-1.66666665424901,51.9333333488307" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 5]"
-          TopLeft="71.3874458874459,403.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="115.333333333333,31.8"
-              Start="0,0"
-              End="115.333333333333,24.3">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="111.333333333333,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="111.333333333333,0"
-                    Point2="115.333333333333,0"
-                    Point3="115.333333333333,4" />
-                  <mssgle:LineSegment
-                    End="115.333333333333,24.3" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 6]"
-          TopLeft="33.3874458874459,513.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="6.5,52.8000000000001"
-              Start="0,0"
-              End="-1,52.8000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,48.8000000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,48.8000000000001"
-                    Point2="-22.5,52.8000000000001"
-                    Point3="-18.5,52.8000000000001" />
-                  <mssgle:LineSegment
-                    End="-1,52.8000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 7]"
-          TopLeft="333.887445887446,566.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="4.58333333954209,53.2333333255849"
-              Start="0,0"
-              End="12.0833333395421,53.2333333255849">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="23.0833333395421,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.0833333395421,0"
-                    Point2="27.0833333395421,0"
-                    Point3="27.0833333395421,4" />
-                  <mssgle:LineSegment
-                    End="27.0833333395421,49.2333333255849" />
-                  <mssgle:CubicBezierSegment
-                    Point1="27.0833333395421,49.2333333255849"
-                    Point2="27.0833333395421,53.2333333255849"
-                    Point3="23.0833333395421,53.2333333255849" />
-                  <mssgle:LineSegment
-                    End="12.0833333395421,53.2333333255849" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 8]"
-          TopLeft="186.470779226988,640.933333325585">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="109.945883410156,29.2999961411954"
-              Start="0,0"
-              End="102.445883410156,29.2999961411954">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.2999961411954" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.2999961411954"
-                    Point2="0,29.2999961411954"
-                    Point3="4,29.2999961411954" />
-                  <mssgle:LineSegment
-                    End="102.445883410156,29.2999961411954" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 9]"
-          TopLeft="296.416662637144,677.344440577891">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-3.44588375784997,61.088889648252"
-              Start="0,0"
-              End="4.05411624215003,61.088889648252">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,57.088889648252" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,57.088889648252"
-                    Point2="22.5,61.088889648252"
-                    Point3="18.5,61.088889648252" />
-                  <mssgle:LineSegment
-                    End="4.05411624215003,61.088889648252" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 10]"
-          TopLeft="186.887445887446,190.433333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-119.666666679084,39.566666658918"
-              Start="0,0"
-              End="-112.166666679084,39.566666658918">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.566666658918" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.566666658918"
-                    Point2="0,39.566666658918"
-                    Point3="-4,39.566666658918" />
-                  <mssgle:LineSegment
-                    End="-112.166666679084,39.566666658918" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Barnevern.PrecedenceConstraints[Constraint 11]"
-          TopLeft="25.3874458874459,458.433333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8,49.8"
-              Start="0,0"
-              End="0.5,49.8">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,45.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,45.8"
-                    Point2="-22.5,49.8"
-                    Point3="-18.5,49.8" />
-                  <mssgle:LineSegment
-                    End="0.5,49.8" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="43.5,274" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="366.666666666667,861.333333333334"
-          Size="366.666666666667,904"
+          PanelSize="374,335"
+          Size="374,378"
           Id="Package\Barnevern"
-          TopLeft="222.730143423355,61.3492046186839" />
+          TopLeft="27.730143423355,12.5" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Barnevern 2\Les SSB_12279 Nøkkeltal utgifter barnevern"
+          TopLeft="55,18" />
+        <NodeLayout
+          Size="316,42"
+          Id="Package\Barnevern 2\Les SSB_12280 Kommunefakta barnevernstenesta"
+          TopLeft="46,80.5000000000001" />
+        <NodeLayout
+          Size="323,47"
+          Id="Package\Barnevern 2\Les SSB_12286 Barn med undersøking og prosentdelen barn med undersøking frå barnevernet"
+          TopLeft="15,134" />
+        <NodeLayout
+          Size="307,42"
+          Id="Package\Barnevern 2\Les SSB_12287 Undersøkingar i alt og undersøkingar starta av barnevernet, etter alder"
+          TopLeft="21,195.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="367,293"
+          Size="367,336"
+          Id="Package\Barnevern 2"
+          TopLeft="459,23.6507953813161" />
+        <NodeLayout
+          Size="294,42"
+          Id="Package\Barnevern 3\Les SSB_12305 Stillingar i barnevernstenesta etter fagutdanning funksjon"
+          TopLeft="35.5,21.5" />
+        <NodeLayout
+          Size="304,42"
+          Id="Package\Barnevern 3\Les SSB_12615 Barn med melding og prosentdelen barn med melding i barnevernet"
+          TopLeft="29.5,78.5" />
+        <NodeLayout
+          Size="247,51"
+          Id="Package\Barnevern 3\Les SSB_12860 Undersøkingar avslutta av  barnevernet , handsamingstid"
+          TopLeft="54,137" />
+        <NodeLayout
+          Size="247,51"
+          Id="Package\Barnevern 3\Les SSB_12861 Undersøkingar avslutta av barnevernet, konklusjon på undersøking avslutta"
+          TopLeft="49,211" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="349,267"
+          Size="349,310"
+          Id="Package\Barnevern 3"
+          TopLeft="852,35.1507953813161" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Delay Container\5 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,109"
+          Size="228,152"
+          Id="Package\Delay Container"
+          TopLeft="91.730143423355,463.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Delay Container 2\10 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,110"
+          Size="228,153"
+          Id="Package\Delay Container 2"
+          TopLeft="483.730143423355,423.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Delay Container 3\10 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,110"
+          Size="228,153"
+          Id="Package\Delay Container 3"
+          TopLeft="823,401" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="205.730143423355,463.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,-73"
+              Start="0,0"
+              End="9,-65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-32.5"
+                    Point2="0,-36.5"
+                    Point3="4,-36.5" />
+                  <mssgle:LineSegment
+                    End="5,-36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,-36.5"
+                    Point2="9,-36.5"
+                    Point3="9,-40.5" />
+                  <mssgle:LineSegment
+                    End="9,-65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="275.730143423355,390.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="285.333333333333,33"
+              Start="0,0"
+              End="285.333333333333,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.4442851195707" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.4442851195707"
+                    Point2="0,16.4442851195707"
+                    Point3="4,16.4442851195707" />
+                  <mssgle:LineSegment
+                    End="281.333333333333,16.4442851195707" />
+                  <mssgle:CubicBezierSegment
+                    Point1="281.333333333333,16.4442851195707"
+                    Point2="285.333333333333,16.4442851195707"
+                    Point3="285.333333333333,20.4442851195707" />
+                  <mssgle:LineSegment
+                    End="285.333333333333,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="117.362213541667,21.4442851195707,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="634.396810090022,423.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-51.730143423355,-63.8492046186839"
+              Start="0,0"
+              End="-51.730143423355,-56.3492046186839">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-28.0291794007802" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-28.0291794007802"
+                    Point2="0,-32.0291794007802"
+                    Point3="-4,-32.0291794007802" />
+                  <mssgle:LineSegment
+                    End="-47.730143423355,-32.0291794007802" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47.730143423355,-32.0291794007802"
+                    Point2="-51.730143423355,-32.0291794007802"
+                    Point3="-51.730143423355,-36.0291794007802" />
+                  <mssgle:LineSegment
+                    End="-51.730143423355,-56.3492046186839" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="702.333333333333,359.650795381316">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="198,41.3492046186839"
+              Start="0,0"
+              End="198,33.8492046186839">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.6068774319824" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.6068774319824"
+                    Point2="0,20.6068774319824"
+                    Point3="4,20.6068774319824" />
+                  <mssgle:LineSegment
+                    End="194,20.6068774319824" />
+                  <mssgle:CubicBezierSegment
+                    Point1="194,20.6068774319824"
+                    Point2="198,20.6068774319824"
+                    Point3="198,24.6068774319824" />
+                  <mssgle:LineSegment
+                    End="198,33.8492046186839" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="73.695546875,25.6068774319824,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="973.666666666667,401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.8333333333334,-55.8492046186839"
+              Start="0,0"
+              End="52.8333333333334,-48.3492046186839">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-18.5731976856005" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-18.5731976856005"
+                    Point2="0,-22.5731976856005"
+                    Point3="4,-22.5731976856005" />
+                  <mssgle:LineSegment
+                    End="48.8333333333334,-22.5731976856005" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.8333333333334,-22.5731976856005"
+                    Point2="52.8333333333334,-22.5731976856005"
+                    Point3="52.8333333333334,-26.5731976856005" />
+                  <mssgle:LineSegment
+                    End="52.8333333333334,-48.3492046186839" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
