@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Areal- og samfunnsplanlegging"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="71"
-  DTS:VersionGUID="{4C21754B-7795-428D-B571-CF0A463BBFD3}">
+  DTS:VersionBuild="72"
+  DTS:VersionGUID="{8088CBFF-3E10-4201-8DDD-4593FA92E0DD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
