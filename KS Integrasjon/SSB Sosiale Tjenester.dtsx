@@ -5,15 +5,15 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="UTLAAN17-X1G3"
   DTS:CreatorName="KSINT\8093AHA"
-  DTS:DTSID="{28E62DEC-F529-40C8-8272-1B99A9B3743C}"
+  DTS:DTSID="{344F5500-434D-42F9-BA90-05CB0A7A4A34}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Sosiale Tjenester"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{F63213AF-BF38-41E4-A2AE-14D7E3AC8349}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{B85BF232-F34D-4937-98D2-FDF09A80F51F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
