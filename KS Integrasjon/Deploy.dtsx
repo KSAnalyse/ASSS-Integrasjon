@@ -12,8 +12,8 @@
   DTS:ObjectName="Deploy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{4BC4D532-029C-4B4D-ABD2-B5FF27AFC3AC}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{1B30058E-4DDE-449E-B180-FD25AC69BB5C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -30,7 +30,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ASProcessingData
-          ConnectionName="KS-SQL2018"
+          ConnectionName="localhost"
           ProcessingCommands="{&#xA;  &quot;sequence&quot;: {&#xA;    &quot;operations&quot;: [&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;ASSS data&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      }&#xA;    ]&#xA;  }&#xA;}" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -50,7 +50,7 @@
         <NodeLayout
           Size="237,43"
           Id="Package\Analysis Services Processing Task"
-          TopLeft="33.0208328412846,46.908332494547" />
+          TopLeft="119.020832841285,58.908332494547" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
