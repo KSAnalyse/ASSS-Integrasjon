@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Kommunehelsetjenesten"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="275"
-  DTS:VersionGUID="{4A301678-9671-4EAE-876D-B00D0BCD171E}">
+  DTS:VersionBuild="276"
+  DTS:VersionGUID="{7FCEA8E2-D94B-4697-8DD9-5E3137F3ECE6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -65,7 +65,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11993 Aktivitet i helsestasjons- og skolehelsetjenesten, etter helsekontroller"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -82,7 +82,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11994 Helsestasjons- og skolehelsetjenesteårsverk, etter utdanning"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -99,7 +99,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11995 Fysioterapeutårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -116,7 +116,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -133,7 +133,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12005 Fastlegelister og fastlegekonsultasjoner"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -151,7 +151,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -169,7 +169,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12209 Utvalgte nøkkeltall for helse og omsorg"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -234,11 +234,11 @@
           Id="Package\Kommunehelsetjenesten\Les SSB_12005 Fastlegelister og fastlegekonsultasjoner"
           TopLeft="70.7783447332903,264.69999905467" />
         <NodeLayout
-          Size="155,42"
+          Size="155,88"
           Id="Package\Kommunehelsetjenesten\Les SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall"
-          TopLeft="12.2783446587843,320.466665829818" />
+          TopLeft="15.2783446587843,314.466665829818" />
         <NodeLayout
-          Size="148,43"
+          Size="148,100"
           Id="Package\Kommunehelsetjenesten\Les SSB_12209 Utvalgte nøkkeltall for helse og omsorg"
           TopLeft="206.611677905194,314.099999256134" />
         <ContainerLayout

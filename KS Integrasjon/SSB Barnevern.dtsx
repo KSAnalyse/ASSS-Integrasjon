@@ -5,15 +5,15 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SQL2018"
   DTS:CreatorName="KSINT\axel.hjelmervik.hansen"
-  DTS:DTSID="{CE7B831F-7DE0-40B4-B922-B5F5B57DF202}"
+  DTS:DTSID="{83B9E0CD-50FA-47CA-96FB-58AF5D8EB574}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Barnevern"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="348"
-  DTS:VersionGUID="{5C413E56-96C0-408D-AD65-E738BE7BEF74}">
+  DTS:VersionBuild="349"
+  DTS:VersionGUID="{6433B94B-35F4-42F8-817A-E375626F83E4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -37,7 +37,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12115 Organisering av barnevernstenesta"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -54,7 +54,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12189 Meldingar til barnevernet, etter konklusjon på meldinga og handsamingstid av meldinga"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -71,7 +71,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12238 Barn med tiltak i løpet av året og per 31 desember, etter tiltakskategori"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -88,7 +88,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12275 Barn med tiltak i løpet av året og per 31 desember, etter alder og funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -105,7 +105,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12276 Barn med hjelpe- eller omsorgstiltak, etter alder og omsorgs eller hjelpetiltak"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -151,7 +151,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12280 Kommunefakta barnevernstenesta"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -168,7 +168,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12286 Barn med undersøking og prosentdelen barn med undersøking frå barnevernet"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -185,7 +185,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12287 Undersøkingar i alt og undersøkingar starta av barnevernet, etter alder"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -214,7 +214,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12305 Stillingar i barnevernstenesta etter fagutdanning funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -248,7 +248,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12860 Undersøkingar avslutta av  barnevernet , handsamingstid"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -481,12 +481,12 @@
         <NodeLayout
           Size="247,51"
           Id="Package\Barnevern 3\Les SSB_12861 Undersøkingar avslutta av barnevernet, konklusjon på undersøking avslutta"
-          TopLeft="49,211" />
+          TopLeft="45,202" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="349,267"
-          Size="349,310"
+          PanelSize="349,308"
+          Size="349,351"
           Id="Package\Barnevern 3"
           TopLeft="852,35.1507953813161" />
         <NodeLayout
@@ -521,7 +521,7 @@
           PanelSize="228,110"
           Size="228,153"
           Id="Package\Delay Container 3"
-          TopLeft="823,401" />
+          TopLeft="838,418" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="205.730143423355,463.5">
@@ -632,62 +632,62 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="198,41.3492046186839"
+              EndConnector="213,58.3492046186839"
               Start="0,0"
-              End="198,33.8492046186839">
+              End="213,50.8492046186839">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.6068774319824" />
+                    End="0,25.0790335369007" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.6068774319824"
-                    Point2="0,20.6068774319824"
-                    Point3="4,20.6068774319824" />
+                    Point1="0,25.0790335369007"
+                    Point2="0,29.0790335369007"
+                    Point3="4,29.0790335369007" />
                   <mssgle:LineSegment
-                    End="194,20.6068774319824" />
+                    End="209,29.0790335369007" />
                   <mssgle:CubicBezierSegment
-                    Point1="194,20.6068774319824"
-                    Point2="198,20.6068774319824"
-                    Point3="198,24.6068774319824" />
+                    Point1="209,29.0790335369007"
+                    Point2="213,29.0790335369007"
+                    Point3="213,33.0790335369007" />
                   <mssgle:LineSegment
-                    End="198,33.8492046186839" />
+                    End="213,50.8492046186839" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="73.695546875,25.6068774319824,50.60890625,11.609375"
+              BoundingBox="81.195546875,34.0790335369007,50.60890625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="973.666666666667,401">
+          TopLeft="988.666666666667,418">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="52.8333333333334,-55.8492046186839"
+              EndConnector="37.8333333333334,-31.8492046186839"
               Start="0,0"
-              End="52.8333333333334,-48.3492046186839">
+              End="37.8333333333334,-24.3492046186839">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-18.5731976856005" />
+                    End="0,-8.8728492535447" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-18.5731976856005"
-                    Point2="0,-22.5731976856005"
-                    Point3="4,-22.5731976856005" />
+                    Point1="0,-8.8728492535447"
+                    Point2="0,-12.8728492535447"
+                    Point3="4,-12.8728492535447" />
                   <mssgle:LineSegment
-                    End="48.8333333333334,-22.5731976856005" />
+                    End="33.8333333333334,-12.8728492535447" />
                   <mssgle:CubicBezierSegment
-                    Point1="48.8333333333334,-22.5731976856005"
-                    Point2="52.8333333333334,-22.5731976856005"
-                    Point3="52.8333333333334,-26.5731976856005" />
+                    Point1="33.8333333333334,-12.8728492535447"
+                    Point2="37.8333333333334,-12.8728492535447"
+                    Point3="37.8333333333334,-16.8728492535447" />
                   <mssgle:LineSegment
-                    End="52.8333333333334,-48.3492046186839" />
+                    End="37.8333333333334,-24.3492046186839" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
