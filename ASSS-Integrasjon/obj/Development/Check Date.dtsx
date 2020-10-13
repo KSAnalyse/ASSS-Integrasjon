@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="Check Date"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{FA523E1F-11F6-43C4-A5F9-B7F966010F49}">
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{F043BE42-05F9-42F4-A609-69D0E05B122E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,13 +44,180 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
+              refId="Package\Data Flow Task\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Tabellnummer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Tabellnummer"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].Columns[Tabellnummer]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Kildeid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Kildeid"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].Columns[Kildeid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Gruppe]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Gruppe"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].Columns[Gruppe]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Tabellnummer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Tabellnummer"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Tabellnummer]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Dato_Publisert]"
+                      cachedDataType="dbDate"
+                      cachedName="Dato_Publisert"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Dato_Publisert]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Last_Updated]"
+                      cachedDataType="dbDate"
+                      cachedName="Last_Updated"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Last_Updated]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Kildeid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Kildeid]"
+                      name="Kildeid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Kildeid]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Tabellnummer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Tabellnummer]"
+                      name="Tabellnummer"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Tabellnummer]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Gruppe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Gruppe]"
+                      name="Gruppe">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Gruppe]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Dato_Publisert]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Dato_Publisert]"
+                      name="Dato_Publisert">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Dato_Publisert]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Last_Updated]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Last_Updated]"
+                      name="Last_Updated">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Last_Updated]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
               usesDispositions="true"
-              version="4">
+              version="2">
               <properties>
                 <property
                   dataType="System.Int32"
@@ -58,50 +225,37 @@
                   name="CommandTimeout">0</property>
                 <property
                   dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Tabell_Publisert]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
                   description="The SQL command to be executed."
+                  expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Declare @Kildeid varchar(10)
+Declare @Tabellnummer varchar(10)
+Declare @Dato_Publisert date
+Declare @Last_Updated date
+Declare @Gruppe varchar(100)
+
+Set @Kildeid = ?
+Set @Tabellnummer = ?
+Set @Dato_Publisert = ?
+Set @Last_Updated = ?
+Set @Gruppe = ?
+
+UPDATE Tabell_Publisert
+SET Dato_Publisert = @Dato_Publisert
+WHERE Tabellnummer = @Tabellnummer
+IF @@ROWCOUNT=0
+INSERT INTO Tabell_Publisert
+	(Kildeid,Tabellnummer, Dato_Publisert, Last_Updated, Gruppe)
+VALUES
+	(@Kildeid, @Tabellnummer, @Dato_Publisert, @Last_Updated, @Gruppe)	</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
                   name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\OLE DB Command.Connections[OleDbConnection]"
                   connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
                   connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -109,250 +263,142 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
+                  refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
-                  name="OLE DB Destination Input">
+                  name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DatoPublished]"
-                      cachedDataType="date"
-                      cachedName="DatoPublished"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dato_Publisert]"
-                      lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[DatoPublished]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[KildeidO]"
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[KildeidO]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="KildeidO"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Kildeid]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[KildeidO]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TabellnummerO]"
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[TabellnummerO]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="TabellnummerO"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tabellnummer]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[TabellnummerO]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GruppeO]"
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[DatoPublished]"
+                      cachedDataType="date"
+                      cachedName="DatoPublished"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[DatoPublished]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[LastUpdatedO]"
+                      cachedDataType="date"
+                      cachedName="LastUpdatedO"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[LastUpdatedO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[GruppeO]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="GruppeO"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gruppe]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[GruppeO]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Kildeid]"
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="Kildeid" />
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tabellnummer]"
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="Tabellnummer" />
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dato_Publisert]"
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       dataType="dbDate"
-                      name="Dato_Publisert" />
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gruppe]"
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="dbDate"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      name="Gruppe" />
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\OLE DB Source"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="OLE DB Source"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Tabellgrupper]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kildeid]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Kildeid]"
-                      length="10"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kildeid]"
-                      name="Kildeid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tabellnummer]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Tabellnummer]"
-                      length="10"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tabellnummer]"
-                      name="Tabellnummer"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gruppe]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Gruppe]"
-                      length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gruppe]"
-                      name="Gruppe"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Kildeid]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="Kildeid" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Tabellnummer]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="Tabellnummer" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Gruppe]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="Gruppe" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
                   isErrorOut="true"
-                  name="OLE DB Source Error Output">
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Kildeid]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Kildeid]"
-                      name="Kildeid" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Tabellnummer]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Tabellnummer]"
-                      name="Tabellnummer" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Gruppe]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Gruppe]"
-                      name="Gruppe" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -672,7 +718,6 @@ public class ScriptMain : UserComponent
         if (Row.Kildeid.Equals("SSB"))
         {
             DateTime published = Date_Published(Row.Tabellnummer);
-            
             Output0Buffer.AddRow();
             Output0Buffer.KildeidO = Row.Kildeid;
             Output0Buffer.TabellnummerO = Row.Tabellnummer;
@@ -778,6 +823,51 @@ public class Input0Buffer: ScriptBuffer
         }
     }
 
+    public DateTime DatoPublisert
+    {
+        get
+        {
+            return Buffer.GetDate(BufferColumnIndexes[3]);
+        }
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool DatoPublisert_IsNull
+    {
+        get
+        {
+            return IsNull(3);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public DateTime LastUpdated
+    {
+        get
+        {
+            return Buffer.GetDate(BufferColumnIndexes[4]);
+        }
+    }
+    public bool LastUpdated_IsNull
+    {
+        get
+        {
+            return IsNull(4);
+        }
+    }
+
     new public bool NextRow()
     {
         return base.NextRow();
@@ -878,6 +968,28 @@ public class Output0Buffer: ScriptBuffer
             if (value)
             {
                 SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public DateTime LastUpdatedO
+    {
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool LastUpdatedO_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
             }
             else
             {
@@ -1051,8 +1163,7 @@ public class Variables
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1137,18 +1248,18 @@ public class Variables
     <msb:CodeName>SC_2db505bac66c4a209ccf0791ba234af6</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_2db505bac66c4a209ccf0791ba234af6</msb:DisplayName>
-    <msb:ProjectId>{20667C9A-FC2D-42A8-B291-E5E3CF53E577}</msb:ProjectId>
+    <msb:ProjectId>{97390F21-633B-40E3-9D0F-8FF8DB4FE7C7}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_2db505bac66c4a209ccf0791ba234af6.csproj" />
     <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
     <msb:File Include="main.cs" />
     <msb:File Include="BufferWrapper.cs" />
     <msb:File Include="ComponentWrapper.cs" />
     <msb:File Include="Properties\Settings.settings" />
     <msb:File Include="Properties\AssemblyInfo.cs" />
     <msb:File Include="Properties\Resources.Designer.cs" />
-    <msb:File Include="Properties\Settings.Designer.cs" />
   </msb:ItemGroup>
 </c:Project>]]></arrayElement>
                     <arrayElement
@@ -1292,185 +1403,167 @@ namespace SC_2db505bac66c4a209ccf0791ba234af6.Properties {
                     <arrayElement
                       dataType="System.String"><![CDATA[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
-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
+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
-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
+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
-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
+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
-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
+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
-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
+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
-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
-JAAAAACWCGgKhAEjAH0kAAAAAIYYyQgGACMAhSQAAAAAkRjPCIkBIwAAAAEANAUAAAEANAUAAAEA
-NAUAAAEANAUAAAEANAUAAAEAQAsAAAEAVggAAAEAIQgAAAIArwkAAAMAggcAAAEAIQgAAAIArwkA
-AAMAggcAAAEANAUAAAEANAUAAAEANAUAAAEANAUAAAEANAUAAAEANAUAAAEANAUAAAEANAUAAAEA
-owAAAAIAgwIAAAMAIQgAAAQAggcAAAEAFAoAAAIA1ggAAAMABgoAAAQAggcAAAEAIQgAAAEAQAsA
-AAEAmAoAAAEAmAoAAAEANAUJAMkIAQARAMkIBgAZAMkICgApAMkIEAAxAMkIEAA5AMkIEABBAMkI
-EABJAMkIEABRAMkIEABZAMkIEABhAMkIEABxAMkIBgCBAMkIBgDBAMkIBgDhAMkIFQBpAMkIBgCx
-ABQFBgCxAB8FBgDxAN0JIADxADAKMgD5AFoDOAD5ACQCEAAJAckIBgAJARkLPgD5AEYDRAARAWkG
-SgAhAckIUAApARoCVwAxAVIDBgA5AdMHWwBBAckIBgBBAToFYAAMAKIKdwB5ACsFewAMAHsGfwCZ
-AMkIhQCZACEIjwCZAK8JkwChAHEFlwCZAFoGnACZADwLoQCZAFwKoQCZAIQGpQCZAGEGAQBJAckI
-EACZAB4LBgCZAFkKBgCxAMkIBgDxAN0JqwCxAMMJswChAEkKoQCxAKsAvQCxAOwAxABZAQ4HygBh
-AY0C0ABpATwI1wBxAV0C3ABxAUQL5QDJAMkI6wDpAMkIBgAgAGMAcwIhAGMAcwIuAAsAsgEuABMA
-uwEuABsA2gEuACMA4wEuACsADAIuADMADAIuADsADAIuAEMA4wEuAEsAEgIuAFMADAIuAFsAKQJA
-AGMAcwJBAGMAcwJgAGMAcwJhAGMAcwJjAGsAcwKAAGMAcwKBAGMAcwKgAGMAcwKhAGMAcwLAAGMA
-cwLgAGMAcwIAAWMAcwIgAWMAcwIjAXMAcwJAAWMAcwLBAWMAcwKpAnsA2gHJAnsA2gEbACUAuQAC
-AAEABAAGAAUADAAHABQACQAVAAoAFwAAADEBjQEAAIgFjQEAAH0CjQEAAPACkQEAAG4BlQEAAJ8B
-jQEAACgGmgEAAFYIjQEAAE0GmgEAANYCjQEAADsGmgEAAGoBlQEAAA8GmgEAAN4AjQEAAPYFmgEA
-AMUAjQEAAM8FmgEAANIAjQEAAOMFmgEAADIHngEAACwIowEAABYDqAEAAGwKrQECAAEAAwABAAIA
-AwACAAMABQABAAQABQACAAUABwABAAYABwACAAcACQABAAgACQACAAkACwABAAoACwACABIADQAC
-ABMADwACABQAEQACABUAEwACABYAFQACABcAFwABABsAGQABABwAGwABAB0AHQABAB4AHwABAB8A
-IQABACAAIwABACEAJQABACIAJwACAC8AKQACADIAKwACADMALQABADQALQACADUALwBwAASAAAAB
-AAAAAAAAAAAAAAAAAHYAAAAEAAAAAAAAAAAAAADzAAIBAAAAAA4AAAAAAAAAAAAAAPwArAoAAAAA
-BAAAAAAAAAAAAAAA8wCNBgAAAAAOAAAAAAAAAAAAAAD8ANgKAAAAAA4AAAAAAAAAAAAAAPwAjAcA
-AAAABAAAAAAAAAAAAAAABQHkCQAAAAAOAAAAAAAAAAAAAAD8AK8HAAAAAAAAAAABAAAAJAkAAEEA
-ZwAAAAAAAElEVFNDb21wb25lbnRNZXRhRGF0YTEwMABJRFRTUnVudGltZUNvbm5lY3Rpb25Db2xs
-ZWN0aW9uMTAwAElEVFNSdW50aW1lQ29ubmVjdGlvbjEwMABJRFRTQ29ubmVjdGlvbk1hbmFnZXIx
-MDAATGlzdGAxAFNDXzJkYjUwNWJhYzY2YzRhMjA5Y2NmMDc5MWJhMjM0YWY2ADxNb2R1bGU+AElu
-cHV0SUQAR2V0T3V0cHV0SUQAU3lzdGVtLklPAHNldF9LaWxkZWlkTwBzZXRfR3J1cHBlTwBzZXRf
-VGFiZWxsbnVtbWVyTwBnZXRfQ29tcG9uZW50TWV0YURhdGEAbXNjb3JsaWIAU3lzdGVtLkNvbGxl
-Y3Rpb25zLkdlbmVyaWMAZ2V0X0lkAHNldF9JZABUaHJlYWQARGF0ZV9QdWJsaXNoZWQAZ2V0X1B1
-Ymxpc2hlZABzZXRfUHVibGlzaGVkAHNldF9EYXRvUHVibGlzaGVkAElucHV0c0ZpbmlzaGVkAE1h
-cmtPdXRwdXRzRmluaXNoZWQAZ2V0X0tpbGRlaWQAPElkPmtfX0JhY2tpbmdGaWVsZAA8UHVibGlz
-aGVkPmtfX0JhY2tpbmdGaWVsZAA8VGl0bGU+a19fQmFja2luZ0ZpZWxkADxTY29yZT5rX19CYWNr
-aW5nRmllbGQAPFBhdGg+a19fQmFja2luZ0ZpZWxkAFJlYWRUb0VuZABzZXRfTWV0aG9kAGRlZmF1
-bHRJbnN0YW5jZQBJRGlzcG9zYWJsZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRs
-ZQBnZXRfVGl0bGUAc2V0X1RpdGxlAElucHV0TmFtZQBHZXRSdW50aW1lQ29ubmVjdGlvbkJ5TmFt
-ZQBEYXRlVGltZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZQBnZXRfR3J1cHBlAFR5
-cGUAZ2V0X1Njb3JlAHNldF9TY29yZQBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQByZXNvdXJjZUN1
-bHR1cmUAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UASHR0cFdlYlJlc3BvbnNlAEdldFJlc3BvbnNl
-AERpc3Bvc2UAQ3JlYXRlAEVkaXRvckJyb3dzYWJsZVN0YXRlAENvbXBpbGVyR2VuZXJhdGVkQXR0
-cmlidXRlAERlYnVnZ2VyTm9uVXNlckNvZGVBdHRyaWJ1dGUARGVidWdnYWJsZUF0dHJpYnV0ZQBF
-ZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUAQXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBBc3NlbWJseVRy
-YWRlbWFya0F0dHJpYnV0ZQBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb25maWd1
-cmF0aW9uQXR0cmlidXRlAEFzc2VtYmx5RGVzY3JpcHRpb25BdHRyaWJ1dGUAQ29tcGlsYXRpb25S
-ZWxheGF0aW9uc0F0dHJpYnV0ZQBBc3NlbWJseVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5
-cmlnaHRBdHRyaWJ1dGUAU1NJU1NjcmlwdENvbXBvbmVudEVudHJ5UG9pbnRBdHRyaWJ1dGUAQXNz
-ZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAFByZUV4
-ZWN1dGUAUG9zdEV4ZWN1dGUATWluVmFsdWUAdmFsdWUARGVzZXJpYWxpemUAU3lzdGVtLlRocmVh
-ZGluZwBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAEdldFN0cmluZwBnZXRfUGF0aABzZXRfUGF0
-aABTeXN0ZW0uQ29tcG9uZW50TW9kZWwAU0NfMmRiNTA1YmFjNjZjNGEyMDljY2YwNzkxYmEyMzRh
-ZjYuZGxsAHNldF9LaWxkZWlkT19Jc051bGwAc2V0X0dydXBwZU9fSXNOdWxsAHNldF9UYWJlbGxu
-dW1tZXJPX0lzTnVsbABzZXRfRGF0b1B1Ymxpc2hlZF9Jc051bGwAZ2V0X0tpbGRlaWRfSXNOdWxs
-AGdldF9HcnVwcGVfSXNOdWxsAGdldF9UYWJlbGxudW1tZXJfSXNOdWxsAFNldE51bGwAR2V0UmVz
-cG9uc2VTdHJlYW0AZ2V0X0l0ZW0Ac2V0X0l0ZW0AU3lzdGVtAFJhbmRvbQByZXNvdXJjZU1hbgBT
-Y3JpcHRNYWluAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3Rl
-bS5XZWIuU2NyaXB0LlNlcmlhbGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rpb24AZ2V0X1J1bnRpbWVD
-b25uZWN0aW9uQ29sbGVjdGlvbgBnZXRfQ29ubmVjdGlvbgBJbnZhbGlkT3BlcmF0aW9uRXhjZXB0
-aW9uAFN0cmluZ0NvbXBhcmlzb24AQ3VsdHVyZUluZm8AT3V0cHV0TmFtZU1hcABPdXRwdXRNYXAA
-TWljcm9zb2Z0LlNxbFNlcnZlci5EVFNSdW50aW1lV3JhcABNaWNyb3NvZnQuU3FsU2VydmVyLkRU
-U1BpcGVsaW5lV3JhcABTbGVlcABTdHJlYW1SZWFkZXIAVGV4dFJlYWRlcgBJbnB1dDBCdWZmZXIA
-T3V0cHV0MEJ1ZmZlcgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFu
-YWdlcgBnZXRfQ29ubmVjdGlvbk1hbmFnZXIAZ2V0X1RhYmVsbG51bW1lcgBNaWNyb3NvZnQuU3Fs
-U2VydmVyLkR0cy5SdW50aW1lLldyYXBwZXIATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxp
-bmUuV3JhcHBlcgBKYXZhU2NyaXB0U2VyaWFsaXplcgAuY3RvcgAuY2N0b3IAT3V0cHV0SURzAFN5
-c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5S
-ZXNvdXJjZXMAU0NfMmRiNTA1YmFjNjZjNGEyMDljY2YwNzkxYmEyMzRhZjYuUHJvcGVydGllcy5S
-ZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNDXzJkYjUwNWJhYzY2YzRhMjA5Y2Nm
-MDc5MWJhMjM0YWY2LlByb3BlcnRpZXMAVmFyaWFibGVzAEJ1ZmZlckNvbHVtbkluZGV4ZXMAR2V0
-Q29sdW1uSW5kZXhlcwBTZXR0aW5ncwBFcXVhbHMAU3lzdGVtLldlYi5FeHRlbnNpb25zAENvbm5l
-Y3Rpb25zAEJ1ZmZlcnMARmluaXNoT3V0cHV0cwBDcmVhdGVOZXdPdXRwdXRSb3dzAENvbmNhdABP
-YmplY3QAU3lzdGVtLk5ldABnZXRfRW5kT2ZSb3dzZXQAU2V0RW5kT2ZSb3dzZXQAZ2V0X0RlZmF1
-bHQAVXNlckNvbXBvbmVudABQYXJlbnRDb21wb25lbnQAU2NyaXB0Q29tcG9uZW50AGdldF9Db3Vu
-dABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AEh0dHBXZWJSZXF1ZXN0AE1pY3Jvc29mdC5T
-cWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AElucHV0MF9Qcm9jZXNzSW5wdXQAUHJpbWVPdXRwdXQATmV4
-dABBZGRSb3cASW5wdXQwX1Byb2Nlc3NJbnB1dFJvdwBOZXh0Um93AGdldF9Bc3NlbWJseQBTU0JK
-c29uUXVlcnkAAAAAB1MAUwBCAABhaAB0AHQAcAA6AC8ALwBkAGEAdABhAC4AcwBzAGIALgBuAG8A
-LwBhAHAAaQAvAHYAMAAvAG4AbwAvAHQAYQBiAGwAZQAvAD8AcQB1AGUAcgB5AD0AdABpAHQAbABl
-ADoAAAdHAEUAVAAAAQCAm0kAcwBOAHUAbABsACAAcAByAG8AcABlAHIAdAB5ACAAYwBhAG4AbgBv
-AHQAIABiAGUAIABzAGUAdAAgAHQAbwAgAEYAYQBsAHMAZQAuACAAQQBzAHMAaQBnAG4AIABhACAA
-dgBhAGwAdQBlACAAdABvACAAdABoAGUAIABjAG8AbAB1AG0AbgAgAGkAbgBzAHQAZQBhAGQALgAA
-D0kAbgBwAHUAdAAgADAAABFPAHUAdABwAHUAdAAgADAAABVDAG8AbgBuAGUAYwB0AGkAbwBuAABx
-UwBDAF8AMgBkAGIANQAwADUAYgBhAGMANgA2AGMANABhADIAMAA5AGMAYwBmADAANwA5ADEAYgBh
-ADIAMwA0AGEAZgA2AC4AUAByAG8AcABlAHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAACy
-4tlb0ZGORbU3UUlW+aW/AAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFtBAcBET0EIAECDgwHBA4I
-FRJFARIIEkkFAAIODg4FAAESfQ4FIAIICAgFIAASgIkFIAASgI0GIAEBEoCNAyAADgQAAQEIBjAB
-AR4ADggKARUSRQESCAYVEkUBEggDIAAIAwYRPQUgARMACAkgAwESUR0IElUDBhJRAwYdCAQgAQ4I
-BCABAggDIAACBSACAQgcByACAg4RgKkFIAEdCAgDBwEIBgACCBJVDgUgABKArQUgABKAsQYgARKA
-tQ4EIAASXQgAARKAuRGAvQUgABKAwQcgAgEOEoDBCLd6XFYZNOCJCImEXc2AgMyRCDG/OFatNk41
-AgYOAgYNAwYSHAMGEiADBhIUAgYIAwYSWQMGEmUDBhJpAwYSKAMgAA0EIAEBDQQgABE9BSABARE9
-BSABARIQBSABET0OBCABAQIJIAQBCA4SURJVCyAEAQgdCB0SURJVBSABARJZBAAAEmUEAAASaQUA
-AQESaQQAABIoAwAAAQMoAA4DKAANBCgAET0DKAACBCgAEl0ECAASZQQIABJpBAgAEigIAQAIAAAA
-AAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1NDXzJkYjUwNWJh
-YzY2YzRhMjA5Y2NmMDc5MWJhMjM0YWY2AAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMjAAAEkB
-ABouTkVURnJhbWV3b3JrLFZlcnNpb249djQuNQEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5F
-VCBGcmFtZXdvcmsgNC41BAEAAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVz
-b3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwg
-UHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVS
-ZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAA6D8AAAAAAAAAAAAAAkAAAAAgAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAPQ/AAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAA
-AP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAA
-AAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABIAAAAWGAA
-AOwDAAAAAAAAAAAAAOwDNAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAAAAC9BO/+
-AAABAAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAAAAEAVgBh
-AHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4AAAAAAAAA
-sARMAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAAAoAwAAAQAwADAAMAAwADAANABi
-ADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABhAG4AeQBOAGEA
-bQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAAAFMAQwBf
+UgJ7JQAACgJ7JgAAChiUbycAAAoqIgIYKCgAAAoqUgJ7JQAACgJ7JgAAChmUbykAAAoqOgIZA4wP
+AAABKCoAAAoqIgIZKCgAAAoqWgMsCAIZKCsAAAoqcnUAAHBzLAAACnpSAnslAAAKAnsmAAAKGpRv
+KQAACioiAhooKAAACioeAigtAAAKKh4CKC4AAAoqOgIWA4wPAAABKCoAAAoqWgMsCAIWKCsAAAoq
+cnUAAHBzLAAACnomAhcDKCoAAAoqWgMsCAIXKCsAAAoqcnUAAHBzLAAACnomAhgDKCoAAAoqWgMs
+CAIYKCsAAAoqcnUAAHBzLAAACnomAhkDKCoAAAoqOgIaA4wPAAABKCoAAAoqWgMsCAIaKCsAAAoq
+cnUAAHBzLAAACnoeAigvAAAKKh4CKDAAAAoqfgIoMQAACgICczYAAAZ9BgAABAICczgAAAZ9BwAA
+BCoAEzAEAE8AAAAAAAAABHISAQBwGm8yAAAKLBUCBQIDKDMAAAoOBHMRAAAGbzQAAAYFbzQAAAos
+IwICewkAAAQXWH0JAAAEAnsJAAAEFzMMAm8wAAAGAigxAAAGKgYqbgJ7CAAABCwSAnsIAAAEbywA
+AAYCFH0IAAAEKgAAABMwBQA9AAAAAwAAERYKKy4EBpQOBHIiAQBwKDUAAAozGQIFBpoCBAaUKDMA
+AAoOBHMgAAAGfQgAAAQGF1gKBgMyzgJvMwAABipKKwcCA281AAAGA28eAAAGLfEqOgIoEAAACgID
+fQoAAAQqggJ7CgAABG82AAAKbzcAAApyNAEAcG84AAAKbzkAAAoqOgIoEAAACgIDfQsAAAQqrn4M
+AAAELR5ySgEAcNAJAAACKDoAAApvOwAACnM8AAAKgAwAAAR+DAAABCoafg0AAAQqHgKADQAABCoa
+fg4AAAQqHgIoPQAACioucz4AAAaADgAABCoAAABCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAA
+AAAFAGwAAABECwAAI34AALALAAAMDAAAI1N0cmluZ3MAAAAAvBcAALwBAAAjVVMAeBkAABAAAAAj
+R1VJRAAAAIgZAACAAgAAI0Jsb2IAAAAAAAAAAgAAAVcVogkJCQAAAPoBMwAWAAABAAAAMAAAAAoA
+AAAOAAAAPwAAACYAAAA9AAAAHwAAAAMAAAAGAAAAHQAAACUAAAABAAAAAQAAAAcAAAABAAAAAQAA
+AAAAzAUBAAAAAAAGAIsEfQkGAB8FfQkGANcDagkPAPEJAAAGAAQEhgcGAG4EhgcGAE8EhgcGAAYF
+hgcGAKsEhgcGAMQEhgcGABsEhgcGADYEgAUGAMEKFwcGAJ8DfQkGAMkCFwcKAN8E0gIGAG8AHAEO
+AFcDyAoKAKUI0gISAJYI0gIKAP4H0gIKABwL0gIWAFYA7QgGALoDagkGALYInQkGAPIHUQcOAIoD
+tgUOAOsDtgUOAD8DPAcGAJ0FFwcOAHsLyAoOAHcLyAoGAB4HFwcOAFsDyAoGAP4GtwAGAGMItwAG
+AHAItwAGAGACFwcGAEUBbwUaAD4JZgcGAMcHFwcGAOEHFwceAAEAFQkeABoAFQkeAD0AFQkGAP4C
+FwcGAGwCFwcGAPYLhgcAAAAAmgAAAAAAAQABAAEAEAD/CwAANQABAAEAAQAQADEHAAAYAAYADAAB
+ABAAewgAAE0ABgARAAEAEACICAAATQAGACAAAQAQAP4KAABZAAYALgABABAAhAoAADUACgA2AAEA
+EAAvCgAANQALADgAAAAQAKQJAAo1AAwAOQAAARAAXgoACnUADgA9AAEAyAEUAQEAJQIUAQEA9wEU
+AQEADgIXAQEA3AF7AAYAhAoaAQYALwoeAQYAiAgiAQEAiQEmAQEADAspAQEADAspAREAJQctAREA
+LwMxAREAUAI1AVAgAAAAAIYINwFXAAEAWCAAAAAAhgg+ARAAAQBhIAAAAACGCKQFVwACAGkgAAAA
+AIYIrQUQAAIAciAAAAAAhgiQAlcAAwB6IAAAAACGCJoCEAADAIMgAAAAAIYIAwM5AQQAiyAAAAAA
+hggNAz0BBACUIAAAAACGCFsBQgEFAJwgAAAAAIYIaQFHAQUApSAAAAAAhhhTCQYABgCtIAAAAADG
+AD0FBgAGALUgAAAAAMYASAUGAAYAwCAAAAAAxgDTC00BBgBAIQAAAACGAEwBUwEHAOwhAAAAAIYY
+UwkGAAgA9CEAAAAAhhhTCYUACAD/IQAAAACGCLwBVwALABQiAAAAAIYIfAatAAsAHSIAAAAAhgjc
+CFcACwAyIgAAAACGCKEGrQALADsiAAAAAIYI8wJXAAsAUCIAAAAAhgiPBq0ACwBZIgAAAACGCFML
+QgELAG4iAAAAAIYIZQtHAQsAfSIAAAAAhgi5Bq0ADACGIgAAAACGCNIGWQEMAJ0iAAAAAIYIrAFC
+AQ0AsiIAAAAAhghlBq0ADQC7IgAAAACGAOoLrQANAMMiAAAAAIYA5gqtAA0A9CEAAAAAhhhTCYUA
+DQDLIgAAAACGCHcBRwEQANoiAAAAAIYITAZZAREA8SIAAAAAhgjrABAAEgD7IgAAAACGCDMGWQET
+ABIjAAAAAIYI0gAQABQAHCMAAAAAhggMBlkBFQAzIwAAAACGCN8AEAAWAIYiAAAAAIYIIAZZARcA
+PSMAAAAAhgjBAEcBGABMIwAAAACGCPQFWQEZAGMjAAAAAIYAzAsGABoAayMAAAAAhgDjCgYAGgDD
+IgAAAACGAOYKrQAaAHMjAAAAAIYYUwkGABoAlCMAAAAAxgCuC14BGgDvIwAAAADGAZgKBgAeAPEj
+AAAAAIEAmAEGAB4AECQAAAAAxgC7C2gBHgDvIwAAAADGAaYKBgAiAFkkAAAAAMYBpwtNASIA7yMA
+AAAAxgHTC00BIwBsJAAAAACGGFMJdAEkAHskAAAAAIYIuAfdACUAnCQAAAAAhhhTCXQBJQClIAAA
+AACDGFMJBgAmAKskAAAAAJMIsgh6ASYA1yQAAAAAkwgXA38BJgDeJAAAAACTCCMDhAEmAOYkAAAA
+AJYI8gqKAScA7SQAAAAAhhhTCQYAJwD1JAAAAACRGFkJjwEnAAAAAQBdBQAAAQBdBQAAAQBdBQAA
+AQBdBQAAAQBdBQAAAQDuCwAAAQDgCAAAAQCrCAAAAgA5CgAAAwAMCAAAAQBdBQAAAQBdBQAAAQCr
+CAAAAgA5CgAAAwAMCAAAAQBdBQAAAQBdBQAAAQBdBQAAAQBdBQAAAQBdBQAAAQBdBQAAAQBdBQAA
+AQBdBQAAAQBdBQAAAQBdBQAAAQCjAAAAAgCkAgAAAwCrCAAABAAMCAAAAQCeCgAAAgBgCQAAAwCQ
+CgAABAAMCAAAAQCrCAAAAQDuCwAAAQAiCwAAAQAiCwAAAQBdBQkAUwkBABEAUwkGABkAUwkKACkA
+UwkQADEAUwkQADkAUwkQAEEAUwkQAEkAUwkQAFEAUwkQAFkAUwkQAGEAUwkQAHEAUwkGAIEAUwkG
+AMEAUwkGAOEAUwkVAGkAUwkGALEAPQUGALEASAUGAPEAZwogAPEAugoyAPkAgwM4APkARQIQAAkB
+UwkGAAkBxws+APkAZwNEABEB8wZKACEBUwlQACkBOwJXADEBcwMGADkBXQhbAEEBUwkGAEEBYwVg
+AAwALAt3AHkAVAV7AAwABQd/AJkAUwmFAJkAqwiPAJkAOQqTAKEAmgWXAJkA5AacAKEAewOhAJkA
+DgenAJkA6wYBAEkBUwkQAJkA6gutAJkA5gqtAJkAzAsGAJkA4woGALEAUwkGAPEAZwqxALEATQq5
+AKEA0wqtALEAqwDDALEA/QDKAFkBmAfQAGEBrgLWAGkBxgjdAHEBfgLiAHEB8gvrAMkAUwnxAOkA
+UwkGACAAYwB5AiEAYwB5Ai4ACwC4AS4AEwDBAS4AGwDgAS4AIwDpAS4AKwASAi4AMwASAi4AOwAS
+Ai4AQwDpAS4ASwAYAi4AUwASAi4AWwAvAkAAYwB5AkEAYwB5AmAAYwB5AmEAYwB5AmMAawB5AoAA
+YwB5AoEAYwB5AqAAYwB5AqEAYwB5AsAAYwB5AuAAYwB5AgABYwB5AiABYwB5AiMBcwB5AkABYwB5
+AsEBYwB5AmkDewDgAYkDewDgARsAJQC/AAIAAQAEAAYABQAQAAcAGgAJABsACgAdAAAAQgGTAQAA
+sQWTAQAAngKTAQAAEQOXAQAAfwGbAQAAwAGTAQAAgAagAQAA4AiTAQAApQagAQAA9wKTAQAAkwag
+AQAAaQubAQAA1gagAQAAsAGbAQAAaQagAQAAewGbAQAAUAagAQAA7wCTAQAANwagAQAA1gCTAQAA
+EAagAQAA4wCTAQAAJAagAQAAxQCbAQAA+AWgAQAAvAekAQAAtgipAQAANwOuAQAA9gqzAQIAAQAD
+AAEAAgADAAIAAwAFAAEABAAFAAIABQAHAAEABgAHAAIABwAJAAEACAAJAAIACQALAAEACgALAAIA
+EgANAAIAEwAPAAIAFAARAAIAFQATAAIAFgAVAAIAFwAXAAIAGAAZAAEAGQAZAAIAGgAbAAEAGwAb
+AAIAHAAdAAIAHQAfAAEAIQAhAAEAIgAjAAEAIwAlAAEAJAAnAAEAJQApAAEAJgArAAEAJwAtAAEA
+KAAvAAEAKQAxAAEAKgAzAAIANwA1AAIAOgA3AAIAOwA5AAEAPAA5AAIAPQA7AHAABIAAAAEAAAAA
+AAAAAAAAAAAAdgAAAAQAAAAAAAAAAAAAAPkAEwEAAAAADgAAAAAAAAAAAAAAAgE2CwAAAAAEAAAA
+AAAAAAAAAAD5ABcHAAAAAA4AAAAAAAAAAAAAAAIBhgsAAAAADgAAAAAAAAAAAAAAAgEWCAAAAAAE
+AAAAAAAAAAAAAAALAW4KAAAAAA4AAAAAAAAAAAAAAAIBOQgAAAAAAAAAAAEAAACuCQAAQQBnAAAA
+AElEVFNDb21wb25lbnRNZXRhRGF0YTEwMABJRFRTUnVudGltZUNvbm5lY3Rpb25Db2xsZWN0aW9u
+MTAwAElEVFNSdW50aW1lQ29ubmVjdGlvbjEwMABJRFRTQ29ubmVjdGlvbk1hbmFnZXIxMDAATGlz
+dGAxAFNDXzJkYjUwNWJhYzY2YzRhMjA5Y2NmMDc5MWJhMjM0YWY2ADxNb2R1bGU+AElucHV0SUQA
+R2V0T3V0cHV0SUQAU3lzdGVtLklPAHNldF9MYXN0VXBkYXRlZE8Ac2V0X0tpbGRlaWRPAHNldF9H
+cnVwcGVPAHNldF9UYWJlbGxudW1tZXJPAGdldF9Db21wb25lbnRNZXRhRGF0YQBtc2NvcmxpYgBT
+eXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYwBnZXRfSWQAc2V0X0lkAFRocmVhZABEYXRlX1B1Ymxp
+c2hlZABnZXRfUHVibGlzaGVkAHNldF9QdWJsaXNoZWQAc2V0X0RhdG9QdWJsaXNoZWQASW5wdXRz
+RmluaXNoZWQATWFya091dHB1dHNGaW5pc2hlZABnZXRfTGFzdFVwZGF0ZWQAZ2V0X0tpbGRlaWQA
+PElkPmtfX0JhY2tpbmdGaWVsZAA8UHVibGlzaGVkPmtfX0JhY2tpbmdGaWVsZAA8VGl0bGU+a19f
+QmFja2luZ0ZpZWxkADxTY29yZT5rX19CYWNraW5nRmllbGQAPFBhdGg+a19fQmFja2luZ0ZpZWxk
+AFJlYWRUb0VuZABzZXRfTWV0aG9kAGRlZmF1bHRJbnN0YW5jZQBJRGlzcG9zYWJsZQBSdW50aW1l
+VHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBnZXRfVGl0bGUAc2V0X1RpdGxlAElucHV0TmFt
+ZQBHZXRSdW50aW1lQ29ubmVjdGlvbkJ5TmFtZQBEYXRlVGltZQBNaWNyb3NvZnQuU3FsU2VydmVy
+LkR0cy5QaXBlbGluZQBnZXRfR3J1cHBlAFR5cGUAZ2V0X1Njb3JlAHNldF9TY29yZQBnZXRfQ3Vs
+dHVyZQBzZXRfQ3VsdHVyZQByZXNvdXJjZUN1bHR1cmUAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UA
+SHR0cFdlYlJlc3BvbnNlAEdldFJlc3BvbnNlAERpc3Bvc2UAR2V0RGF0ZQBDcmVhdGUARWRpdG9y
+QnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2Vy
+Q29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0
+ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdl
+dEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1i
+bHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFz
+c2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2Ny
+aXB0Q29tcG9uZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUA
+UnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAUHJlRXhlY3V0ZQBQb3N0RXhlY3V0ZQBNaW5W
+YWx1ZQB2YWx1ZQBEZXNlcmlhbGl6ZQBTeXN0ZW0uVGhyZWFkaW5nAFN5c3RlbS5SdW50aW1lLlZl
+cnNpb25pbmcAR2V0U3RyaW5nAGdldF9QYXRoAHNldF9QYXRoAFN5c3RlbS5Db21wb25lbnRNb2Rl
+bABTQ18yZGI1MDViYWM2NmM0YTIwOWNjZjA3OTFiYTIzNGFmNi5kbGwAc2V0X0xhc3RVcGRhdGVk
+T19Jc051bGwAc2V0X0tpbGRlaWRPX0lzTnVsbABzZXRfR3J1cHBlT19Jc051bGwAc2V0X1RhYmVs
+bG51bW1lck9fSXNOdWxsAHNldF9EYXRvUHVibGlzaGVkX0lzTnVsbABnZXRfTGFzdFVwZGF0ZWRf
+SXNOdWxsAGdldF9LaWxkZWlkX0lzTnVsbABnZXRfR3J1cHBlX0lzTnVsbABnZXRfVGFiZWxsbnVt
+bWVyX0lzTnVsbABnZXRfRGF0b1B1Ymxpc2VydF9Jc051bGwAc2V0X0RhdG9QdWJsaXNlcnRfSXNO
+dWxsAFNldE51bGwAR2V0UmVzcG9uc2VTdHJlYW0AZ2V0X0l0ZW0Ac2V0X0l0ZW0AU3lzdGVtAFJh
+bmRvbQByZXNvdXJjZU1hbgBTY3JpcHRNYWluAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5H
+bG9iYWxpemF0aW9uAFN5c3RlbS5XZWIuU2NyaXB0LlNlcmlhbGl6YXRpb24AU3lzdGVtLlJlZmxl
+Y3Rpb24AZ2V0X1J1bnRpbWVDb25uZWN0aW9uQ29sbGVjdGlvbgBnZXRfQ29ubmVjdGlvbgBJbnZh
+bGlkT3BlcmF0aW9uRXhjZXB0aW9uAFN0cmluZ0NvbXBhcmlzb24AQ3VsdHVyZUluZm8AT3V0cHV0
+TmFtZU1hcABPdXRwdXRNYXAATWljcm9zb2Z0LlNxbFNlcnZlci5EVFNSdW50aW1lV3JhcABNaWNy
+b3NvZnQuU3FsU2VydmVyLkRUU1BpcGVsaW5lV3JhcABTbGVlcABTdHJlYW1SZWFkZXIAVGV4dFJl
+YWRlcgBJbnB1dDBCdWZmZXIAT3V0cHV0MEJ1ZmZlcgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRCdWZm
+ZXIAZ2V0X1Jlc291cmNlTWFuYWdlcgBnZXRfQ29ubmVjdGlvbk1hbmFnZXIAZ2V0X1RhYmVsbG51
+bW1lcgBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5SdW50aW1lLldyYXBwZXIATWljcm9zb2Z0LlNx
+bFNlcnZlci5EdHMuUGlwZWxpbmUuV3JhcHBlcgBKYXZhU2NyaXB0U2VyaWFsaXplcgAuY3RvcgAu
+Y2N0b3IAT3V0cHV0SURzAFN5c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxl
+clNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMAU0NfMmRiNTA1YmFjNjZjNGEyMDljY2YwNzkxYmEy
+MzRhZjYuUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNDXzJk
+YjUwNWJhYzY2YzRhMjA5Y2NmMDc5MWJhMjM0YWY2LlByb3BlcnRpZXMAVmFyaWFibGVzAEJ1ZmZl
+ckNvbHVtbkluZGV4ZXMAR2V0Q29sdW1uSW5kZXhlcwBTZXR0aW5ncwBFcXVhbHMAU3lzdGVtLldl
+Yi5FeHRlbnNpb25zAENvbm5lY3Rpb25zAEJ1ZmZlcnMARmluaXNoT3V0cHV0cwBDcmVhdGVOZXdP
+dXRwdXRSb3dzAENvbmNhdABPYmplY3QAU3lzdGVtLk5ldABnZXRfRW5kT2ZSb3dzZXQAU2V0RW5k
+T2ZSb3dzZXQAZ2V0X0RlZmF1bHQAVXNlckNvbXBvbmVudABQYXJlbnRDb21wb25lbnQAU2NyaXB0
+Q29tcG9uZW50AGdldF9Db3VudABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AGdldF9EYXRv
+UHVibGlzZXJ0AHNldF9EYXRvUHVibGlzZXJ0AEh0dHBXZWJSZXF1ZXN0AE1pY3Jvc29mdC5TcWxT
+ZXJ2ZXIuUGlwZWxpbmVIb3N0AElucHV0MF9Qcm9jZXNzSW5wdXQAUHJpbWVPdXRwdXQATmV4dABB
+ZGRSb3cASW5wdXQwX1Byb2Nlc3NJbnB1dFJvdwBOZXh0Um93AGdldF9Bc3NlbWJseQBTU0JKc29u
+UXVlcnkAAAdTAFMAQgAAYWgAdAB0AHAAOgAvAC8AZABhAHQAYQAuAHMAcwBiAC4AbgBvAC8AYQBw
+AGkALwB2ADAALwBuAG8ALwB0AGEAYgBsAGUALwA/AHEAdQBlAHIAeQA9AHQAaQB0AGwAZQA6AAAH
+RwBFAFQAAAEAgJtJAHMATgB1AGwAbAAgAHAAcgBvAHAAZQByAHQAeQAgAGMAYQBuAG4AbwB0ACAA
+YgBlACAAcwBlAHQAIAB0AG8AIABGAGEAbABzAGUALgAgAEEAcwBzAGkAZwBuACAAYQAgAHYAYQBs
+AHUAZQAgAHQAbwAgAHQAaABlACAAYwBvAGwAdQBtAG4AIABpAG4AcwB0AGUAYQBkAC4AAA9JAG4A
+cAB1AHQAIAAwAAARTwB1AHQAcAB1AHQAIAAwAAAVQwBvAG4AbgBlAGMAdABpAG8AbgAAcVMAQwBf
 ADIAZABiADUAMAA1AGIAYQBjADYANgBjADQAYQAyADAAOQBjAGMAZgAwADcAOQAxAGIAYQAyADMA
-NABhAGYANgAAADAACAABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAALgAwAC4AMAAA
-AHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBDAF8AMgBkAGIANQAwADUAYgBhAGMA
-NgA2AGMANABhADIAMAA5AGMAYwBmADAANwA5ADEAYgBhADIAMwA0AGEAZgA2AC4AZABsAGwAAABI
-ABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8AcAB5AHIAaQBnAGgAdAAgAEAA
-IAAgADIAMAAyADAAAAAqAAEAAQBMAGUAZwBhAGwAVAByAGEAZABlAG0AYQByAGsAcwAAAAAAAAAA
-AHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBtAGUAAABTAEMAXwAyAGQAYgA1ADAA
-NQBiAGEAYwA2ADYAYwA0AGEAMgAwADkAYwBjAGYAMAA3ADkAMQBiAGEAMgAzADQAYQBmADYALgBk
-AGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAAAAAAUwBDAF8AMgBkAGIANQAwADUA
-YgBhAGMANgA2AGMANABhADIAMAA5AGMAYwBmADAANwA5ADEAYgBhADIAMwA0AGEAZgA2AAAANAAI
-AAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAADgACAABAEEA
-cwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAAAAAAAAAAAAA
+NABhAGYANgAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAvNh1KT4v
+nUeCBn7yZdlZFQAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERbQQHARE9BCABAg4MBwQOCBUSRQES
+CBJJBQACDg4OBQABEn0OBSACCAgIBSAAEoCJBSAAEoCNBiABARKAjQMgAA4EAAEBCAYwAQEeAA4I
+CgEVEkUBEggGFRJFARIIAyAACAMGET0FIAETAAgJIAMBElEdCBJVAwYSUQMGHQgEIAEOCAQgAQII
+BSABET0IBSACAQgcAyAAAgcgAgIOEYCpBSABHQgIAwcBCAYAAggSVQ4FIAASgK0FIAASgLEGIAES
+gLUOBCAAEl0IAAESgLkRgL0FIAASgMEHIAIBDhKAwQi3elxWGTTgiQiJhF3NgIDMkQgxvzhWrTZO
+NQIGDgIGDQMGEhwDBhIgAwYSFAIGCAMGElkDBhJlAwYSaQMGEigDIAANBCABAQ0EIAARPQUgAQER
+PQUgAQESEAUgARE9DgQgAQECCSAEAQgOElESVQsgBAEIHQgdElESVQUgAQESWQQAABJlBAAAEmkF
+AAEBEmkEAAASKAMAAAEDKAAOAygADQQoABE9AygAAgQoABJdBAgAEmUECAASaQQIABIoCAEACAAA
+AAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTQ18yZGI1MDVi
+YWM2NmM0YTIwOWNjZjA3OTFiYTIzNGFmNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJ
+AQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5O
+RVQgRnJhbWV3b3JrIDQuNQQBAAAAAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMu
+UmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJh
+bCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRp
+bWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAA7EEAAAAAAAAAAAAABkIAAAAgAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAPhBAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwA
+AAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1478,7 +1571,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAwAAAAUMAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAA
+ABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgAAABYYAAA
+7AMAAAAAAAAAAAAA7AM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAAAL0E7/4A
+AAEAAAABAAAAAAAAAAEAAAAAAD8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAAAQBWAGEA
+cgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAAAAAAAACw
+BEwDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAACgDAAABADAAMAAwADAAMAA0AGIA
+MAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEAbgB5AE4AYQBt
+AGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAAAAAAUwBDAF8A
+MgBkAGIANQAwADUAYgBhAGMANgA2AGMANABhADIAMAA5AGMAYwBmADAANwA5ADEAYgBhADIAMwA0
+AGEAZgA2AAAAMAAIAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAuADAALgAwAAAA
+cAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAEMAXwAyAGQAYgA1ADAANQBiAGEAYwA2
+ADYAYwA0AGEAMgAwADkAYwBjAGYAMAA3ADkAMQBiAGEAMgAzADQAYQBmADYALgBkAGwAbAAAAEgA
+EgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAg
+ACAAMgAwADIAMAAAACoAAQABAEwAZQBnAGEAbABUAHIAYQBkAGUAbQBhAHIAawBzAAAAAAAAAAAA
+eAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBhAG0AZQAAAFMAQwBfADIAZABiADUAMAA1
+AGIAYQBjADYANgBjADQAYQAyADAAOQBjAGMAZgAwADcAOQAxAGIAYQAyADMANABhAGYANgAuAGQA
+bABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAAAABTAEMAXwAyAGQAYgA1ADAANQBi
+AGEAYwA2ADYAYwA0AGEAMgAwADkAYwBjAGYAMAA3ADkAMQBiAGEAMgAzADQAYQBmADYAAAA0AAgA
+AQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAOAAIAAEAQQBz
+AHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAADAAAABgyAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1487,7 +1607,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   </arrayElements>
                 </property>
                 <property
@@ -1523,7 +1643,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   dataType="System.String"
                   description="Checksum to match component metedata against compiled codes."
                   name="MetadataChecksum140"
-                  typeConverter="NOTBROWSABLE">9C</property>
+                  typeConverter="NOTBROWSABLE">52</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
@@ -1547,21 +1667,33 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="Kildeid"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kildeid]" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Kildeid]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Script Component.Inputs[Input 0].Columns[Tabellnummer]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="Tabellnummer"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tabellnummer]" />
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Tabellnummer]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Script Component.Inputs[Input 0].Columns[Gruppe]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="Gruppe"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gruppe]" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Gruppe]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Script Component.Inputs[Input 0].Columns[Dato_Publisert]"
+                      cachedDataType="dbDate"
+                      cachedName="Dato_Publisert"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Dato_Publisert]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Script Component.Inputs[Input 0].Columns[Last_Updated]"
+                      cachedDataType="dbDate"
+                      cachedName="Last_Updated"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Last_Updated]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1598,6 +1730,371 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       length="100"
                       lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[GruppeO]"
                       name="GruppeO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[LastUpdatedO]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[LastUpdatedO]"
+                      name="LastUpdatedO" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Tabellgrupper"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Tabellgrupper"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Tabellgrupper]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM Tabellgrupper ORDER BY Tabellnummer ASC</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Tabellgrupper.Connections[OleDbConnection]"
+                  connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].Columns[Kildeid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].ExternalColumns[Kildeid]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].Columns[Kildeid]"
+                      name="Kildeid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].Columns[Tabellnummer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].ExternalColumns[Tabellnummer]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].Columns[Tabellnummer]"
+                      name="Tabellnummer"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].Columns[Gruppe]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].ExternalColumns[Gruppe]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].Columns[Gruppe]"
+                      name="Gruppe"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].ExternalColumns[Kildeid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Kildeid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].ExternalColumns[Tabellnummer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Tabellnummer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output].ExternalColumns[Gruppe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Gruppe" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output].Columns[Kildeid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output].Columns[Kildeid]"
+                      name="Kildeid" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output].Columns[Tabellnummer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output].Columns[Tabellnummer]"
+                      name="Tabellnummer" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output].Columns[Gruppe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Error Output].Columns[Gruppe]"
+                      name="Gruppe" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\TabellPublisert"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="TabellPublisert"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Tabell_Publisert]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM Tabell_Publisert ORDER BY Tabellnummer ASC</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\TabellPublisert.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Kildeid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].ExternalColumns[Kildeid]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Kildeid]"
+                      name="Kildeid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Tabellnummer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].ExternalColumns[Tabellnummer]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Tabellnummer]"
+                      name="Tabellnummer"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Dato_Publisert]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].ExternalColumns[Dato_Publisert]"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Dato_Publisert]"
+                      name="Dato_Publisert"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Last_Updated]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].ExternalColumns[Last_Updated]"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Last_Updated]"
+                      name="Last_Updated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Gruppe]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].ExternalColumns[Gruppe]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].Columns[Gruppe]"
+                      name="Gruppe"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].ExternalColumns[Kildeid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Kildeid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].ExternalColumns[Tabellnummer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Tabellnummer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].ExternalColumns[Dato_Publisert]"
+                      dataType="dbDate"
+                      name="Dato_Publisert" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].ExternalColumns[Last_Updated]"
+                      dataType="dbDate"
+                      name="Last_Updated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output].ExternalColumns[Gruppe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Gruppe" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[Kildeid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[Kildeid]"
+                      name="Kildeid" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[Tabellnummer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[Tabellnummer]"
+                      name="Tabellnummer" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[Dato_Publisert]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[Dato_Publisert]"
+                      name="Dato_Publisert" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[Last_Updated]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[Last_Updated]"
+                      name="Last_Updated" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[Gruppe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[Gruppe]"
+                      name="Gruppe" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1606,47 +2103,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              refId="Package\Data Flow Task.Paths[Merge Join Output]"
               endId="Package\Data Flow Task\Script Component.Inputs[Input 0]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\Data Flow Task\Tabellgrupper.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\TabellPublisert.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Output 0]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
               name="Output 0"
               startId="Package\Data Flow Task\Script Component.Outputs[Output 0]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Truncate Table"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{25A448AE-A16D-4D13-82AC-D6DF7270BAC2}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate Table"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
-          SQLTask:SqlStatementSource="USE [TEST_Staging_ASSS]&#xA;&#xA;Truncate Table Tabell_Publisert" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint]"
-      DTS:CreationName=""
-      DTS:DTSID="{E4249722-3A1A-4EA8-AE04-0B99E0167C2B}"
-      DTS:From="Package\Truncate Table"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint"
-      DTS:To="Package\Data Flow Task" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1658,37 +2138,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="151,42"
           Id="Package\Data Flow Task"
           TopLeft="452,165" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Truncate Table"
-          TopLeft="108,167" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="258,187">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="194,0"
-              Start="0,0"
-              End="186.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="186.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1696,33 +2150,49 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Data Flow Task\TabellPublisert"
+          TopLeft="408,56" />
         <NodeLayout
           Size="163,42"
           Id="Package\Data Flow Task\Script Component"
-          TopLeft="245,181" />
+          TopLeft="220,276" />
         <NodeLayout
-          Size="150,42"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="250,59" />
+          Size="144,42"
+          Id="Package\Data Flow Task\Tabellgrupper"
+          TopLeft="105,65" />
         <NodeLayout
-          Size="171,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="238,319" />
+          Size="130,42"
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="232,163" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Output 0]"
-          TopLeft="325,223">
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="482,98">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,96"
+              EndConnector="-164.666666666667,65"
               Start="0,0"
-              End="0,88.5">
+              End="-164.666666666667,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,88.5" />
+                    End="0,34.5258358662614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5258358662614"
+                    Point2="0,38.5258358662614"
+                    Point3="-4,38.5258358662614" />
+                  <mssgle:LineSegment
+                    End="-160.666666666667,38.5258358662614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-160.666666666667,38.5258358662614"
+                    Point2="-164.666666666667,38.5258358662614"
+                    Point3="-164.666666666667,42.5258358662614" />
+                  <mssgle:LineSegment
+                    End="-164.666666666667,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1733,18 +2203,78 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="325.75,101">
+          TopLeft="177,107">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,80"
+              EndConnector="120,56"
               Start="0,0"
-              End="0,72.5">
+              End="120,48.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,72.5" />
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="116,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="116,28"
+                    Point2="120,28"
+                    Point3="120,32" />
+                  <mssgle:LineSegment
+                    End="120,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="299.25,205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Data Flow Task\OLE DB Command"
+          TopLeft="223,405" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Output 0]"
+          TopLeft="303.75,318">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87"
+              Start="0,0"
+              End="0,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1757,7 +2287,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
+    design-time-name="Package\Data Flow Task\Tabellgrupper">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1770,7 +2300,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Data Flow Task\TabellPublisert">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
