@@ -22,10 +22,10 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="tableFilters">
+    SSIS:Name="contentFilters">
     <SSIS:Properties>
       <SSIS:Property
-        SSIS:Name="ID">{2d2e21b4-2d1e-4671-80eb-cbaea00662fe}</SSIS:Property>
+        SSIS:Name="ID">{136a6d4f-04ad-4fe9-831b-91053bdf6be6}</SSIS:Property>
       <SSIS:Property
         SSIS:Name="CreationName"></SSIS:Property>
       <SSIS:Property
@@ -33,7 +33,28 @@
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Required">1</SSIS:Property>
+        SSIS:Name="Required">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Sensitive">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Value">Tid=2015,2016,2017,2018,2019,2020</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="DataType">18</SSIS:Property>
+    </SSIS:Properties>
+  </SSIS:Parameter>
+  <SSIS:Parameter
+    SSIS:Name="columnFilters">
+    <SSIS:Properties>
+      <SSIS:Property
+        SSIS:Name="ID">{c984a348-78e5-4521-9cc2-b8e5d74bae54}</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="CreationName"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Description"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Required">0</SSIS:Property>
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
