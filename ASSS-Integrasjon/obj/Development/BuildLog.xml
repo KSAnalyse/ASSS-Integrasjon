@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ASSS-Integrasjon</Name>
-    <LastWriteTime>2020-10-22T09:17:54.9374049Z</LastWriteTime>
+    <LastWriteTime>2020-10-27T10:22:32.653586Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -158,7 +158,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Insert Data.dtsx</Name>
-      <LastWriteTime>2020-10-23T14:46:48.4986547Z</LastWriteTime>
+      <LastWriteTime>2020-10-27T10:21:54.1615382Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Run Insert Package.dtsx</Name>
+      <LastWriteTime>2020-10-27T10:22:29.3682029Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
