@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="Lokale data - Tabelloversikt"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{C43CAB0E-A330-4F88-BCF4-F54FFEFFC323}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{AF7C164D-D4D7-41CC-B274-3297A1E7A271}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -415,6 +415,56 @@
                           lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[Tabellnummer]"
                           name="Tabellnummer"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[F4]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[F4]"
+                          length="255"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[F4]"
+                          name="F4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[F5]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[F5]"
+                          length="255"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[F5]"
+                          name="F5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[F6]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[F6]"
+                          length="255"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[F6]"
+                          name="F6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[F7]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[F7]"
+                          length="255"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[F7]"
+                          name="F7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[F8]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[F8]"
+                          length="255"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].Columns[F8]"
+                          name="F8"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -433,6 +483,31 @@
                           dataType="wstr"
                           length="255"
                           name="Tabellnummer" />
+                        <externalMetadataColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[F4]"
+                          dataType="wstr"
+                          length="255"
+                          name="F4" />
+                        <externalMetadataColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[F5]"
+                          dataType="wstr"
+                          length="255"
+                          name="F5" />
+                        <externalMetadataColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[F6]"
+                          dataType="wstr"
+                          length="255"
+                          name="F6" />
+                        <externalMetadataColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[F7]"
+                          dataType="wstr"
+                          length="255"
+                          name="F7" />
+                        <externalMetadataColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Output].ExternalColumns[F8]"
+                          dataType="wstr"
+                          length="255"
+                          name="F8" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -458,6 +533,36 @@
                           length="255"
                           lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[Gruppe]"
                           name="Gruppe" />
+                        <outputColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[F4]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[F4]"
+                          name="F4" />
+                        <outputColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[F5]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[F5]"
+                          name="F5" />
+                        <outputColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[F6]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[F6]"
+                          name="F6" />
+                        <outputColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[F7]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[F7]"
+                          name="F7" />
+                        <outputColumn
+                          refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[F8]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[F8]"
+                          name="F8" />
                         <outputColumn
                           refId="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -577,7 +682,7 @@
     design-time-name="Package\PAI\Les Tabellgrupper">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="161,43"
           Id="Package\PAI\Les Tabellgrupper\Tabellgrupper DB"
@@ -609,9 +714,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -633,9 +736,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

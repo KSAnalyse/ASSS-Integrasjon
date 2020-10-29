@@ -1,0 +1,669 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/20/2020 7:54:51 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VK-C0D0E-360"
+  DTS:CreatorName="I04\vk431"
+  DTS:DTSID="{8C49C0F1-32A9-45D0-9AD2-5105651414B1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="1044"
+  DTS:ObjectName="Lokale data - Tabellfilter"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{361E2204-CD99-49CA-A145-EB9E3939474E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{0BE5EDB5-CA70-4C9B-8259-86505C19AA6C}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\vk431\OneDrive - KS\Tabellfilter.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tabellfilter"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{EEA126EE-D1ED-4863-9C6D-AB5476376361}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tabellfilter">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Tabellfilter\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C2E1C672-8DA1-4DD6-B879-497D22BA9E10}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Tabellfilter\Data Flow Task\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Tabellnummer]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Tabellnummer"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tabellnummer]" />
+                        <inputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Tabellfilter]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Tabellfilter"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tabellfilter]" />
+                        <inputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Datafilter]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Datafilter"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Datafilter]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Tabellfilter\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tabellnummer]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tabellnummer]"
+                          name="Copy of Tabellnummer"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tabellnummer]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tabellfilter]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="128"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tabellfilter]"
+                          name="Copy of Tabellfilter"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tabellfilter]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Datafilter]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="128"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Datafilter]"
+                          name="Copy of Datafilter"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Datafilter]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Tabellfilter\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Tabellfilter\Data Flow Task\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Ark1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Tabellfilter\Data Flow Task\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tabellnummer]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Tabellnummer]"
+                          length="255"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tabellnummer]"
+                          name="Tabellnummer"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tabellfilter]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Lag_tabell_filter]"
+                          length="255"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tabellfilter]"
+                          name="Tabellfilter"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Datafilter]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Hent_data_filter]"
+                          length="255"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Datafilter]"
+                          name="Datafilter"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Kilde]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Kilde]"
+                          length="255"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Kilde]"
+                          name="Kilde"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Tabellnummer]"
+                          dataType="wstr"
+                          length="255"
+                          name="Tabellnummer" />
+                        <externalMetadataColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Lag_tabell_filter]"
+                          dataType="wstr"
+                          length="255"
+                          name="Lag_tabell_filter" />
+                        <externalMetadataColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Hent_data_filter]"
+                          dataType="wstr"
+                          length="255"
+                          name="Hent_data_filter" />
+                        <externalMetadataColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Kilde]"
+                          dataType="wstr"
+                          length="255"
+                          name="Kilde" />
+                        <externalMetadataColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fra originalkoden]"
+                          dataType="wstr"
+                          length="255"
+                          name="Fra originalkoden" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Tabellnummer]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Tabellnummer]"
+                          name="Tabellnummer" />
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Kilde]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Kilde]"
+                          name="Kilde" />
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Lag_tabell_filter]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Lag_tabell_filter]"
+                          name="Lag_tabell_filter" />
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Hent_data_filter]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Hent_data_filter]"
+                          name="Hent_data_filter" />
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Tabellfilter\Data Flow Task\OLE DB Command"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Connections[OleDbConnection]"
+                      connectionManagerID="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[VK-SXD0E-003.TEST_Staging_ASSS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Copy of Tabellnummer]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Copy of Tabellnummer"
+                          externalMetadataColumnId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tabellnummer]" />
+                        <inputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Copy of Tabellfilter]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="128"
+                          cachedName="Copy of Tabellfilter"
+                          externalMetadataColumnId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tabellfilter]" />
+                        <inputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Copy of Datafilter]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="128"
+                          cachedName="Copy of Datafilter"
+                          externalMetadataColumnId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Datafilter]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="empty"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">1</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="empty"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">1</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="empty"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">1</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Tabellfilter\Data Flow Task.Paths[Data Conversion Output]"
+                  endId="Package\Tabellfilter\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Tabellfilter\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Tabellfilter\Data Flow Task.Paths[Excel Source Output]"
+                  endId="Package\Tabellfilter\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Excel Source Output"
+                  startId="Package\Tabellfilter\Data Flow Task\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Tabellfilter\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{670B1397-A561-4A0B-92C3-57A662C55683}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9F001A7A-8CE8-471A-9A5B-1A85E2289A4E}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [Tabellinformasjon]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Tabellfilter.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{2E169E62-417D-4DC7-870E-2714701536E4}"
+          DTS:From="Package\Tabellfilter\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Tabellfilter\Data Flow Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Tabellfilter\Data Flow Task"
+          TopLeft="257,27" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Tabellfilter\Execute SQL Task"
+          TopLeft="39,26" />
+        <EdgeLayout
+          Id="Package\Tabellfilter.PrecedenceConstraints[Constraint]"
+          TopLeft="202,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55,0"
+              Start="0,0"
+              End="47.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="47.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="479,123"
+          Size="479,166"
+          Id="Package\Tabellfilter"
+          TopLeft="50,48" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tabellfilter\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Tabellfilter\Data Flow Task\Excel Source"
+          TopLeft="459,110" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Tabellfilter\Data Flow Task\Data Conversion"
+          TopLeft="449,267" />
+        <EdgeLayout
+          Id="Package\Tabellfilter\Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="527.75,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,115"
+              Start="0,0"
+              End="0,107.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Tabellfilter\Data Flow Task\OLE DB Command"
+          TopLeft="444,431" />
+        <EdgeLayout
+          Id="Package\Tabellfilter\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="527,309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,122"
+              Start="0,0"
+              End="0,114.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,114.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tabellfilter\Data Flow Task\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
