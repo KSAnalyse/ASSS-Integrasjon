@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="VK-SXD0E-003.TEST_Staging_ASSS"
+  DTS:ObjectName="Staging_ASSS"
   DTS:DTSID="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
