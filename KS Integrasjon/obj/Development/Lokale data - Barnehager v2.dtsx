@@ -7,7 +7,7 @@
   DTS:CreatorName="KSINT\8093AHA"
   DTS:DTSID="{24D8D966-A675-4A61-8AEC-C136FC2995BB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1044"
   DTS:ObjectName="Lokale data - Barnehager v2"
   DTS:PackageType="5"
@@ -974,7 +974,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                           dataType="System.String"
                           description="The SQL command to be executed."
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select * From [Til databasen$]</property>
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select * From [Til databasen$]</property>
                         <property
                           dataType="System.String"
                           description="The variable that contains the SQL command to be executed."
@@ -1361,7 +1361,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                           dataType="System.String"
                           description="The SQL command to be executed."
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1395,8 +1395,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       <connections>
                         <connection
                           refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Destinasjonstabell.Connections[OleDbConnection]"
-                          connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                          connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+                          connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                          connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
                           description="The OLE DB runtime connection used to access the database."
                           name="OleDbConnection" />
                       </connections>
@@ -1625,7 +1625,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                           description="The SQL command to be executed."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update [dbo].[KS_BHG01 Barn per ansatt i barnehagen (bemanningstetthet)] Set Kommunenummer = ?,
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update [dbo].[KS_BHG01 Barn per ansatt i barnehagen (bemanningstetthet)] Set Kommunenummer = ?,
             Variabelnavn = ?,
             År = ?, Eierforhold = ?,
  Verdi = ?
@@ -1640,8 +1640,8 @@ AND År = ? AND Eierforhold = ?</property>
                       <connections>
                         <connection
                           refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdater nye verdier uten sammenligning.Connections[OleDbConnection]"
-                          connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                          connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+                          connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                          connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
                           description="The OLE DB runtime connection used to access the database."
                           name="OleDbConnection" />
                       </connections>
@@ -1888,7 +1888,7 @@ AND År = ? AND Eierforhold = ?</property>
                           description="The SQL command to be executed."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update [dbo].[KS_BHG01 Barn per ansatt i barnehagen (bemanningstetthet)] Set Kommunenummer = ?,
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update [dbo].[KS_BHG01 Barn per ansatt i barnehagen (bemanningstetthet)] Set Kommunenummer = ?,
             Variabelnavn = ?,
             År = ?, Eierforhold = ?,
  Verdi = ?
@@ -1903,8 +1903,8 @@ AND År = ? AND Eierforhold = ?</property>
                       <connections>
                         <connection
                           refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Oppdaterte nye verdier.Connections[OleDbConnection]"
-                          connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                          connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+                          connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                          connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
                           description="The OLE DB runtime connection used to access the database."
                           name="OleDbConnection" />
                       </connections>
@@ -2377,13 +2377,13 @@ AND År = ? AND Eierforhold = ?</property>
                           description="Specifies the SQL statement that generates the lookup table."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select * From [KS_BHG01 Barn per ansatt i barnehagen (bemanningstetthet)]</property>
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select * From [KS_BHG01 Barn per ansatt i barnehagen (bemanningstetthet)]</property>
                         <property
                           dataType="System.String"
                           description="Specifies a SQL statement that uses parameters to generate the lookup table."
                           expressionType="Notify"
                           name="SqlCommandParam"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select * From 
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select * From 
 (Select * From [KS_BHG01 Barn per ansatt i barnehagen (bemanningstetthet)]) [refTable] 
 where [refTable].[Kommunenummer] = ? 
 and [refTable].[Variabelnavn] = ? 
@@ -2436,8 +2436,8 @@ and [refTable].[År] = ? and [refTable].[Eierforhold] = ?</property>
                       <connections>
                         <connection
                           refId="Package\For Loop Container\Les barn per ansatt\Les inn data fra Excel\Sjekk tabellen i databasen.Connections[OleDbConnection]"
-                          connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                          connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+                          connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
+                          connectionManagerRefId="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:invalid"
                           description="Connection manager used to access lookup data."
                           name="OleDbConnection" />
                       </connections>

@@ -7,13 +7,13 @@
   DTS:CreatorName="KSINT\8093AHA"
   DTS:DTSID="{20A295C4-12E7-4AB2-AF2D-DB40833AB8E3}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1044"
   DTS:ObjectName="Manuelle Data - Tabelloversikt"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{89BB2BA6-E0C6-4CAF-96BB-C3C302903C24}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{7144E168-A585-49EC-B0A2-AE4F04072CA8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,7 +24,7 @@
       DTS:ObjectName="Tabellgrupper">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Tabellgrupper.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Utvekslingsfiler\ASSS\Tabellgrupper.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -213,7 +213,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -247,8 +247,8 @@
                   <connections>
                     <connection
                       refId="Package\PAI\Les Tabellgrupper\Tabellgrupper DB.Connections[OleDbConnection]"
-                      connectionManagerID="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[KS-SQL2018 Staging ASSS]"
+                      connectionManagerID="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Staging_ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -358,7 +358,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -505,7 +505,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{87175433-C4F6-4E6D-9D6E-61FE32283CE9}"
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
               SQLTask:SqlStatementSource="&#xA;Truncate Table [Staging_ASSS].[dbo].[Tabellgrupper]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -535,11 +535,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164,43"
+          Size="164,43.2"
           Id="Package\PAI\Les Tabellgrupper"
           TopLeft="282,95" />
         <NodeLayout
-          Size="169,43"
+          Size="168.8,43.2"
           Id="Package\PAI\Slett Tabellgrupper"
           TopLeft="24,95" />
         <EdgeLayout
@@ -567,8 +567,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="494,284"
-          Size="494,327"
+          PanelSize="494.4,284"
+          Size="494.4,327.2"
           Id="Package\PAI"
           TopLeft="338,18" />
       </GraphLayout>
@@ -580,15 +580,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="161,43"
+          Size="160.8,43.2"
           Id="Package\PAI\Les Tabellgrupper\Tabellgrupper DB"
           TopLeft="277.249999981374,290.299999976754" />
         <NodeLayout
-          Size="156,43"
+          Size="156,43.2"
           Id="Package\PAI\Les Tabellgrupper\Data Conversion"
           TopLeft="281,168" />
         <NodeLayout
-          Size="172,43"
+          Size="172,43.2"
           Id="Package\PAI\Les Tabellgrupper\Tabellgrupper Excel"
           TopLeft="270.666666939855,78.0666667906443" />
         <EdgeLayout
