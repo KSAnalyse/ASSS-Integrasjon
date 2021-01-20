@@ -12,8 +12,8 @@
   DTS:ObjectName="Deploy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{2D077D07-2F3B-455E-8A0A-E9CD16113875}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{736D842F-B2E0-4ACF-9465-A57002B14A23}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

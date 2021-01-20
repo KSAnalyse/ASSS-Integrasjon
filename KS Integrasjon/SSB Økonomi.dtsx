@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Økonomi"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="390"
-  DTS:VersionGUID="{D5BC861B-E2D6-4702-AA1A-311DA1CE8041}">
+  DTS:VersionBuild="402"
+  DTS:VersionGUID="{87E9D47D-20A3-427F-8F7D-669255CFB85B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -148,78 +148,6 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Økonomi\Les SSB_12177 Økonomisk oversikt balanse, etter balansedata"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{3A270B4B-612B-4DA0-A088-3A16B0488B24}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Les SSB_12177 Økonomisk oversikt balanse, etter balansedata"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12177 Økonomisk oversikt balanse, etter balansedata]&#xA;Go&#xA;&#xA;--Declares&#xA;declare @t table(Kommunenummer varchar(50), Balansekode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Balansenavn varchar(200), Balansekode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Balansenavn varchar(200), Balansekode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA;--Insert t&#xA;Insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12177&quot;, @Omfang=0&#xA;&#xA;--Insert metadata&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12177&quot;&#xA;Insert @m2 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12177&quot;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12177 Økonomisk oversikt balanse, etter balansedata]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Balansekode,&#xA;  met.Balansenavn,&#xA;  dat.Variabel,&#xA;  met2.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met On met.Balansekode = dat.Balansekode&#xA;Join @m2 met2 On met2.Variabel = dat.Variabel" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Økonomi\Les SSB_12320 Økonomisk oversikt investering, etter art"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{8AAB7A79-2BD0-4229-8845-960DC52CC54A}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Les SSB_12320 Økonomisk oversikt investering, etter art"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12320 Økonomisk oversikt investering, etter art]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Artskode varchar(50),Variabel varchar(50),År Int,Verdi numeric(18,1))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Art varchar(200), Artskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Art varchar(200), Artskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12320&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12320&quot;&#xA;Insert @m2 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12320&quot;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12320 Økonomisk oversikt investering, etter art]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Artskode,&#xA;  met.Art,&#xA;  dat.Variabel ,&#xA;  met2.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met On  met.Artskode = dat.Artskode&#xA;Join @m2 met2 On met2.Variabel = dat.Variabel  &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Økonomi\Les SSB_12328 Økonomisk oversikt drift, etter art"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{808E5B66-F3DE-4F9B-B56D-229736C8A326}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Les SSB_12328 Økonomisk oversikt drift, etter art"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="7">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="Truncate Table Staging.dbo.[SSB_12328 Økonomisk oversikt drift, etter art]&#xA;Go&#xA;&#xA;declare @t table(Kommunenummer varchar(50), Artskode varchar(50),Variabel varchar(50),År Int,Verdi numeric(18,1))&#xA;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Art varchar(200), Artskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Art varchar(200), Artskode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;insert @t Exec Staging.dbo.SSB_Values_AlleAar @TabellNummer=&quot;12328&quot;, @Omfang=0&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12328&quot;&#xA;Insert @m2 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12328&quot;&#xA;&#xA;Insert Into Staging.dbo.[SSB_12328 Økonomisk oversikt drift, etter art]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Artskode,&#xA;&#x9;&#x9;met.Art,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met2.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met On  met.Artskode = dat.Artskode&#xA;Join @m2 met2 On met2.Variabel = dat.Variabel  &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Økonomi\Les SSB_12362 Utgifter til tjenesteområdene, funksjon, art"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{C77ABB5F-A403-4845-B542-4D0BACDACFE4}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Les SSB_12362 Utgifter til tjenesteområdene, funksjon, art"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="8">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="Truncate Table Staging.[dbo].[SSB_12362 Utgifter til tjenesteområdene, funksjon, art]&#xA;Go&#xA;&#xA;--Declares&#xA;declare @t table(Kommunenummer varchar(50), Funksjonskode varchar(50), Artkode varchar(50), Variabel varchar(50),År Int,Verdi Numeric(18,1))&#xA;declare @m table(Kommune Varchar(150),Kommunenummer varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50), Variabelnavn varchar(150),Variabel varchar(50),År Int, År2 Int)&#xA;declare @m2 table(Kommune Varchar(150),Kommunenummer varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50), Variabelnavn varchar(150),Variabel varchar(50),År Int, År2 Int)&#xA;declare @m3 table(Kommune Varchar(150),Kommunenummer varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50), Variabelnavn varchar(150),Variabel varchar(50),År Int, År2 Int)&#xA;&#xA;--Inserts t&#xA;insert @t Exec Staging.dbo.SSB_Values @TabellNummer=&quot;12362&quot;, @Aar=2015, @Omfang=0&#xA;insert @t Exec Staging.dbo.SSB_Values @TabellNummer=&quot;12362&quot;, @Aar=2016, @Omfang=0&#xA;insert @t Exec Staging.dbo.SSB_Values @TabellNummer=&quot;12362&quot;, @Aar=2017, @Omfang=0&#xA;&#xA;--Inserts metadata&#xA;Insert @m Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12362&quot;&#xA;Insert @m2 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12362&quot;&#xA;Insert @m3 Exec Staging.dbo.SSB_Metadata @TabellNummer=&quot;12362&quot;&#xA;&#xA;Insert Into Staging.[dbo].[SSB_12362 Utgifter til tjenesteområdene, funksjon, art]&#xA;&#xA;Select dat.Kommunenummer,&#xA; dat.Funksjonskode,&#xA; met.Funksjonsnavn,&#xA; dat.Artkode,&#xA; met2.Artnavn,&#xA; dat.Variabel,&#xA; met3.Variabelnavn,&#xA; dat.År, &#xA; dat.Verdi&#xA;&#xA;from @t dat &#xA;Join @m met ON dat.Funksjonskode = met.Funksjonskode&#xA;Join @m2 met2 ON dat.Artkode = met2.Artkode&#xA;Join @m3 met3 ON dat.Variabel = met3.Variabel" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
           DTS:refId="Package\Økonomi\Les SSB_12364 Finansielle grunnlagsdata, regnskapsbegrep"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -228,7 +156,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12364 Finansielle grunnlagsdata, regnskapsbegrep"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -250,7 +178,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;declare @ConFilter varchar(200)&#xA;declare @Year int&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12367'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;Set @Year = ?&#xA;Set @ConFilter = CONCAT('KOKregnskapsomfa0000=A&amp;Tid=', CAST(@Year as VARCHAR(4)))&#xA;&#xA;-- Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Omfangskode varchar(50), Funksjonskode varchar(50),Artkode varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar, @Filter=@ConFilter&#xA;&#x9;BEGIN TRY&#xA;&#x9;&#x9;DECLARE @table_check bigint&#xA;&#x9;&#x9;DECLARE @kek bigint&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;SET @table_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonskode, Artkode, Variabel, År, Verdi)) FROM @t)&#xA;&#x9;&#x9;SET @kek = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonkode, Artkode, Variabel, År, Verdi)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;PRINT @table_check&#xA;&#x9;&#x9;PRINT @kek&#xA;&#x9;&#x9;IF @table_check = @kek&#xA;&#x9;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;&#x9;PRINT 'Same table'&#xA;&#x9;&#x9;&#x9;&#x9;SET NOEXEC ON&#xA;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;&#x9;END TRY&#xA;&#x9;BEGIN CATCH&#xA;&#x9;&#x9;RAISERROR('Checksum failed', 18, 1, @TableVar)&#xA;&#x9;END CATCH&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m2 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m3 exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;-- exec sp_executesql @Truncate_Query&#xA;&#xA;DELETE FROM [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year&#xA;&#xA;INSERT INTO [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art]&#xA;&#xA;SELECT&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjonsnavn,&#xA;&#x9;&#x9;dat.Artkode,&#xA;&#x9;&#x9;met2.Artnavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;FROM @t dat&#xA;JOIN @m met ON&#x9;met.Funksjonskode = dat.Funksjonskode&#xA;Join @m met2 On met2.Artkode = dat.Artkode&#xA;Join @m met3 On met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;declare @ConFilter varchar(200)&#xA;declare @Year int&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12367'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;Set @Year = ?&#xA;Set @ConFilter = CONCAT('KOKregnskapsomfa0000=A&amp;Tid=', CAST(@Year as VARCHAR(4)))&#xA;&#xA;-- Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Omfangskode varchar(50), Funksjonskode varchar(50),Artkode varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar, @Filter=@ConFilter&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer='12367'&#xA;&#x9;/*&#xA;&#x9;BEGIN TRY&#xA;&#x9;&#x9;DECLARE @table_check bigint&#xA;&#x9;&#x9;Declare @m_check bigint&#xA;&#x9;&#x9;DECLARE @kodes bigint&#xA;&#x9;&#x9;Declare @names bigint&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;SET @table_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonskode, Artkode, Variabel, År, Verdi)) FROM @t)&#xA;&#x9;&#x9;set @m_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonsnavn, Artnavn, Variabelnavn, År)) FROM @m)&#xA;&#xA;&#x9;&#x9;SET @kodes = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonkode, Artkode, Variabel, År, Verdi)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;set @names = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonnavn, Artnavn, Variabelnavn, År)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;--PRINT @table_check&#xA;&#x9;&#x9;--PRINT @kek&#xA;&#xA;&#x9;&#x9;IF @table_check = @kodes and @m_check = @names&#xA;&#x9;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;&#x9;PRINT 'Same table'&#xA;&#x9;&#x9;&#x9;&#x9;SET NOEXEC ON&#xA;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;&#x9;END TRY&#xA;&#x9;BEGIN CATCH&#xA;&#x9;&#x9;RAISERROR('Checksum failed', 18, 1, @TableVar)&#xA;&#x9;END CATCH&#xA;&#x9;&#xA;&#x9;--insert @m2 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m3 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;*/&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;-- exec sp_executesql @Truncate_Query&#xA;&#xA;DELETE FROM [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year&#xA;&#xA;INSERT INTO [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art]&#xA;&#xA;SELECT&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjonsnavn,&#xA;&#x9;&#x9;dat.Artkode,&#xA;&#x9;&#x9;met2.Artnavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;FROM @t dat&#xA;JOIN @m met ON&#x9;met.Funksjonskode = dat.Funksjonskode&#xA;Join @m met2 On met2.Artkode = dat.Artkode&#xA;Join @m met3 On met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::FiveYear"
@@ -274,7 +202,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;declare @ConFilter varchar(200)&#xA;declare @Year int&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12367'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;Set @Year = ?&#xA;Set @ConFilter = CONCAT('KOKregnskapsomfa0000=A&amp;Tid=', CAST(@Year as VARCHAR(4)))&#xA;&#xA;-- Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Omfangskode varchar(50), Funksjonskode varchar(50),Artkode varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar, @Filter=@ConFilter&#xA;&#x9;BEGIN TRY&#xA;&#x9;&#x9;DECLARE @table_check bigint&#xA;&#x9;&#x9;DECLARE @kek bigint&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;SET @table_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonskode, Artkode, Variabel, År, Verdi)) FROM @t)&#xA;&#x9;&#x9;SET @kek = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonkode, Artkode, Variabel, År, Verdi)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;PRINT @table_check&#xA;&#x9;&#x9;PRINT @kek&#xA;&#x9;&#x9;IF @table_check = @kek&#xA;&#x9;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;&#x9;PRINT 'Same table'&#xA;&#x9;&#x9;&#x9;&#x9;SET NOEXEC ON&#xA;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;&#x9;END TRY&#xA;&#x9;BEGIN CATCH&#xA;&#x9;&#x9;RAISERROR('Checksum failed', 18, 1, @TableVar)&#xA;&#x9;END CATCH&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m2 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m3 exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;-- exec sp_executesql @Truncate_Query&#xA;&#xA;DELETE FROM [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year&#xA;&#xA;INSERT INTO [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art]&#xA;&#xA;SELECT&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjonsnavn,&#xA;&#x9;&#x9;dat.Artkode,&#xA;&#x9;&#x9;met2.Artnavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;FROM @t dat&#xA;JOIN @m met ON&#x9;met.Funksjonskode = dat.Funksjonskode&#xA;Join @m met2 On met2.Artkode = dat.Artkode&#xA;Join @m met3 On met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;declare @ConFilter varchar(200)&#xA;declare @Year int&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12367'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;Set @Year = ?&#xA;Set @ConFilter = CONCAT('KOKregnskapsomfa0000=A&amp;Tid=', CAST(@Year as VARCHAR(4)))&#xA;&#xA;-- Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Omfangskode varchar(50), Funksjonskode varchar(50),Artkode varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar, @Filter=@ConFilter&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer='12367'&#xA;&#x9;/*&#xA;&#x9;BEGIN TRY&#xA;&#x9;&#x9;DECLARE @table_check bigint&#xA;&#x9;&#x9;Declare @m_check bigint&#xA;&#x9;&#x9;DECLARE @kodes bigint&#xA;&#x9;&#x9;Declare @names bigint&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;SET @table_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonskode, Artkode, Variabel, År, Verdi)) FROM @t)&#xA;&#x9;&#x9;set @m_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonsnavn, Artnavn, Variabelnavn, År)) FROM @m)&#xA;&#xA;&#x9;&#x9;SET @kodes = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonkode, Artkode, Variabel, År, Verdi)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;set @names = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonnavn, Artnavn, Variabelnavn, År)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;--PRINT @table_check&#xA;&#x9;&#x9;--PRINT @kek&#xA;&#xA;&#x9;&#x9;IF @table_check = @kodes and @m_check = @names&#xA;&#x9;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;&#x9;PRINT 'Same table'&#xA;&#x9;&#x9;&#x9;&#x9;SET NOEXEC ON&#xA;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;&#x9;END TRY&#xA;&#x9;BEGIN CATCH&#xA;&#x9;&#x9;RAISERROR('Checksum failed', 18, 1, @TableVar)&#xA;&#x9;END CATCH&#xA;&#x9;&#xA;&#x9;--insert @m2 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m3 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;*/&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;-- exec sp_executesql @Truncate_Query&#xA;&#xA;DELETE FROM [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year&#xA;&#xA;INSERT INTO [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art]&#xA;&#xA;SELECT&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjonsnavn,&#xA;&#x9;&#x9;dat.Artkode,&#xA;&#x9;&#x9;met2.Artnavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;FROM @t dat&#xA;JOIN @m met ON&#x9;met.Funksjonskode = dat.Funksjonskode&#xA;Join @m met2 On met2.Artkode = dat.Artkode&#xA;Join @m met3 On met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::FourYear"
@@ -298,7 +226,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;declare @ConFilter varchar(200)&#xA;declare @Year int&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12367'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;Set @Year = ?&#xA;Set @ConFilter = CONCAT('KOKregnskapsomfa0000=A&amp;Tid=', CAST(@Year as VARCHAR(4)))&#xA;&#xA;-- Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Omfangskode varchar(50), Funksjonskode varchar(50),Artkode varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar, @Filter=@ConFilter&#xA;&#x9;BEGIN TRY&#xA;&#x9;&#x9;DECLARE @table_check bigint&#xA;&#x9;&#x9;DECLARE @kek bigint&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;SET @table_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonskode, Artkode, Variabel, År, Verdi)) FROM @t)&#xA;&#x9;&#x9;SET @kek = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonkode, Artkode, Variabel, År, Verdi)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;PRINT @table_check&#xA;&#x9;&#x9;PRINT @kek&#xA;&#x9;&#x9;IF @table_check = @kek&#xA;&#x9;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;&#x9;PRINT 'Same table'&#xA;&#x9;&#x9;&#x9;&#x9;SET NOEXEC ON&#xA;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;&#x9;END TRY&#xA;&#x9;BEGIN CATCH&#xA;&#x9;&#x9;RAISERROR('Checksum failed', 18, 1, @TableVar)&#xA;&#x9;END CATCH&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m2 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m3 exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;-- exec sp_executesql @Truncate_Query&#xA;&#xA;DELETE FROM [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year&#xA;&#xA;INSERT INTO [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art]&#xA;&#xA;SELECT&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjonsnavn,&#xA;&#x9;&#x9;dat.Artkode,&#xA;&#x9;&#x9;met2.Artnavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;FROM @t dat&#xA;JOIN @m met ON&#x9;met.Funksjonskode = dat.Funksjonskode&#xA;Join @m met2 On met2.Artkode = dat.Artkode&#xA;Join @m met3 On met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;declare @ConFilter varchar(200)&#xA;declare @Year int&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12367'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;Set @Year = ?&#xA;Set @ConFilter = CONCAT('KOKregnskapsomfa0000=A&amp;Tid=', CAST(@Year as VARCHAR(4)))&#xA;&#xA;-- Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Omfangskode varchar(50), Funksjonskode varchar(50),Artkode varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar, @Filter=@ConFilter&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer='12367'&#xA;&#x9;/*&#xA;&#x9;BEGIN TRY&#xA;&#x9;&#x9;DECLARE @table_check bigint&#xA;&#x9;&#x9;Declare @m_check bigint&#xA;&#x9;&#x9;DECLARE @kodes bigint&#xA;&#x9;&#x9;Declare @names bigint&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;SET @table_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonskode, Artkode, Variabel, År, Verdi)) FROM @t)&#xA;&#x9;&#x9;set @m_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonsnavn, Artnavn, Variabelnavn, År)) FROM @m)&#xA;&#xA;&#x9;&#x9;SET @kodes = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonkode, Artkode, Variabel, År, Verdi)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;set @names = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonnavn, Artnavn, Variabelnavn, År)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;--PRINT @table_check&#xA;&#x9;&#x9;--PRINT @kek&#xA;&#xA;&#x9;&#x9;IF @table_check = @kodes and @m_check = @names&#xA;&#x9;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;&#x9;PRINT 'Same table'&#xA;&#x9;&#x9;&#x9;&#x9;SET NOEXEC ON&#xA;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;&#x9;END TRY&#xA;&#x9;BEGIN CATCH&#xA;&#x9;&#x9;RAISERROR('Checksum failed', 18, 1, @TableVar)&#xA;&#x9;END CATCH&#xA;&#x9;&#xA;&#x9;--insert @m2 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m3 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;*/&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;-- exec sp_executesql @Truncate_Query&#xA;&#xA;DELETE FROM [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year&#xA;&#xA;INSERT INTO [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art]&#xA;&#xA;SELECT&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjonsnavn,&#xA;&#x9;&#x9;dat.Artkode,&#xA;&#x9;&#x9;met2.Artnavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;FROM @t dat&#xA;JOIN @m met ON&#x9;met.Funksjonskode = dat.Funksjonskode&#xA;Join @m met2 On met2.Artkode = dat.Artkode&#xA;Join @m met3 On met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::ThreeYear"
@@ -322,7 +250,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;declare @ConFilter varchar(200)&#xA;declare @Year int&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12367'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;Set @Year = ?&#xA;Set @ConFilter = CONCAT('KOKregnskapsomfa0000=A&amp;Tid=', CAST(@Year as VARCHAR(4)))&#xA;&#xA;-- Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Omfangskode varchar(50), Funksjonskode varchar(50),Artkode varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar, @Filter=@ConFilter&#xA;&#x9;BEGIN TRY&#xA;&#x9;&#x9;DECLARE @table_check bigint&#xA;&#x9;&#x9;DECLARE @kek bigint&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;SET @table_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonskode, Artkode, Variabel, År, Verdi)) FROM @t)&#xA;&#x9;&#x9;SET @kek = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonkode, Artkode, Variabel, År, Verdi)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;PRINT @table_check&#xA;&#x9;&#x9;PRINT @kek&#xA;&#x9;&#x9;IF @table_check = @kek&#xA;&#x9;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;&#x9;PRINT 'Same table'&#xA;&#x9;&#x9;&#x9;&#x9;SET NOEXEC ON&#xA;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;&#x9;END TRY&#xA;&#x9;BEGIN CATCH&#xA;&#x9;&#x9;RAISERROR('Checksum failed', 18, 1, @TableVar)&#xA;&#x9;END CATCH&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m2 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m3 exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;-- exec sp_executesql @Truncate_Query&#xA;&#xA;DELETE FROM [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year&#xA;&#xA;INSERT INTO [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art]&#xA;&#xA;SELECT&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjonsnavn,&#xA;&#x9;&#x9;dat.Artkode,&#xA;&#x9;&#x9;met2.Artnavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;FROM @t dat&#xA;JOIN @m met ON&#x9;met.Funksjonskode = dat.Funksjonskode&#xA;Join @m met2 On met2.Artkode = dat.Artkode&#xA;Join @m met3 On met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;declare @ConFilter varchar(200)&#xA;declare @Year int&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12367'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;Set @Year = ?&#xA;Set @ConFilter = CONCAT('KOKregnskapsomfa0000=A&amp;Tid=', CAST(@Year as VARCHAR(4)))&#xA;&#xA;-- Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Omfangskode varchar(50), Funksjonskode varchar(50),Artkode varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar, @Filter=@ConFilter&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer='12367'&#xA;&#x9;/*&#xA;&#x9;BEGIN TRY&#xA;&#x9;&#x9;DECLARE @table_check bigint&#xA;&#x9;&#x9;Declare @m_check bigint&#xA;&#x9;&#x9;DECLARE @kodes bigint&#xA;&#x9;&#x9;Declare @names bigint&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;SET @table_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonskode, Artkode, Variabel, År, Verdi)) FROM @t)&#xA;&#x9;&#x9;set @m_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonsnavn, Artnavn, Variabelnavn, År)) FROM @m)&#xA;&#xA;&#x9;&#x9;SET @kodes = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonkode, Artkode, Variabel, År, Verdi)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;set @names = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonnavn, Artnavn, Variabelnavn, År)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;--PRINT @table_check&#xA;&#x9;&#x9;--PRINT @kek&#xA;&#xA;&#x9;&#x9;IF @table_check = @kodes and @m_check = @names&#xA;&#x9;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;&#x9;PRINT 'Same table'&#xA;&#x9;&#x9;&#x9;&#x9;SET NOEXEC ON&#xA;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;&#x9;END TRY&#xA;&#x9;BEGIN CATCH&#xA;&#x9;&#x9;RAISERROR('Checksum failed', 18, 1, @TableVar)&#xA;&#x9;END CATCH&#xA;&#x9;&#xA;&#x9;--insert @m2 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m3 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;*/&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;-- exec sp_executesql @Truncate_Query&#xA;&#xA;DELETE FROM [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year&#xA;&#xA;INSERT INTO [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art]&#xA;&#xA;SELECT&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjonsnavn,&#xA;&#x9;&#x9;dat.Artkode,&#xA;&#x9;&#x9;met2.Artnavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;FROM @t dat&#xA;JOIN @m met ON&#x9;met.Funksjonskode = dat.Funksjonskode&#xA;Join @m met2 On met2.Artkode = dat.Artkode&#xA;Join @m met3 On met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::TwoYears"
@@ -341,12 +269,12 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art 2019"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;declare @ConFilter varchar(200)&#xA;declare @Year int&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12367'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;Set @Year = ?&#xA;Set @ConFilter = CONCAT('KOKregnskapsomfa0000=A&amp;Tid=', CAST(@Year as VARCHAR(4)))&#xA;&#xA;-- Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Omfangskode varchar(50), Funksjonskode varchar(50),Artkode varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar, @Filter=@ConFilter&#xA;&#x9;BEGIN TRY&#xA;&#x9;&#x9;DECLARE @table_check bigint&#xA;&#x9;&#x9;DECLARE @kek bigint&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;SET @table_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonskode, Artkode, Variabel, År, Verdi)) FROM @t)&#xA;&#x9;&#x9;SET @kek = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonkode, Artkode, Variabel, År, Verdi)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;PRINT @table_check&#xA;&#x9;&#x9;PRINT @kek&#xA;&#x9;&#x9;IF @table_check = @kek&#xA;&#x9;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;&#x9;PRINT 'Same table'&#xA;&#x9;&#x9;&#x9;&#x9;SET NOEXEC ON&#xA;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;&#x9;END TRY&#xA;&#x9;BEGIN CATCH&#xA;&#x9;&#x9;RAISERROR('Checksum failed', 18, 1, @TableVar)&#xA;&#x9;END CATCH&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m2 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m3 exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;-- exec sp_executesql @Truncate_Query&#xA;&#xA;DELETE FROM [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year&#xA;&#xA;INSERT INTO [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art]&#xA;&#xA;SELECT&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjonsnavn,&#xA;&#x9;&#x9;dat.Artkode,&#xA;&#x9;&#x9;met2.Artnavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;FROM @t dat&#xA;JOIN @m met ON&#x9;met.Funksjonskode = dat.Funksjonskode&#xA;Join @m met2 On met2.Artkode = dat.Artkode&#xA;Join @m met3 On met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;declare @ConFilter varchar(200)&#xA;declare @Year int&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12367'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;Set @Year = ?&#xA;Set @ConFilter = CONCAT('KOKregnskapsomfa0000=A&amp;Tid=', CAST(@Year as VARCHAR(4)))&#xA;&#xA;-- Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Omfangskode varchar(50), Funksjonskode varchar(50),Artkode varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m2 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;declare @m3 table(Kommune Varchar(150), Kommunenummer varchar(50), Omfangsnavn varchar(150), Omfangskode varchar(50), Funksjonsnavn varchar(150), Funksjonskode varchar(50), Artnavn varchar(150), Artkode varchar(50),  Variabelnavn varchar(150), Variabel varchar(50), År int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar, @Filter=@ConFilter&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer='12367'&#xA;&#x9;/*&#xA;&#x9;BEGIN TRY&#xA;&#x9;&#x9;DECLARE @table_check bigint&#xA;&#x9;&#x9;Declare @m_check bigint&#xA;&#x9;&#x9;DECLARE @kodes bigint&#xA;&#x9;&#x9;Declare @names bigint&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;SET @table_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonskode, Artkode, Variabel, År, Verdi)) FROM @t)&#xA;&#x9;&#x9;set @m_check = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonsnavn, Artnavn, Variabelnavn, År)) FROM @m)&#xA;&#xA;&#x9;&#x9;SET @kodes = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonkode, Artkode, Variabel, År, Verdi)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;set @names = (SELECT CHECKSUM_AGG(CHECKSUM(Kommunenummer, Funksjonnavn, Artnavn, Variabelnavn, År)) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;FROM dbo.[SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year)&#xA;&#x9;&#x9;--PRINT @table_check&#xA;&#x9;&#x9;--PRINT @kek&#xA;&#xA;&#x9;&#x9;IF @table_check = @kodes and @m_check = @names&#xA;&#x9;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;&#x9;PRINT 'Same table'&#xA;&#x9;&#x9;&#x9;&#x9;SET NOEXEC ON&#xA;&#x9;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;&#x9;END TRY&#xA;&#x9;BEGIN CATCH&#xA;&#x9;&#x9;RAISERROR('Checksum failed', 18, 1, @TableVar)&#xA;&#x9;END CATCH&#xA;&#x9;&#xA;&#x9;--insert @m2 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;--insert @m3 exec SSB_Metadata @TabellNummer=@TableVar&#xA;&#x9;*/&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;-- exec sp_executesql @Truncate_Query&#xA;&#xA;DELETE FROM [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art] WHERE År = @Year&#xA;&#xA;INSERT INTO [SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art]&#xA;&#xA;SELECT&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Funksjonskode,&#xA;&#x9;&#x9;met.Funksjonsnavn,&#xA;&#x9;&#x9;dat.Artkode,&#xA;&#x9;&#x9;met2.Artnavn,&#xA;&#x9;&#x9;dat.Variabel,&#xA;&#x9;&#x9;met3.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;FROM @t dat&#xA;JOIN @m met ON&#x9;met.Funksjonskode = dat.Funksjonskode&#xA;Join @m met2 On met2.Artkode = dat.Artkode&#xA;Join @m met3 On met3.Variabel = dat.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::LastYear"
@@ -619,7 +547,7 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16
             int year = DateTime.Now.Year - 5;
             if (DateTime.Now.Day < 15 && DateTime.Now.Month < 3)
             {
-                year = year - 6;
+                year = DateTime.Now.Year - 6;
             }
             Dts.Variables["User::FiveYear"].Value = year;
             Dts.TaskResult = (int)ScriptResults.Success;
@@ -649,7 +577,7 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16
     <msb:CodeName>ST_f23b43bddac54620ae5725656c9bc69b</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_f23b43bddac54620ae5725656c9bc69b</msb:DisplayName>
-    <msb:ProjectId>{FA20C3E7-56A4-4D63-9E20-228AF7D526C1}</msb:ProjectId>
+    <msb:ProjectId>{1A4BFCC4-51CC-4FBC-BB8C-459E3ACAC681}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_f23b43bddac54620ae5725656c9bc69b.csproj" />
@@ -857,77 +785,77 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16.Properties {
               <BinaryItem
                 Name="ST_f23b43bddac54620ae5725656c9bc69b.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAOY1a18AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAALi4A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAHB1/V8AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAOi4A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAANwtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAOgtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAANA4AAAAgAAAAEAAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAQA4AAAAgAAAAEAAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAQ
-LgAAAAAAAEgAAAACAAUAJCEAAAAMAAABAAAAAAAAACQtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBiAAAAAQAAESgQAAAKCxIBKBEAAAobWQooEAAACgsS
-ASgSAAAKHw8vFCgQAAAKCxIBKBMAAAoZLwQGHFkKAigUAAAKbxUAAApyAQAAcG8WAAAKBowcAAAB
-bxcAAAoCKBQAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0ech8AAHDQAwAAAigbAAAK
-bxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKB4AAAoqLnMIAAAG
-gAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AMAACN+AABIBAAAqAUA
-ACNTdHJpbmdzAAAAAPAJAACUAAAAI1VTAIQKAAAQAAAAI0dVSUQAAACUCgAAbAEAACNCbG9iAAAA
-AAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAABAAAAHgAAAAIAAAAQ
-AAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAKkDAQAAAAAABgBYAoIEBgDnAoIE
-BgCkAW8EDwD2BAAABgDRAScEBgA7AicEBgAcAicEBgDOAicEBgB4AicEBgCRAicEBgDoAScEBgAD
-AhUDCgCsAlgDCgAjAVgDBgDFANoDBgDhA9oDBgCHAW8EBgBpBdoDBgBSBKIEBgA5BBIEDgBXAZMD
-DgC4AZMDDgA/Af0DBgBsAYIECgCBA1gDEgA4Bc4AEgCYAM4ABgABANoDBgDuANoDBgChANoDBgCf
-BScEAAAAACsAAAAAAAEAAQABABAA8gMHADkAAQABAAAAEACpBAUFSQABAAMAAAEQAEIFBQVdAAMA
-BwADAQAAWwUAAEEABAAKABEA5gNuABEAEwFyABEAiAB2AAYGUwB6AFaASwV9AFaA8wB9AFAgAAAA
-AIYA+AMGAAEAviAAAAAAhhhiBAYAAQDGIAAAAACDGGIEBgABAM4gAAAAAJMITgSBAAEA+iAAAAAA
-kwj7AIYAAQABIQAAAACTCAcBiwABAAkhAAAAAJYIcAWRAAIAECEAAAAAhhhiBAYAAgAYIQAAAACR
-GGgElgACAAAAAQAPAwkAYgQBABEAYgQGABkAYgQKACkAYgQQADEAYgQQADkAYgQQAEEAYgQQAEkA
-YgQQAFEAYgQQAFkAYgQQAGEAYgQQAGkAYgQGAIkAYgQGALEAYgQVAMEAYgQGAHkAiwUhAHkARQQm
-AHkAkwUmAHkALwMmAHEAUwUqAMkANAUvANEA0QM0ANkABQM6AMkAfAUBAHEAYgQGAJEAYgQGAOkA
-swA/AOkAmwVGAJkAYgRLALkAYgQGAAgAFABkAAgAGABpACkAcwDRAC4ACwCpAC4AEwCyAC4AGwDR
-AC4AIwDaAC4AKwADAS4AMwADAS4AOwADAS4AQwDaAC4ASwAJAS4AUwADAS4AWwAgAUMAYwBpAEkA
-cwDRAGEAewBpAGMAawBpABsAAwABAAQAAwAAAFIEmgAAABsBnwAAAHQFpAACAAQAAwACAAUABQAB
-AAYABQACAAcABwAEgAAAAQAAAJMdA2EAAAAAAABbAAAABAAAAAAAAAAAAAAAUgB/AAAAAAAOAAAA
-AAAAAAAAAABbADkDAAAAAAQAAAAAAAAAAAAAAFIA2gMAAAAADgAAAAAAAAAAAAAAWwA0AAAAAAAA
-AAAAAQAAALMEAAAFAAIAAAAAAABJbnQzMgBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhj
-Y2MxNgA8TW9kdWxlPgBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFsdWVfXwBTVF9m
-MjNiNDNiZGRhYzU0NjIwYWU1NzI1NjU2YzliYzY5YgBtc2NvcmxpYgBkZWZhdWx0SW5zdGFuY2UA
-VmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUARGF0ZVRpbWUATWlj
-cm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZhaWx1cmUAZ2V0X0N1bHR1cmUAc2V0
-X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1vZGVsQmFzZQBBcHBs
-aWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRl
-ZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1
-dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1i
-bHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29u
-ZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0
-aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5
-Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBBc3Nl
-bWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAc2V0X1Zh
-bHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAZ2V0X01vbnRoAE1pY3Jvc29mdC5T
-cWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5UYXNrcy5TY3JpcHRU
-YXNrAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTVF9mMjNiNDNiZGRh
-YzU0NjIwYWU1NzI1NjU2YzliYzY5Yi5kbGwAZ2V0X0l0ZW0AU3lzdGVtAEVudW0AcmVzb3VyY2VN
-YW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBT
-eXN0ZW0uUmVmbGVjdGlvbgBDdWx0dXJlSW5mbwBnZXRfWWVhcgBnZXRfUmVzb3VyY2VNYW5hZ2Vy
-AC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJT
-ZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzE5ZmY2ZmVjZDU3OTQyNzA4Yzk5ZWY0ZmEzOGNj
-YzE2LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTVF8xOWZm
-NmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5Qcm9wZXJ0aWVzAGdldF9WYXJpYWJsZXMAU2V0
-dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2JqZWN0AGdldF9EZWZhdWx0AHNl
-dF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0X0RheQBnZXRfQXNzZW1ibHkAAB1VAHMAZQByADoAOgBG
-AGkAdgBlAFkAZQBhAHIAAHFTAFQAXwAxADkAZgBmADYAZgBlAGMAZAA1ADcAOQA0ADIANwAwADgA
-YwA5ADkAZQBmADQAZgBhADMAOABjAGMAYwAxADYALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBl
-AHMAbwB1AHIAYwBlAHMAAAAAAHMhw9VgpldIlw3+GBQNB1MABCABAQgDIAABBSABARERBCABAQ4F
-IAEBEVUFBwIIET0EAAARPQMgAAgEIAASZQQgABJpBSABEm0cBCABARwGAAESdRF5BCAAEn0GIAIB
-DhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEk0DBhJRAwYSEAIGCAMGERQEAAASTQQA
-ABJRBQABARJRBAAAEhADAAABBAgAEk0ECAASUQQIABIQCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9u
-RXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZh
-MzhjY2MxNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJAQAaLk5FVEZyYW1ld29yayxW
-ZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNQAA
-tAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2Nvcmxp
-YiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1
-YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAA
-AABQQURQQURQtAAAAAQuAAAAAAAAAAAAAB4uAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQLgAA
-AAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAc
+LgAAAAAAAEgAAAACAAUAMCEAAAAMAAABAAAAAAAAADAtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBuAAAAAQAAESgQAAAKCxIBKBEAAAobWQooEAAACgsS
+ASgSAAAKHw8vICgQAAAKCxIBKBMAAAoZLxAoEAAACgsSASgRAAAKHFkKAigUAAAKbxUAAApyAQAA
+cG8WAAAKBowcAAABbxcAAAoCKBQAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0ech8A
+AHDQAwAAAigbAAAKbxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4C
+KB4AAAoqLnMIAAAGgAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AMA
+ACN+AABIBAAAqAUAACNTdHJpbmdzAAAAAPAJAACUAAAAI1VTAIQKAAAQAAAAI0dVSUQAAACUCgAA
+bAEAACNCbG9iAAAAAAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAAB
+AAAAHgAAAAIAAAAQAAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAKkDAQAAAAAA
+BgBYAoIEBgDnAoIEBgCkAW8EDwD2BAAABgDRAScEBgA7AicEBgAcAicEBgDOAicEBgB4AicEBgCR
+AicEBgDoAScEBgADAhUDCgCsAlgDCgAjAVgDBgDFANoDBgDhA9oDBgCHAW8EBgBpBdoDBgBSBKIE
+BgA5BBIEDgBXAZMDDgC4AZMDDgA/Af0DBgBsAYIECgCBA1gDEgA4Bc4AEgCYAM4ABgABANoDBgDu
+ANoDBgChANoDBgCfBScEAAAAACsAAAAAAAEAAQABABAA8gMHADkAAQABAAAAEACpBAUFSQABAAMA
+AAEQAEIFBQVdAAMABwADAQAAWwUAAEEABAAKABEA5gNuABEAEwFyABEAiAB2AAYGUwB6AFaASwV9
+AFaA8wB9AFAgAAAAAIYA+AMGAAEAyiAAAAAAhhhiBAYAAQDSIAAAAACDGGIEBgABANogAAAAAJMI
+TgSBAAEABiEAAAAAkwj7AIYAAQANIQAAAACTCAcBiwABABUhAAAAAJYIcAWRAAIAHCEAAAAAhhhi
+BAYAAgAkIQAAAACRGGgElgACAAAAAQAPAwkAYgQBABEAYgQGABkAYgQKACkAYgQQADEAYgQQADkA
+YgQQAEEAYgQQAEkAYgQQAFEAYgQQAFkAYgQQAGEAYgQQAGkAYgQGAIkAYgQGALEAYgQVAMEAYgQG
+AHkAiwUhAHkARQQmAHkAkwUmAHkALwMmAHEAUwUqAMkANAUvANEA0QM0ANkABQM6AMkAfAUBAHEA
+YgQGAJEAYgQGAOkAswA/AOkAmwVGAJkAYgRLALkAYgQGAAgAFABkAAgAGABpACkAcwDRAC4ACwCp
+AC4AEwCyAC4AGwDRAC4AIwDaAC4AKwADAS4AMwADAS4AOwADAS4AQwDaAC4ASwAJAS4AUwADAS4A
+WwAgAUMAYwBpAEkAcwDRAGEAewBpAGMAawBpABsAAwABAAQAAwAAAFIEmgAAABsBnwAAAHQFpAAC
+AAQAAwACAAUABQABAAYABQACAAcABwAEgAAAAQAAAAIegE4AAAAAAABbAAAABAAAAAAAAAAAAAAA
+UgB/AAAAAAAOAAAAAAAAAAAAAABbADkDAAAAAAQAAAAAAAAAAAAAAFIA2gMAAAAADgAAAAAAAAAA
+AAAAWwA0AAAAAAAAAAAAAQAAALMEAAAFAAIAAAAAAABJbnQzMgBTVF8xOWZmNmZlY2Q1Nzk0Mjcw
+OGM5OWVmNGZhMzhjY2MxNgA8TW9kdWxlPgBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWREVFMA
+dmFsdWVfXwBTVF9mMjNiNDNiZGRhYzU0NjIwYWU1NzI1NjU2YzliYzY5YgBtc2NvcmxpYgBkZWZh
+dWx0SW5zdGFuY2UAVmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUA
+RGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZhaWx1cmUAZ2V0
+X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1v
+ZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21w
+aWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVn
+Z2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRy
+aWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRl
+AEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmli
+dXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmli
+dXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0
+dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRy
+aWJ1dGUAc2V0X1ZhbHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAZ2V0X01vbnRo
+AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5U
+YXNrcy5TY3JpcHRUYXNrAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABT
+VF9mMjNiNDNiZGRhYzU0NjIwYWU1NzI1NjU2YzliYzY5Yi5kbGwAZ2V0X0l0ZW0AU3lzdGVtAEVu
+dW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xv
+YmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBDdWx0dXJlSW5mbwBnZXRfWWVhcgBnZXRfUmVz
+b3VyY2VNYW5hZ2VyAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRp
+bWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzE5ZmY2ZmVjZDU3OTQyNzA4
+Yzk5ZWY0ZmEzOGNjYzE2LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdN
+b2RlcwBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5Qcm9wZXJ0aWVzAGdldF9W
+YXJpYWJsZXMAU2V0dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2JqZWN0AGdl
+dF9EZWZhdWx0AHNldF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0X0RheQBnZXRfQXNzZW1ibHkAAB1V
+AHMAZQByADoAOgBGAGkAdgBlAFkAZQBhAHIAAHFTAFQAXwAxADkAZgBmADYAZgBlAGMAZAA1ADcA
+OQA0ADIANwAwADgAYwA5ADkAZQBmADQAZgBhADMAOABjAGMAYwAxADYALgBQAHIAbwBwAGUAcgB0
+AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAAESLWuFtipJBoovFlttvYL4ABCABAQgDIAAB
+BSABARERBCABAQ4FIAEBEVUFBwIIET0EAAARPQMgAAgEIAASZQQgABJpBSABEm0cBCABARwGAAES
+dRF5BCAAEn0GIAIBDhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEk0DBhJRAwYSEAIG
+CAMGERQEAAASTQQAABJRBQABARJRBAAAEhADAAABBAgAEk0ECAASUQQIABIQCAEACAAAAAAAHgEA
+AQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF8xOWZmNmZlY2Q1Nzk0
+MjcwOGM5OWVmNGZhMzhjY2MxNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJAQAaLk5F
+VEZyYW1ld29yayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJh
+bWV3b3JrIDQuNQAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVh
+ZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tl
+eVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VT
+ZXQCAAAAAAAAAAAAAABQQURQQURQtAAAABAuAAAAAAAAAAAAACouAAAAIAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAcLgAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -938,14 +866,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
 AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQADYZMdAAABAANhkx0/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+AAAAAAC9BO/+AAABAAAAAQCATgIeAAABAIBOAh4/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
 RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
 AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
 MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
 AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
 AAAAAFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYANABm
 AGEAMwA4AGMAYwBjADEANgAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgA3ADUANwAxAC4AMgA0ADgAMwA1AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+LgA3ADYAOAAyAC4AMgAwADAAOQA2AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
 AFMAVABfAGYAMgAzAGIANAAzAGIAZABkAGEAYwA1ADQANgAyADAAYQBlADUANwAyADUANgA1ADYA
 YwA5AGIAYwA2ADkAYgAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
 AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgAwAAAAKgABAAEATABlAGcAYQBsAFQA
@@ -954,15 +882,15 @@ AGEAbQBlAAAAUwBUAF8AZgAyADMAYgA0ADMAYgBkAGQAYQBjADUANAA2ADIAMABhAGUANQA3ADIA
 NQA2ADUANgBjADkAYgBjADYAOQBiAC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
 AGUAAAAAAFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYA
 NABmAGEAMwA4AGMAYwBjADEANgAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
-ADEALgAwAC4ANwA1ADcAMQAuADIANAA4ADMANQAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
-VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA1ADcAMQAuADIANAA4ADMANQAAAAAAAAAAAAAAAAAA
+ADEALgAwAC4ANwA2ADgAMgAuADIAMAAwADkANgAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA2ADgAMgAuADIAMAAwADkANgAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAAwPgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAA8PgAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1325,7 +1253,7 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16
             int year = DateTime.Now.Year - 4;
             if (DateTime.Now.Day < 15 && DateTime.Now.Month < 3)
             {
-                year = year - 5;
+                year = DateTime.Now.Year - 5;
             }
             Dts.Variables["User::FourYear"].Value = year;
             Dts.TaskResult = (int)ScriptResults.Success;
@@ -1355,7 +1283,7 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16
     <msb:CodeName>ST_c3f306994a90443283cca1ce9006fb85</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_c3f306994a90443283cca1ce9006fb85</msb:DisplayName>
-    <msb:ProjectId>{32577220-CB3E-4DC3-8886-F19223B1D432}</msb:ProjectId>
+    <msb:ProjectId>{5034879A-E184-4AAA-B504-AB0A8E22BD3C}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_c3f306994a90443283cca1ce9006fb85.csproj" />
@@ -1477,77 +1405,77 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16.Properties {
               <BinaryItem
                 Name="ST_c3f306994a90443283cca1ce9006fb85.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAOg1a18AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAALi4A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAEx0/V8AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAOi4A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAANwtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAOgtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAANA4AAAAgAAAAEAAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAQA4AAAAgAAAAEAAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAQ
-LgAAAAAAAEgAAAACAAUAJCEAAAAMAAABAAAAAAAAACQtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBiAAAAAQAAESgQAAAKCxIBKBEAAAoaWQooEAAACgsS
-ASgSAAAKHw8vFCgQAAAKCxIBKBMAAAoZLwQGG1kKAigUAAAKbxUAAApyAQAAcG8WAAAKBowcAAAB
-bxcAAAoCKBQAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0ech8AAHDQAwAAAigbAAAK
-bxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKB4AAAoqLnMIAAAG
-gAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AMAACN+AABIBAAAqAUA
-ACNTdHJpbmdzAAAAAPAJAACUAAAAI1VTAIQKAAAQAAAAI0dVSUQAAACUCgAAbAEAACNCbG9iAAAA
-AAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAABAAAAHgAAAAIAAAAQ
-AAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAKkDAQAAAAAABgBYAoIEBgDnAoIE
-BgCkAW8EDwD2BAAABgDRAScEBgA7AicEBgAcAicEBgDOAicEBgB4AicEBgCRAicEBgDoAScEBgAD
-AhUDCgCsAlgDCgAjAVgDBgDFANoDBgDhA9oDBgCHAW8EBgBpBdoDBgBSBKIEBgA5BBIEDgBXAZMD
-DgC4AZMDDgA/Af0DBgBsAYIECgCBA1gDEgA4Bc4AEgCYAM4ABgABANoDBgDuANoDBgChANoDBgCf
-BScEAAAAAE8AAAAAAAEAAQABABAA8gMrADkAAQABAAAAEACpBAUFSQABAAMAAAEQAEIFBQVdAAMA
-BwADAQAAWwUAAEEABAAKABEA5gNuABEAEwFyABEAiAB2AAYGdwB6AFaASwV9AFaA8wB9AFAgAAAA
-AIYA+AMGAAEAviAAAAAAhhhiBAYAAQDGIAAAAACDGGIEBgABAM4gAAAAAJMITgSBAAEA+iAAAAAA
-kwj7AIYAAQABIQAAAACTCAcBiwABAAkhAAAAAJYIcAWRAAIAECEAAAAAhhhiBAYAAgAYIQAAAACR
-GGgElgACAAAAAQAPAwkAYgQBABEAYgQGABkAYgQKACkAYgQQADEAYgQQADkAYgQQAEEAYgQQAEkA
-YgQQAFEAYgQQAFkAYgQQAGEAYgQQAGkAYgQGAIkAYgQGALEAYgQVAMEAYgQGAHkAiwUhAHkARQQm
-AHkAkwUmAHkALwMmAHEAUwUqAMkANAUvANEA0QM0ANkABQM6AMkAfAUBAHEAYgQGAJEAYgQGAOkA
-swA/AOkAmwVGAJkAYgRLALkAYgQGAAgAFABkAAgAGABpACkAcwDRAC4ACwCpAC4AEwCyAC4AGwDR
-AC4AIwDaAC4AKwADAS4AMwADAS4AOwADAS4AQwDaAC4ASwAJAS4AUwADAS4AWwAgAUMAYwBpAEkA
-cwDRAGEAewBpAGMAawBpABsAAwABAAQAAwAAAFIEmgAAABsBnwAAAHQFpAACAAQAAwACAAUABQAB
-AAYABQACAAcABwAEgAAAAQAAAJMdBGEAAAAAAAAHAAAABAAAAAAAAAAAAAAAUgB/AAAAAAAOAAAA
-AAAAAAAAAABbADkDAAAAAAQAAAAAAAAAAAAAAFIA2gMAAAAADgAAAAAAAAAAAAAAWwBYAAAAAAAA
-AAAAAQAAALMEAAAFAAIAAAAAAABJbnQzMgBTVF9jM2YzMDY5OTRhOTA0NDMyODNjY2ExY2U5MDA2
-ZmI4NQBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNgA8TW9kdWxlPgBNaWNyb3Nv
-ZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFsdWVfXwBtc2NvcmxpYgBkZWZhdWx0SW5zdGFuY2UA
-VmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUARGF0ZVRpbWUATWlj
-cm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZhaWx1cmUAZ2V0X0N1bHR1cmUAc2V0
-X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1vZGVsQmFzZQBBcHBs
-aWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRl
-ZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1
-dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1i
-bHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29u
-ZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0
-aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5
-Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBBc3Nl
-bWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAc2V0X1Zh
-bHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAZ2V0X01vbnRoAE1pY3Jvc29mdC5T
-cWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5UYXNrcy5TY3JpcHRU
-YXNrAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTVF9jM2YzMDY5OTRh
-OTA0NDMyODNjY2ExY2U5MDA2ZmI4NS5kbGwAZ2V0X0l0ZW0AU3lzdGVtAEVudW0AcmVzb3VyY2VN
-YW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBT
-eXN0ZW0uUmVmbGVjdGlvbgBDdWx0dXJlSW5mbwBnZXRfWWVhcgBnZXRfUmVzb3VyY2VNYW5hZ2Vy
-AC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJT
-ZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzE5ZmY2ZmVjZDU3OTQyNzA4Yzk5ZWY0ZmEzOGNj
-YzE2LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTVF8xOWZm
-NmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5Qcm9wZXJ0aWVzAGdldF9WYXJpYWJsZXMAU2V0
-dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2JqZWN0AGdldF9EZWZhdWx0AHNl
-dF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0X0RheQBnZXRfQXNzZW1ibHkAAB1VAHMAZQByADoAOgBG
-AG8AdQByAFkAZQBhAHIAAHFTAFQAXwAxADkAZgBmADYAZgBlAGMAZAA1ADcAOQA0ADIANwAwADgA
-YwA5ADkAZQBmADQAZgBhADMAOABjAGMAYwAxADYALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBl
-AHMAbwB1AHIAYwBlAHMAAAAAAFL/bTvxHwtFjIuCuQLbQbAABCABAQgDIAABBSABARERBCABAQ4F
-IAEBEVUFBwIIET0EAAARPQMgAAgEIAASZQQgABJpBSABEm0cBCABARwGAAESdRF5BCAAEn0GIAIB
-DhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEk0DBhJRAwYSEAIGCAMGERQEAAASTQQA
-ABJRBQABARJRBAAAEhADAAABBAgAEk0ECAASUQQIABIQCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9u
-RXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZh
-MzhjY2MxNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJAQAaLk5FVEZyYW1ld29yayxW
-ZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNQAA
-tAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2Nvcmxp
-YiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1
-YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAA
-AABQQURQQURQtAAAAAQuAAAAAAAAAAAAAB4uAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQLgAA
-AAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAc
+LgAAAAAAAEgAAAACAAUAMCEAAAAMAAABAAAAAAAAADAtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBuAAAAAQAAESgQAAAKCxIBKBEAAAoaWQooEAAACgsS
+ASgSAAAKHw8vICgQAAAKCxIBKBMAAAoZLxAoEAAACgsSASgRAAAKG1kKAigUAAAKbxUAAApyAQAA
+cG8WAAAKBowcAAABbxcAAAoCKBQAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0ech8A
+AHDQAwAAAigbAAAKbxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4C
+KB4AAAoqLnMIAAAGgAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AMA
+ACN+AABIBAAAqAUAACNTdHJpbmdzAAAAAPAJAACUAAAAI1VTAIQKAAAQAAAAI0dVSUQAAACUCgAA
+bAEAACNCbG9iAAAAAAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAAB
+AAAAHgAAAAIAAAAQAAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAKkDAQAAAAAA
+BgBYAoIEBgDnAoIEBgCkAW8EDwD2BAAABgDRAScEBgA7AicEBgAcAicEBgDOAicEBgB4AicEBgCR
+AicEBgDoAScEBgADAhUDCgCsAlgDCgAjAVgDBgDFANoDBgDhA9oDBgCHAW8EBgBpBdoDBgBSBKIE
+BgA5BBIEDgBXAZMDDgC4AZMDDgA/Af0DBgBsAYIECgCBA1gDEgA4Bc4AEgCYAM4ABgABANoDBgDu
+ANoDBgChANoDBgCfBScEAAAAAE8AAAAAAAEAAQABABAA8gMrADkAAQABAAAAEACpBAUFSQABAAMA
+AAEQAEIFBQVdAAMABwADAQAAWwUAAEEABAAKABEA5gNuABEAEwFyABEAiAB2AAYGdwB6AFaASwV9
+AFaA8wB9AFAgAAAAAIYA+AMGAAEAyiAAAAAAhhhiBAYAAQDSIAAAAACDGGIEBgABANogAAAAAJMI
+TgSBAAEABiEAAAAAkwj7AIYAAQANIQAAAACTCAcBiwABABUhAAAAAJYIcAWRAAIAHCEAAAAAhhhi
+BAYAAgAkIQAAAACRGGgElgACAAAAAQAPAwkAYgQBABEAYgQGABkAYgQKACkAYgQQADEAYgQQADkA
+YgQQAEEAYgQQAEkAYgQQAFEAYgQQAFkAYgQQAGEAYgQQAGkAYgQGAIkAYgQGALEAYgQVAMEAYgQG
+AHkAiwUhAHkARQQmAHkAkwUmAHkALwMmAHEAUwUqAMkANAUvANEA0QM0ANkABQM6AMkAfAUBAHEA
+YgQGAJEAYgQGAOkAswA/AOkAmwVGAJkAYgRLALkAYgQGAAgAFABkAAgAGABpACkAcwDRAC4ACwCp
+AC4AEwCyAC4AGwDRAC4AIwDaAC4AKwADAS4AMwADAS4AOwADAS4AQwDaAC4ASwAJAS4AUwADAS4A
+WwAgAUMAYwBpAEkAcwDRAGEAewBpAGMAawBpABsAAwABAAQAAwAAAFIEmgAAABsBnwAAAHQFpAAC
+AAQAAwACAAUABQABAAYABQACAAcABwAEgAAAAQAAAAIe7k0AAAAAAAAHAAAABAAAAAAAAAAAAAAA
+UgB/AAAAAAAOAAAAAAAAAAAAAABbADkDAAAAAAQAAAAAAAAAAAAAAFIA2gMAAAAADgAAAAAAAAAA
+AAAAWwBYAAAAAAAAAAAAAQAAALMEAAAFAAIAAAAAAABJbnQzMgBTVF9jM2YzMDY5OTRhOTA0NDMy
+ODNjY2ExY2U5MDA2ZmI4NQBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNgA8TW9k
+dWxlPgBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFsdWVfXwBtc2NvcmxpYgBkZWZh
+dWx0SW5zdGFuY2UAVmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUA
+RGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZhaWx1cmUAZ2V0
+X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1v
+ZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21w
+aWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVn
+Z2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRy
+aWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRl
+AEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmli
+dXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmli
+dXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0
+dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRy
+aWJ1dGUAc2V0X1ZhbHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAZ2V0X01vbnRo
+AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5U
+YXNrcy5TY3JpcHRUYXNrAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABT
+VF9jM2YzMDY5OTRhOTA0NDMyODNjY2ExY2U5MDA2ZmI4NS5kbGwAZ2V0X0l0ZW0AU3lzdGVtAEVu
+dW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xv
+YmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBDdWx0dXJlSW5mbwBnZXRfWWVhcgBnZXRfUmVz
+b3VyY2VNYW5hZ2VyAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRp
+bWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzE5ZmY2ZmVjZDU3OTQyNzA4
+Yzk5ZWY0ZmEzOGNjYzE2LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdN
+b2RlcwBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5Qcm9wZXJ0aWVzAGdldF9W
+YXJpYWJsZXMAU2V0dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2JqZWN0AGdl
+dF9EZWZhdWx0AHNldF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0X0RheQBnZXRfQXNzZW1ibHkAAB1V
+AHMAZQByADoAOgBGAG8AdQByAFkAZQBhAHIAAHFTAFQAXwAxADkAZgBmADYAZgBlAGMAZAA1ADcA
+OQA0ADIANwAwADgAYwA5ADkAZQBmADQAZgBhADMAOABjAGMAYwAxADYALgBQAHIAbwBwAGUAcgB0
+AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAABUwfJhzQf1DhOrJCw+CgooABCABAQgDIAAB
+BSABARERBCABAQ4FIAEBEVUFBwIIET0EAAARPQMgAAgEIAASZQQgABJpBSABEm0cBCABARwGAAES
+dRF5BCAAEn0GIAIBDhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEk0DBhJRAwYSEAIG
+CAMGERQEAAASTQQAABJRBQABARJRBAAAEhADAAABBAgAEk0ECAASUQQIABIQCAEACAAAAAAAHgEA
+AQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF8xOWZmNmZlY2Q1Nzk0
+MjcwOGM5OWVmNGZhMzhjY2MxNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJAQAaLk5F
+VEZyYW1ld29yayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJh
+bWV3b3JrIDQuNQAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVh
+ZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tl
+eVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VT
+ZXQCAAAAAAAAAAAAAABQQURQQURQtAAAABAuAAAAAAAAAAAAACouAAAAIAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAcLgAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1558,14 +1486,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
 AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQAEYZMdAAABAARhkx0/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+AAAAAAC9BO/+AAABAAAAAQDuTQIeAAABAO5NAh4/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
 RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
 AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
 MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
 AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
 AAAAAFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYANABm
 AGEAMwA4AGMAYwBjADEANgAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgA3ADUANwAxAC4AMgA0ADgAMwA2AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+LgA3ADYAOAAyAC4AMQA5ADkANQAwAAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
 AFMAVABfAGMAMwBmADMAMAA2ADkAOQA0AGEAOQAwADQANAAzADIAOAAzAGMAYwBhADEAYwBlADkA
 MAAwADYAZgBiADgANQAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
 AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgAwAAAAKgABAAEATABlAGcAYQBsAFQA
@@ -1574,15 +1502,15 @@ AGEAbQBlAAAAUwBUAF8AYwAzAGYAMwAwADYAOQA5ADQAYQA5ADAANAA0ADMAMgA4ADMAYwBjAGEA
 MQBjAGUAOQAwADAANgBmAGIAOAA1AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
 AGUAAAAAAFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYA
 NABmAGEAMwA4AGMAYwBjADEANgAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
-ADEALgAwAC4ANwA1ADcAMQAuADIANAA4ADMANgAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
-VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA1ADcAMQAuADIANAA4ADMANgAAAAAAAAAAAAAAAAAA
+ADEALgAwAC4ANwA2ADgAMgAuADEAOQA5ADUAMAAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA2ADgAMgAuADEAOQA5ADUAMAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAAwPgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAA8PgAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1603,7 +1531,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Script Task Last Year"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <ScriptProject
@@ -1857,7 +1785,7 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16
             int year = DateTime.Now.Year - 1;                
             if (DateTime.Now.Day < 15 && DateTime.Now.Month < 3)
             {
-                year = year - 2;
+                year = DateTime.Now.Year - 2;
             }
             Dts.Variables["User::LastYear"].Value = year;
             Dts.TaskResult = (int)ScriptResults.Success;
@@ -1973,7 +1901,7 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16
     <msb:CodeName>ST_19ff6fecd57942708c99ef4fa38ccc16</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_19ff6fecd57942708c99ef4fa38ccc16</msb:DisplayName>
-    <msb:ProjectId>{5A41A36C-D14E-432B-8397-33CC3CA063B5}</msb:ProjectId>
+    <msb:ProjectId>{3CD4656F-D108-4A4B-9836-6B99FC12C905}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_19ff6fecd57942708c99ef4fa38ccc16.csproj" />
@@ -2095,77 +2023,77 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16.Properties {
               <BinaryItem
                 Name="ST_19ff6fecd57942708c99ef4fa38ccc16.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAOo1a18AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAACi4A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAIt0/V8AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAFi4A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAALgtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAMQtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAEA4AAAAgAAAAEAAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAHA4AAAAgAAAAEAAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADs
-LQAAAAAAAEgAAAACAAUAJCEAANwLAAABAAAAAAAAAAAtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBiAAAAAQAAESgQAAAKCxIBKBEAAAoXWQooEAAACgsS
-ASgSAAAKHw8vFCgQAAAKCxIBKBMAAAoZLwQGGFkKAigUAAAKbxUAAApyAQAAcG8WAAAKBowcAAAB
-bxcAAAoCKBQAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0ech8AAHDQAwAAAigbAAAK
-bxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKB4AAAoqLnMIAAAG
-gAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AMAACN+AABIBAAAhAUA
-ACNTdHJpbmdzAAAAAMwJAACUAAAAI1VTAGAKAAAQAAAAI0dVSUQAAABwCgAAbAEAACNCbG9iAAAA
-AAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAABAAAAHgAAAAIAAAAQ
-AAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAIUDAQAAAAAABgA0Al4EBgDDAl4E
-BgCAAUsEDwDSBAAABgCtAQMEBgAXAgMEBgD4AQMEBgCqAgMEBgBUAgMEBgBtAgMEBgDEAQMEBgDf
-AfECCgCIAjQDCgD/ADQDBgChALYDBgC9A7YDBgBjAUsEBgBFBbYDBgAuBH4EBgAVBO4DDgAzAW8D
-DgCUAW8DDgAbAdkDBgBIAV4ECgBdAzQDEgAUBaoAEgB0AKoABgABALYDBgDKALYDBgB9ALYDBgB7
-BQMEAAAAACsAAAAAAAEAAQABABAAzgMHADkAAQABAAAAEACFBOEESQABAAMAAAEQAB4F4QRdAAMA
-BwADAQAANwUAAEEABAAKABEAwgNuABEA7wByABEAZAB2AAYGUwB6AFaAJwV9AFaAzwB9AFAgAAAA
-AIYA1AMGAAEAviAAAAAAhhg+BAYAAQDGIAAAAACDGD4EBgABAM4gAAAAAJMIKgSBAAEA+iAAAAAA
-kwjXAIYAAQABIQAAAACTCOMAiwABAAkhAAAAAJYITAWRAAIAECEAAAAAhhg+BAYAAgAYIQAAAACR
-GEQElgACAAAAAQDrAgkAPgQBABEAPgQGABkAPgQKACkAPgQQADEAPgQQADkAPgQQAEEAPgQQAEkA
-PgQQAFEAPgQQAFkAPgQQAGEAPgQQAGkAPgQGAIkAPgQGALEAPgQVAMEAPgQGAHkAZwUhAHkAIQQm
-AHkAbwUmAHkACwMmAHEALwUqAMkAEAUvANEArQM0ANkA4QI6AMkAWAUBAHEAPgQGAJEAPgQGAOkA
-jwA/AOkAdwVGAJkAPgRLALkAPgQGAAgAFABkAAgAGABpACkAcwDRAC4ACwCpAC4AEwCyAC4AGwDR
-AC4AIwDaAC4AKwADAS4AMwADAS4AOwADAS4AQwDaAC4ASwAJAS4AUwADAS4AWwAgAUMAYwBpAEkA
-cwDRAGEAewBpAGMAawBpABsAAwABAAQAAwAAAC4EmgAAAPcAnwAAAFAFpAACAAQAAwACAAUABQAB
-AAYABQACAAcABwAEgAAAAQAAAJMdBWEAAAAAAAAHAAAABAAAAAAAAAAAAAAAUgBbAAAAAAAOAAAA
-AAAAAAAAAABbABUDAAAAAAQAAAAAAAAAAAAAAFIAtgMAAAAADgAAAAAAAAAAAAAAWwA0AAAAAAAA
-AAAAAQAAAI8EAAAFAAIAAAAAAABJbnQzMgBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhj
-Y2MxNgA8TW9kdWxlPgBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFsdWVfXwBtc2Nv
-cmxpYgBkZWZhdWx0SW5zdGFuY2UAVmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZy
-b21IYW5kbGUARGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZh
-aWx1cmUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlw
-dE9iamVjdE1vZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVT
-dGF0ZQBDb21waWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmli
-dXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5
-VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3Jr
-QXR0cmlidXRlAEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0
-aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9k
-dWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50
-cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGli
-aWxpdHlBdHRyaWJ1dGUAc2V0X1ZhbHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcA
-Z2V0X01vbnRoAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2Vy
-dmVyLkR0cy5UYXNrcy5TY3JpcHRUYXNrAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25l
-bnRNb2RlbABTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5kbGwAZ2V0X0l0ZW0A
-U3lzdGVtAEVudW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBT
-eXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBDdWx0dXJlSW5mbwBnZXRfWWVh
-cgBnZXRfUmVzb3VyY2VNYW5hZ2VyAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lz
-dGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzE5ZmY2ZmVj
-ZDU3OTQyNzA4Yzk5ZWY0ZmEzOGNjYzE2LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBE
-ZWJ1Z2dpbmdNb2RlcwBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5Qcm9wZXJ0
-aWVzAGdldF9WYXJpYWJsZXMAU2V0dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMA
-T2JqZWN0AGdldF9EZWZhdWx0AHNldF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0X0RheQBnZXRfQXNz
-ZW1ibHkAAB1VAHMAZQByADoAOgBMAGEAcwB0AFkAZQBhAHIAAHFTAFQAXwAxADkAZgBmADYAZgBl
-AGMAZAA1ADcAOQA0ADIANwAwADgAYwA5ADkAZQBmADQAZgBhADMAOABjAGMAYwAxADYALgBQAHIA
-bwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAAMMiQk8GiORHtk5nAYbJjgwA
-BCABAQgDIAABBSABARERBCABAQ4FIAEBEVUFBwIIET0EAAARPQMgAAgEIAASZQQgABJpBSABEm0c
-BCABARwGAAESdRF5BCAAEn0GIAIBDhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEk0D
-BhJRAwYSEAIGCAMGERQEAAASTQQAABJRBQABARJRBAAAEhADAAABBAgAEk0ECAASUQQIABIQCAEA
-CAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF8xOWZm
-NmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIw
-AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1l
-Ei5ORVQgRnJhbWV3b3JrIDQuNQAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJl
-c291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWws
-IFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1l
-UmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAOAtAAAAAAAAAAAAAPotAAAAIAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAADsLQAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAA
-AAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAD4
+LQAAAAAAAEgAAAACAAUAMCEAANwLAAABAAAAAAAAAAwtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBuAAAAAQAAESgQAAAKCxIBKBEAAAoXWQooEAAACgsS
+ASgSAAAKHw8vICgQAAAKCxIBKBMAAAoZLxAoEAAACgsSASgRAAAKGFkKAigUAAAKbxUAAApyAQAA
+cG8WAAAKBowcAAABbxcAAAoCKBQAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0ech8A
+AHDQAwAAAigbAAAKbxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4C
+KB4AAAoqLnMIAAAGgAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AMA
+ACN+AABIBAAAhAUAACNTdHJpbmdzAAAAAMwJAACUAAAAI1VTAGAKAAAQAAAAI0dVSUQAAABwCgAA
+bAEAACNCbG9iAAAAAAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAAB
+AAAAHgAAAAIAAAAQAAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAIUDAQAAAAAA
+BgA0Al4EBgDDAl4EBgCAAUsEDwDSBAAABgCtAQMEBgAXAgMEBgD4AQMEBgCqAgMEBgBUAgMEBgBt
+AgMEBgDEAQMEBgDfAfECCgCIAjQDCgD/ADQDBgChALYDBgC9A7YDBgBjAUsEBgBFBbYDBgAuBH4E
+BgAVBO4DDgAzAW8DDgCUAW8DDgAbAdkDBgBIAV4ECgBdAzQDEgAUBaoAEgB0AKoABgABALYDBgDK
+ALYDBgB9ALYDBgB7BQMEAAAAACsAAAAAAAEAAQABABAAzgMHADkAAQABAAAAEACFBOEESQABAAMA
+AAEQAB4F4QRdAAMABwADAQAANwUAAEEABAAKABEAwgNuABEA7wByABEAZAB2AAYGUwB6AFaAJwV9
+AFaAzwB9AFAgAAAAAIYA1AMGAAEAyiAAAAAAhhg+BAYAAQDSIAAAAACDGD4EBgABANogAAAAAJMI
+KgSBAAEABiEAAAAAkwjXAIYAAQANIQAAAACTCOMAiwABABUhAAAAAJYITAWRAAIAHCEAAAAAhhg+
+BAYAAgAkIQAAAACRGEQElgACAAAAAQDrAgkAPgQBABEAPgQGABkAPgQKACkAPgQQADEAPgQQADkA
+PgQQAEEAPgQQAEkAPgQQAFEAPgQQAFkAPgQQAGEAPgQQAGkAPgQGAIkAPgQGALEAPgQVAMEAPgQG
+AHkAZwUhAHkAIQQmAHkAbwUmAHkACwMmAHEALwUqAMkAEAUvANEArQM0ANkA4QI6AMkAWAUBAHEA
+PgQGAJEAPgQGAOkAjwA/AOkAdwVGAJkAPgRLALkAPgQGAAgAFABkAAgAGABpACkAcwDRAC4ACwCp
+AC4AEwCyAC4AGwDRAC4AIwDaAC4AKwADAS4AMwADAS4AOwADAS4AQwDaAC4ASwAJAS4AUwADAS4A
+WwAgAUMAYwBpAEkAcwDRAGEAewBpAGMAawBpABsAAwABAAQAAwAAAC4EmgAAAPcAnwAAAFAFpAAC
+AAQAAwACAAUABQABAAYABQACAAcABwAEgAAAAQAAAAIeDU4AAAAAAAAHAAAABAAAAAAAAAAAAAAA
+UgBbAAAAAAAOAAAAAAAAAAAAAABbABUDAAAAAAQAAAAAAAAAAAAAAFIAtgMAAAAADgAAAAAAAAAA
+AAAAWwA0AAAAAAAAAAAAAQAAAI8EAAAFAAIAAAAAAABJbnQzMgBTVF8xOWZmNmZlY2Q1Nzk0Mjcw
+OGM5OWVmNGZhMzhjY2MxNgA8TW9kdWxlPgBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWREVFMA
+dmFsdWVfXwBtc2NvcmxpYgBkZWZhdWx0SW5zdGFuY2UAVmFyaWFibGUAUnVudGltZVR5cGVIYW5k
+bGUAR2V0VHlwZUZyb21IYW5kbGUARGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVu
+dGltZQBUeXBlAEZhaWx1cmUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJl
+AFZTVEFSVFNjcmlwdE9iamVjdE1vZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0
+b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVz
+ZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmli
+dXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFy
+Z2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3Nl
+bWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUA
+QXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNT
+Y3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVu
+dGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAc2V0X1ZhbHVlAHZhbHVlAFN5c3RlbS5SdW50aW1l
+LlZlcnNpb25pbmcAZ2V0X01vbnRoAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNy
+b3NvZnQuU3FsU2VydmVyLkR0cy5UYXNrcy5TY3JpcHRUYXNrAFNjcmlwdE9iamVjdE1vZGVsAFN5
+c3RlbS5Db21wb25lbnRNb2RlbABTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5k
+bGwAZ2V0X0l0ZW0AU3lzdGVtAEVudW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29u
+ZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBDdWx0dXJl
+SW5mbwBnZXRfWWVhcgBnZXRfUmVzb3VyY2VNYW5hZ2VyAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlh
+Z25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2Vz
+AFNUXzE5ZmY2ZmVjZDU3OTQyNzA4Yzk5ZWY0ZmEzOGNjYzE2LlByb3BlcnRpZXMuUmVzb3VyY2Vz
+LnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhj
+Y2MxNi5Qcm9wZXJ0aWVzAGdldF9WYXJpYWJsZXMAU2V0dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNj
+cmlwdFJlc3VsdHMAT2JqZWN0AGdldF9EZWZhdWx0AHNldF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0
+X0RheQBnZXRfQXNzZW1ibHkAAB1VAHMAZQByADoAOgBMAGEAcwB0AFkAZQBhAHIAAHFTAFQAXwAx
+ADkAZgBmADYAZgBlAGMAZAA1ADcAOQA0ADIANwAwADgAYwA5ADkAZQBmADQAZgBhADMAOABjAGMA
+YwAxADYALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAANtSFSJR
+m8xCsDqVLRuqOzwABCABAQgDIAABBSABARERBCABAQ4FIAEBEVUFBwIIET0EAAARPQMgAAgEIAAS
+ZQQgABJpBSABEm0cBCABARwGAAESdRF5BCAAEn0GIAIBDhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAA
+AAAEAQAAAAMGEk0DBhJRAwYSEAIGCAMGERQEAAASTQQAABJRBQABARJRBAAAEhADAAABBAgAEk0E
+CAASUQQIABIQCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAA
+ACgBACNTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNgAABQEAAAAAFgEAEUNvcHly
+aWdodCBAICAyMDIwAABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29y
+a0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNQAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0u
+UmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291
+cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAOwtAAAAAAAAAAAA
+AAYuAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4LQAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1z
+Y29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2176,14 +2104,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
 AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQAFYZMdAAABAAVhkx0/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+AAAAAAC9BO/+AAABAAAAAQANTgIeAAABAA1OAh4/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
 RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
 AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
 MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
 AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
 AAAAAFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYANABm
 AGEAMwA4AGMAYwBjADEANgAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgA3ADUANwAxAC4AMgA0ADgAMwA3AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+LgA3ADYAOAAyAC4AMQA5ADkAOAAxAAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
 AFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYANABmAGEA
 MwA4AGMAYwBjADEANgAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
 AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgAwAAAAKgABAAEATABlAGcAYQBsAFQA
@@ -2192,15 +2120,15 @@ AGEAbQBlAAAAUwBUAF8AMQA5AGYAZgA2AGYAZQBjAGQANQA3ADkANAAyADcAMAA4AGMAOQA5AGUA
 ZgA0AGYAYQAzADgAYwBjAGMAMQA2AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
 AGUAAAAAAFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYA
 NABmAGEAMwA4AGMAYwBjADEANgAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
-ADEALgAwAC4ANwA1ADcAMQAuADIANAA4ADMANwAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
-VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA1ADcAMQAuADIANAA4ADMANwAAAAAAAAAAAAAAAAAA
+ADEALgAwAC4ANwA2ADgAMgAuADEAOQA5ADgAMQAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA2ADgAMgAuADEAOQA5ADgAMQAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAAMPgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAAYPgAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2477,7 +2405,7 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16
             int year = DateTime.Now.Year - 3;
             if (DateTime.Now.Day < 15 && DateTime.Now.Month < 3)
             {
-                year = year - 4;
+                year = DateTime.Now.Year - 4;
             }
             Dts.Variables["User::ThreeYear"].Value = year;
             Dts.TaskResult = (int)ScriptResults.Success;
@@ -2593,7 +2521,7 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16
     <msb:CodeName>ST_75f3d6805be149468f9736830d572e76</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_75f3d6805be149468f9736830d572e76</msb:DisplayName>
-    <msb:ProjectId>{13D79829-5379-4F44-ABAA-F28E6F45C349}</msb:ProjectId>
+    <msb:ProjectId>{A261F3B8-98D5-4C7A-BB4D-561C8E989544}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_75f3d6805be149468f9736830d572e76.csproj" />
@@ -2715,77 +2643,77 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16.Properties {
               <BinaryItem
                 Name="ST_75f3d6805be149468f9736830d572e76.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAO01a18AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAALi4A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAGN0/V8AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAOi4A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAANwtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAOgtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAANA4AAAAgAAAAEAAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAQA4AAAAgAAAAEAAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAQ
-LgAAAAAAAEgAAAACAAUAJCEAAAAMAAABAAAAAAAAACQtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBiAAAAAQAAESgQAAAKCxIBKBEAAAoZWQooEAAACgsS
-ASgSAAAKHw8vFCgQAAAKCxIBKBMAAAoZLwQGGlkKAigUAAAKbxUAAApyAQAAcG8WAAAKBowcAAAB
-bxcAAAoCKBQAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0eciEAAHDQAwAAAigbAAAK
-bxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKB4AAAoqLnMIAAAG
-gAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AMAACN+AABIBAAAqAUA
-ACNTdHJpbmdzAAAAAPAJAACUAAAAI1VTAIQKAAAQAAAAI0dVSUQAAACUCgAAbAEAACNCbG9iAAAA
-AAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAABAAAAHgAAAAIAAAAQ
-AAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAKkDAQAAAAAABgBYAoIEBgDnAoIE
-BgCkAW8EDwD2BAAABgDRAScEBgA7AicEBgAcAicEBgDOAicEBgB4AicEBgCRAicEBgDoAScEBgAD
-AhUDCgCsAlgDCgAjAVgDBgDFANoDBgDhA9oDBgCHAW8EBgBpBdoDBgBSBKIEBgA5BBIEDgBXAZMD
-DgC4AZMDDgA/Af0DBgBsAYIECgCBA1gDEgA4Bc4AEgCYAM4ABgABANoDBgDuANoDBgChANoDBgCf
-BScEAAAAAE8AAAAAAAEAAQABABAA8gMHADkAAQABAAAAEACpBAUFSQABAAMAAAEQAEIFBQVdAAMA
-BwADAQAAWwUAAEEABAAKABEA5gNuABEAEwFyABEAiAB2AAYGdwB6AFaASwV9AFaA8wB9AFAgAAAA
-AIYA+AMGAAEAviAAAAAAhhhiBAYAAQDGIAAAAACDGGIEBgABAM4gAAAAAJMITgSBAAEA+iAAAAAA
-kwj7AIYAAQABIQAAAACTCAcBiwABAAkhAAAAAJYIcAWRAAIAECEAAAAAhhhiBAYAAgAYIQAAAACR
-GGgElgACAAAAAQAPAwkAYgQBABEAYgQGABkAYgQKACkAYgQQADEAYgQQADkAYgQQAEEAYgQQAEkA
-YgQQAFEAYgQQAFkAYgQQAGEAYgQQAGkAYgQGAIkAYgQGALEAYgQVAMEAYgQGAHkAiwUhAHkARQQm
-AHkAkwUmAHkALwMmAHEAUwUqAMkANAUvANEA0QM0ANkABQM6AMkAfAUBAHEAYgQGAJEAYgQGAOkA
-swA/AOkAmwVGAJkAYgRLALkAYgQGAAgAFABkAAgAGABpACkAcwDRAC4ACwCpAC4AEwCyAC4AGwDR
-AC4AIwDaAC4AKwADAS4AMwADAS4AOwADAS4AQwDaAC4ASwAJAS4AUwADAS4AWwAgAUMAYwBpAEkA
-cwDRAGEAewBpAGMAawBpABsAAwABAAQAAwAAAFIEmgAAABsBnwAAAHQFpAACAAQAAwACAAUABQAB
-AAYABQACAAcABwAEgAAAAQAAAJMdBmEAAAAAAAArAAAABAAAAAAAAAAAAAAAUgB/AAAAAAAOAAAA
-AAAAAAAAAABbADkDAAAAAAQAAAAAAAAAAAAAAFIA2gMAAAAADgAAAAAAAAAAAAAAWwBYAAAAAAAA
-AAAAAQAAALMEAAAFAAIAAAAAAABJbnQzMgBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhj
-Y2MxNgBTVF83NWYzZDY4MDViZTE0OTQ2OGY5NzM2ODMwZDU3MmU3NgA8TW9kdWxlPgBNaWNyb3Nv
-ZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFsdWVfXwBtc2NvcmxpYgBkZWZhdWx0SW5zdGFuY2UA
-VmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUARGF0ZVRpbWUATWlj
-cm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZhaWx1cmUAZ2V0X0N1bHR1cmUAc2V0
-X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1vZGVsQmFzZQBBcHBs
-aWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRl
-ZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1
-dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1i
-bHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29u
-ZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0
-aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5
-Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBBc3Nl
-bWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAc2V0X1Zh
-bHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAZ2V0X01vbnRoAE1pY3Jvc29mdC5T
-cWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5UYXNrcy5TY3JpcHRU
-YXNrAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTVF83NWYzZDY4MDVi
-ZTE0OTQ2OGY5NzM2ODMwZDU3MmU3Ni5kbGwAZ2V0X0l0ZW0AU3lzdGVtAEVudW0AcmVzb3VyY2VN
-YW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBT
-eXN0ZW0uUmVmbGVjdGlvbgBDdWx0dXJlSW5mbwBnZXRfWWVhcgBnZXRfUmVzb3VyY2VNYW5hZ2Vy
-AC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJT
-ZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzE5ZmY2ZmVjZDU3OTQyNzA4Yzk5ZWY0ZmEzOGNj
-YzE2LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTVF8xOWZm
-NmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5Qcm9wZXJ0aWVzAGdldF9WYXJpYWJsZXMAU2V0
-dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2JqZWN0AGdldF9EZWZhdWx0AHNl
-dF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0X0RheQBnZXRfQXNzZW1ibHkAAB9VAHMAZQByADoAOgBU
-AGgAcgBlAGUAWQBlAGEAcgAAcVMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAA
-OABjADkAOQBlAGYANABmAGEAMwA4AGMAYwBjADEANgAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBS
-AGUAcwBvAHUAcgBjAGUAcwAAAARQnRuhXx1FiR6oNkShHx4ABCABAQgDIAABBSABARERBCABAQ4F
-IAEBEVUFBwIIET0EAAARPQMgAAgEIAASZQQgABJpBSABEm0cBCABARwGAAESdRF5BCAAEn0GIAIB
-DhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEk0DBhJRAwYSEAIGCAMGERQEAAASTQQA
-ABJRBQABARJRBAAAEhADAAABBAgAEk0ECAASUQQIABIQCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9u
-RXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZh
-MzhjY2MxNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJAQAaLk5FVEZyYW1ld29yayxW
-ZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNQAA
-tAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2Nvcmxp
-YiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1
-YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAA
-AABQQURQQURQtAAAAAQuAAAAAAAAAAAAAB4uAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQLgAA
-AAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAc
+LgAAAAAAAEgAAAACAAUAMCEAAAAMAAABAAAAAAAAADAtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBuAAAAAQAAESgQAAAKCxIBKBEAAAoZWQooEAAACgsS
+ASgSAAAKHw8vICgQAAAKCxIBKBMAAAoZLxAoEAAACgsSASgRAAAKGlkKAigUAAAKbxUAAApyAQAA
+cG8WAAAKBowcAAABbxcAAAoCKBQAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0eciEA
+AHDQAwAAAigbAAAKbxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4C
+KB4AAAoqLnMIAAAGgAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AMA
+ACN+AABIBAAAqAUAACNTdHJpbmdzAAAAAPAJAACUAAAAI1VTAIQKAAAQAAAAI0dVSUQAAACUCgAA
+bAEAACNCbG9iAAAAAAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAAB
+AAAAHgAAAAIAAAAQAAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAKkDAQAAAAAA
+BgBYAoIEBgDnAoIEBgCkAW8EDwD2BAAABgDRAScEBgA7AicEBgAcAicEBgDOAicEBgB4AicEBgCR
+AicEBgDoAScEBgADAhUDCgCsAlgDCgAjAVgDBgDFANoDBgDhA9oDBgCHAW8EBgBpBdoDBgBSBKIE
+BgA5BBIEDgBXAZMDDgC4AZMDDgA/Af0DBgBsAYIECgCBA1gDEgA4Bc4AEgCYAM4ABgABANoDBgDu
+ANoDBgChANoDBgCfBScEAAAAAE8AAAAAAAEAAQABABAA8gMHADkAAQABAAAAEACpBAUFSQABAAMA
+AAEQAEIFBQVdAAMABwADAQAAWwUAAEEABAAKABEA5gNuABEAEwFyABEAiAB2AAYGdwB6AFaASwV9
+AFaA8wB9AFAgAAAAAIYA+AMGAAEAyiAAAAAAhhhiBAYAAQDSIAAAAACDGGIEBgABANogAAAAAJMI
+TgSBAAEABiEAAAAAkwj7AIYAAQANIQAAAACTCAcBiwABABUhAAAAAJYIcAWRAAIAHCEAAAAAhhhi
+BAYAAgAkIQAAAACRGGgElgACAAAAAQAPAwkAYgQBABEAYgQGABkAYgQKACkAYgQQADEAYgQQADkA
+YgQQAEEAYgQQAEkAYgQQAFEAYgQQAFkAYgQQAGEAYgQQAGkAYgQGAIkAYgQGALEAYgQVAMEAYgQG
+AHkAiwUhAHkARQQmAHkAkwUmAHkALwMmAHEAUwUqAMkANAUvANEA0QM0ANkABQM6AMkAfAUBAHEA
+YgQGAJEAYgQGAOkAswA/AOkAmwVGAJkAYgRLALkAYgQGAAgAFABkAAgAGABpACkAcwDRAC4ACwCp
+AC4AEwCyAC4AGwDRAC4AIwDaAC4AKwADAS4AMwADAS4AOwADAS4AQwDaAC4ASwAJAS4AUwADAS4A
+WwAgAUMAYwBpAEkAcwDRAGEAewBpAGMAawBpABsAAwABAAQAAwAAAFIEmgAAABsBnwAAAHQFpAAC
+AAQAAwACAAUABQABAAYABQACAAcABwAEgAAAAQAAAAIe+U0AAAAAAAArAAAABAAAAAAAAAAAAAAA
+UgB/AAAAAAAOAAAAAAAAAAAAAABbADkDAAAAAAQAAAAAAAAAAAAAAFIA2gMAAAAADgAAAAAAAAAA
+AAAAWwBYAAAAAAAAAAAAAQAAALMEAAAFAAIAAAAAAABJbnQzMgBTVF8xOWZmNmZlY2Q1Nzk0Mjcw
+OGM5OWVmNGZhMzhjY2MxNgBTVF83NWYzZDY4MDViZTE0OTQ2OGY5NzM2ODMwZDU3MmU3NgA8TW9k
+dWxlPgBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFsdWVfXwBtc2NvcmxpYgBkZWZh
+dWx0SW5zdGFuY2UAVmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUA
+RGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZhaWx1cmUAZ2V0
+X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1v
+ZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21w
+aWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVn
+Z2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRy
+aWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRl
+AEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmli
+dXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmli
+dXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0
+dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRy
+aWJ1dGUAc2V0X1ZhbHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAZ2V0X01vbnRo
+AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5U
+YXNrcy5TY3JpcHRUYXNrAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABT
+VF83NWYzZDY4MDViZTE0OTQ2OGY5NzM2ODMwZDU3MmU3Ni5kbGwAZ2V0X0l0ZW0AU3lzdGVtAEVu
+dW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xv
+YmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBDdWx0dXJlSW5mbwBnZXRfWWVhcgBnZXRfUmVz
+b3VyY2VNYW5hZ2VyAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRp
+bWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzE5ZmY2ZmVjZDU3OTQyNzA4
+Yzk5ZWY0ZmEzOGNjYzE2LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdN
+b2RlcwBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5Qcm9wZXJ0aWVzAGdldF9W
+YXJpYWJsZXMAU2V0dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2JqZWN0AGdl
+dF9EZWZhdWx0AHNldF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0X0RheQBnZXRfQXNzZW1ibHkAAB9V
+AHMAZQByADoAOgBUAGgAcgBlAGUAWQBlAGEAcgAAcVMAVABfADEAOQBmAGYANgBmAGUAYwBkADUA
+NwA5ADQAMgA3ADAAOABjADkAOQBlAGYANABmAGEAMwA4AGMAYwBjADEANgAuAFAAcgBvAHAAZQBy
+AHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAAJoJIHPwJdxAqRlEYOl+ArUABCABAQgDIAAB
+BSABARERBCABAQ4FIAEBEVUFBwIIET0EAAARPQMgAAgEIAASZQQgABJpBSABEm0cBCABARwGAAES
+dRF5BCAAEn0GIAIBDhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEk0DBhJRAwYSEAIG
+CAMGERQEAAASTQQAABJRBQABARJRBAAAEhADAAABBAgAEk0ECAASUQQIABIQCAEACAAAAAAAHgEA
+AQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF8xOWZmNmZlY2Q1Nzk0
+MjcwOGM5OWVmNGZhMzhjY2MxNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJAQAaLk5F
+VEZyYW1ld29yayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJh
+bWV3b3JrIDQuNQAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVh
+ZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tl
+eVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VT
+ZXQCAAAAAAAAAAAAAABQQURQQURQtAAAABAuAAAAAAAAAAAAACouAAAAIAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAcLgAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2796,14 +2724,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
 AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQAGYZMdAAABAAZhkx0/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+AAAAAAC9BO/+AAABAAAAAQD5TQIeAAABAPlNAh4/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
 RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
 AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
 MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
 AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
 AAAAAFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYANABm
 AGEAMwA4AGMAYwBjADEANgAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgA3ADUANwAxAC4AMgA0ADgAMwA4AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+LgA3ADYAOAAyAC4AMQA5ADkANgAxAAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
 AFMAVABfADcANQBmADMAZAA2ADgAMAA1AGIAZQAxADQAOQA0ADYAOABmADkANwAzADYAOAAzADAA
 ZAA1ADcAMgBlADcANgAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
 AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgAwAAAAKgABAAEATABlAGcAYQBsAFQA
@@ -2812,15 +2740,15 @@ AGEAbQBlAAAAUwBUAF8ANwA1AGYAMwBkADYAOAAwADUAYgBlADEANAA5ADQANgA4AGYAOQA3ADMA
 NgA4ADMAMABkADUANwAyAGUANwA2AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
 AGUAAAAAAFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYA
 NABmAGEAMwA4AGMAYwBjADEANgAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
-ADEALgAwAC4ANwA1ADcAMQAuADIANAA4ADMAOAAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
-VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA1ADcAMQAuADIANAA4ADMAOAAAAAAAAAAAAAAAAAAA
+ADEALgAwAC4ANwA2ADgAMgAuADEAOQA5ADYAMQAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA2ADgAMgAuADEAOQA5ADYAMQAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAAwPgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAA8PgAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -3183,7 +3111,7 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16
             int year = DateTime.Now.Year - 2;
             if (DateTime.Now.Day < 15 && DateTime.Now.Month < 3)
             {
-                year = year - 3;
+                year = DateTime.Now.Year - 3;
             }
             Dts.Variables["User::TwoYears"].Value = year;
             Dts.TaskResult = (int)ScriptResults.Success;
@@ -3213,7 +3141,7 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16
     <msb:CodeName>ST_80677de548384cc6a39e9a00f7016961</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_80677de548384cc6a39e9a00f7016961</msb:DisplayName>
-    <msb:ProjectId>{41096D5B-91E7-4CA3-AB1E-EBDBD39DACA5}</msb:ProjectId>
+    <msb:ProjectId>{6B6F95A3-B3D8-4D0A-9BD7-7DC8F3D2A7B2}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_80677de548384cc6a39e9a00f7016961.csproj" />
@@ -3335,77 +3263,77 @@ namespace ST_19ff6fecd57942708c99ef4fa38ccc16.Properties {
               <BinaryItem
                 Name="ST_80677de548384cc6a39e9a00f7016961.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAO81a18AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAALi4A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAHZ0/V8AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAOi4A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAANwtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAOgtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAANA4AAAAgAAAAEAAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAQA4AAAAgAAAAEAAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAQ
-LgAAAAAAAEgAAAACAAUAJCEAAAAMAAABAAAAAAAAACQtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBiAAAAAQAAESgQAAAKCxIBKBEAAAoYWQooEAAACgsS
-ASgSAAAKHw8vFCgQAAAKCxIBKBMAAAoZLwQGGVkKAigUAAAKbxUAAApyAQAAcG8WAAAKBowcAAAB
-bxcAAAoCKBQAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0ech8AAHDQAwAAAigbAAAK
-bxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKB4AAAoqLnMIAAAG
-gAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AMAACN+AABIBAAAqAUA
-ACNTdHJpbmdzAAAAAPAJAACUAAAAI1VTAIQKAAAQAAAAI0dVSUQAAACUCgAAbAEAACNCbG9iAAAA
-AAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAABAAAAHgAAAAIAAAAQ
-AAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAKkDAQAAAAAABgBYAoIEBgDnAoIE
-BgCkAW8EDwD2BAAABgDRAScEBgA7AicEBgAcAicEBgDOAicEBgB4AicEBgCRAicEBgDoAScEBgAD
-AhUDCgCsAlgDCgAjAVgDBgDFANoDBgDhA9oDBgCHAW8EBgBpBdoDBgBSBKIEBgA5BBIEDgBXAZMD
-DgC4AZMDDgA/Af0DBgBsAYIECgCBA1gDEgA4Bc4AEgCYAM4ABgAlANoDBgDuANoDBgChANoDBgCf
-BScEAAAAAE8AAAAAAAEAAQABABAA8gMrADkAAQABAAAAEACpBAUFSQABAAMAAAEQAEIFBQVdAAMA
-BwADAQAAWwUAAEEABAAKABEA5gNuABEAEwFyABEAiAB2AAYGdwB6AFaASwV9AFaA8wB9AFAgAAAA
-AIYA+AMGAAEAviAAAAAAhhhiBAYAAQDGIAAAAACDGGIEBgABAM4gAAAAAJMITgSBAAEA+iAAAAAA
-kwj7AIYAAQABIQAAAACTCAcBiwABAAkhAAAAAJYIcAWRAAIAECEAAAAAhhhiBAYAAgAYIQAAAACR
-GGgElgACAAAAAQAPAwkAYgQBABEAYgQGABkAYgQKACkAYgQQADEAYgQQADkAYgQQAEEAYgQQAEkA
-YgQQAFEAYgQQAFkAYgQQAGEAYgQQAGkAYgQGAIkAYgQGALEAYgQVAMEAYgQGAHkAiwUhAHkARQQm
-AHkAkwUmAHkALwMmAHEAUwUqAMkANAUvANEA0QM0ANkABQM6AMkAfAUBAHEAYgQGAJEAYgQGAOkA
-swA/AOkAmwVGAJkAYgRLALkAYgQGAAgAFABkAAgAGABpACkAcwDRAC4ACwCpAC4AEwCyAC4AGwDR
-AC4AIwDaAC4AKwADAS4AMwADAS4AOwADAS4AQwDaAC4ASwAJAS4AUwADAS4AWwAgAUMAYwBpAEkA
-cwDRAGEAewBpAGMAawBpABsAAwABAAQAAwAAAFIEmgAAABsBnwAAAHQFpAACAAQAAwACAAUABQAB
-AAYABQACAAcABwAEgAAAAQAAAJMdB2EAAAAAAAABAAAABAAAAAAAAAAAAAAAUgB/AAAAAAAOAAAA
-AAAAAAAAAABbADkDAAAAAAQAAAAAAAAAAAAAAFIA2gMAAAAADgAAAAAAAAAAAAAAWwBYAAAAAAAA
-AAAAAQAAALMEAAAFAAIAAAAAAABTVF84MDY3N2RlNTQ4Mzg0Y2M2YTM5ZTlhMDBmNzAxNjk2MQBJ
-bnQzMgBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNgA8TW9kdWxlPgBNaWNyb3Nv
-ZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFsdWVfXwBtc2NvcmxpYgBkZWZhdWx0SW5zdGFuY2UA
-VmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUARGF0ZVRpbWUATWlj
-cm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZhaWx1cmUAZ2V0X0N1bHR1cmUAc2V0
-X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1vZGVsQmFzZQBBcHBs
-aWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRl
-ZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1
-dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1i
-bHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29u
-ZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0
-aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5
-Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBBc3Nl
-bWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAc2V0X1Zh
-bHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAZ2V0X01vbnRoAE1pY3Jvc29mdC5T
-cWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5UYXNrcy5TY3JpcHRU
-YXNrAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTVF84MDY3N2RlNTQ4
-Mzg0Y2M2YTM5ZTlhMDBmNzAxNjk2MS5kbGwAZ2V0X0l0ZW0AU3lzdGVtAEVudW0AcmVzb3VyY2VN
-YW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBT
-eXN0ZW0uUmVmbGVjdGlvbgBDdWx0dXJlSW5mbwBnZXRfWWVhcgBnZXRfUmVzb3VyY2VNYW5hZ2Vy
-AC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJT
-ZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzE5ZmY2ZmVjZDU3OTQyNzA4Yzk5ZWY0ZmEzOGNj
-YzE2LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTVF8xOWZm
-NmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5Qcm9wZXJ0aWVzAGdldF9WYXJpYWJsZXMAU2V0
-dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2JqZWN0AGdldF9EZWZhdWx0AHNl
-dF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0X0RheQBnZXRfQXNzZW1ibHkAAB1VAHMAZQByADoAOgBU
-AHcAbwBZAGUAYQByAHMAAHFTAFQAXwAxADkAZgBmADYAZgBlAGMAZAA1ADcAOQA0ADIANwAwADgA
-YwA5ADkAZQBmADQAZgBhADMAOABjAGMAYwAxADYALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBl
-AHMAbwB1AHIAYwBlAHMAAAAAAAljyXFehsNOtmcYN8L1PxAABCABAQgDIAABBSABARERBCABAQ4F
-IAEBEVUFBwIIET0EAAARPQMgAAgEIAASZQQgABJpBSABEm0cBCABARwGAAESdRF5BCAAEn0GIAIB
-DhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEk0DBhJRAwYSEAIGCAMGERQEAAASTQQA
-ABJRBQABARJRBAAAEhADAAABBAgAEk0ECAASUQQIABIQCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9u
-RXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZh
-MzhjY2MxNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJAQAaLk5FVEZyYW1ld29yayxW
-ZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNQAA
-tAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2Nvcmxp
-YiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1
-YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAA
-AABQQURQQURQtAAAAAQuAAAAAAAAAAAAAB4uAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQLgAA
-AAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAc
+LgAAAAAAAEgAAAACAAUAMCEAAAAMAAABAAAAAAAAADAtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBuAAAAAQAAESgQAAAKCxIBKBEAAAoYWQooEAAACgsS
+ASgSAAAKHw8vICgQAAAKCxIBKBMAAAoZLxAoEAAACgsSASgRAAAKGVkKAigUAAAKbxUAAApyAQAA
+cG8WAAAKBowcAAABbxcAAAoCKBQAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0ech8A
+AHDQAwAAAigbAAAKbxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4C
+KB4AAAoqLnMIAAAGgAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AMA
+ACN+AABIBAAAqAUAACNTdHJpbmdzAAAAAPAJAACUAAAAI1VTAIQKAAAQAAAAI0dVSUQAAACUCgAA
+bAEAACNCbG9iAAAAAAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAAB
+AAAAHgAAAAIAAAAQAAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAKkDAQAAAAAA
+BgBYAoIEBgDnAoIEBgCkAW8EDwD2BAAABgDRAScEBgA7AicEBgAcAicEBgDOAicEBgB4AicEBgCR
+AicEBgDoAScEBgADAhUDCgCsAlgDCgAjAVgDBgDFANoDBgDhA9oDBgCHAW8EBgBpBdoDBgBSBKIE
+BgA5BBIEDgBXAZMDDgC4AZMDDgA/Af0DBgBsAYIECgCBA1gDEgA4Bc4AEgCYAM4ABgAlANoDBgDu
+ANoDBgChANoDBgCfBScEAAAAAE8AAAAAAAEAAQABABAA8gMrADkAAQABAAAAEACpBAUFSQABAAMA
+AAEQAEIFBQVdAAMABwADAQAAWwUAAEEABAAKABEA5gNuABEAEwFyABEAiAB2AAYGdwB6AFaASwV9
+AFaA8wB9AFAgAAAAAIYA+AMGAAEAyiAAAAAAhhhiBAYAAQDSIAAAAACDGGIEBgABANogAAAAAJMI
+TgSBAAEABiEAAAAAkwj7AIYAAQANIQAAAACTCAcBiwABABUhAAAAAJYIcAWRAAIAHCEAAAAAhhhi
+BAYAAgAkIQAAAACRGGgElgACAAAAAQAPAwkAYgQBABEAYgQGABkAYgQKACkAYgQQADEAYgQQADkA
+YgQQAEEAYgQQAEkAYgQQAFEAYgQQAFkAYgQQAGEAYgQQAGkAYgQGAIkAYgQGALEAYgQVAMEAYgQG
+AHkAiwUhAHkARQQmAHkAkwUmAHkALwMmAHEAUwUqAMkANAUvANEA0QM0ANkABQM6AMkAfAUBAHEA
+YgQGAJEAYgQGAOkAswA/AOkAmwVGAJkAYgRLALkAYgQGAAgAFABkAAgAGABpACkAcwDRAC4ACwCp
+AC4AEwCyAC4AGwDRAC4AIwDaAC4AKwADAS4AMwADAS4AOwADAS4AQwDaAC4ASwAJAS4AUwADAS4A
+WwAgAUMAYwBpAEkAcwDRAGEAewBpAGMAawBpABsAAwABAAQAAwAAAFIEmgAAABsBnwAAAHQFpAAC
+AAQAAwACAAUABQABAAYABQACAAcABwAEgAAAAQAAAAIeA04AAAAAAAABAAAABAAAAAAAAAAAAAAA
+UgB/AAAAAAAOAAAAAAAAAAAAAABbADkDAAAAAAQAAAAAAAAAAAAAAFIA2gMAAAAADgAAAAAAAAAA
+AAAAWwBYAAAAAAAAAAAAAQAAALMEAAAFAAIAAAAAAABTVF84MDY3N2RlNTQ4Mzg0Y2M2YTM5ZTlh
+MDBmNzAxNjk2MQBJbnQzMgBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNgA8TW9k
+dWxlPgBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFsdWVfXwBtc2NvcmxpYgBkZWZh
+dWx0SW5zdGFuY2UAVmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUA
+RGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZhaWx1cmUAZ2V0
+X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1v
+ZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21w
+aWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVn
+Z2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRy
+aWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRl
+AEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmli
+dXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmli
+dXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0
+dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRy
+aWJ1dGUAc2V0X1ZhbHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAZ2V0X01vbnRo
+AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5U
+YXNrcy5TY3JpcHRUYXNrAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABT
+VF84MDY3N2RlNTQ4Mzg0Y2M2YTM5ZTlhMDBmNzAxNjk2MS5kbGwAZ2V0X0l0ZW0AU3lzdGVtAEVu
+dW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xv
+YmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBDdWx0dXJlSW5mbwBnZXRfWWVhcgBnZXRfUmVz
+b3VyY2VNYW5hZ2VyAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRp
+bWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzE5ZmY2ZmVjZDU3OTQyNzA4
+Yzk5ZWY0ZmEzOGNjYzE2LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdN
+b2RlcwBTVF8xOWZmNmZlY2Q1Nzk0MjcwOGM5OWVmNGZhMzhjY2MxNi5Qcm9wZXJ0aWVzAGdldF9W
+YXJpYWJsZXMAU2V0dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2JqZWN0AGdl
+dF9EZWZhdWx0AHNldF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0X0RheQBnZXRfQXNzZW1ibHkAAB1V
+AHMAZQByADoAOgBUAHcAbwBZAGUAYQByAHMAAHFTAFQAXwAxADkAZgBmADYAZgBlAGMAZAA1ADcA
+OQA0ADIANwAwADgAYwA5ADkAZQBmADQAZgBhADMAOABjAGMAYwAxADYALgBQAHIAbwBwAGUAcgB0
+AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAADRBY94HlzNMv6UPKCztjbQABCABAQgDIAAB
+BSABARERBCABAQ4FIAEBEVUFBwIIET0EAAARPQMgAAgEIAASZQQgABJpBSABEm0cBCABARwGAAES
+dRF5BCAAEn0GIAIBDhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEk0DBhJRAwYSEAIG
+CAMGERQEAAASTQQAABJRBQABARJRBAAAEhADAAABBAgAEk0ECAASUQQIABIQCAEACAAAAAAAHgEA
+AQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF8xOWZmNmZlY2Q1Nzk0
+MjcwOGM5OWVmNGZhMzhjY2MxNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJAQAaLk5F
+VEZyYW1ld29yayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJh
+bWV3b3JrIDQuNQAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVh
+ZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tl
+eVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VT
+ZXQCAAAAAAAAAAAAAABQQURQQURQtAAAABAuAAAAAAAAAAAAACouAAAAIAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAcLgAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -3416,14 +3344,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
 AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQAHYZMdAAABAAdhkx0/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+AAAAAAC9BO/+AAABAAAAAQADTgIeAAABAANOAh4/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
 RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
 AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
 MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
 AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
 AAAAAFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYANABm
 AGEAMwA4AGMAYwBjADEANgAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgA3ADUANwAxAC4AMgA0ADgAMwA5AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+LgA3ADYAOAAyAC4AMQA5ADkANwAxAAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
 AFMAVABfADgAMAA2ADcANwBkAGUANQA0ADgAMwA4ADQAYwBjADYAYQAzADkAZQA5AGEAMAAwAGYA
 NwAwADEANgA5ADYAMQAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
 AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgAwAAAAKgABAAEATABlAGcAYQBsAFQA
@@ -3432,15 +3360,15 @@ AGEAbQBlAAAAUwBUAF8AOAAwADYANwA3AGQAZQA1ADQAOAAzADgANABjAGMANgBhADMAOQBlADkA
 YQAwADAAZgA3ADAAMQA2ADkANgAxAC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
 AGUAAAAAAFMAVABfADEAOQBmAGYANgBmAGUAYwBkADUANwA5ADQAMgA3ADAAOABjADkAOQBlAGYA
 NABmAGEAMwA4AGMAYwBjADEANgAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
-ADEALgAwAC4ANwA1ADcAMQAuADIANAA4ADMAOQAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
-VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA1ADcAMQAuADIANAA4ADMAOQAAAAAAAAAAAAAAAAAA
+ADEALgAwAC4ANwA2ADgAMgAuADEAOQA5ADcAMQAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA2ADgAMgAuADEAOQA5ADcAMQAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAAwPgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAA8PgAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -3521,90 +3449,74 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,42"
+          Size="152,41.6"
           Id="Package\Delay container\5 Second Delay"
           TopLeft="35,24" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="228,121"
+          PanelSize="228,120.8"
           Size="228,164"
           Id="Package\Delay container"
           TopLeft="34.055553804673,56.199998357296" />
         <NodeLayout
-          Size="136,42"
-          Id="Package\Økonomi\Les SSB_12177 Økonomisk oversikt balanse, etter balansedata"
-          TopLeft="2.85416159113197,9.23809637824689" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\Økonomi\Les SSB_12320 Økonomisk oversikt investering, etter art"
-          TopLeft="165.854161591132,10.2380963782469" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\Økonomi\Les SSB_12328 Økonomisk oversikt drift, etter art"
-          TopLeft="311.854161591132,11.238096378247" />
-        <NodeLayout
-          Size="132,42"
-          Id="Package\Økonomi\Les SSB_12362 Utgifter til tjenesteområdene, funksjon, art"
-          TopLeft="169.520828257798,77.029762240996" />
-        <NodeLayout
-          Size="159,65"
+          Size="159.2,64.8"
           Id="Package\Økonomi\Les SSB_12364 Finansielle grunnlagsdata, regnskapsbegrep"
-          TopLeft="4.10416159734041,68.596428915411" />
+          TopLeft="4.92048814185472,68.596428915411" />
         <NodeLayout
-          Size="528,42"
+          Size="528,41.6"
           Id="Package\Økonomi\Les SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art 2015"
           TopLeft="5.5,407" />
         <NodeLayout
-          Size="528,42"
+          Size="528,41.6"
           Id="Package\Økonomi\Les SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art 2016"
-          TopLeft="9.5,352" />
+          TopLeft="11.1326530890286,352" />
         <NodeLayout
-          Size="528,42"
+          Size="528,41.6"
           Id="Package\Økonomi\Les SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art 2017"
-          TopLeft="7.5,298" />
+          TopLeft="9.94897963354282,298" />
         <NodeLayout
-          Size="528,42"
+          Size="528,41.6"
           Id="Package\Økonomi\Les SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art 2018"
-          TopLeft="6.64583840886803,246" />
+          TopLeft="8.2784914978966,246" />
         <NodeLayout
-          Size="515,42"
+          Size="515.2,41.6"
           Id="Package\Økonomi\Les SSB_12367 Detaljerte regnskapstall driftsregnskapet, regnskapsomfang, funksjon, art 2019"
-          TopLeft="12.5,183.5" />
+          TopLeft="13.3163265445143,183.5" />
         <NodeLayout
-          Size="185,42"
+          Size="184.8,41.6"
           Id="Package\Økonomi\Script Task Five Years"
           TopLeft="576.5,405.033331690629" />
         <NodeLayout
-          Size="185,42"
+          Size="184.8,41.6"
           Id="Package\Økonomi\Script Task Four Years"
-          TopLeft="575.833333333333,348.699998357296" />
+          TopLeft="577.465986422362,348.699998357296" />
         <NodeLayout
-          Size="186,42"
+          Size="185.6,41.6"
           Id="Package\Økonomi\Script Task Last Year"
-          TopLeft="573,185.333333333333" />
+          TopLeft="576.265306178057,186.207282925422" />
         <NodeLayout
-          Size="191,42"
+          Size="191.2,41.6"
           Id="Package\Økonomi\Script Task Three Years"
-          TopLeft="571.166666666667,296.366665023963" />
+          TopLeft="575.248299389238,296.366665023963" />
         <NodeLayout
-          Size="188,42"
+          Size="188,41.6"
           Id="Package\Økonomi\Script Task Two Years"
-          TopLeft="572.5,241.699998357296" />
+          TopLeft="574.132653089029,242.573947949385" />
         <EdgeLayout
           Id="Package\Økonomi.PrecedenceConstraints[Constraint]"
-          TopLeft="573,205.416666666667">
+          TopLeft="576.265306178057,205.653641462711">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-45.5,0"
+              EndConnector="-47.7489796335425,0"
               Start="0,0"
-              End="-38,0">
+              End="-40.2489796335425,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-38,0" />
+                    End="-40.2489796335425,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3615,18 +3527,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Økonomi.PrecedenceConstraints[Constraint 1]"
-          TopLeft="572.5,264.849999178648">
+          TopLeft="574.132653089029,265.086973974692">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-37.854161591132,0"
+              EndConnector="-37.8541615911321,0"
               Start="0,0"
-              End="-30.354161591132,0">
+              End="-30.3541615911321,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-30.354161591132,0" />
+                    End="-30.3541615911321,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3637,18 +3549,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Økonomi.PrecedenceConstraints[Constraint 2]"
-          TopLeft="571.166666666667,318.183332511981">
+          TopLeft="575.248299389238,317.983332511981">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-35.6666666666667,0"
+              EndConnector="-37.2993197556954,0"
               Start="0,0"
-              End="-28.1666666666667,0">
+              End="-29.7993197556954,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-28.1666666666667,0" />
+                    End="-29.7993197556954,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3659,7 +3571,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Økonomi.PrecedenceConstraints[Constraint 3]"
-          TopLeft="575.833333333333,371.349999178648">
+          TopLeft="577.465986422362,371.349999178648">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3704,8 +3616,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="803,504"
-          Size="803,547"
+          PanelSize="803.2,504"
+          Size="803.2,547.2"
           Id="Package\Økonomi"
           TopLeft="342.701392213541,9.69999835729601" />
         <EdgeLayout
@@ -3714,9 +3626,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="80.645838408868,145"
+              EndConnector="80.645838408868,145.1"
               Start="0,0"
-              End="73.145838408868,145">
+              End="73.145838408868,145.1">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3727,13 +3639,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                     Point2="40.322919204434,0"
                     Point3="40.322919204434,4" />
                   <mssgle:LineSegment
-                    End="40.322919204434,141" />
+                    End="40.322919204434,141.1" />
                   <mssgle:CubicBezierSegment
-                    Point1="40.322919204434,141"
-                    Point2="40.322919204434,145"
-                    Point3="44.322919204434,145" />
+                    Point1="40.322919204434,141.1"
+                    Point2="40.322919204434,145.1"
+                    Point3="44.322919204434,145.1" />
                   <mssgle:LineSegment
-                    End="73.145838408868,145" />
+                    End="73.145838408868,145.1" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
