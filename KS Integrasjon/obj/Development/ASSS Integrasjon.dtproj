@@ -3282,10 +3282,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Økonomi</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">408</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">409</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{09610ACF-12B2-42F2-82A4-7EFF7CAA28BA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0D4BF33B-9FB6-4CA8-83D6-65AA2932A5BC}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
