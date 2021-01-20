@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Økonomi"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="407"
-  DTS:VersionGUID="{B990A6FD-A55A-4225-8CE9-9D9488CEC096}">
+  DTS:VersionBuild="408"
+  DTS:VersionGUID="{09610ACF-12B2-42F2-82A4-7EFF7CAA28BA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -151,7 +151,6 @@
           DTS:refId="Package\Økonomi\Les SSB_12364 Finansielle grunnlagsdata, regnskapsbegrep"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{9611335B-8847-4CD5-94EF-31F1A825DD86}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
