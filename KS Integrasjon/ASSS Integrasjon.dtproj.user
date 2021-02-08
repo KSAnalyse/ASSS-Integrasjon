@@ -8,7 +8,7 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
-        <ServerName>vk-sxd0e-003</ServerName>
+        <ServerName>vk-sxd0e-002</ServerName>
         <PathOnServer>/SSISDB/ASSS/ASSS Integrasjon</PathOnServer>
         <UserIDs />
         <UserPasswords />
