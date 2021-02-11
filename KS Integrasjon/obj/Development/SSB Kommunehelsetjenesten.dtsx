@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Kommunehelsetjenesten"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="281"
-  DTS:VersionGUID="{1AE9FD78-E881-4CB5-B846-4D5CD100444B}">
+  DTS:VersionBuild="282"
+  DTS:VersionGUID="{B6F5D060-807B-4C71-A834-6CB42A3069FB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -93,7 +93,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11993 Aktivitet i helsestasjons- og skolehelsetjenesten, etter helsekontroller"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -110,7 +110,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11994 Helsestasjons- og skolehelsetjenesteårsverk, etter utdanning"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -127,7 +127,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11995 Fysioterapeutårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -145,7 +145,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12209 Utvalgte nøkkeltall for helse og omsorg"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -174,7 +174,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -191,7 +191,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12005 Fastlegelister og fastlegekonsultasjoner"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -208,12 +208,12 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12191'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA; -- Declares&#xA; declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA; declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA; &#xA; -- Inserts&#xA; insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA; insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA; RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA; set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  dat.Variabel ,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat&#xA;Join @m met&#xA;ON dat.Variabel = met.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12191'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA; -- Declares&#xA; declare @t table(Kommunenummer varchar(50), Variabel varchar(50),År Int,Verdi numeric(18,4))&#xA; declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA; &#xA; -- Inserts&#xA; insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA; insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA; RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA; set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall]&#xA;&#xA;Select dat.Kommunenummer,&#xA;  [Variabel] = case&#xA;&#x9;&#x9;when dat.Variabel = 'KOSfysiotimperbe0000' Then 'KHTKOSfysiotimperbe0000'&#xA;&#x9;&#x9;else dat.Variabel&#xA;&#x9;End,&#xA;  met.Variabelnavn,&#xA;  dat.År, &#xA;  dat.Verdi&#xA; &#xA;&#xA;from @t dat&#xA;Join @m met&#xA;ON dat.Variabel = met.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -270,6 +270,17 @@
           Id="Package\Delay Container"
           TopLeft="35.488073389262,365.042763290797" />
         <NodeLayout
+          Size="152,41.6"
+          Id="Package\Delay Container 2\5 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,109.6"
+          Size="228,152.8"
+          Id="Package\Delay Container 2"
+          TopLeft="23.6285708568535,686.282357413382" />
+        <NodeLayout
           Size="286.4,41.6"
           Id="Package\Kommunehelsetjenesten\Les SSB_11993 Aktivitet i helsestasjons- og skolehelsetjenesten, etter helsekontroller"
           TopLeft="54.1116779424472,10.3000005578995" />
@@ -292,6 +303,25 @@
           Size="392,328.8"
           Id="Package\Kommunehelsetjenesten"
           TopLeft="400.488073321142,276.548646085597" />
+        <NodeLayout
+          Size="296,60.8"
+          Id="Package\Kommunehelsetjenesten 1\Les SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
+          TopLeft="46.325963977564,32.6803893747922" />
+        <NodeLayout
+          Size="233.6,41.6"
+          Id="Package\Kommunehelsetjenesten 1\Les SSB_12005 Fastlegelister og fastlegekonsultasjoner"
+          TopLeft="75.7783448184398,114.052938118372" />
+        <NodeLayout
+          Size="242.4,53.6"
+          Id="Package\Kommunehelsetjenesten 1\Les SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall"
+          TopLeft="83.706917303777,179.76078150353" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="397.6,288"
+          Size="397.6,331.2"
+          Id="Package\Kommunehelsetjenesten 1"
+          TopLeft="402.14286399131,671.000008204404" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="290.688073389262,441.995704688197">
@@ -314,36 +344,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\Delay Container 2\5 Second Delay"
-          TopLeft="22,13" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="228,109.6"
-          Size="228,152.8"
-          Id="Package\Delay Container 2"
-          TopLeft="23.6285708568535,686.282357413382" />
-        <NodeLayout
-          Size="296,60.8"
-          Id="Package\Kommunehelsetjenesten 1\Les SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
-          TopLeft="46.325963977564,32.6803893747922" />
-        <NodeLayout
-          Size="233.6,41.6"
-          Id="Package\Kommunehelsetjenesten 1\Les SSB_12005 Fastlegelister og fastlegekonsultasjoner"
-          TopLeft="75.7783448184398,114.052938118372" />
-        <NodeLayout
-          Size="214.4,60.8"
-          Id="Package\Kommunehelsetjenesten 1\Les SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall"
-          TopLeft="83.706917303777,179.76078150353" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="392,280"
-          Size="392,323.2"
-          Id="Package\Kommunehelsetjenesten 1"
-          TopLeft="402.14286399131,671.000008204404" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="596.488073321142,605.348646085597">
@@ -382,30 +382,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="251.628570856853,762.682357413382">
+          TopLeft="251.628570856854,762.682357413382">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="150.514293134456,69.9176507910228"
+              EndConnector="150.514293134457,73.9176507910221"
               Start="0,0"
-              End="143.014293134456,69.9176507910228">
+              End="143.014293134457,73.9176507910221">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="71.2571465672281,0" />
+                    End="71.2571465672283,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="71.2571465672281,0"
-                    Point2="75.2571465672281,0"
-                    Point3="75.2571465672281,4" />
+                    Point1="71.2571465672283,0"
+                    Point2="75.2571465672283,0"
+                    Point3="75.2571465672283,4" />
                   <mssgle:LineSegment
-                    End="75.2571465672281,65.9176507910228" />
+                    End="75.2571465672283,69.9176507910221" />
                   <mssgle:CubicBezierSegment
-                    Point1="75.2571465672281,65.9176507910228"
-                    Point2="75.2571465672281,69.9176507910228"
-                    Point3="79.2571465672281,69.9176507910228" />
+                    Point1="75.2571465672283,69.9176507910221"
+                    Point2="75.2571465672283,73.9176507910221"
+                    Point3="79.2571465672283,73.9176507910221" />
                   <mssgle:LineSegment
-                    End="143.014293134456,69.9176507910228" />
+                    End="143.014293134457,73.9176507910221" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
