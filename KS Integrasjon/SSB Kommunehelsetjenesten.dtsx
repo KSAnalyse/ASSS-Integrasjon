@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Kommunehelsetjenesten"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="283"
-  DTS:VersionGUID="{FBDC3954-BCEB-4564-9EF1-F791CF6F1BE3}">
+  DTS:VersionBuild="284"
+  DTS:VersionGUID="{F11575CC-F4A3-4021-A498-1B0DA9C1378B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -314,7 +314,7 @@
         <NodeLayout
           Size="242.4,53.6"
           Id="Package\Kommunehelsetjenesten 1\Les SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall"
-          TopLeft="83.706917303777,179.76078150353" />
+          TopLeft="84.2783458849369,179.76078150353" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -386,26 +386,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="150.514293134457,73.9176507910221"
+              EndConnector="150.514293134456,73.9176507910221"
               Start="0,0"
-              End="143.014293134457,73.9176507910221">
+              End="143.014293134456,73.9176507910221">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="71.2571465672283,0" />
+                    End="71.2571465672282,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="71.2571465672283,0"
-                    Point2="75.2571465672283,0"
-                    Point3="75.2571465672283,4" />
+                    Point1="71.2571465672282,0"
+                    Point2="75.2571465672282,0"
+                    Point3="75.2571465672282,4" />
                   <mssgle:LineSegment
-                    End="75.2571465672283,69.9176507910221" />
+                    End="75.2571465672282,69.9176507910221" />
                   <mssgle:CubicBezierSegment
-                    Point1="75.2571465672283,69.9176507910221"
-                    Point2="75.2571465672283,73.9176507910221"
-                    Point3="79.2571465672283,73.9176507910221" />
+                    Point1="75.2571465672282,69.9176507910221"
+                    Point2="75.2571465672282,73.9176507910221"
+                    Point3="79.2571465672282,73.9176507910221" />
                   <mssgle:LineSegment
-                    End="143.014293134457,73.9176507910221" />
+                    End="143.014293134456,73.9176507910221" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
