@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="VK-C0D0E-054"
   DTS:CreatorName="I04\vk300"
-  DTS:DTSID="{E8077B44-6FD5-4D37-8072-70956B9CC444}"
+  DTS:DTSID="{880E79C4-77AA-4362-9AC8-CFB1A267D55B}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1044"
   DTS:ObjectName="Insert Data"
   DTS:PackageType="5"
-  DTS:VersionBuild="204"
-  DTS:VersionGUID="{3619B953-0758-4385-AC9F-A33F752F8FB3}">
+  DTS:VersionBuild="207"
+  DTS:VersionGUID="{19E1E6D1-94F8-4870-BE14-567450EA7B81}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -55,8 +55,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="TableNumber">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">12611</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -1401,7 +1400,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SSB_Lag_Tabell_v2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1432,7 +1431,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:LocaleID="-1"
       DTS:ObjectName="Get columndeclarations"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1474,7 +1473,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Script Task"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <ScriptProject
@@ -2193,7 +2192,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="174.857145834943,229.411767923296" />
+          TopLeft="177.142860159583,228.188238494372" />
         <NodeLayout
           Size="162.4,89.6"
           Id="Package\Execute SSB_Lag_Tabell_v2"

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/17/2020 12:58:03 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1044"
   DTS:ObjectName="Lokale data - Barnevern test"
   DTS:PackageType="5"
-  DTS:VersionBuild="176"
-  DTS:VersionGUID="{F9DBECD5-2B41-4484-96E8-B991E3FEA938}">
+  DTS:VersionBuild="179"
+  DTS:VersionGUID="{956B2417-4EE8-4FED-8D26-74FB50E436C6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,6 +29,30 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{F70009CA-5958-4B4E-A4A9-38D89F226323}"
+      DTS:ObjectName="Filepath"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{15276C05-C783-4D50-BED5-4DD24FE4ECEC}"
+      DTS:ObjectName="Tablename"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -1748,14 +1772,14 @@ and [refTable].[År] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="180,43"
+          Size="180,43.2"
           Id="Package\Foreach Loop Container\Les inn data fra excel"
           TopLeft="33.499996510645,20.7999973034859" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="241,123"
-          Size="241,166"
+          PanelSize="240.8,123.2"
+          Size="240.8,166.4"
           Id="Package\Foreach Loop Container"
           TopLeft="201.249997001142,87.5333317681154" />
       </GraphLayout>
@@ -1767,62 +1791,74 @@ and [refTable].[År] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="173,43"
+          Size="172.8,43.2"
           Id="Package\Foreach Loop Container\Les inn data fra excel\Sammenlign verdier"
           TopLeft="350.605153505735,246.215869078106" />
         <NodeLayout
-          Size="263,43"
+          Size="263.2,43.2"
           Id="Package\Foreach Loop Container\Les inn data fra excel\Sjekk rader opp mot tabell i databasen"
-          TopLeft="574.057531128415,159.234520962188" />
+          TopLeft="460.686100435548,178.199227110514" />
         <NodeLayout
-          Size="141,43"
+          Size="140.8,43.2"
           Id="Package\Foreach Loop Container\Les inn data fra excel\Fjern Mal rad"
-          TopLeft="631.944435027739,73.0527764714925" />
+          TopLeft="493.087289805873,108.535129910296" />
         <NodeLayout
-          Size="183,43"
+          Size="183.2,43.2"
           Id="Package\Foreach Loop Container\Les inn data fra excel\Sjekk etter nullverdier"
           TopLeft="608.035705225275,242.976186131437" />
         <NodeLayout
-          Size="164,43"
+          Size="164,43.2"
           Id="Package\Foreach Loop Container\Les inn data fra excel\Destinasjonstabell"
-          TopLeft="297.331344775767,159.265473342587" />
+          TopLeft="237.331343753973,170.277238202905" />
         <NodeLayout
-          Size="180,43"
+          Size="180,43.2"
           Id="Package\Foreach Loop Container\Les inn data fra excel\Oppdater nye verdier"
           TopLeft="343.373010756359,325.734917003777" />
         <NodeLayout
-          Size="189,73"
+          Size="188.8,72.8"
           Id="Package\Foreach Loop Container\Les inn data fra excel\Oppdater nye verdier uten sammenligning"
           TopLeft="609.082332222191,321.623010990472" />
         <NodeLayout
-          Size="157,43"
+          Size="156.8,43.2"
           Id="Package\Foreach Loop Container\Les inn data fra excel\Data Conversion"
-          TopLeft="618.020824124105,7.72777763959473" />
+          TopLeft="484.877964713839,30.9748367891554" />
         <NodeLayout
-          Size="139,42"
+          Size="139.2,41.6"
           Id="Package\Foreach Loop Container\Les inn data fra excel\Excel Source"
-          TopLeft="281,17" />
+          TopLeft="313.000000544957,32.9058825760152" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Les inn data fra excel.Paths[Uten malrad]"
-          TopLeft="704.000983078077,115.719443138159">
+          TopLeft="563.487289805873,151.735129910296">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.5150778240292"
+              EndConnector="28.7988106296746,26.4640972002182"
               Start="0,0"
-              End="0,36.0150778240292">
+              End="28.7988106296746,18.9640972002182">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.0150778240292" />
+                    End="0,9.2320486001091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.2320486001091"
+                    Point2="0,13.2320486001091"
+                    Point3="4,13.2320486001091" />
+                  <mssgle:LineSegment
+                    End="24.7988106296746,13.2320486001091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.7988106296746,13.2320486001091"
+                    Point2="28.7988106296746,13.2320486001091"
+                    Point3="28.7988106296746,17.2320486001091" />
+                  <mssgle:LineSegment
+                    End="28.7988106296746,18.9640972002182" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-27.43693359375,13.1330271932646,54.8738671875,9.7490234375"
+              BoundingBox="-13.0375282789127,18.2320486001091,54.8738671875,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1876,25 +1912,31 @@ and [refTable].[År] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container\Les inn data fra excel.Paths[Matchende rader]"
-          TopLeft="702.379951510178,201.901187628855">
+          TopLeft="723.886100435548,199.799227110514">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41.0749985025819"
+              EndConnector="-24.2503952102726,43.1769590209232"
               Start="0,0"
-              End="0,33.5749985025819">
+              End="-24.2503952102726,35.6769590209232">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5749985025819" />
+                    End="-20.2503952102726,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.2503952102726,0"
+                    Point2="-24.2503952102726,0"
+                    Point3="-24.2503952102726,4" />
+                  <mssgle:LineSegment
+                    End="-24.2503952102726,35.6769590209232" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-37.85369140625,11.9129875325409,75.7073828125,9.7490234375"
+              BoundingBox="-62.1040866165226,-15.7490234375,75.7073828125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1924,54 +1966,42 @@ and [refTable].[År] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container\Les inn data fra excel.Paths[Ikke matchende rader]"
-          TopLeft="574.057531128415,180.583330485721">
+          TopLeft="460.686100435548,195.838232656709">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-112.726186352648,0"
+              EndConnector="-59.3547566815746,0"
               Start="0,0"
-              End="-105.226186352648,0">
+              End="-51.8547566815746,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-105.226186352648,0" />
+                    End="-51.8547566815746,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-101.993386145074,5,98.7605859375,9.7490234375"
+              BoundingBox="-75.3076713095373,5,98.7605859375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container\Les inn data fra excel.Paths[Excel Source Output]"
-          TopLeft="420,38">
+          TopLeft="452.200000544957,53.1403596825853">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="198.020824124105,-14.6055556937386"
+              EndConnector="32.6779641688821,0"
               Start="0,0"
-              End="190.520824124105,-14.6055556937386">
+              End="25.1779641688821,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="110.550162834124,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="110.550162834124,0"
-                    Point2="114.550162834124,0"
-                    Point3="114.550162834124,-4" />
-                  <mssgle:LineSegment
-                    End="114.550162834124,-10.6055556937386" />
-                  <mssgle:CubicBezierSegment
-                    Point1="114.550162834124,-10.6055556937386"
-                    Point2="114.550162834124,-14.6055556937386"
-                    Point3="118.550162834124,-14.6055556937386" />
-                  <mssgle:LineSegment
-                    End="190.520824124105,-14.6055556937386" />
+                    End="25.1779641688821,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1982,18 +2012,18 @@ and [refTable].[År] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container\Les inn data fra excel.Paths[Data Conversion Output]"
-          TopLeft="699.649296242588,50.3944443062614">
+          TopLeft="563.382627259856,74.1748367891554">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,22.6583321652311"
+              EndConnector="0,34.3602931211402"
               Start="0,0"
-              End="0,15.1583321652311">
+              End="0,26.8602931211402">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.1583321652311" />
+                    End="0,26.8602931211402" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2021,7 +2051,7 @@ and [refTable].[År] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
