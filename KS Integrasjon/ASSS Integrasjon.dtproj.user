@@ -10,6 +10,7 @@
         <WinAuthDomain />
         <ServerName>vk-sxd0e-002</ServerName>
         <PathOnServer>/SSISDB/ASSS/ASSS Integrasjon</PathOnServer>
+        <Run64BitRuntime>false</Run64BitRuntime>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
