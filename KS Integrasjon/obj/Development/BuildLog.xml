@@ -2,168 +2,168 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ASSS Integrasjon</Name>
-    <LastWriteTime>2021-02-17T12:08:01.3315858Z</LastWriteTime>
+    <LastWriteTime>2021-02-17T12:31:59.4465049Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Deploy.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.8856352Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4475161Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Barnehager.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.8986353Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4574769Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Barnevern.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.8996374Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4594714Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - PAI.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.9046374Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4654558Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Pleie og omsorg.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.9056396Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4664532Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Samferdsel.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.9056396Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4664532Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Sosiale Tjenester.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.9066349Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4674494Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Tabelloversikt.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.9096362Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4694445Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - TTU.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.9076385Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4684491Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Barnevern test.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.8986353Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4584741Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Grunnskole.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.9016381Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4614674Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Kommunehelse.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.9026377Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4624634Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - PAI auto.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.9036384Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4644586Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Barnehager v2.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.8976371Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4564803Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Barnehager v2 Dynamisk excel test.dtsx</Name>
-      <LastWriteTime>2021-02-05T14:19:20.8946785Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4554804Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Areal- og samfunnsplanlegging.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:05:31.5588808Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4754291Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnehage.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:05:31.5626455Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.476426Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnevern.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:05:31.5661726Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.476426Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Byggeareal.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:05:31.5687775Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4774254Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Eiendomsforvaltning.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:05:31.5722236Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4794182Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Grunnskole.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:05:31.5775243Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4804152Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Kommunehelsetjenesten.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:45:24.1063373Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.481413Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Miljøforvaltning.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:05:31.5831089Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.481413Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Pleie og omsorg.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:05:31.5866449Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4824094Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Profil.dtsx</Name>
-      <LastWriteTime>2021-02-17T12:05:17.2710334Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4834083Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Regioner.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:05:31.5922806Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4844049Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Samferdsel.dtsx</Name>
-      <LastWriteTime>2021-02-17T12:05:17.2730284Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4844049Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Sosiale Tjenester.dtsx</Name>
-      <LastWriteTime>2021-02-12T09:05:31.5987879Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4854033Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Økonomi.dtsx</Name>
-      <LastWriteTime>2021-02-17T12:05:17.2770183Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4883951Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Økonomi 12367.dtsx</Name>
-      <LastWriteTime>2021-02-17T12:05:17.2760202Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4873972Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Les mappe.dtsx</Name>
-      <LastWriteTime>2021-02-17T12:26:30.3390027Z</LastWriteTime>
+      <LastWriteTime>2021-02-18T12:00:38.0681572Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Start les mappe.dtsx</Name>
-      <LastWriteTime>2021-02-17T12:28:20.5537413Z</LastWriteTime>
+      <LastWriteTime>2021-02-17T12:31:59.4674494Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
