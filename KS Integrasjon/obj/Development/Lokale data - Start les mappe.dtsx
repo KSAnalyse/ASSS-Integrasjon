@@ -12,8 +12,8 @@
   DTS:ObjectName="Lokale data - Start les mappe"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{D3497F1F-564E-46E5-90AC-779020E96918}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{16DA835F-FE83-4F91-9169-01BCFA90DE4D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -24,7 +24,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Foldername">
       <DTS:VariableValue
-        DTS:DataType="8">BNV01 Enslige mindreårige</DTS:VariableValue>
+        DTS:DataType="8">BNV02 Tiltak etter aldergrupper og type tiltak</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -42,7 +42,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Rootfolder">
       <DTS:VariableValue
-        DTS:DataType="8">Z:\Utvekslingsfiler\ASSS\Barnevern\BNV02 Tiltak i ulike aldersgrupper</DTS:VariableValue>
+        DTS:DataType="8">Y:\Utvekslingsfiler\ASSS\Barnevern\BNV02 Tiltak etter aldergrupper og type tiltak</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
