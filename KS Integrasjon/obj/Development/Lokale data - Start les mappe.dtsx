@@ -12,8 +12,8 @@
   DTS:ObjectName="Lokale data - Start les mappe"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{16DA835F-FE83-4F91-9169-01BCFA90DE4D}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{8C4A1403-2C6C-4EBA-B57D-E6D7D1235FE6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -42,7 +42,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Rootfolder">
       <DTS:VariableValue
-        DTS:DataType="8">Y:\Utvekslingsfiler\ASSS\Barnevern\BNV02 Tiltak etter aldergrupper og type tiltak</DTS:VariableValue>
+        DTS:DataType="8">Z:\Utvekslingsfiler\ASSS\Barnevern\BNV02 Tiltak etter aldergrupper og type tiltak</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -94,7 +94,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="183,42"
+          Size="183.2,41.6"
           Id="Package\Execute Package Task"
           TopLeft="338,193" />
       </GraphLayout>
