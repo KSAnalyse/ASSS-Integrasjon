@@ -12,8 +12,8 @@
   DTS:ObjectName="Lokale data - Start les mappe"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{401FF3E4-7584-459C-BE2A-7D8FE18B6856}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{E62C0924-5D0F-4A07-82B2-4B056852FFE4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -94,7 +94,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="183,42"
+          Size="183.2,41.6"
           Id="Package\Execute Package Task"
           TopLeft="338,193" />
       </GraphLayout>
