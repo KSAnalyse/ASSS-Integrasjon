@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ASSS Integrasjon</Name>
-    <LastWriteTime>2021-02-17T11:58:47.8050124Z</LastWriteTime>
+    <LastWriteTime>2021-03-03T14:28:43.7309359Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -148,22 +148,27 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Økonomi.dtsx</Name>
-      <LastWriteTime>2021-02-17T12:31:59.4883951Z</LastWriteTime>
+      <LastWriteTime>2021-03-04T09:21:48.3818633Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Økonomi 12367.dtsx</Name>
-      <LastWriteTime>2021-03-02T11:50:38.6035469Z</LastWriteTime>
+      <LastWriteTime>2021-03-04T09:21:46.6294138Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Les mappe.dtsx</Name>
-      <LastWriteTime>2021-02-25T14:05:21.2198566Z</LastWriteTime>
+      <LastWriteTime>2021-03-03T13:28:15.1622324Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Lokale data - Start les mappe.dtsx</Name>
-      <LastWriteTime>2021-02-25T12:42:56.5239635Z</LastWriteTime>
+      <LastWriteTime>2021-03-03T13:28:15.1622324Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>UDIR Barnehage.dtsx</Name>
+      <LastWriteTime>2021-03-03T14:28:40.9901024Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
