@@ -12,8 +12,8 @@
   DTS:ObjectName="UDIR Barnehage"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{D7C40107-6445-473E-8A53-CF107DEF4F23}">
+  DTS:VersionBuild="106"
+  DTS:VersionGUID="{734E18E2-2C1D-47B5-9570-9F3F469D1ECB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -60,7 +60,7 @@
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select 1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -69,6 +69,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Data Flow Task\OLE DB Command.Connections[OleDbConnection]"
+                      connectionManagerID="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Staging_ASSS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -116,11 +118,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Sequence Container\Data Flow Task\Script Component"
+                  refId="Package\Sequence Container\Data Flow Task\Script Component 1"
                   componentClassID="Microsoft.ManagedComponentHost"
                   contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;11"
                   description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
-                  name="Script Component"
+                  name="Script Component 1"
                   version="11">
                   <properties>
                     <property
@@ -130,7 +132,7 @@
                       name="SourceCode"
                       state="cdata">
                       <arrayElements
-                        arrayElementCount="30">
+                        arrayElementCount="33">
                         <arrayElement
                           dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
                         <arrayElement
@@ -204,6 +206,14 @@ public class Connections
     public Connections(ScriptComponent Component)
     {
         ParentComponent = Component;
+    }
+
+    public IDTSConnectionManager100 Connection
+    {
+        get
+        {
+            return ParentComponent.ComponentMetaData.RuntimeConnectionCollection.GetRuntimeConnectionByName(@"Connection").ConnectionManager;
+        }
     }
 
 }
@@ -356,9 +366,17 @@ public class Variables
 
 #region Namespaces
 using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Data;
-using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
-using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Text;
+using Newtonsoft.Json;
+using System.Data.SqlClient;
 #endregion
 
 /// <summary>
@@ -367,7 +385,23 @@ using Microsoft.SqlServer.Dts.Runtime.Wrapper;
 /// </summary>
 /// 
 
+public class Data
+{
+    public Data(string kommunenummer, string variabelnavn, string kilde, decimal verdi, int år)
+    {
+        Kommunenummer = kommunenummer;
+        Variabelnavn = variabelnavn;
+        Kilde = kilde;
+        Verdi = verdi;
+        År = år;
+    }
 
+    public string Kommunenummer { get; set; }
+    public string Variabelnavn { get; set; }
+    public string Kilde { get; set; }
+    public decimal Verdi { get; set; }
+    public int År { get; set; }
+}
 
 [Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
 public class ScriptMain : UserComponent
@@ -433,12 +467,18 @@ public class ScriptMain : UserComponent
     ///
     /// You can remove this method if you don't need to do anything here.
     /// </summary>
+    /// 
+
+    private Dictionary<string, List<string>> tmpKommune;
+    private List<Data> datas;
+    private string[] ASSS_Kommuner = { "1108", "3004", "3005", "3024", "4204", "4601", "5001", "5401", "0301", "1103" };
+    private DateTime dateTime = new DateTime();
+
     public override void PreExecute()
     {
         base.PreExecute();
-        /*
-         * Add your code here
-         */
+        tmpKommune = new Dictionary<string, List<string>>();
+        datas = new List<Data>();
     }
 
     /// <summary>
@@ -454,12 +494,159 @@ public class ScriptMain : UserComponent
          */
     }
 
+    public List<string> addKommuneData(string[] data)
+    {
+        List<string> kommuner = new List<string>();
+        string[] jsonValues = data;
+        string indikatorDataKommune = "";
+        for (int i = 0; i < jsonValues.Length; i++)
+        {
+            if (jsonValues[i].Contains("indikatorDataKommune"))
+            {
+                indikatorDataKommune = jsonValues[i];
+                jsonValues = indikatorDataKommune.Split('{');
+                indikatorDataKommune = jsonValues[1];
+                jsonValues = indikatorDataKommune.Split(',');
+            }
+        }
+        foreach (string kommuneData in jsonValues)
+        {
+            if (kommuneData.Contains("foreldreundersokelsenTilfredshet") || kommuneData.Contains("foreldreundersokelsenAntallBesvarte"))
+            {
+                kommuner.Add(kommuneData);
+            }
+        }
+
+        return kommuner;
+    }
+
+    public void getKommuneData()
+    {
+        foreach (string regionkode in ASSS_Kommuner)
+        {
+            string fylkeURL = "https://www.barnehagefakta.no/api/Kommune/" + regionkode;
+            HttpWebRequest request = WebRequest.Create(fylkeURL) as HttpWebRequest;
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            string jsonValue = "";
+
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            {
+                StreamReader streamReader = new StreamReader(response.GetResponseStream());
+                jsonValue = streamReader.ReadToEnd();
+            }
+            string[] jsonValues = jsonValue.Split(new string[] { "}," }, StringSplitOptions.None);
+
+            tmpKommune.Add(regionkode, addKommuneData(jsonValues));
+        }
+    }
+
+    public void addKommuneData()
+    {
+        string kommunenummer = "";
+        string variabelnavn = "";
+        string kilde = "Utdanningsdirektoratet/Foreldreundersøkelse i barnehage";
+        decimal verdi = 0;
+        int tid = 2020;
+        foreach (KeyValuePair<string, List<string>> kvp in tmpKommune)
+        {
+            kommunenummer = kvp.Key;
+            foreach (string value in kvp.Value)
+            {
+                string[] splitValue = value.Split(':');
+
+                splitValue[0] = splitValue[0].Trim('"');
+                if (splitValue[0].Equals("foreldreundersokelsenTilfredshet"))
+                {
+                    variabelnavn = "Foreldreundersøkelsen: Tilfredshet";
+                }
+                else if (splitValue[0].Equals("foreldreundersokelsenAntallBesvarte"))
+                {
+                    variabelnavn = "Foreldreundersøkelsen: Besvarte";
+                }
+                try
+                {
+                    if (!splitValue[1].Equals("null"))
+                        verdi = decimal.Parse(splitValue[1].Replace(".", ","));
+                    else
+                        verdi = 0;
+                }
+                catch (FormatException e)
+                {
+                    ComponentMetaData.FireInformation(10, "Verdi", e.ToString(), "", 0, true);
+                }
+                datas.Add(new Data(kommunenummer, variabelnavn, kilde, verdi, tid));
+            }
+        }
+    }
+
+    public void writeToTable()
+    {
+        string deleteString = "DELETE FROM [dbo].[KS_BHG02 Foreldreundersøkelsen i barnehage] WHERE År = '2020'";
+        string destinationTable = "[dbo].[KS_BHG02 Foreldreundersøkelsen i barnehage]";
+        string insertString = "INSERT INTO " + destinationTable + " (Kommunenummer, Variabelnavn, Kilde, Verdi, År) VALUES (@param1, @param2, @param3, @param4, @param5)";
+        string sqlConnectionString = @"Data Source=vk-sxd0e-002;Initial Catalog=Staging_ASSS;Integrated Security=true";
+        DataTable dt = new DataTable();
+
+        dt.Columns.AddRange(new DataColumn[5]
+        {
+            new DataColumn("Kommunenummer", typeof(string)),
+            new DataColumn("Variabelnavn", typeof(string)),
+            new DataColumn("Kilde", typeof(string)),
+            new DataColumn("Verdi", typeof(decimal)),
+            new DataColumn("År", typeof(int))
+        });
+
+        DataRow row;
+
+        foreach (Data data in datas)
+        {
+            row = dt.NewRow();
+            row["Kommunenummer"] = data.Kommunenummer;
+            row["Variabelnavn"] = data.Variabelnavn;
+            row["Kilde"] = data.Kilde;
+            if (data.Verdi == 0)
+            {
+                row["Verdi"] = Convert.DBNull;
+            }
+            else
+            {
+                row["Verdi"] = data.Verdi;
+            }
+            row["År"] = data.År;
+            dt.Rows.Add(row);
+        }
+
+        using (SqlConnection connection = new SqlConnection(sqlConnectionString))
+        {
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(deleteString, connection))
+            {
+                command.ExecuteNonQuery();
+            }
+            using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(connection))
+            {
+                sqlBulkCopy.DestinationTableName = destinationTable;
+                sqlBulkCopy.WriteToServer(dt);
+            }
+            connection.Close();
+        }
+    }
+
     public override void CreateNewOutputRows()
     {
-        /*
-          Add rows by calling the AddRow method on the member variable named "<Output Name>Buffer".
-          For example, call MyOutputBuffer.AddRow() if your output was named "MyOutput".
-        */
+        getKommuneData();
+        addKommuneData();
+        writeToTable();
+        foreach (Data data in datas)
+        {
+            ComponentMetaData.FireInformation(10, "Kommunenummer", data.Kommunenummer, "", 0, true);
+            ComponentMetaData.FireInformation(10, "Variabelnavn", data.Variabelnavn, "", 0, true);
+            ComponentMetaData.FireInformation(10, "Kilde", data.Kilde, "", 0, true);
+            ComponentMetaData.FireInformation(10, "Verdi", data.Verdi.ToString(), "", 0, true);
+            ComponentMetaData.FireInformation(10, "År", data.År.ToString(), "", 0, true);
+        }
+        Output0Buffer.AddRow();
     }
 
 }
@@ -489,6 +676,28 @@ public class Output0Buffer: ScriptBuffer
     {
     }
 
+    public String DerpO
+    {
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool DerpO_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
     new public void AddRow()
     {
         base.AddRow();
@@ -507,7 +716,100 @@ public class Output0Buffer: ScriptBuffer
 }
 ]]></arrayElement>
                         <arrayElement
-                          dataType="System.String"><![CDATA[SC_dd5f595f6b564556bda7292965f4933a.csproj]]></arrayElement>
+                          dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e90a61ee22ff4cf98bef51377dd8929c.Properties.Settings.get_Default():SC_e90a61ee22ff4cf98bef51377dd8929c.Properties.Sett" +
+    "ings")]
+
+namespace SC_e90a61ee22ff4cf98bef51377dd8929c.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Project]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_e90a61ee22ff4cf98bef51377dd8929c</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_e90a61ee22ff4cf98bef51377dd8929c</msb:DisplayName>
+    <msb:ProjectId>{7081FE2D-96F5-47BC-B08A-4ADEEDA4929D}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_e90a61ee22ff4cf98bef51377dd8929c.csproj" />
+    <msb:File Include="packages.config" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_e90a61ee22ff4cf98bef51377dd8929c")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_e90a61ee22ff4cf98bef51377dd8929c")]
+[assembly: AssemblyCopyright("Copyright @  2021")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[SC_e90a61ee22ff4cf98bef51377dd8929c.csproj]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
@@ -519,16 +821,17 @@ public class Output0Buffer: ScriptBuffer
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4f084c86-d3f2-45f4-ba11-8253a728fcf2}</ProjectGuid>
+    <ProjectGuid>{303725DF-1308-47C5-BC9D-71A72460FBEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SC_dd5f595f6b564556bda7292965f4933a</RootNamespace>
-    <AssemblyName>SC_dd5f595f6b564556bda7292965f4933a</AssemblyName>
+    <RootNamespace>SC_e90a61ee22ff4cf98bef51377dd8929c</RootNamespace>
+    <AssemblyName>SC_e90a61ee22ff4cf98bef51377dd8929c</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -538,7 +841,7 @@ public class Output0Buffer: ScriptBuffer
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
     <Optimize>true</Optimize>
     <OutputPath>.\bin\Release\</OutputPath>
@@ -547,9 +850,31 @@ public class Output0Buffer: ScriptBuffer
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\layout\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.SqlServer.TxScript, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
@@ -573,6 +898,7 @@ public class Output0Buffer: ScriptBuffer
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -588,8 +914,8 @@ public class Output0Buffer: ScriptBuffer
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
-        <Host Name="ScriptComponent" GeneratedNamespace="SC_dd5f595f6b564556bda7292965f4933a" IconIndex="0"></Host>
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptComponent" IconIndex="0" />
         <ProjectClient>
           <HostIdentifier>SSIS_SC140</HostIdentifier>
         </ProjectClient>
@@ -597,98 +923,6 @@ public class Output0Buffer: ScriptBuffer
     </VisualStudio>
   </ProjectExtensions>
 </Project>]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_dd5f595f6b564556bda7292965f4933a.Properties.Settings.get_Default():SC_dd5f595f6b564556bda7292965f4933a.Properties.Sett" +
-    "ings")]
-
-namespace SC_dd5f595f6b564556bda7292965f4933a.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}
-]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[Project]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:Language>msBuild</msb:Language>
-    <msb:CodeName>SC_dd5f595f6b564556bda7292965f4933a</msb:CodeName>
-    <msb:DisplayName>SC_dd5f595f6b564556bda7292965f4933a</msb:DisplayName>
-    <msb:ProjectId>{DBA7380D-DDC4-4E5E-AC12-28EE6F3C0F09}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="SC_dd5f595f6b564556bda7292965f4933a.csproj" />
-    <msb:File Include="Properties\Resources.Designer.cs" />
-    <msb:File Include="Properties\Settings.settings" />
-    <msb:File Include="Properties\AssemblyInfo.cs" />
-    <msb:File Include="Properties\Resources.resx" />
-    <msb:File Include="main.cs" />
-    <msb:File Include="BufferWrapper.cs" />
-    <msb:File Include="Properties\Settings.Designer.cs" />
-    <msb:File Include="ComponentWrapper.cs" />
-  </msb:ItemGroup>
-</c:Project>]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("SC_dd5f595f6b564556bda7292965f4933a")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SC_dd5f595f6b564556bda7292965f4933a")]
-[assembly: AssemblyCopyright("Copyright @  2021")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.0.0")]
-]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
                         <arrayElement
@@ -715,14 +949,14 @@ using System.Runtime.CompilerServices;
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_dd5f595f6b564556bda7292965f4933a.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e90a61ee22ff4cf98bef51377dd8929c.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
     "rceManager")]
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_dd5f595f6b564556bda7292965f4933a.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e90a61ee22ff4cf98bef51377dd8929c.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
     "fo")]
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_dd5f595f6b564556bda7292965f4933a.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e90a61ee22ff4cf98bef51377dd8929c.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
     "):Void")]
 
-namespace SC_dd5f595f6b564556bda7292965f4933a.Properties {
+namespace SC_e90a61ee22ff4cf98bef51377dd8929c.Properties {
     
     
     /// <summary>
@@ -750,7 +984,7 @@ namespace SC_dd5f595f6b564556bda7292965f4933a.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if ((resourceMan == null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_dd5f595f6b564556bda7292965f4933a.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_e90a61ee22ff4cf98bef51377dd8929c.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -773,6 +1007,15 @@ namespace SC_dd5f595f6b564556bda7292965f4933a.Properties {
     }
 }
 ]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[packages.config]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<packages>
+  <package id="Newtonsoft.Json" version="6.0.3" targetFramework="net45" />
+</packages>]]></arrayElement>
                       </arrayElements>
                     </property>
                     <property
@@ -784,108 +1027,234 @@ namespace SC_dd5f595f6b564556bda7292965f4933a.Properties {
                       <arrayElements
                         arrayElementCount="2">
                         <arrayElement
-                          dataType="System.String"><![CDATA[SC_dd5f595f6b564556bda7292965f4933a.dll]]></arrayElement>
+                          dataType="System.String"><![CDATA[SC_e90a61ee22ff4cf98bef51377dd8929c.dll]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[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
-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
-uwIJANUDAQARANUDBgAZANUDCgApANUDEAAxANUDEAA5ANUDEABBANUDEABJANUDEABRANUDEABZ
-ANUDEABhANUDEABpANUDBgCZANUDBgC5ANUDFQDJANUDBgCJAKQCBgCJAK8CBgBxANUDGwBxALkF
-BgBxACYFBgBxACkFJQCJANUDBgCJAAoALQCJAM8ENACRANUDBgDRAHkAOgDRAMAFQQChANUDRgDB
-ANUDBgApAHMA3QAuAAsAtQAuABMAvgAuABsA3QAuACMA5gAuACsADwEuADMADwEuADsADwEuAEMA
-5gAuAEsAFQEuAFMADwEuAFsALAFDAGMAdgFJAHMA3QDjAGsAdgEBAXsAdgEpAAcAAQAIAAMAAADF
-A6YAAADRAKsAAAA5BbAAAgARAAMAAgASAAUAAQATAAUAAgAUAAcABIAAAAEAAAAAAAAAAAAAAAAA
-FgAAAAQAAAAAAAAAAAAAAE0AOgAAAAAADgAAAAAAAAAAAAAAVgBvBQAAAAAOAAAAAAAAAAAAAABW
-AIwFAAAAAAQAAAAAAAAAAAAAAE0AGQMAAAAAAAAAAAEAAAAwBAAAAAAAPE1vZHVsZT4AR2V0T3V0
-cHV0SUQAU0NfZGQ1ZjU5NWY2YjU2NDU1NmJkYTcyOTI5NjVmNDkzM2EAbXNjb3JsaWIATWFya091
-dHB1dHNGaW5pc2hlZABkZWZhdWx0SW5zdGFuY2UAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZy
-b21IYW5kbGUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAVHlwZQBnZXRfQ3VsdHVy
-ZQBzZXRfQ3VsdHVyZQByZXNvdXJjZUN1bHR1cmUAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UARWRp
-dG9yQnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25V
-c2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJp
-YnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRh
-cmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNz
-ZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRl
-AEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lT
-U2NyaXB0Q29tcG9uZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1
-dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAUHJlRXhlY3V0ZQBQb3N0RXhlY3V0ZQB2
-YWx1ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFN5c3RlbS5Db21wb25lbnRNb2RlbABTQ19k
-ZDVmNTk1ZjZiNTY0NTU2YmRhNzI5Mjk2NWY0OTMzYS5kbGwAU3lzdGVtAHJlc291cmNlTWFuAFNj
-cmlwdE1haW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVt
-LlJlZmxlY3Rpb24AQ3VsdHVyZUluZm8AT3V0cHV0TmFtZU1hcABPdXRwdXRNYXAAT3V0cHV0MEJ1
-ZmZlcgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFuYWdlcgAuY3Rv
-cgAuY2N0b3IAT3V0cHV0SURzAFN5c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21w
-aWxlclNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMAU0NfZGQ1ZjU5NWY2YjU2NDU1NmJkYTcyOTI5
-NjVmNDkzM2EuUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFND
-X2RkNWY1OTVmNmI1NjQ1NTZiZGE3MjkyOTY1ZjQ5MzNhLlByb3BlcnRpZXMAVmFyaWFibGVzAEJ1
-ZmZlckNvbHVtbkluZGV4ZXMAR2V0Q29sdW1uSW5kZXhlcwBTZXR0aW5ncwBDb25uZWN0aW9ucwBC
-dWZmZXJzAEZpbmlzaE91dHB1dHMAQ3JlYXRlTmV3T3V0cHV0Um93cwBPYmplY3QAU2V0RW5kT2ZS
-b3dzZXQAZ2V0X0RlZmF1bHQAVXNlckNvbXBvbmVudABQYXJlbnRDb21wb25lbnQAU2NyaXB0Q29t
-cG9uZW50AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuVHhTY3JpcHQATWljcm9zb2Z0LlNxbFNlcnZlci5Q
-aXBlbGluZUhvc3QAUHJpbWVPdXRwdXQAQWRkUm93AGdldF9Bc3NlbWJseQAAAAAAEU8AdQB0AHAA
-dQB0ACAAMAAAcVMAQwBfAGQAZAA1AGYANQA5ADUAZgA2AGIANQA2ADQANQA1ADYAYgBkAGEANwAy
-ADkAMgA5ADYANQBmADQAOQAzADMAYQAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUA
-cgBjAGUAcwAAAAAAbKuJ7fOOTUeMUD74yMJd2QAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERWQkg
-AwESPR0IEkEDIAACAwcBCAYAAggSQQ4FIAEdCAgGAAESaRFtBCAAEnEGIAIBDhJxCLd6XFYZNOCJ
-CImEXc2AgMyRAwYSFAMGEhgDBhIMAwYSRQMGElEDBhJVAwYSIAsgBAEIHQgdEj0SQQUgAQESRQQA
-ABJRBAAAElUFAAEBElUEAAASIAMAAAEECAASUQQIABJVBAgAEiAIAQAIAAAAAAAeAQABAFQCFldy
-YXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1NDX2RkNWY1OTVmNmI1NjQ1NTZiZGE3
-MjkyOTY1ZjQ5MzNhAAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMjEAAEkBABouTkVURnJhbWV3
-b3JrLFZlcnNpb249djQuNQEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFtZXdvcmsg
-NC41BAEAAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVy
-LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
-a2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQC
-AAAAAAAAAAAAAABQQURQQURQtAAAAJwvAAAAAAAAAAAAALYvAAAAIAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAACoLwAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAA
+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
+AwFJATsKQwBJARACCQF5AH4DDwEJAc0AFQFpAH8FgQCZAVYGGwEUAE4BTwA0AJQLJgEkAJQLJgFJ
+AakKQgHJAA0JBgDJAEsKSQGxAYACTwGpAQ0JWAGhAUICYAEUAP8I9AA8ACcL6gDJAKwLbwHRABoG
+dAF5AIsHegF5AOQLfgHJAegFhgHJAIwKiQHRAU4BjwE8AJQLJgHZAA0JEADZATsGBgDhAA0JlQHh
+AdQLnAHpAA0JoAHpAJICEADpAPEIpgHZAXADBgB5AH8FgQDBAX8FgQDxAA0JuwHxABoGxgHxAAAG
+AQDpAQ0JEADxAKULBgDxAMIKBgDxAMUKJgEJAQ0JBgAJAaEA0AEJASEK2AGZAbcG3gHxAasC5AH5
+AUoI6wGxAbsL8QEhAQ0J9wFBAQ0JBgAhAGMAjwMuAAsAzgIuABMA1wIuABsA9gIuACMA/wIuACsA
+KAMuADMAKAMuADsAKAMuAEMA/wIuAEsALgMuAFMAKAMuAFsARQNAAGMAjwNBAGMAjwNgAGMAjwNh
+AGMAjwNjAGsAjwOAAGMAjwOBAGMAjwOgAGMAjwOhAGMAjwPAAGMAjwPgAGMAjwMAAWMAjwMDAXMA
+jwMgAWMAjwMpAXsA9gJAAWMAjwNJAXsA9gJgAWMAjwMhAmMAjwMuAFUAlwAqAawBzAECAAEABAAG
+AAYACAAIAAkACQALAAAAdgimAgAAZQemAgAANgKmAgAAlgWqAgAAJgmvAgAAuwCmAgAA8wWzAgAA
+CAe3AgAAOgi9AgAANAPDAgAA2wrJAgIAAgADAAEAAwADAAIABAAFAAEABQAFAAIABgAHAAEABwAH
+AAIACAAJAAEACQAJAAIACgALAAEACwALAAEAFQANAAEAFgAPAAIAIAARAAIAIwATAAIAJAAVAAEA
+JQAVAAIAJgAXABwAJwA9AMkA3wD9AGgBBIAAAAEAAAAAAAAAAAAAAAAADwEAAAQAAAAAAAAAAAAA
+AP8BBgEAAAAADgAAAAAAAAAAAAAACAIzCwAAAAAEAAAAAAAAAAAAAAD/ASMGAAAAAAQAAAAAAAAA
+AAAAAP8BwQAAAAAADgAAAAAAAAAAAAAACAJnCwAAAAAOAAAAAAAAAAAAAAAIAqgHAAAAAA4AAAAA
+AAAAAAAAAAgCywcAAAAAAAAAAAEAAACCCQAAAAAAAABJRFRTQ29tcG9uZW50TWV0YURhdGExMDAA
+SURUU1J1bnRpbWVDb25uZWN0aW9uQ29sbGVjdGlvbjEwMABJRFRTUnVudGltZUNvbm5lY3Rpb24x
+MDAASURUU0Nvbm5lY3Rpb25NYW5hZ2VyMTAwAExpc3RgMQBJbnQzMgBLZXlWYWx1ZVBhaXJgMgBE
+aWN0aW9uYXJ5YDIAPE1vZHVsZT4AR2V0T3V0cHV0SUQAU3lzdGVtLklPAHNldF9EZXJwTwBTeXN0
+ZW0uRGF0YQBnZXRfQ29tcG9uZW50TWV0YURhdGEAYWRkS29tbXVuZURhdGEAZ2V0S29tbXVuZURh
+dGEAZGF0YQBtc2NvcmxpYgBTQ19lOTBhNjFlZTIyZmY0Y2Y5OGJlZjUxMzc3ZGQ4OTI5YwBTeXN0
+ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYwBBZGQATWFya091dHB1dHNGaW5pc2hlZAA8S2lsZGU+a19f
+QmFja2luZ0ZpZWxkADxWZXJkaT5rX19CYWNraW5nRmllbGQAPFZhcmlhYmVsbmF2bj5rX19CYWNr
+aW5nRmllbGQAPEtvbW11bmVudW1tZXI+a19fQmFja2luZ0ZpZWxkADzDhXI+a19fQmFja2luZ0Zp
+ZWxkAFJlYWRUb0VuZABEYkNvbW1hbmQAU3FsQ29tbWFuZABzZXRfTWV0aG9kAFJlcGxhY2UAZGVm
+YXVsdEluc3RhbmNlAGdldF9LaWxkZQBzZXRfS2lsZGUAa2lsZGUAQWRkUmFuZ2UARGF0YVRhYmxl
+AHdyaXRlVG9UYWJsZQBJRGlzcG9zYWJsZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhh
+bmRsZQBzZXRfRGVzdGluYXRpb25UYWJsZU5hbWUAR2V0UnVudGltZUNvbm5lY3Rpb25CeU5hbWUA
+RGF0ZVRpbWUAZGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAdG1wS29t
+bXVuZQBzZXRfQ29udGVudFR5cGUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0
+dXJlAEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNlAEh0dHBXZWJSZXNwb25zZQBHZXRSZXNwb25zZQBD
+bG9zZQBEaXNwb3NlAFBhcnNlAENyZWF0ZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdl
+bmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVB
+dHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUA
+QXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2Vt
+Ymx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENv
+bXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFz
+c2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRDb21wb25lbnRFbnRyeVBvaW50QXR0
+cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJp
+YnV0ZQBQcmVFeGVjdXRlAFBvc3RFeGVjdXRlAGdldF9WYWx1ZQB2YWx1ZQBTeXN0ZW0uUnVudGlt
+ZS5WZXJzaW9uaW5nAFRvU3RyaW5nAGdldF9WZXJkaQBzZXRfVmVyZGkAdmVyZGkARGVjaW1hbABT
+eXN0ZW0uQ29tcG9uZW50TW9kZWwAU0NfZTkwYTYxZWUyMmZmNGNmOThiZWY1MTM3N2RkODkyOWMu
+ZGxsAERCTnVsbABzZXRfRGVycE9fSXNOdWxsAFNldE51bGwAR2V0UmVzcG9uc2VTdHJlYW0Ac2V0
+X0l0ZW0AU3lzdGVtAFRyaW0AcmVzb3VyY2VNYW4AT3BlbgBTY3JpcHRNYWluAERhdGFDb2x1bW4A
+RmlyZUluZm9ybWF0aW9uAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9u
+AFN5c3RlbS5SZWZsZWN0aW9uAERhdGFDb2x1bW5Db2xsZWN0aW9uAGdldF9SdW50aW1lQ29ubmVj
+dGlvbkNvbGxlY3Rpb24ARGF0YVJvd0NvbGxlY3Rpb24AZ2V0X0Nvbm5lY3Rpb24ARGJDb25uZWN0
+aW9uAFNxbENvbm5lY3Rpb24ASW52YWxpZE9wZXJhdGlvbkV4Y2VwdGlvbgBGb3JtYXRFeGNlcHRp
+b24AU3lzdGVtLkRhdGEuQ29tbW9uAGdldF9WYXJpYWJlbG5hdm4Ac2V0X1ZhcmlhYmVsbmF2bgB2
+YXJpYWJlbG5hdm4AQ3VsdHVyZUluZm8AWmVybwBPdXRwdXROYW1lTWFwAE91dHB1dE1hcABNaWNy
+b3NvZnQuU3FsU2VydmVyLkRUU1J1bnRpbWVXcmFwAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRFRTUGlw
+ZWxpbmVXcmFwAENoYXIAU3RyZWFtUmVhZGVyAFRleHRSZWFkZXIAT3V0cHV0MEJ1ZmZlcgBQaXBl
+bGluZUJ1ZmZlcgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFuYWdlcgBnZXRfQ29ubmVjdGlv
+bk1hbmFnZXIAZ2V0X0tvbW11bmVudW1tZXIAc2V0X0tvbW11bmVudW1tZXIAa29tbXVuZW51bW1l
+cgBBU1NTX0tvbW11bmVyAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1bnRpbWUuV3JhcHBlcgBN
+aWNyb3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZS5XcmFwcGVyAFdyaXRlVG9TZXJ2ZXIAR2V0
+RW51bWVyYXRvcgAuY3RvcgAuY2N0b3IAZ2V0X8OFcgBzZXRfw4VyAMOlcgBPdXRwdXRJRHMAZGF0
+YXMAU3lzdGVtLkRpYWdub3N0aWNzAFN5c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMAU3lz
+dGVtLlJlc291cmNlcwBTQ19lOTBhNjFlZTIyZmY0Y2Y5OGJlZjUxMzc3ZGQ4OTI5Yy5Qcm9wZXJ0
+aWVzLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMAU0NfZTkwYTYxZWUyMmZmNGNm
+OThiZWY1MTM3N2RkODkyOWMuUHJvcGVydGllcwBWYXJpYWJsZXMAQnVmZmVyQ29sdW1uSW5kZXhl
+cwBHZXRDb2x1bW5JbmRleGVzAFNldHRpbmdzAEVxdWFscwBDb250YWlucwBnZXRfQ29sdW1ucwBD
+b25uZWN0aW9ucwBTdHJpbmdTcGxpdE9wdGlvbnMAQnVmZmVycwBGaW5pc2hPdXRwdXRzAGdldF9S
+b3dzAENyZWF0ZU5ld091dHB1dFJvd3MAQ29uY2F0AE9iamVjdABTeXN0ZW0uTmV0AFNldEVuZE9m
+Um93c2V0AFNwbGl0AGdldF9EZWZhdWx0AFN5c3RlbS5EYXRhLlNxbENsaWVudABVc2VyQ29tcG9u
+ZW50AFBhcmVudENvbXBvbmVudABTY3JpcHRDb21wb25lbnQAZ2V0X0N1cnJlbnQATWljcm9zb2Z0
+LlNxbFNlcnZlci5UeFNjcmlwdABDb252ZXJ0AEh0dHBXZWJSZXF1ZXN0AE1pY3Jvc29mdC5TcWxT
+ZXJ2ZXIuUGlwZWxpbmVIb3N0AFByaW1lT3V0cHV0AE1vdmVOZXh0AERhdGFSb3cAQWRkUm93AE5l
+d1JvdwBnZXRfS2V5AGdldF9Bc3NlbWJseQBTcWxCdWxrQ29weQBFeGVjdXRlTm9uUXVlcnkAb3Bf
+RXF1YWxpdHkAAClpAG4AZABpAGsAYQB0AG8AcgBEAGEAdABhAEsAbwBtAG0AdQBuAGUAAEFmAG8A
+cgBlAGwAZAByAGUAdQBuAGQAZQByAHMAbwBrAGUAbABzAGUAbgBUAGkAbABmAHIAZQBkAHMAaABl
+AHQAAEdmAG8AcgBlAGwAZAByAGUAdQBuAGQAZQByAHMAbwBrAGUAbABzAGUAbgBBAG4AdABhAGwA
+bABCAGUAcwB2AGEAcgB0AGUAAFVoAHQAdABwAHMAOgAvAC8AdwB3AHcALgBiAGEAcgBuAGUAaABh
+AGcAZQBmAGEAawB0AGEALgBuAG8ALwBhAHAAaQAvAEsAbwBtAG0AdQBuAGUALwAAB0cARQBUAAAh
+YQBwAHAAbABpAGMAYQB0AGkAbwBuAC8AagBzAG8AbgAAAQAFfQAsAABvVQB0AGQAYQBuAG4AaQBu
+AGcAcwBkAGkAcgBlAGsAdABvAHIAYQB0AGUAdAAvAEYAbwByAGUAbABkAHIAZQB1AG4AZABlAHIA
+cwD4AGsAZQBsAHMAZQAgAGkAIABiAGEAcgBuAGUAaABhAGcAZQABRUYAbwByAGUAbABkAHIAZQB1
+AG4AZABlAHIAcwD4AGsAZQBsAHMAZQBuADoAIABUAGkAbABmAHIAZQBkAHMAaABlAHQAAT9GAG8A
+cgBlAGwAZAByAGUAdQBuAGQAZQByAHMA+ABrAGUAbABzAGUAbgA6ACAAQgBlAHMAdgBhAHIAdABl
+AAEJbgB1AGwAbAAAAy4AAAMsAAALVgBlAHIAZABpAACAoUQARQBMAEUAVABFACAARgBSAE8ATQAg
+AFsAZABiAG8AXQAuAFsASwBTAF8AQgBIAEcAMAAyACAARgBvAHIAZQBsAGQAcgBlAHUAbgBkAGUA
+cgBzAPgAawBlAGwAcwBlAG4AIABpACAAYgBhAHIAbgBlAGgAYQBnAGUAXQAgAFcASABFAFIARQAg
+AMUAcgAgAD0AIAAnADIAMAAyADAAJwABZVsAZABiAG8AXQAuAFsASwBTAF8AQgBIAEcAMAAyACAA
+RgBvAHIAZQBsAGQAcgBlAHUAbgBkAGUAcgBzAPgAawBlAGwAcwBlAG4AIABpACAAYgBhAHIAbgBl
+AGgAYQBnAGUAXQABGUkATgBTAEUAUgBUACAASQBOAFQATwAgAACAyyAAKABLAG8AbQBtAHUAbgBl
+AG4AdQBtAG0AZQByACwAIABWAGEAcgBpAGEAYgBlAGwAbgBhAHYAbgAsACAASwBpAGwAZABlACwA
+IABWAGUAcgBkAGkALAAgAMUAcgApACAAVgBBAEwAVQBFAFMAIAAoAEAAcABhAHIAYQBtADEALAAg
+AEAAcABhAHIAYQBtADIALAAgAEAAcABhAHIAYQBtADMALAAgAEAAcABhAHIAYQBtADQALAAgAEAA
+cABhAHIAYQBtADUAKQABgJ1EAGEAdABhACAAUwBvAHUAcgBjAGUAPQB2AGsALQBzAHgAZAAwAGUA
+LQAwADAAMgA7AEkAbgBpAHQAaQBhAGwAIABDAGEAdABhAGwAbwBnAD0AUwB0AGEAZwBpAG4AZwBf
+AEEAUwBTAFMAOwBJAG4AdABlAGcAcgBhAHQAZQBkACAAUwBlAGMAdQByAGkAdAB5AD0AdAByAHUA
+ZQABG0sAbwBtAG0AdQBuAGUAbgB1AG0AbQBlAHIAABlWAGEAcgBpAGEAYgBlAGwAbgBhAHYAbgAA
+C0sAaQBsAGQAZQAABcUAcgABCTEAMQAwADgAAAkzADAAMAA0AAAJMwAwADAANQAACTMAMAAyADQA
+AAk0ADIAMAA0AAAJNAA2ADAAMQAACTUAMAAwADEAAAk1ADQAMAAxAAAJMAAzADAAMQAACTEAMQAw
+ADMAAICbSQBzAE4AdQBsAGwAIABwAHIAbwBwAGUAcgB0AHkAIABjAGEAbgBuAG8AdAAgAGIAZQAg
+AHMAZQB0ACAAdABvACAARgBhAGwAcwBlAC4AIABBAHMAcwBpAGcAbgAgAGEAIAB2AGEAbAB1AGUA
+IAB0AG8AIAB0AGgAZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMAdABlAGEAZAAuAAARTwB1AHQAcAB1
+AHQAIAAwAAAVQwBvAG4AbgBlAGMAdABpAG8AbgAAcVMAQwBfAGUAOQAwAGEANgAxAGUAZQAyADIA
+ZgBmADQAYwBmADkAOABiAGUAZgA1ADEAMwA3ADcAZABkADgAOQAyADkAYwAuAFAAcgBvAHAAZQBy
+AHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAAFVQ4Ak6xUpGiQsp5wdyIkkABCABAQgDIAAB
+BSABARERBCABAQ4GIAEBEYCZChUSRQIOFRJJAQ4GFRJJARIIDgcGFRJJAQ4dDggdDggOBRUSSQEO
+BCABAg4GIAEdDh0DBSABARMACwcGHQ4IDg4dDhJRBQACDg4OBgABEoCtDgUgABKAtQUgABKAuQYg
+AQESgLkDIAAOCSACHQ4dDhGAyQcgAgETABMBJgcLDg4OET0IFRFVAg4VEkkBDhURWQIOFRJJAQ4V
+EV0BDh0OEmECCiAAFRFVAhMAEwEKFRFVAg4VEkkBDgogABURWQITABMBChURWQIOFRJJAQ4EIAAT
+AAQgABMBCCAAFRFdARMABRURXQEOBSABDh0DBSACDg4OBQABET0OBSAAEoDNCiAGAQgODg4IEAID
+IAACFwcKDg4OEmUSaRURXQESCBIIEm0ScRJ1BgADDg4ODgUgABKA0QgAARKA2RGA3QcgAgEOEoDZ
+ByABAR0SgNUGFRFdARIIBCAAEmkFIAIBDhwDBhE9BwACAhE9ET0CBhwFIAASgOkFIAEBEmkGIAIB
+DhJtAyAACAUgAQESbQUgAQESZQ4HBRURXQESCBIIAhE9CAogAwESfR0IEoCBBSACAQgcAwcBCAcA
+AggSgIEOBSABHQgIBSAAEoD5BiABEoD9DgUgABKAiQUgABKBAQcgAgEOEoEBCLd6XFYZNOCJCImE
+Xc2AgMyRAgYOAgYICwYVEkUCDhUSSQEOBwYVEkkBEggDBh0OAwYRTQMGEhgDBhIcAwYSEAQGEoCF
+BAYSgJEEBhKAlQMGEiQJIAUBDg4OET0IBCAAET0FIAEBET0JIAEVEkkBDh0OBCABAQIMIAQBCB0I
+HRJ9EoCBBiABARKAhQUAABKAkQUAABKAlQYAAQESgJUEAAASJAMAAAEDKAAOBCgAET0DKAAIAygA
+AgUoABKAiQUIABKAkQUIABKAlQQIABIkCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9u
+VGhyb3dzAQgBAAIAAAAAACgBACNTQ19lOTBhNjFlZTIyZmY0Y2Y5OGJlZjUxMzc3ZGQ4OTI5YwAA
+BQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIxAABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0
+LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNQQBAAAAtAAAAM7K
+774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVy
+c2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkz
+NGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQ
+QURQtAAAAPBKAAAAAAAAAAAAAApLAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8SgAAAAAAAAAA
+AAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
-AABIAAAAWEAAAOwDAAAAAAAAAAAAAOwDNAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
-RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
-AG4AAAAAAAAAsARMAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAAAoAwAAAQAwADAA
-MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
-AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
-AAAAAFMAQwBfAGQAZAA1AGYANQA5ADUAZgA2AGIANQA2ADQANQA1ADYAYgBkAGEANwAyADkAMgA5
-ADYANQBmADQAOQAzADMAYQAAADAACAABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgAwAC4AMAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBDAF8AZABkADUAZgA1
-ADkANQBmADYAYgA1ADYANAA1ADUANgBiAGQAYQA3ADIAOQAyADkANgA1AGYANAA5ADMAMwBhAC4A
-ZABsAGwAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8AcAB5AHIAaQBn
-AGgAdAAgAEAAIAAgADIAMAAyADEAAAAqAAEAAQBMAGUAZwBhAGwAVAByAGEAZABlAG0AYQByAGsA
-cwAAAAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBtAGUAAABTAEMAXwBk
-AGQANQBmADUAOQA1AGYANgBiADUANgA0ADUANQA2AGIAZABhADcAMgA5ADIAOQA2ADUAZgA0ADkA
-MwAzAGEALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAAAAAAUwBDAF8AZABk
-ADUAZgA1ADkANQBmADYAYgA1ADYANAA1ADUANgBiAGQAYQA3ADIAOQAyADkANgA1AGYANAA5ADMA
-MwBhAAAANAAIAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAA
-ADgACAABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAAGAAA
+gAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAAAFhgAADsAwAA
+AAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAAvQTv/gAAAQAA
+AAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAABAFYAYQByAEYA
+aQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAAAAAAALAETAMA
+AAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAAMAAwADQAYgAwAAAA
+GgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkATgBhAG0AZQAA
+AAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAEMAXwBlADkA
+MABhADYAMQBlAGUAMgAyAGYAZgA0AGMAZgA5ADgAYgBlAGYANQAxADMANwA3AGQAZAA4ADkAMgA5
+AGMAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4AMAAuADAAAABwACgA
+AQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfAGUAOQAwAGEANgAxAGUAZQAyADIAZgBm
+ADQAYwBmADkAOABiAGUAZgA1ADEAMwA3ADcAZABkADgAOQAyADkAYwAuAGQAbABsAAAASAASAAEA
+TABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAy
+ADAAMgAxAAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgA
+AQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8AZQA5ADAAYQA2ADEAZQBl
+ADIAMgBmAGYANABjAGYAOQA4AGIAZQBmADUAMQAzADcANwBkAGQAOAA5ADIAOQBjAC4AZABsAGwA
+AABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfAGUAOQAwAGEANgAxAGUAZQAy
+ADIAZgBmADQAYwBmADkAOABiAGUAZgA1ADEAMwA3ADcAZABkADgAOQAyADkAYwAAADQACAABAFAA
+cgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4AAgAAQBBAHMAcwBl
+AG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -893,7 +1262,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAADIPwAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAMAAAAHDsAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -902,14 +1271,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </arrayElements>
                     </property>
                     <property
                       dataType="System.String"
                       description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
                       name="VSTAProjectName"
-                      typeConverter="NOTBROWSABLE">SC_dd5f595f6b564556bda7292965f4933a</property>
+                      typeConverter="NOTBROWSABLE">SC_e90a61ee22ff4cf98bef51377dd8929c</property>
                     <property
                       dataType="System.String"
                       description="Specifies the programming language used by the script."
@@ -938,16 +1307,32 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       dataType="System.String"
                       description="Checksum to match component metedata against compiled codes."
                       name="MetadataChecksum140"
-                      typeConverter="NOTBROWSABLE">A3</property>
+                      typeConverter="NOTBROWSABLE">03</property>
                     <property
                       dataType="System.String"
                       name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
                   </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\Script Component 1.Connections[Connection]"
+                      connectionManagerID="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Staging_ASSS]"
+                      name="Connection" />
+                  </connections>
                   <outputs>
                     <output
-                      refId="Package\Sequence Container\Data Flow Task\Script Component.Outputs[Output 0]"
+                      refId="Package\Sequence Container\Data Flow Task\Script Component 1.Outputs[Output 0]"
                       hasSideEffects="true"
                       name="Output 0">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Script Component 1.Outputs[Output 0].Columns[DerpO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task\Script Component 1.Outputs[Output 0].Columns[DerpO]"
+                          name="DerpO" />
+                      </outputColumns>
                       <externalMetadataColumns />
                     </output>
                   </outputs>
@@ -958,7 +1343,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   refId="Package\Sequence Container\Data Flow Task.Paths[Output 0]"
                   endId="Package\Sequence Container\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
                   name="Output 0"
-                  startId="Package\Sequence Container\Data Flow Task\Script Component.Outputs[Output 0]" />
+                  startId="Package\Sequence Container\Data Flow Task\Script Component 1.Outputs[Output 0]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -998,39 +1383,39 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="172,42"
+          Id="Package\Sequence Container\Data Flow Task\Script Component 1"
+          TopLeft="479,129" />
+        <NodeLayout
           Size="166,42"
           Id="Package\Sequence Container\Data Flow Task\OLE DB Command"
           TopLeft="510,380" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Sequence Container\Data Flow Task\Script Component"
-          TopLeft="503,160" />
         <EdgeLayout
           Id="Package\Sequence Container\Data Flow Task.Paths[Output 0]"
-          TopLeft="584.5,202">
+          TopLeft="565,171">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8.5,178"
+              EndConnector="28,209"
               Start="0,0"
-              End="8.5,170.5">
+              End="28,201.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,85" />
+                    End="0,100.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,85"
-                    Point2="0,89"
-                    Point3="4,89" />
+                    Point1="0,100.5"
+                    Point2="0,104.5"
+                    Point3="4,104.5" />
                   <mssgle:LineSegment
-                    End="4.5,89" />
+                    End="24,104.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="4.5,89"
-                    Point2="8.5,89"
-                    Point3="8.5,93" />
+                    Point1="24,104.5"
+                    Point2="28,104.5"
+                    Point3="28,108.5" />
                   <mssgle:LineSegment
-                    End="8.5,170.5" />
+                    End="28,201.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

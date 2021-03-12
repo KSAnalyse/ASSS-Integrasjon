@@ -12,8 +12,8 @@
   DTS:ObjectName="Manuelle Data - Grunnskole"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="402"
-  DTS:VersionGUID="{E117E5D1-F702-49B8-AE1B-DB303B1CDF84}">
+  DTS:VersionBuild="403"
+  DTS:VersionGUID="{651B0E26-1978-48BC-A0E9-A9F26BE4A7BB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3418,7 +3418,7 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="253.333333333334,42"
+          Size="253,42"
           Id="Package\Grunnskole\Les Eksamensresultater til databasen"
           TopLeft="308.467593047561,35.1249995060266" />
         <NodeLayout
@@ -3426,19 +3426,19 @@
           Id="Package\Grunnskole\Les Elevundersøkelsen til databasen"
           TopLeft="308.467593047561,101.133332767685" />
         <NodeLayout
-          Size="206.666666666667,42"
+          Size="207,42"
           Id="Package\Grunnskole\Les Ressurser til databasen"
           TopLeft="325.187500935979,165.008333261659" />
         <NodeLayout
-          Size="248,42.6666666666667"
+          Size="248,43"
           Id="Package\Grunnskole\Slett KS_GRS04 Eksamensresultater"
           TopLeft="23.2800921115818,31.1166662443678" />
         <NodeLayout
-          Size="244,42.6666666666667"
+          Size="244,43"
           Id="Package\Grunnskole\Slett KS_GRS05 Elevundersøkelsen"
           TopLeft="23.2800921115818,99.1249995060266" />
         <NodeLayout
-          Size="257.333333333334,42.6666666666667"
+          Size="257,43"
           Id="Package\Grunnskole\Slett KS_GRS06 Ressurser grunnskole"
           TopLeft="21.6666669398545,161.700000023246" />
         <EdgeLayout
@@ -3578,12 +3578,12 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="566.666666666667,262.666666666667"
-          Size="566.666666666667,305.333333333334"
+          PanelSize="567,263"
+          Size="567,305"
           Id="Package\Grunnskole"
           TopLeft="126.375000307337,27.0666677204768" />
         <NodeLayout
-          Size="274.666666666667,42"
+          Size="275,42"
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 5 trinn til databasen"
           TopLeft="333.187500935979,16.008333261659" />
         <NodeLayout
@@ -3595,15 +3595,15 @@
           Id="Package\Nasjonale Prøver\Les Nasjonale prøver 9 trinn"
           TopLeft="315.187500935979,148.024999784977" />
         <NodeLayout
-          Size="270.666666666667,42.6666666666667"
+          Size="271,43"
           Id="Package\Nasjonale Prøver\Slett KS_GRS01 Nasjonale prøver 5 trinn"
           TopLeft="11.2499999813735,14" />
         <NodeLayout
-          Size="258.666666666667,42"
+          Size="259,42"
           Id="Package\Nasjonale Prøver\Slett KS_GRS02 Nasjonale prøver 8 trinn"
           TopLeft="32.2800921115818,83.008333261659" />
         <NodeLayout
-          Size="234.666666666667,42"
+          Size="235,42"
           Id="Package\Nasjonale Prøver\Slett KS_GRS03 Nasjonale prøver 9 trinn"
           TopLeft="30,146.016666523318" />
         <EdgeLayout
@@ -3743,8 +3743,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="613.333333333334,246.666666666667"
-          Size="613.333333333334,289.333333333334"
+          PanelSize="613,247"
+          Size="613,289"
           Id="Package\Nasjonale Prøver"
           TopLeft="75,361" />
         <EdgeLayout
