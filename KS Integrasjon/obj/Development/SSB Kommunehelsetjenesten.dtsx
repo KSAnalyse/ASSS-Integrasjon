@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Kommunehelsetjenesten"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="284"
-  DTS:VersionGUID="{F11575CC-F4A3-4021-A498-1B0DA9C1378B}">
+  DTS:VersionBuild="285"
+  DTS:VersionGUID="{56110B36-09EC-46F9-9E1C-153A393586BA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -93,7 +93,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11993 Aktivitet i helsestasjons- og skolehelsetjenesten, etter helsekontroller"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -110,7 +110,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_11994 Helsestasjons- og skolehelsetjenesteårsverk, etter utdanning"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -259,72 +259,72 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\Delay Container\5 Second Delay"
           TopLeft="22,13" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="255.2,112.8"
-          Size="255.2,156"
+          PanelSize="255,113"
+          Size="255,156"
           Id="Package\Delay Container"
-          TopLeft="35.488073389262,365.042763290797" />
+          TopLeft="70.488073389262,98.042763290797" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\Delay Container 2\5 Second Delay"
           TopLeft="22,13" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="228,109.6"
-          Size="228,152.8"
+          PanelSize="228,110"
+          Size="228,153"
           Id="Package\Delay Container 2"
-          TopLeft="23.6285708568535,686.282357413382" />
+          TopLeft="58.6285708568535,419.282357413382" />
         <NodeLayout
-          Size="286.4,41.6"
+          Size="286,42"
           Id="Package\Kommunehelsetjenesten\Les SSB_11993 Aktivitet i helsestasjons- og skolehelsetjenesten, etter helsekontroller"
           TopLeft="54.1116779424472,10.3000005578995" />
         <NodeLayout
-          Size="254.4,52.8"
+          Size="254,53"
           Id="Package\Kommunehelsetjenesten\Les SSB_11994 Helsestasjons- og skolehelsetjenesteårsverk, etter utdanning"
           TopLeft="63.8616779610736,65.0000003099435" />
         <NodeLayout
-          Size="304,49.6"
+          Size="304,50"
           Id="Package\Kommunehelsetjenesten\Les SSB_11995 Fysioterapeutårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
           TopLeft="35.028344714664,129.099999876023" />
         <NodeLayout
-          Size="148,43.2"
+          Size="148,43"
           Id="Package\Kommunehelsetjenesten\Les SSB_12209 Utvalgte nøkkeltall for helse og omsorg"
           TopLeft="121.611676457653,188.688232791399" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="392,285.6"
-          Size="392,328.8"
+          PanelSize="392,286"
+          Size="392,329"
           Id="Package\Kommunehelsetjenesten"
-          TopLeft="400.488073321142,276.548646085597" />
+          TopLeft="435.488073321142,9.548646085597" />
         <NodeLayout
-          Size="296,60.8"
+          Size="296,61"
           Id="Package\Kommunehelsetjenesten 1\Les SSB_11996 Legeårsverk i kommunale helse- og omsorgstjenester, etter avtaleform og funksjon"
           TopLeft="46.325963977564,32.6803893747922" />
         <NodeLayout
-          Size="233.6,41.6"
+          Size="234,42"
           Id="Package\Kommunehelsetjenesten 1\Les SSB_12005 Fastlegelister og fastlegekonsultasjoner"
           TopLeft="75.7783448184398,114.052938118372" />
         <NodeLayout
-          Size="242.4,53.6"
+          Size="242,54"
           Id="Package\Kommunehelsetjenesten 1\Les SSB_12191 Kommunehelse - supplerende grunnlagstall og nøkkeltall"
           TopLeft="84.2783458849369,179.76078150353" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="397.6,288"
-          Size="397.6,331.2"
+          PanelSize="398,288"
+          Size="398,331"
           Id="Package\Kommunehelsetjenesten 1"
-          TopLeft="402.14286399131,671.000008204404" />
+          TopLeft="437.14286399131,404.000008204404" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="290.688073389262,441.995704688197">
+          TopLeft="325.688073389262,174.995704688197">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -346,7 +346,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="596.488073321142,605.348646085597">
+          TopLeft="631.488073321142,338.348646085597">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -376,13 +376,13 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-254.734204357144,45.4668556638925,50.60890625,11.609375"
+              BoundingBox="-254.734204357145,45.4668556638925,50.60890625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="251.628570856854,762.682357413382">
+          TopLeft="286.628570856854,495.682357413382">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
