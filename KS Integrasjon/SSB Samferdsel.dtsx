@@ -7,13 +7,13 @@
   DTS:CreatorName="KSINT\8093AHA"
   DTS:DTSID="{70888C26-0BDF-4545-B65D-9E6B6EC8425B}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Samferdsel"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="279"
-  DTS:VersionGUID="{D1AF7A9B-22CE-40E5-AECC-C42CC885FC57}">
+  DTS:VersionBuild="280"
+  DTS:VersionGUID="{5B01CA48-2E19-4522-8B82-9E8743092174}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -70,7 +70,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11814'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;exec sp_executesql @Truncate_Query&#xA;&#xA;insert into [SSB_11814 Kommunale veier, utvalgte kjennetegn]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;join @m met ON dat.Variabel = met.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11814'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;exec sp_executesql @Truncate_Query&#xA;&#xA;insert into [SSB_11814]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;join @m met ON dat.Variabel = met.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -87,7 +87,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11816'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;exec sp_executesql @Truncate_Query&#xA;&#xA;insert into [SSB_11816 Utvalgte nøkkeltall for samferdsel]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;join @m met ON dat.Variabel = met.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11816'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;exec sp_executesql @Truncate_Query&#xA;&#xA;insert into [SSB_11816]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;join @m met ON dat.Variabel = met.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -104,7 +104,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11845'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;exec sp_executesql @Truncate_Query&#xA;&#xA;insert into [SSB_11845 Veier, parkering, belysning, holdeplasser]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;join @m met ON dat.Variabel = met.Variabel&#xA;&#xA;-- Personer (antall)&#xA;Where dat.Variabel != 'KOSpersoner0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '11845'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;exec sp_executesql @Truncate_Query&#xA;&#xA;insert into [SSB_11845]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;join @m met ON dat.Variabel = met.Variabel&#xA;&#xA;-- Personer (antall)&#xA;Where dat.Variabel != 'KOSpersoner0000'&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -121,7 +121,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12183'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;exec sp_executesql @Truncate_Query&#xA;&#xA;insert into [SSB_12183 Økonomi innen samferdsel]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;join @m met ON dat.Variabel = met.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;declare @TableVar varchar(5)&#xA;declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12183'&#xA;Set @TableName = (select table_name from information_schema.tables where table_name LIKE 'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA;&#x9;-- Declares&#xA;&#x9;declare @t table(Kommunenummer varchar(50), Variabel varchar(50), År int, Verdi numeric(18,4))&#xA;&#x9;declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#x9;&#xA;&#x9;-- Inserts&#xA;&#x9;insert @t exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA;&#x9;insert @m exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA;&#x9;RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA;&#x9;set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;exec sp_executesql @Truncate_Query&#xA;&#xA;insert into [SSB_12183]&#xA;&#xA;Select&#x9;dat.Kommunenummer,&#xA;&#x9;&#x9;dat.Variabel ,&#xA;&#x9;&#x9;met.Variabelnavn,&#xA;&#x9;&#x9;dat.År, &#xA;&#x9;&#x9;dat.Verdi&#xA; &#xA;from @t dat &#xA;join @m met ON dat.Variabel = met.Variabel&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -150,37 +150,37 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\Delay container\5 Second Delay"
           TopLeft="22,13" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="228,110.4"
-          Size="228,152.8"
+          PanelSize="228,110"
+          Size="228,153"
           Id="Package\Delay container"
           TopLeft="36,104" />
         <NodeLayout
-          Size="272.8,43.2"
+          Size="273,43"
           Id="Package\Samferdsel\Les SSB_11814 Kommunale veier, utvalgte kjennetegn"
           TopLeft="57.4107144755267,13.885714266896" />
         <NodeLayout
-          Size="254.4,41.6"
+          Size="254,42"
           Id="Package\Samferdsel\Les SSB_11816 Utvalgte nøkkeltall for samferdsel"
           TopLeft="73.1607138981067,72.1571427564108" />
         <NodeLayout
-          Size="248.8,41.6"
+          Size="249,42"
           Id="Package\Samferdsel\Les SSB_11845 Veier, parkering, belysning, holdeplasser"
           TopLeft="67.2559523570041,122.285714296784" />
         <NodeLayout
-          Size="280,41.6"
+          Size="280,42"
           Id="Package\Samferdsel\Les SSB_12183 Økonomi innen samferdsel"
           TopLeft="51.1488095238095,174.928571428571" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="399.2,273.6"
-          Size="399.2,316.8"
+          PanelSize="399,274"
+          Size="399,317"
           Id="Package\Samferdsel"
           TopLeft="309.349197759758,68.936508777785" />
         <EdgeLayout
