@@ -3211,10 +3211,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Kommunehelsetjenesten</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">287</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">288</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{BA1744CE-2596-4FBD-8A52-CBC8C4BA152A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{023AF141-B006-42A4-9F7A-EEC632C544BC}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
