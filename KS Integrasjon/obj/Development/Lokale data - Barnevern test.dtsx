@@ -7,7 +7,7 @@
   DTS:CreatorName="KSINT\8093AHA"
   DTS:DTSID="{99A02DAF-478F-4C0E-ACF0-78CC04D082CE}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="1044"
   DTS:ObjectName="Lokale data - Barnevern test"
   DTS:PackageType="5"
@@ -26,6 +26,8 @@
         DTS:Name="ConnectionString">"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +  @[User::ExcelFile] + ";Extended Properties=\"" + @[User::ExtProperties] + "\""</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnevern\Manuelle tall\Mal;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>

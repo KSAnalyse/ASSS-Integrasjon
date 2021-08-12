@@ -7,7 +7,7 @@
   DTS:CreatorName="KSINT\8093AHA"
   DTS:DTSID="{56C34797-B069-4E52-8E88-D422C4D787B9}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="1044"
   DTS:ObjectName="Lokale data - Kommunehelse"
   DTS:PackageType="5"
@@ -24,6 +24,8 @@
       DTS:ObjectName="Kommunehelse helsetasjon og skolehelsetjeneste">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Kommunehelse\Kommunehelse årsverk helsestasjon og skolehelsetjeneste v3.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -34,6 +36,8 @@
       DTS:ObjectName="Kommunehelse leger">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Kommunehelse\Kommunehelse leger.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -44,6 +48,8 @@
       DTS:ObjectName="Kommunehelse årsverk ergoterapeuter">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Kommunehelse\Kommunehelse årsverk ergoterapeuter v3.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>

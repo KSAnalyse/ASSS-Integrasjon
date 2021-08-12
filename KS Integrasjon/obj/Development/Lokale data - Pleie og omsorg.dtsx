@@ -7,7 +7,7 @@
   DTS:CreatorName="KSINT\axel.hjelmervik.hansen"
   DTS:DTSID="{73C40612-CC96-40AA-B6CD-D7451731789D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="1044"
   DTS:ObjectName="Manuelle Data - Pleie og omsorg"
   DTS:PackageType="5"
@@ -24,6 +24,8 @@
       DTS:ObjectName="Manuelle data tjenester til utviklingshemmede (TTU)">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Pleie og omsorg\Manuelle data tjenester til utviklingshemmede (TTU).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>

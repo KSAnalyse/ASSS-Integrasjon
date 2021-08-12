@@ -7,7 +7,7 @@
   DTS:CreatorName="KSINT\axel.hjelmervik.hansen"
   DTS:DTSID="{0D450A78-87DC-43C6-8914-CE2B0BEDDE6D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="1044"
   DTS:ObjectName="Manuelle Data - Grunnskole"
   DTS:PackageType="5"
@@ -24,6 +24,8 @@
       DTS:ObjectName="Eksamensresultater til databasen">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Grunnskole\Eksamensresultater til databasen.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -35,6 +37,8 @@
       DTS:ObjectName="Elevundersøkelsen til databasen">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Grunnskole\Elevundersøkelsen til databasen.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -45,6 +49,8 @@
       DTS:ObjectName="Nasjonale prøver 5. trinn til databasen">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Grunnskole\Nasjonale prøver 5. trinn til databasen_v2.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -56,6 +62,8 @@
       DTS:ObjectName="Nasjonale prøver 8. trinn til databasen">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Grunnskole\Nasjonale prøver 8. trinn til databasen.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -67,6 +75,8 @@
       DTS:ObjectName="Nasjonale prøver 9. trinn til databasen">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Grunnskole\Nasjonale prøver 9. trinn til databasen.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -78,6 +88,8 @@
       DTS:ObjectName="Ressurser til databasen">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Grunnskole\Ressurser til databasen.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>

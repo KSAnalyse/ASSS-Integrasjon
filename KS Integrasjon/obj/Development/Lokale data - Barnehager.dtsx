@@ -7,7 +7,7 @@
   DTS:CreatorName="KSINT\axel.hjelmervik.hansen"
   DTS:DTSID="{DAF87E1C-6314-48AE-9D9C-5D85727209FF}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="1044"
   DTS:ObjectName="Manuelle Data - Barnehager"
   DTS:PackageType="5"
@@ -25,6 +25,8 @@
       DTS:ObjectName="Barn per ansatt i barnehagen (bemanningstetthet)">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\Barnehager\Barn per ansatt i barnehagen (bemanningstetthet) v2.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -36,6 +38,8 @@
       DTS:ObjectName="Foreldreundersøkelsen i barnehage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=\\ks-sql2018\w\Utvekslingsfiler\ASSS\Barnehage\Foreldreundersøkelsen i barnehage v2.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
