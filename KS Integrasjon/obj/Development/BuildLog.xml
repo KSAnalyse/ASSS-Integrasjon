@@ -2,168 +2,78 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ASSS Integrasjon</Name>
-    <LastWriteTime>2021-08-12T10:42:30.6136789Z</LastWriteTime>
+    <LastWriteTime>2021-08-13T12:18:15.4528768Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Deploy.dtsx</Name>
-      <LastWriteTime>2021-08-12T11:25:14.8423401Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Barnehager.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6236865Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Barnevern.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6246841Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - PAI.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6286851Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Pleie og omsorg.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6296864Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Samferdsel.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6296864Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Sosiale Tjenester.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6306847Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Tabelloversikt.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6326841Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - TTU.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6316849Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Barnevern test.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6236865Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Grunnskole.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6256856Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Kommunehelse.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6266854Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - PAI auto.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6286851Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Barnehager v2.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6227008Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Barnehager v2 Dynamisk excel test.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.620686Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>SSB Areal- og samfunnsplanlegging.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6366862Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.9701432Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnehage.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6376847Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.9711419Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnevern.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6386846Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>SSB Byggeareal.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6386846Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.972141Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Eiendomsforvaltning.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.640686Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.9731405Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Grunnskole.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.640686Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.9741421Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Kommunehelsetjenesten.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6417167Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>SSB Miljøforvaltning.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6426865Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.9751418Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Pleie og omsorg.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6436862Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>SSB Profil.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.644686Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.9751418Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Regioner.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6456852Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.9761398Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Samferdsel.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6456852Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.9771396Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Sosiale Tjenester.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6466855Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.9781394Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Økonomi.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.649686Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Les mappe.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6276845Z</LastWriteTime>
-      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Lokale data - Start les mappe.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6306847Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.980141Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>UDIR Barnehage.dtsx</Name>
-      <LastWriteTime>2021-08-12T10:42:30.6536859Z</LastWriteTime>
+      <LastWriteTime>2021-08-13T12:16:26.9811425Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Byggesak.dtsx</Name>
+      <LastWriteTime>2021-08-13T12:16:26.9731405Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SSB Felles.dtsx</Name>
+      <LastWriteTime>2021-08-13T12:18:07.8639759Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

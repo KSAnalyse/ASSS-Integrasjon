@@ -5,8 +5,6 @@
   DTS:CreationName="MSOLAP100">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectRetryCount="0"
-      DTS:ConnectRetryInterval="0"
       DTS:ConnectionString="Data Source=vk-sxd0e-002;Initial Catalog=ASSS data;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>
