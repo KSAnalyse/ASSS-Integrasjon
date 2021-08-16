@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Økonomi"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="467"
-  DTS:VersionGUID="{B3574CEE-08FC-4F40-9C64-161572391B66}">
+  DTS:VersionBuild="468"
+  DTS:VersionGUID="{979BEC41-F792-4B3E-9D1D-5BE325BAE24F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>

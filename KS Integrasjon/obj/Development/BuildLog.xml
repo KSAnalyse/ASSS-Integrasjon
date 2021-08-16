@@ -2,78 +2,78 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ASSS Integrasjon</Name>
-    <LastWriteTime>2021-08-13T12:18:15.4528768Z</LastWriteTime>
+    <LastWriteTime>2021-08-16T07:51:55.9137302Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Deploy.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9701432Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.9157293Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnehage.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9711419Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T08:33:19.074189Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Barnevern.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.972141Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.9316307Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Eiendomsforvaltning.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9731405Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.935628Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Grunnskole.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9741421Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.9376257Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Kommunehelsetjenesten.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9751418Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T09:38:32.1826118Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Pleie og omsorg.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9751418Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.9413804Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Regioner.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9761398Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.942381Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Samferdsel.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9771396Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.9433801Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Sosiale Tjenester.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9781394Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.9443769Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Økonomi.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.980141Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T09:44:17.7220533Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>UDIR Barnehage.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9811425Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.9553004Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Byggesak.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:16:26.9731405Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.9336264Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SSB Felles.dtsx</Name>
-      <LastWriteTime>2021-08-13T12:18:07.8639759Z</LastWriteTime>
+      <LastWriteTime>2021-08-16T07:51:55.9366254Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
