@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Barnevern"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="358"
-  DTS:VersionGUID="{DA757DCE-6A65-4E12-B452-DA47C65B4F71}">
+  DTS:VersionBuild="359"
+  DTS:VersionGUID="{68A293D8-52BE-4594-AE5A-FD0C9FD6AAB5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -311,7 +311,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12870'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA; -- Declares&#xA; declare @t table(Kommunenummer varchar(50), Alderkode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA; declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Aldernavn varchar(150), Alderkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA; -- Inserts&#xA; Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA; Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA; RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA; set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [dbo].[SSB_12870]&#xA;&#xA;Select dat.Kommunenummer,&#xA;&#x9;dat.Alderkode,&#xA;&#x9;met2.Alderkode,&#xA;&#x9;dat.Variabel,&#xA;&#x9;met.Variabelnavn,&#xA;&#x9;dat.År,&#xA;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met ON met.Variabel = dat.Variabel&#xA;join @m met2 ON met2.Alderkode = dat.Alderkode&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '12870'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;begin try&#xA; -- Declares&#xA; declare @t table(Kommunenummer varchar(50), Alderkode varchar(50), Variabel varchar(50), År Int, Verdi numeric(18,4))&#xA; declare @m table(Kommune Varchar(150), Kommunenummer varchar(50), Aldernavn varchar(150), Alderkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År Int, År2 Int)&#xA;&#xA; -- Inserts&#xA; Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA; Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA; RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA; set noexec on&#xA;end catch&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [dbo].[SSB_12870]&#xA;&#xA;Select dat.Kommunenummer,&#xA;&#x9;dat.Alderkode,&#xA;&#x9;met2.Aldernavn,&#xA;&#x9;dat.Variabel,&#xA;&#x9;met.Variabelnavn,&#xA;&#x9;dat.År,&#xA;&#x9;dat.Verdi&#xA; &#xA;&#xA;from @t dat &#xA;Join @m met ON met.Variabel = dat.Variabel&#xA;join @m met2 ON met2.Alderkode = dat.Alderkode&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
