@@ -7,13 +7,13 @@
   DTS:CreatorName="KSINT\axel.hjelmervik.hansen"
   DTS:DTSID="{7FF0F40B-772F-400C-BF23-34714CFFC95B}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
   DTS:LocaleID="1044"
   DTS:ObjectName="SSB Eiendomsforvaltning"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="277"
-  DTS:VersionGUID="{810683CA-C747-477D-9888-348B1663DD29}">
+  DTS:VersionBuild="278"
+  DTS:VersionGUID="{A7453A27-114D-45E2-9236-A533DB1EC63B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -178,7 +178,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '08655'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA; -- Declares&#xA; Declare @t Table(Byggekostnadkode varchar(50), Variabel varchar(50), År varchar(7), Verdi numeric(18,4))&#xA; Declare @m Table(Byggekostnadnavn varchar(150), Byggekostnadkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År varchar(7), År2 varchar(7))&#xA; &#xA; -- Inserts&#xA; Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA; Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA; RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA; set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_08655]&#xA;&#xA;Select sk.Regionkode,&#xA;  dat.Variabel,&#xA;  met.Variabelnavn,&#xA;  LEFT(dat.År, 4), &#xA;  dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Variabel = dat.Variabel&#xA;Join (Select * From [SSB_Kommuner] Where Regionkode IN ('0106', '0219', '0301', '0602', '1001', '1102', '1103', '1201', '1902', '5001')) sk ON sk.Regionkode != dat.Variabel&#xA;&#xA;-- Månedlige data, ønsker bare data for januar og de siste 3 årene&#xA;Where RIGHT(dat.År, 2) = '01' AND LEFT(dat.År, 4) &gt;= YEAR(GETDATE())-6&#xA;&#xA;-- Bustadblokk i alt&#xA;AND dat.Variabel = 'Byggindeks' AND dat.Byggekostnadkode = '20'&#xA;&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="&#xA;&#xA;-- Variabels&#xA;Declare @TableVar varchar(5)&#xA;Declare @TableName varchar(150)&#xA;&#xA;-- Query variabels&#xA;Declare @Truncate_Query nvarchar(200)&#xA;&#xA;Set @TableVar = '08655'&#xA;Set @TableName = (SELECT table_name FROM information_schema.tables WHERE table_name LIKE'SSB_' + @TableVar + '%')&#xA;&#xA;Set @Truncate_Query = N'Truncate Table [' + @TableName + ']'&#xA;&#xA;-- Prøv å hente data og sett dette inn i variabler&#xA;-- Bruker SSB_Values_AlleAar for å hente data fra SSB og SSB_Metadata for å hente metadata&#xA;begin try&#xA; -- Declares&#xA; Declare @t Table(Byggekostnadkode varchar(50), Variabel varchar(50), År varchar(7), Verdi numeric(18,4))&#xA; Declare @m Table(Byggekostnadnavn varchar(150), Byggekostnadkode varchar(50), Variabelnavn varchar(150), Variabel varchar(50), År varchar(7), År2 varchar(7))&#xA; &#xA; -- Inserts&#xA; Insert @t Exec SSB_Values_AlleAar2 @TabellNummer=@TableVar&#xA; Insert @m Exec SSB_Metadata @TabellNummer=@TableVar&#xA;end try&#xA;&#xA;-- Noe gikk galt ved henting av data. Koden som følger skal derfor ikke eksekveres&#xA;begin catch&#xA; RAISERROR('Did not find values in the table %s',18, 1, @TableVar)&#xA; set noexec on&#xA;end catch&#xA;&#xA;&#xA;-- Executes&#xA;Exec sp_executesql @Truncate_Query&#xA;&#xA;Insert Into [SSB_08655]&#xA;&#xA;Select sk.Kommunenummer,&#xA;  dat.Variabel,&#xA;  met.Variabelnavn,&#xA;  LEFT(dat.År, 4), &#xA;  dat.Verdi&#xA; &#xA;from @t dat&#xA;Join @m met ON met.Variabel = dat.Variabel&#xA;Join (Select * From [SSB_Kommuner] Where Kommunenummer IN ('0106', '0219', '0301', '0602', '1001', '1102', '1103', '1201', '1902', '5001')) sk ON sk.Kommunenummer != dat.Variabel&#xA;&#xA;-- Månedlige data, ønsker bare data for januar og de siste 3 årene&#xA;Where RIGHT(dat.År, 2) = '01' AND LEFT(dat.År, 4) &gt;= YEAR(GETDATE())-6&#xA;&#xA;-- Bustadblokk i alt&#xA;AND dat.Variabel = 'Byggindeks' AND dat.Byggekostnadkode = '20'&#xA;&#xA;&#xA;set noexec off" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -252,6 +252,17 @@
           Id="Package\Delay Container"
           TopLeft="135,7.5" />
         <NodeLayout
+          Size="158,42"
+          Id="Package\Delay Container 1\10 Second Delay"
+          TopLeft="23,17" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,110"
+          Size="228,153"
+          Id="Package\Delay Container 1"
+          TopLeft="130.5,616.5" />
+        <NodeLayout
           Size="298,42"
           Id="Package\Eiendomsforvaltning\Les SSB_11906 Areal for kommunale formålsbygg, etter eieform og funksjon"
           TopLeft="46.9666666666672,21.4666666821635" />
@@ -274,6 +285,21 @@
           Size="406,322"
           Id="Package\Eiendomsforvaltning"
           TopLeft="44.5000000000001,230.5" />
+        <NodeLayout
+          Size="395,42"
+          Id="Package\Eiendomsforvaltning 2\Les SSB_08655 Byggjekostnadsindeks for bustadblokk, arbeidstype"
+          TopLeft="8.5,79.866667774717" />
+        <NodeLayout
+          Size="288,50"
+          Id="Package\Eiendomsforvaltning 2\Les SSB_12559 Hovedøkonomi for kommunal eiendomsforvaltning, etter art og funksjon"
+          TopLeft="7.5,9.86666777471703" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="408,280"
+          Size="408,323"
+          Id="Package\Eiendomsforvaltning 2"
+          TopLeft="519,227" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="248.25,160.5">
@@ -296,17 +322,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Delay Container 1\10 Second Delay"
-          TopLeft="23,17" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="228,110"
-          Size="228,153"
-          Id="Package\Delay Container 1"
-          TopLeft="130.5,616.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="246,552.5">
@@ -331,21 +346,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="288,50"
-          Id="Package\Eiendomsforvaltning 2\Les SSB_12559 Hovedøkonomi for kommunal eiendomsforvaltning, etter art og funksjon"
-          TopLeft="7.5,9.86666777471703" />
-        <NodeLayout
-          Size="395,42"
-          Id="Package\Eiendomsforvaltning 2\Les SSB_08655 Byggjekostnadsindeks for bustadblokk, arbeidstype"
-          TopLeft="8.5,79.866667774717" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="408,280"
-          Size="408,323"
-          Id="Package\Eiendomsforvaltning 2"
-          TopLeft="519,227" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="281.166666666667,616.5">
