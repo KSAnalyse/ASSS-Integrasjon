@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Barnehage"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="332"
-  DTS:VersionGUID="{EFE50506-6A49-4728-9020-CB540FB2855D}">
+  DTS:VersionBuild="336"
+  DTS:VersionGUID="{3ED3AB0D-F7FB-461D-A2CB-88E4BA8349A3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -89,7 +89,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12129 Ansatte i barnehager, etter eierforhold og kjønn"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -106,7 +106,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12216 Barn i barnehage korrigert for alder, og korrigerte oppholdstimer, per årsverk til basisvirksomhet, etter eierforhold"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -135,7 +135,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12056 Barn i barnehage, etter alder, eierforhold og oppholdstid"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -152,7 +152,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12272 Minoritetsspråklige barn i barnehage"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -170,7 +170,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12376 Barn som får ekstra ressurser"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -188,7 +188,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12380 Fordeling av finansiering for kommunale plasser, art"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -205,7 +205,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12436 Årsverk, eierforhold, stillingstype, utdanning"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -222,7 +222,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_13502 Utvalgte nøkkeltal for barnehager"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -271,19 +271,47 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Delay Container 2\5 Second Delay"
+          DTS:refId="Package\Delay Container 2\10 Second Delay"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{4E43EF55-89A2-4EF6-8544-503925DDC9F1}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="5 Second Delay"
+          DTS:ObjectName="10 Second Delay"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:05'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:10'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delay Container 3"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{934015ee-0875-4689-b7ac-4c18098a7cb4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delay Container 3">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Delay Container 3\10 Second Delay"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{90927c91-5680-4e43-a744-1b01b61e39c3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="10 Second Delay"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:10'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -314,6 +342,15 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Delay Container 2"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{39AEBA10-6412-4790-B792-21CF41AACF26}"
+      DTS:From="Package\Barnehage 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Delay Container 3"
       DTS:Value="2" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -399,7 +436,7 @@
           TopLeft="102,360.5" />
         <NodeLayout
           Size="152,42"
-          Id="Package\Delay Container 2\5 Second Delay"
+          Id="Package\Delay Container 2\10 Second Delay"
           TopLeft="22,13" />
         <ContainerLayout
           HeaderHeight="43"
@@ -508,7 +545,54 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="136.594481189576,23.3400184068469,50.60890625,11.609375"
+              BoundingBox="141.094481189576,23.3568618896083,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Delay Container 3\10 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,110"
+          Size="228,153"
+          Id="Package\Delay Container 3"
+          TopLeft="987.868798037515,368" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="993.833333333333,325">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.035464704182,43"
+              Start="0,0"
+              End="108.035464704182,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.2782410917362" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.2782410917362"
+                    Point2="0,17.2782410917362"
+                    Point3="4,17.2782410917362" />
+                  <mssgle:LineSegment
+                    End="104.035464704182,17.2782410917362" />
+                  <mssgle:CubicBezierSegment
+                    Point1="104.035464704182,17.2782410917362"
+                    Point2="108.035464704182,17.2782410917362"
+                    Point3="108.035464704182,21.2782410917362" />
+                  <mssgle:LineSegment
+                    End="108.035464704182,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="28.7132792270909,22.2782410917362,50.60890625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
