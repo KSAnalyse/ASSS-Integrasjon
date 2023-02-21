@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB VAR"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{2E4A763F-407A-49C9-9079-0631C50E750B}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{610A50B7-2CBE-4EC2-A808-6C2561374CF6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -57,19 +57,19 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Delay container 1\5 Second Delay"
+          DTS:refId="Package\Delay container 1\10 Second Delay"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{11956bd0-dfca-4f22-aff2-43be63a953c3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="5 Second Delay"
+          DTS:ObjectName="10 Second Delay"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
-              SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:05'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:10'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -272,7 +272,7 @@
         </EdgeLayout>
         <NodeLayout
           Size="152,42"
-          Id="Package\Delay container 1\5 Second Delay"
+          Id="Package\Delay container 1\10 Second Delay"
           TopLeft="22,13" />
         <ContainerLayout
           HeaderHeight="43"
