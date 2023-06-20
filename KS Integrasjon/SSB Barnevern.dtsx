@@ -12,8 +12,8 @@
   DTS:ObjectName="SSB Barnevern"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="360"
-  DTS:VersionGUID="{496015C0-6943-4630-9166-9F006588FD47}">
+  DTS:VersionBuild="361"
+  DTS:VersionGUID="{01183B6B-DC1D-4991-8CF7-16D2604652E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -54,7 +54,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12275 Barn med tiltak i løpet av året og per 31 desember, etter alder og funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -71,7 +71,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12276 Barn med hjelpe- eller omsorgstiltak, etter alder og omsorgs eller hjelpetiltak"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -243,7 +243,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12279 Nøkkeltal utgifter barnevern"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -260,7 +260,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Les SSB_12305 Stillingar i barnevernstenesta etter fagutdanning funksjon"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -411,6 +411,34 @@
         </DTS:Executable>
       </DTS:Executables>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delay Container 4 1"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{fdc6b928-b9bc-4b60-a183-b09e673de9e6}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delay Container 4 1">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Delay Container 4 1\10 Second Delay"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{d4167d18-d595-4692-9c88-15c8ef5eef32}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="10 Second Delay"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E03B5EEF-9A98-4EE4-931D-9D4F8E0460CE}"
+              SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:10'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -475,12 +503,20 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
-      DTS:DTSID="{0D769224-775B-4881-B0D3-2F79118770E0}"
+      DTS:DTSID="{2EBCCCC1-0DED-4C37-AB1E-99BB1DAA6A86}"
       DTS:From="Package\Barnevern 4"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
-      DTS:To="Package\Barnevern 5"
+      DTS:To="Package\Delay Container 4 1"
       DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{480156F0-FE57-4974-ADD5-D156DF649A48}"
+      DTS:From="Package\Delay Container 4 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Barnevern 5" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -869,28 +905,85 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Delay Container 4 1\10 Second Delay"
+          TopLeft="22,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,110"
+          Size="228,153"
+          Id="Package\Delay Container 4 1"
+          TopLeft="1597.23014342336,544.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="1661,201.75">
+          TopLeft="1523.66666666667,357">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="31.730143423355,0"
+              EndConnector="187.563476756688,187.5"
               Start="0,0"
-              End="24.230143423355,0">
+              End="187.563476756688,180">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="24.230143423355,0" />
+                    End="0,71.439453125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.439453125"
+                    Point2="0,75.439453125"
+                    Point3="4,75.439453125" />
+                  <mssgle:LineSegment
+                    End="183.563476756688,75.439453125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="183.563476756688,75.439453125"
+                    Point2="187.563476756688,75.439453125"
+                    Point3="187.563476756688,79.439453125" />
+                  <mssgle:LineSegment
+                    End="187.563476756688,180" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-13.1893814133225,5,50.60890625,11.609375"
+              BoundingBox="68.4772852533442,80.439453125,50.60890625,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="1747.89681009002,544.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148.833333333338,-181"
+              Start="0,0"
+              End="148.833333333338,-173.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-69.1567944250871" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-69.1567944250871"
+                    Point2="0,-73.1567944250871"
+                    Point3="4,-73.1567944250871" />
+                  <mssgle:LineSegment
+                    End="144.833333333338,-73.1567944250871" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144.833333333338,-73.1567944250871"
+                    Point2="148.833333333338,-73.1567944250871"
+                    Point3="148.833333333338,-77.1567944250871" />
+                  <mssgle:LineSegment
+                    End="148.833333333338,-173.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
