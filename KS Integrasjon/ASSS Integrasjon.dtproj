@@ -44,6 +44,7 @@
           <SSIS:Package SSIS:Name="SSB Felles.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Export.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="SSB VAR.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="KS excelfiler.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="SSAS.conmgr" />
@@ -327,10 +328,10 @@
                 <SSIS:Property SSIS:Name="Name">SSB Barnehage</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">325</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">337</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{82F872C9-2B49-4AA1-BB65-661AE639ED83}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{10E3E0C4-C563-47CF-A5ED-909550703796}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -566,6 +567,23 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{B12516E0-B1E7-42CF-B1C4-C2483F143611}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="KS excelfiler.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{CAC5197C-BF18-4DAA-99AF-8B2DDFE88003}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">KS excelfiler</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">114</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{1F103536-8C62-496F-91D7-CD2E2AC1F431}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
